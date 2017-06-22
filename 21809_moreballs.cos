@@ -1,0 +1,106 @@
+
+*
+** Creator script
+scrp 2 21 21809 1000
+	inst
+	attr 199
+	bhvr 43
+	perm 100
+	elas 80
+	accg 4
+	aero 10
+	fric 90
+	velo rand -20 20 rand -10 -25
+	anim [0 1 2 3 4 5 6 7 255]
+	mvto _p1_ _p2_
+	slow
+endm
+
+
+scrp 2 21 21809 1
+	inst
+	doif from eq pntr
+		velo rand -30 30 rand -30 -50
+		anim [0 1 2 3 4 5 6 7 255]
+	else
+		setv va02 posx
+		targ from
+		setv va03 posx
+		stim writ from 97 1
+		targ ownr
+		inst
+		doif va03 ge va02
+			velo rand -10 -30 rand -30 -50
+			anim [7 6 5 4 3 2 1 0 255]
+		elif va03 lt va02
+			velo rand 10 30 rand -30 -50
+			anim [0 1 2 3 4 5 6 7 255]
+		endi
+	endi
+	slow
+endm
+
+scrp 2 21 21809 2
+	setv va02 posx
+	targ from
+	setv va03 posx
+	stim writ from 97 1
+	targ ownr
+	inst
+	doif va03 ge va02
+		velo rand 10 30 rand -30 -50
+		anim [7 6 5 4 3 2 1 0 255]
+	elif va03 lt va02
+		velo rand -10 -30 rand -30 -50
+		anim [0 1 2 3 4 5 6 7 255]
+	endi
+	slow
+endm
+
+scrp 2 21 21809 3
+	velo rand -30 30 rand -30 -50
+	anim [0 1 2 3 4 5 6 7 255]
+	stim writ from 97 1
+endm
+
+scrp 2 21 21809 5
+	anim [0 1 2 3 4 5 6 7 255]
+endm
+
+scrp 2 21 21809 6
+	inst
+
+	urge sign 0.5 -1 0.0
+
+	setv va00 vely
+	doif va00 lt 0
+		negv va00
+	endi
+	doif va00 gt 1
+		snde "bal3"
+	endi
+
+	setv va00 _p1_
+	setv va01 _p2_
+	doif va00 lt 0
+		negv va00
+	endi
+	doif va01 lt 0
+		negv va01
+	endi
+	doif va00 lt 4 and va01 lt 4
+		anim []
+	endi
+	slow
+endm
+
+rscr
+enum 2 21 21809
+	kill targ
+next
+
+	scrx 2 21 21809 1
+	scrx 2 21 21809 2
+	scrx 2 21 21809 3
+	scrx 2 21 21809 5
+	scrx 2 21 21809 6

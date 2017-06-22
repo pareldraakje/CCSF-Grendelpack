@@ -1,0 +1,378 @@
+**
+** PILLA'S IMPROVED FAVPLACES
+** Do whatever you want with the code.
+** x Pilla
+**
+*
+* CAOS2PRAY CHUNK
+*# Pray-File "improvedfavplaces_pilla.agents"
+*# DS-Name "Pilla's Improved Favplaces"
+*# attach gp_improved_favplaces.c16
+*# attach improvedfav_pilla_help.catalogue
+*# desc = "This script allows you to have multi-line favourite places, it actively fixes 'gaps' between favourite places and it allows you to reorder your icons. By Pilla"
+*# Agent Animation File = "gp_improved_favplaces.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_improved_favplaces"
+*
+
+***DS Favourite places - revamp
+
+*****************************************************
+* 1 1 225
+* ov00 = current fav place # pointing at
+*
+*****************************************************
+* 1 3 x
+* OV00 = created corresonding icon
+* 0=no, 1=yes
+*
+*****************************************************
+* 1 4 x
+* OV00 = off or on
+* 0=off, 1=on
+* OV01 = metaroom number created in
+* OV10 = posx
+* OV11 = posy
+* OV50 = position in fav places list (from 0 to "ds_favourites"-1)
+* OV99 = velocity for initial movement when created
+****************************************************
+
+
+**OV50 of the 1/4/x icons is the postion in the 
+**favourites list. Determined by new game variable
+
+**fat controller
+*new: simp 1 1 225 "blnk" 0 0 0
+*fat controller ov00 is which is current place in fav places stack
+
+
+** Refresh catalogue shiz
+reaf
+
+
+** Remove earlier instances
+enum 1 1 21841
+	kill targ
+next
+** Lock/Up/Down button
+* ov00 = state (0=locked 1=unlocked)
+new: comp 1 1 21841 "blnk" 1 0 8000
+attr 32
+setv ov00 0
+pat: butt 2 "gp_improved_favplaces" 0 2 2 6 0 [1] 1000 1
+pat: butt 3 "gp_improved_favplaces" 2 2 0 0 0 [1] 1001 1
+pat: butt 4 "gp_improved_favplaces" 4 2 0 0 0 [1] 1001 1
+part 2
+anim [0]
+part 3
+alph 256 1
+anim [0]
+part 4
+alph 256 1
+anim [0]
+flto 152 46
+
+enum 1 4 0
+	tick 1
+next
+
+
+** Button: Lock button script
+scrp 1 1 21841 1000
+	part 2
+	doif ov00 eq 0
+		setv ov00 1
+		pose 1
+		anim [1]
+		part 3
+		alph 256 0
+		part 4
+		alph 256 0
+
+	else
+		setv ov00 0
+		pose 0
+		anim [0]
+		part 3
+		alph 256 1
+		part 4
+		alph 256 1
+	endi
+endm
+
+** Button: move active signpost up/down
+scrp 1 1 21841 1001
+
+	doif ov00 eq 0
+		stop
+	endi
+
+	setv va00 _p1_
+
+	inst
+
+	seta va50 null
+* Get the active signpost	
+	enum 1 4 0
+		doif ov00 eq 1
+			seta va50 targ
+
+		endi
+	next
+
+	doif va50 ne null
+		targ va50
+		setv va10 ov50
+
+* up button: move left
+		doif va00 eq 3
+
+* check if not leftmost
+			doif ov50 eq 0
+				stop
+			endi
+
+
+			mesg writ pntr 101
+
+
+* make the signpost at the left go right
+			setv va01 ov50
+			subv va01 1
+			enum 1 4 0
+				doif ov50 eq va01
+					addv ov50 1
+				endi
+			next
+
+* go left!
+			targ va50
+			subv ov50 1
+
+			rtar 1 1 225
+			subv ov00 1
+
+		endi
+
+
+
+
+* down button: move right
+		doif va00 eq 4
+
+* check if not rightmost
+			setv va30 game "ds_favourites"
+			subv va30 1
+			doif ov50 eq va30
+				stop
+			endi
+
+			mesg writ pntr 101
+
+
+* make the signpost at the right go left
+			setv va01 ov50
+			addv va01 1
+			enum 1 4 0
+				doif ov50 eq va01
+					subv ov50 1
+				endi
+			next
+
+* go right!
+			targ va50
+			addv ov50 1
+			rtar 1 1 225
+			addv ov00 1
+
+		endi
+
+
+		enum 1 4 0
+			tick 1
+		next
+
+
+	endi
+endm
+
+
+
+
+*********************FAT CONTROLLER EVENTS
+*****Fat controller timer
+*scrp 1 1 225 9
+*endm
+
+****controller key down
+*scrp 1 1 225 73
+*endm
+
+
+**************************SIGNPOST EVENTS
+**********Signpost timer
+*scrp 1 3 0 9
+*		make the icon
+*			new: simp 1 4 va10 va11 2 1 8505
+*endm
+
+**********************ICON EVENTS
+******Icon clicked on
+*scrp 1 4 0 1
+*	give all agents a 'metaroom has changed' message
+*	enum 0 0 0
+*		mesg writ targ 900
+*	next
+*endm
+
+*************Icon timer 
+scrp 1 4 0 9
+	inst
+** Set variables
+	setv va01 post
+	setv va99 wndt
+	setv va98 wndw
+
+	subv va01 va99
+*		set tick
+	tick 50
+
+** Check for gaps
+	setv va70 0
+	setv va71 game "ds_favourites"
+	setv va70 totl 1 4 0
+
+** There are gaps!
+	doif va70 lt va71
+
+		setv va73 0
+
+		loop
+			setv va74 -1
+			setv va75 0
+			enum 1 4 0
+				doif ov50 eq va73
+					setv va74 spcs
+				endi
+			next
+
+			doif va74 eq -1
+				enum 1 4 0
+					doif ov50 gt va73
+						subv ov50 1
+					endi
+				next
+			endi
+
+			addv va73 1
+		untl va73 ge va71
+	endi
+
+
+
+*	if you're close enough to the top ...
+	doif va01 lt 30 or vely eq 0
+
+* calculate amount of icons per row
+		setv va05 0
+		enum 1 4 0
+			addv va05 1
+		next
+
+* odd rows
+		setv va20 va98
+		subv va20 109
+		divv va20 45
+		setv va21 ftoi va20
+		doif va21 ge va20
+			subv va21 1
+		endi
+
+		doif va21 lt 2
+			setv va21 2
+		endi
+
+* even rows
+		setv va22 va21
+		subv va22 1
+
+* 		calculate the number of the row
+		setv va30 ov50
+		setv va31 0
+		setv va32 0
+		setv va33 -1
+
+* Find the position in the row
+		loop
+			subv va30 va31
+			doif va32 eq 0
+				setv va32 1
+				setv va31 va21
+			else
+				setv va32 0
+				setv va31 va22
+			endi
+
+			addv va33 1
+		untl va30 lt va31
+
+
+*		calc offset from the left
+		setv va09 va30
+		mulv va09 45
+
+		doif va32 eq 1
+			addv va09 145
+		else
+			addv va09 169
+		endi
+
+		setv va07 va06
+		divv va07 va05
+
+*		calc offset from the top
+		setv va08 va33
+		mulv va08 39
+
+
+
+*		
+*		this gives you float position	
+		flto va09 va08
+
+*		set velocity variables to 0
+		velo 0 0
+		setv ov99 0
+		setv va00 0
+
+
+	else
+*		otherwise carry on moving
+		setv va00 -10
+		velo ov99 va00
+		negv ov99
+		tick 1
+	endi
+endm
+*******Icon world loaded event
+*scrp 1 4 0 123
+*	mesg writ targ 9
+*endm
+*******Icon highlight event
+*_p1_ says which one to highlight
+*scrp 1 4 0 1000
+*endm
+
+
+*******REMOVAL
+rscr
+enum 1 1 21841
+	kill targ
+next
+
+scrx 1 4 0 9
+ject "new_ds_fav_places.cos" 3
+enum 1 4 0
+	tick 1
+	mesg writ targ 9
+next

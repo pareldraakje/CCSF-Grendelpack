@@ -1,0 +1,45 @@
+*
+* CAOS2PRAY CHUNK
+*
+*# Pray-File "grendelpack_0_01.agents"
+*# DS-Name "Grendel Pack v0.01"
+*# desc = "Injecting this will add a maginificent grendel pack to your DS world. Omg herbaflib! 8D"
+*# Agent Animation File = "blnk.c16"
+*# Agent Sprite First Image = 1
+*# Agent Animation Gallery = "blnk"
+*# Web URL = "http://creaturescaves.com/"
+*# Web Label = "Pilla @ CC"
+
+*# depend blnk.c16
+
+*# attach gp_grendelmother.blk
+*# attach gp_junglev2.blk
+*# attach gp_mainworld.blk
+
+*# attach gp_agressive_moss_JESS.c16
+*# attach gp_capillata_overlay_JESS.c16
+*# attach gp_cranstone_planter_JESS.c16
+*# attach gp_crayfiishtail_vendor_JESS.c16
+*# attach gp_crayleech_JESS.c16
+*# attach gp_dawn_plant_CS.c16
+*# attach gp_dragonfruit_plant_JESS.c16
+*# attach gp_eleplant_JESS.c16
+*# attach gp_favicons_desert.c16
+*# attach gp_favicons_jungle.c16
+*# attach gp_favicons_main.c16
+*# attach gp_favicons_meso.c16
+*# attach gp_favicons_mother.c16
+*# attach gp_fernshroom_planter_JESS.c16
+*# attach gp_fleece_algae_JESS.c16
+*# attach gp_fleeceblack_planter_JESS.c16
+*# attach gp_fly_UZAG.c16
+*# attach gp_frogsalad_vendor_JESS.c16
+*# attach gp_good_bug_CS.c16
+*# attach gp_hair_algae_JESS.c16
+*# attach gp_hairhydra_planter_JESS.c16
+*# attach gp_kelpbubble_planter_JESS.c16
+*# attach gp_licorice_quill_CS.c16
+*# attach gp_pickleweed_plant_JESS.c16
+*# attach gp_strawberry_plant_GIMMECAT.c16
+
+*# link 0_00000_map.cos 0_21835_signeledoor.cos 0_21836_CAemitters.cos  21801fleecealgae.cos 21802hairalgae.cos 21803dawnplant.cos 21804licoricequill.cos 21820pickleweedplant.cos 21821dragonfruitplant.cos 21825frogsaladvendor.cos 21826crayfishtailvendor.cos 21827crayleech.cos 21828capilataoverlay.cos 21834eleplant.cos 21838junglefly.cos 21839leech.cos 0_21837_main_life 

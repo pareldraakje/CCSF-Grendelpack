@@ -1,0 +1,133 @@
+**
+** The door inside metaroom
+**
+new: comp 2 2 21805 "dh_elevators_CS" 16 19 1
+** Activateable
+attr 4
+* The idle animation, teleporting door animation & disable button
+pat: dull 2 "dh_elevators_CS" 35 92 59 1
+pat: dull 3 "dh_elevators_cs" 18 0 0 2
+pat: butt 4 "dh_elevators_CS" 40 2 113 83 1 [] 500 1
+* The disabled OV
+setv ov00 0
+** The idle animation
+part 2
+frat 4
+anim [0 0 0 0 0 0 0 0 0 4 3 2 1 255]
+** the frametick of the teleporting animation
+part 3
+frat 2
+
+mvto 39011 594
+
+
+new: comp 2 2 21805 "dh_elevators_CS" 16 19 1
+** Activateable
+attr 4
+* The idle animation, teleporting door animation & disable button
+pat: dull 2 "dh_elevators_CS" 35 92 59 1
+pat: dull 3 "dh_elevators_cs" 18 0 0 2
+pat: butt 4 "dh_elevators_CS" 40 2 113 83 1 [] 500 1
+* The disabled OV
+setv ov00 0
+** The idle animation
+part 2
+frat 4
+anim [0 0 0 0 0 0 0 0 0 4 3 2 1 255]
+** the frametick of the teleporting animation
+part 3
+frat 2
+
+mvto 23529 452
+
+
+
+
+**
+** SCRIPTS
+**
+
+**
+** Door script
+**
+
+** Push
+scrp 2 2 21805 1
+** check if the door is enabled
+	doif ov00 eq 0
+** If yes, lock the script
+		lock
+
+** Search the other door
+		seta va90 ownr
+		inst
+		enum 2 2 21805
+			doif targ ne ownr
+				seta va90 targ
+			endi
+		next
+		slow
+** Check whether the other door is different from this one
+		doif va90 ne ownr
+** Target the other door to set coordinates
+			targ va90
+			setv va05 posx
+			setv va06 posy
+			targ ownr
+** Opening animation sequence
+
+			part 3
+			anim [2 3 4 5 6 7 8 9 10 11 12 13 14 15 0]
+			over
+
+			targ va90
+			part 3
+			anim [14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
+
+			doif from eq pntr
+				cmrp va05 va06 0
+			else
+				doif fmly eq 4
+** Target the pusher
+					targ from
+** Move the creature
+					mvft va05 va06
+** Stim the creature "travelled through door"
+					stim writ from 95 1
+** urge to remove attention from door
+** and reset the verb state to neutral
+					urge writ va00 2 -1 -1 1
+				endi
+
+			endi
+
+		endi
+	endi
+
+endm
+
+** Disable
+scrp 2 2 21805 500
+	mesg writ pntr 101
+	doif ov00 eq 0
+		pose 15
+		part 2
+		pose 0
+		attr 16
+		setv ov00 1
+	else
+		pose 0
+		part 2
+		anim [0 0 0 0 0 0 0 0 0 4 3 2 1 255]
+		attr 4
+		setv ov00 0
+	endi
+endm
+
+
+
+rscr
+
+enum 2 2 21805
+	kill targ
+next

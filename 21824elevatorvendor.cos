@@ -1,0 +1,700 @@
+**
+** Elevator Vendor
+**
+** Sprites by Uzag, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "elevator_vendor_UZAG.agents"
+*# DS-Name "Elevator Vendor (Uzag)"
+*# attach elevator_vendor_UZAG.c16 
+*# desc = "Got any creatures that love to eat some elevator? This agent is perfect for you!"
+*# Agent Animation File = "elevator_vendor_UZAG.c16"
+*# Agent Sprite First Image = 5
+*# Agent Animation Gallery = "elevator_vendor_UZAG"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The vendor!
+**
+
+new: simp 2 23 21824 "gp_licorice_quill_CS" 5 0 rand 1000 1500
+** attr: mouseable 2 + activateable 4 + collide 64 + physics 128 = 198
+attr 210
+** Will go through some walls
+perm 60
+** Physics
+accg 1
+aero 1
+fric 70
+elas 20
+mvto game "CreatorX" game "CreatorY"
+
+
+**
+** VENDOR PUSH SCRIPT
+**
+
+scrp 2 23 21824 1
+	lock
+	doif from ne pntr
+		stim writ from 90 1
+	endi
+
+	setv va00 rand 0 8
+	setv va01 va00
+	addv va01 1
+	mulv va00 4
+	addv va00 5
+	setv va01 posx
+	setv va02 post
+	addv va02 115
+	anim [ 0 1 2 3 4 ]
+	over
+	inst
+	new: simp 2 va01 21824 "elevator_vendor_UZAG" 4 va00 rand 1500 2500
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+** bhvr: pickup 16 + eat 32 = 48
+	attr 194
+	bhvr 48
+** Set category as elevator (26)
+	cato 26
+** Will go through some walls
+	perm 60
+** Physics
+	accg 1
+	aero 1
+	fric 70
+	elas 20
+	tick 1000
+	slow
+	mvsf va01 va02
+	targ ownr
+	anim [ 4 3 2 1 0 ]
+	over
+	unlk
+endm
+
+
+
+**
+**
+** LIFT SCRIPTS
+**
+**
+**
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 1 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 1 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 2 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 2 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 3 21824 12
+** stimuli XD
+	lock
+	snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+
+	wait 30
+	unlk
+endm
+
+** Lift tick script
+
+scrp 2 3 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 4 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 4 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 5 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 5 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 6 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 6 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 7 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 7 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 8 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 8 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+
+
+
+
+
+
+
+
+
+** 
+** Lift eat script
+**
+
+scrp 2 9 21824 12
+** stimuli XD
+lock
+snde "elt0"
+** Consumed alcohol
+	stim writ from 82 0.3
+** Travelled in lift (cuz trolol)
+	stim writ from 94 0.3
+** pointerpat (tickle: make dat creature happy woop)
+	stim writ from 1 1
+
+	doif rand 0 1 eq 0
+** go up drive
+		stim writ from 51 1
+	else
+** go down drive
+		stim writ from 52 1
+	endi
+
+	doif pose eq 0
+		pose 2
+	else
+		targ ownr
+		kill ownr
+	endi
+	wait 30
+	unlk
+
+endm
+
+** Lift tick script
+
+scrp 2 9 21824 9
+	doif carr eq null and fall eq 0
+		lock
+		doif pose eq 0 or pose eq 2
+			setv va00 pose
+			addv va00 1
+			pose va00
+			tick 100
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+			attr 210
+		else
+			kill ownr
+		endi
+		unlk
+	endi
+endm
+
+
+
+
+** removal script
+rscr 
+
+enum 2 23 21824
+kill targ
+next
+scrx 2 23 21824 1
+
+
+setv va00 1
+reps 9
+enum 2 va00 21824
+kill targ
+next
+scrx 2 va00 21824 12
+scrx 2 va00 21824 9
+addv va00 1
+repe
+
+
+
+

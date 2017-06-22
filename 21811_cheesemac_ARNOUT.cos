@@ -1,0 +1,139 @@
+* Script 1 extracted from cheesemac.agents by Mirality REVELATION
+
+*
+** Creator script
+scrp 2 23 21811 1000
+	attr 198
+	bhvr 11
+	perm 100
+	elas 0
+	accg 30
+	aero 25
+	fric 100
+	pat: butt 1 "gp_ccmac" 9 15 22 0 0 [] 1 0
+	part 1
+	anim [0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 4 4 4 4 5 5 5 5 6 6 6 6 7 7 7 7 8 8 8 8 9 9 9 9 10 10 10 10 11 11 11 11 12 12 12 12 13 13 13 13 14 14 14 14 255]
+	mvsf _p1_ _p2_
+endm
+*
+** Push script
+scrp 2 23 21811 1
+	lock
+	inst
+	snde "cmac"
+	anim [0 0 0 0 0 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 8 8 8 8 8]
+	over
+	pose 0
+	setv va00 rand 24 25
+	setv va01 posx
+	setv va02 posy
+	subv va01 65
+	subv va02 5
+	inst
+	new: simp 2 11 21811 "gp_ccmac" 1 va00 8000
+	attr 199
+	bhvr 59
+	perm 100
+	elas 40
+	accg 5
+	fric 100
+	aero 5
+	emit 8 0.40
+	tick rand 1800 4800
+	velo rand -4 4 rand -3 3
+	doif tmvt va01 va02 = 1
+		mvto va01 va02
+	else
+		mvsf va01 va02
+	endi
+	slow
+	slow
+	unlk
+endm
+
+scrp 2 23 21811 2
+	lock
+	inst
+	snde "cmac"
+	anim [0 0 0 0 0 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4 4 4 4 4 5 5 5 5 5 6 6 6 6 6 7 7 7 7 7 8 8 8 8 8]
+	over
+	pose 0
+	setv va00 rand 24 25
+	setv va01 posx
+	setv va02 posy
+	subv va01 65
+	subv va02 5
+	inst
+	new: simp 2 11 21811 "gp_ccmac" 1 va00 8000
+	attr 199
+	bhvr 59
+	perm 100
+	elas 40
+	accg 5
+	fric 100
+	aero 5
+	emit 8 0.40
+	tick rand 1800 4800
+	velo rand -4 4 rand -3 3
+	doif tmvt va01 va02 = 1
+		mvto va01 va02
+	else
+		mvsf va01 va02
+	endi
+	slow
+	slow
+	unlk
+endm
+
+scrp 2 23 21811 3
+	sndc "hit_"
+	velo 0 rand -20 -30
+	stim writ from 92 1
+endm
+
+scrp 2 11 21811 1
+	velo rand -10 10 rand -5 -10
+endm
+
+scrp 2 11 21811 2
+	velo rand -10 10 rand -5 -10
+endm
+
+scrp 2 11 21811 3
+	velo rand -10 10 rand -30 -40
+endm
+
+scrp 2 11 21811 6
+	snde "drp9"
+endm
+
+scrp 2 11 21811 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+scrp 2 11 21811 12
+	inst
+	stim writ from 79 1
+	snde "chwp"
+	kill ownr
+	slow
+endm
+
+rscr
+enum 2 23 21811
+	kill targ
+next
+scrx 2 23 21811 1
+scrx 2 23 21811 2
+scrx 2 23 21811 3
+enum 2 11 21811
+	kill targ
+next
+scrx 2 11 21811 1
+scrx 2 11 21811 2
+scrx 2 11 21811 3
+scrx 2 11 21811 6
+scrx 2 11 21811 9
+scrx 2 11 21811 12

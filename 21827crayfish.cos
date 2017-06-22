@@ -1,0 +1,577 @@
+**
+** crayleech script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_crayleech_JESS.agents"
+*# DS-Name "crayleech (Jesseth)"
+*# attach gp_crayleech_JESS.c16 
+*# depend blnk.c16
+*# desc = "Crayfishes and leeches to liven up your underwater areas!"
+*# Agent Animation File = "gp_crayleech_JESS.c16"
+*# Agent Sprite First Image = 16
+*# Agent Animation Gallery = "gp_crayleech_JESS"
+*
+*
+
+*
+** Injection script
+**
+*new: comp 2 23 21827 "gp_crayleech_JESS" 1 0 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+**
+**
+** SCRIPTS
+**
+**
+**
+
+** Crayfish creator script
+**
+
+scrp 2 15 21827 1000
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+	attr 194
+	bhvr 48
+	accg 3
+* won't go through walls
+	perm 100
+** Physics
+	aero 1
+	fric 90
+	elas 40
+	rnge 900
+	frat 4
+** Set life variable (amount of walks the critter will live)
+	setv ov00 rand 100 200
+** Set current life ticks
+	setv ov01 0
+** Set current lifestage
+	setv ov02 0
+** set initial pose
+	setv va07 rand 0 1
+	doif va07 eq 0
+		setv ov10 -1
+	else
+		setv ov10 1
+	endi
+	mulv va07 10
+	pose va07
+
+	setv ov10 rand -1 1
+** set tick
+	tick 10
+mvto _p1_ _p2_
+endm
+
+**
+** Vendor creator script
+**
+
+scrp 2 23 21827 1000
+	new: comp 2 23 21827 "gp_crayleech_JESS" 1 0 rand 800 900
+** Attributes: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+** bhvr: act1 1 + hit 8 = 9
+	bhvr 9
+
+** Physics
+	perm 100
+	accg 3
+	aero 1
+	fric 80
+	elas 20
+
+** part 2: animated seaweed
+	pat: dull 2 "gp_crayleech_JESS" 1 0 11 1
+** part 3: animated crayleech
+	pat: dull 3 "gp_crayleech_JESS" 4 21 20 1
+
+** part 4: leech button (green)
+	pat: butt 4 "gp_crayleech_JESS" 7 2 3 30 1 [] 500 1
+** part 5: crayfish button (purple)
+	pat: butt 5 "gp_crayleech_JESS" 9 2 3 30 1 [] 501 1
+
+** animate seaweed
+	part 2
+	frat 10
+	anim [0 1 2 1 255]
+** animate crayleech
+	part 3
+	frat 7
+	anim [0 1 2 1 0 0 0 255]
+
+	mvsf _p1_ _p2_
+	targ ownr
+	kill ownr
+endm
+
+**
+**
+** VENDOR
+**
+**
+
+
+
+*
+** HIT SCRIPT
+scrp 2 23 21827 3
+	stim writ from 92 1
+endm
+
+*
+** PUSH SCRIPT
+
+scrp 2 23 21827 1
+	lock
+
+	doif from eq pntr
+		mesg writ pntr 101
+	else
+		stim writ from 90 1
+	endi
+	setv va05 posl
+	setv va06 post
+	inst
+
+	doif rand 0 1 eq 0
+		new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+		attr 194
+		bhvr 48
+		accg 3
+* won't go through walls
+		perm 100
+** Physics
+		aero 1
+		fric 90
+		elas 40
+		rnge 900
+		frat 4
+** Set life variable (amount of walks the critter will live)
+		setv ov00 rand 100 200
+** Set current life ticks
+		setv ov01 0
+** Set current lifestage
+		setv ov02 0
+** set initial pose
+		setv va07 rand 0 1
+		doif va07 eq 0
+			setv ov10 -1
+		else
+			setv ov10 1
+		endi
+		mulv va07 10
+		pose va07
+
+		setv ov10 rand -1 1
+** set tick
+		tick 10
+
+	else
+		new: simp 2 16 21839 "gp_crayleech_JESS" 16 33 1000
+		frat 4
+		attr 195
+		mvto 22479 2680
+		elas 50
+		accg 0
+		aero 60
+* set ov10 (direction) to -1 or 1.
+		loop
+			setv ov10 rand -1 1
+		untl ov10 ne 0
+		perm 60
+
+		tick rand 6 10
+		setv ov02 rand 200 600
+		setv ov61 50
+	endi
+
+	mvto va05 va06
+
+
+	slow
+	unlk
+endm
+
+
+
+**
+**
+** CRAYFISH 
+**
+**
+
+**
+** CRAYFISH EGG
+**
+
+**
+** TIMER SCRIPT
+**
+
+scrp 2 18 21827 9
+
+** Check if the agent isn't being carried or falling
+	doif carr eq null and fall = 0
+		lock
+		addv ov00 1
+** Check if the egg's lifeforce is up
+		doif ov00 gt 7
+			kill ownr
+		else
+** Find the room id of the room you're currently in
+			setv va00 grap posx posy
+** if invalid, kill ownr
+			doif va00 eq -1
+				kill ownr
+			else
+** Find the room type of the room you're currently in
+				setv va01 rtyp va00
+** if invalid, kill ownr
+				doif va01 eq -1
+					kill ownr
+				endi
+** if freshwater, you may hatch.
+				doif va01 eq 8
+					rnge 500
+					setv va02 0
+** only hatch if there are less than 5 crayfish around
+					esee 2 15 21827
+						addv va02 1
+					next
+					doif va02 lt 5
+						setv va05 posl
+						setv va06 post
+
+** Create a crayfish baby! o3o
+						inst
+
+						new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+						attr 194
+						bhvr 48
+** won't go through walls
+						perm 100
+** Physics
+						accg 3
+						aero 1
+						fric 90
+						elas 40
+						rnge 900
+						frat 4
+** Set life variable (amount of walks the critter will live)
+						setv ov00 rand 40 60
+** Set current life ticks
+						setv ov01 0
+** Set current lifestage
+						setv ov02 0
+** set initial pose
+						setv va07 rand 0 1
+						doif va07 eq 0
+							setv ov10 -1
+						else
+							setv ov10 1
+						endi
+						mulv va07 10
+						pose va07
+
+						setv ov10 rand -1 1
+** set tick
+						tick 10
+** move
+						mvsf va05 va06
+						slow
+
+** Retarget the eggs and kill 'em
+						targ ownr
+						kill ownr
+
+					endi
+** If not hatched and not killed by now... Bounce around happily 8D
+					velo rand -5 5 rand -2 -6
+				endi
+
+
+			endi
+		endi
+	endi
+
+
+endm
+
+
+**
+** CRAYFISH CRITTER
+**
+
+
+**
+** EATEN SCRIPT
+**
+
+scrp 2 15 21827 12
+	lock
+	wait 10
+** stim "eaten animal"
+	stim writ from 80 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** COLLIDE SCRIPT
+**
+
+scrp 2 15 21827 6
+	doif wall eq left or wall eq rght
+		negv ov10
+	endi
+endm
+
+**
+** TIMER SCRIPT
+**
+
+scrp 2 15 21827 9
+	lock
+	doif carr eq null and fall eq 0
+** add some lifeforce
+		addv ov01 1
+	endi
+
+** if ov01 is greater or equal than ov00, time's up. Crayfish ded.
+	doif ov01 ge ov00
+		gsub die
+** Otherwise, walk around happily, grow and lay eggs.
+	else
+		gsub walk
+	endi
+** Wait some time after having walked
+	tick rand 5 15
+** end of main timer script
+	stop
+
+** THE SUBROUTINES
+** DYING
+	subr die
+		tick 0
+		targ ownr
+** Category as 'detritus'
+		cato 10
+
+		doif pose lt 9
+			pose 9
+		else
+			pose 19
+		endi
+		wait 40
+		kill ownr
+		stop
+	retn
+
+** WALKING
+	subr walk
+
+** If steps walked > 40 and lifestage is still 0, grow.
+		doif ov01 gt 40 and ov02 lt 1
+			setv ov02 1
+		endi
+** If lifestage > 0 and eggs around < 7, random chance to lay an egg.
+		doif ov02 gt 0 and rand 0 7 eq 7
+			setv va00 0
+			esee 2 18 21827
+				addv va00 1
+			next
+			doif va00 lt 7
+** check if in freshwater
+				setv va05 posx
+				setv va06 posy
+				setv va07 grap posx posy
+				doif va07 ne -1
+					setv va08 rtyp va07
+				endi
+				doif va08 eq 8 and va07 ne -1
+** Lay the egg!
+					setv va05 posl
+					setv va06 post
+					new: simp 2 18 21827 "gp_crayleech_JESS" 1 11 rand 2500 3000
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr pickup 32
+					attr 194
+					bhvr 32
+** will go through most walls
+					perm 100
+** Physics
+					accg 0.05
+					aero 1
+					fric 50
+					elas 70
+					rnge 900
+
+					tick rand 700 1200
+** Total movements made
+					setv ov00 0
+					mvsf va05 va06
+
+				endi
+			endi
+		endi
+		targ ownr
+** If you got this far, nothing special should happen. Just walk 8D
+** Set the amount of 'walks' to a random number between 3 and 9 
+		setv ov40 rand 3 9
+*If the critter is not being carried and is not falling 
+		doif carr eq null and fall = 0
+** move!
+			gsub move
+*Otherwise, stop. 
+		else
+			stop
+		endi
+
+** set the direction of the next walk
+		setv ov10 rand 0 1
+		doif ov10 eq 0
+			setv ov10 -1
+		endi
+
+** check for any walls in the chosen direction
+		targ ownr
+		setv va05 posx
+		setv va06 posy
+		setv va07 40
+		doif ov10 eq 1
+			negv va07
+		endi
+		addv va07 va05
+		doif grap va07 va06 eq -1
+			negv ov10
+		endi
+
+	retn
+
+*The move subroutine 
+	subr move
+
+*Repeat for ov40 times (randomly between 3 and 9) 
+		reps ov40
+			targ ownr
+** Randomly idle.
+			doif rand 0 8 eq 8
+				gsub idle
+			endi
+** if going left
+			doif ov10 eq 1
+** animation depends on lifestage
+				doif ov02 eq 0
+					anim [0 1]
+				else
+					anim [5 6]
+				endi
+				over
+				velo -2 -4
+				doif ov02 eq 0
+					anim [2 3]
+				else
+					anim [7 8]
+				endi
+				over
+				velo -2 -4
+
+
+** if going right
+			elif ov10 eq -1
+** animation depends on lifestage
+				doif ov02 eq 0
+					anim [10 11]
+				else
+					anim [15 16]
+				endi
+				over
+				velo 2 -4
+				doif ov02 eq 0
+					anim [12 13]
+				else
+					anim [17 18]
+				endi
+				over
+				velo 2 -4
+			endi
+
+		repe
+	retn
+
+	subr idle
+		reps rand 3 8
+** if going left
+			doif ov10 eq 1
+** animation depends on lifestage
+				doif ov02 eq 0
+					anim [0 1]
+				else
+					anim [5 6]
+				endi
+				over
+** if going right
+			elif ov10 eq -1
+** animation depends on lifestage
+				doif ov02 eq 0
+					anim [10 11]
+				else
+					anim [15 16]
+				endi
+				over
+			endi
+		repe
+	retn
+
+
+endm
+
+
+
+*
+** Removal script 
+*
+
+rscr
+
+** Vendor
+enum 2 23 21827
+	kill targ
+next
+
+
+** Crayfish
+enum 2 15 21827
+	kill targ
+next
+
+enum 2 18 21827
+	kill targ
+next
+
+
+scrx 2 23 21827 9
+scrx 2 23 21827 3
+scrx 2 23 21827 1
+
+scrx 2 15 21827 6
+scrx 2 15 21827 9
+scrx 2 15 21827 12
+scrx 2 18 21827 9

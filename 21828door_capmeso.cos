@@ -1,0 +1,352 @@
+
+**
+** CAPILLATA
+**
+
+**
+** Door overlay
+**
+
+rtar 1 1 21828
+part 0
+gall "gp_doorcapmeso_UZAG" 0
+
+** Door to capillata
+new: comp 2 2 21828 "gp_doormesocap_UZAG" 2 0 100
+pat: butt 2 "gp_doormesocap_UZAG" 0 23 0 0 0 [] 0 0
+pat: dull 3 "gp_doormesocap_UZAG" 23 88 47 0
+pat: butt 4 "gp_doormesocap_UZAG" 24 2 112 55 1 [] 1004 1
+pat: butt 5 "gp_doormesocap_UZAG" 26 3 -5 6 1 [] 1005 1
+pat: butt 6 "gp_doormesocap_UZAG" 29 3 -17 39 1 [] 1006 1
+pat: butt 7 "gp_doormesocap_UZAG" 32 3 -23 70 1 [] 1007 1
+part 5
+pose 1
+part 6
+pose 1
+part 7
+pose 1
+* Door ID
+setv ov00 0
+* Door enable
+setv ov01 1
+attr 0
+bhvr 1
+mvto 23524 160
+** Door to gp meso
+new: comp 2 2 21828 "gp_doorcapmeso_UZAG" 1 1 100
+pat: butt 2 "gp_doorcapmeso_UZAG" 1 12 0 0 0 [] 0 0
+pat: butt 4 "gp_doorcapmeso_UZAG" 31 2 21 37 1 [] 1004 1
+pat: butt 5 "gp_doorcapmeso_UZAG" 13 3 39 19 1 [] 1007 1
+pat: butt 6 "gp_doorcapmeso_UZAG" 16 3 49 41 1 [] 1006 1
+pat: butt 7 "gp_doorcapmeso_UZAG" 19 3 35 62 1 [] 1005 1
+pat: butt 8 "gp_doorcapmeso_UZAG" 22 3 185 20 1 [] 1007 1
+pat: butt 9 "gp_doorcapmeso_UZAG" 25 3 177 43 1 [] 1006 1
+pat: butt 10 "gp_doorcapmeso_UZAG" 28 3 185 64 1 [] 1005 1
+
+part 5
+pose 1
+part 6
+pose 1
+part 7
+pose 1
+part 8
+pose 1
+part 9
+pose 1
+part 10
+pose 1
+* Door ID
+setv ov00 1
+* Door enable
+setv ov01 1
+attr 0
+bhvr 1
+mvto 2519 8844
+
+
+
+
+
+**
+** SCRIPTS
+**
+
+
+
+**
+** DOOR EVENT SCRIPTS
+**
+**
+
+
+
+*
+** DISABLE NORNS
+scrp 2 2 21828 1005
+	doif ov01 eq 1
+		mesg writ pntr 102
+		doif ov20 eq 0
+
+			setv ov20 1
+			doif ov00 eq 0
+				part 5
+				pose 2
+			else
+				part 7
+				pose 2
+				part 10
+				pose 2
+			endi
+		else
+			setv ov20 0
+			doif ov00 eq 0
+				part 5
+				pose 1
+			else
+				part 7
+				pose 1
+				part 10
+				pose 1
+			endi
+		endi
+	endi
+endm
+*
+** DISABLE ETTINS
+scrp 2 2 21828 1006
+	doif ov01 eq 1
+		mesg writ pntr 102
+		doif ov21 eq 0
+			setv ov21 1
+			doif ov00 eq 0
+				part 6
+				pose 2
+			else
+				part 6
+				pose 2
+				part 9
+				pose 2
+			endi
+		else
+			setv ov21 0
+			doif ov00 eq 0
+				part 6
+				pose 1
+			else
+				part 6
+				pose 1
+				part 9
+				pose 1
+			endi
+		endi
+	endi
+endm
+*
+** DISABLE NORNS
+scrp 2 2 21828 1007
+	doif ov01 eq 1
+		mesg writ pntr 102
+		doif ov22 eq 0
+			setv ov22 1
+			doif ov00 eq 0
+				part 7
+				pose 2
+			else
+				part 5
+				pose 2
+				part 8
+				pose 2
+			endi
+		else
+			setv ov22 0
+			doif ov00 eq 0
+				part 7
+				pose 1
+			else
+				part 5
+				pose 1
+				part 8
+				pose 1
+			endi
+		endi
+	endi
+endm
+
+
+*
+** DISABLE
+scrp 2 2 21828 1004
+	lock
+	mesg writ pntr 102
+* If disabled, enable
+	doif ov01 eq 0
+		setv ov01 1
+		attr 0
+		part 4
+		pose 0
+		part 5
+		pose ov05
+		part 6
+		pose ov06
+		part 7
+		pose ov07
+		doif ov00 eq 1
+			part 8
+			pose ov05
+			part 9
+			pose ov06
+			part 10
+			pose ov07
+		endi
+	else
+		setv ov01 0
+		attr 16
+		part 4
+		frat 2
+		anim [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 255]
+		part 5
+		setv ov05 pose
+		pose 0
+		part 6
+		setv ov06 pose
+		pose 0
+		part 7
+		setv ov07 pose
+		pose 0
+		doif ov00 eq 1
+			part 8
+			pose 0
+			part 9
+			pose 0
+			part 10
+			pose 0
+
+		endi
+	endi
+endm
+
+
+*pat: butt 4 "gp_doormesocap_UZAG" 24 2 112 55 1 [] 1004 0
+*pat: butt 5 "gp_doormesocap_UZAG" 26 3 -5 6 1 [] 1005 0
+*pat: butt 6 "gp_doormesocap_UZAG" 29 3 -17 39 1 [] 1006 0
+*pat: butt 7 "gp_doormesocap_UZAG" 32 3 -23 70 1 [] 1007 0
+
+
+
+*
+** PUSH
+scrp 2 2 21828 1
+* 	If not disabled
+	doif ov01 ne 0
+*	Check which creature activated the door, and whether they're allowed through
+		setv va20 ov20
+		setv va21 ov21
+		setv va22 ov22
+		targ from
+		doif crea targ eq 1
+			doif gnus eq 1 and va20 eq 1
+				stop
+			endi
+			doif gnus eq 2 and va21 eq 1
+				stop
+			endi
+			doif gnus eq 3 and va22 eq 1
+				stop
+			endi
+		endi
+*	animate
+		enum 2 2 21828
+			gsub animateOpen
+		next
+*	find partnering door
+		seta va52 from
+		setv va00 ov00
+		seta va50 targ
+		seta va51 targ
+		enum 2 2 21828
+			doif ov00 ne va00
+				seta va51 targ
+			endi
+		next
+
+*	Get posx posy of partnering door
+		targ va51
+		setv va00 posx
+		setv va01 posy
+		targ ownr
+		part 2
+		over
+
+
+*	Who pushed?
+		inst
+		targ va52
+		doif fmly eq 4
+			gsub transportCreature
+		endi
+		doif va52 eq pntr
+			etch 4 0 0
+				gsub transportCreature
+			next
+			cmrp va00 va01 1
+		endi
+		enum 2 2 21828
+			gsub animateClose
+		next
+		over
+	endi
+	slow
+	subr animateOpen
+		attr 16
+		inst
+		part 2
+		doif ov00 eq 0
+			anim [0 2 4 6 8 10 12 14 16 18 20 22]
+		else
+			anim [0 1 1 2 3 4 5 6 7 8 9 10 11 11]
+		endi
+	retn
+
+	subr animateClose
+		lock
+		part 2
+		doif ov00 eq 0
+			anim [ 20 18 16 14 12 10 8 7 6 5 4 3 2 1 0]
+		else
+			anim [11 10 9 8 7 6 5 4 3 2 1 0 0]
+		endi
+		over
+		attr 0
+	retn
+
+	subr transportCreature
+		doif carr eq null and fall eq 0 and dead ne 1
+			doif tmvf va00 va01 eq 1
+** travelled through door
+				stim writ from 95 1
+** no more attention on door
+				urge writ targ 2 -2 1 -2
+				mvft va00 va01
+			endi
+		endi
+	retn
+endm
+
+
+* Removal script
+rscr
+
+* Change upper capillata image
+rtar 1 1 21828
+part 0
+gall "gp_capillata_overlay_JESS" 0
+
+* Doors
+enum 2 2 21828
+	kill targ
+next
+
+scrx 2 2 21828 1004
+scrx 2 2 21828 1005
+scrx 2 2 21828 1006
+scrx 2 2 21828 1007

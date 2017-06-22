@@ -1,0 +1,55 @@
+*
+* CAOS2PRAY CHUNK
+*
+*# Pray-File "grendelpack.agents"
+*# DS-Name "Grendel Pack 0.02"
+*# desc = "Lorem ipsum dolor sit amet, meliore scribentur nam in, in duo justo inimicus incorrupte. Ne tota dolor tation eam, ei fabellas reprehendunt mea, at praesent suscipiantur eum."
+*# Agent Animation File = "blnk.c16"
+*# Agent Sprite First Image = 1
+*# Agent Animation Gallery = "blnk"
+*# Web URL = "http://creaturescaves.com/"
+*# Web Label = "Pilla @ CC"
+
+*# depend blnk.c16
+
+*# attach gp_deserthideout.blk
+*# attach gp_grendelmeso.blk
+*# attach gp_grendelmother.blk
+*# attach gp_jungle.blk
+*# attach gp_junglev2.blk
+*# attach gp_mainworld.blk
+
+*# attach dh_elevators_CS.c16
+*# attach gp_agressive_moss_JESS.c16
+*# attach gp_c2berries.c16
+*# attach gp_capillata_overlay_JESS.c16
+*# attach gp_cranstone_planter_JESS.c16
+*# attach gp_crayfishtail_vendor_JESS.c16
+*# attach gp_crayleech_JESS.c16
+*# attach gp_dawn_plant_CS.c16
+*# attach gp_desertbug_CS.c16
+*# attach gp_desertstickbird_CS.c16
+*# attach gp_dhoverlay_CS.c16
+*# attach gp_dragonfruit_plant_JESS.c16
+*# attach gp_eleplant_JESS.c16
+*# attach gp_eleport_UZAG.c16
+*# attach gp_favicons_desert.c16
+*# attach gp_favicons_jungle.c16
+*# attach gp_favicons_main.c16
+*# attach gp_favicons_meso.c16
+*# attach gp_favicons_mother.c16
+*# attach gp_fernshroom_planter_JESS.c16
+*# attach gp_fleece_algae_JESS.c16
+*# attach gp_fleeceblack_planter_JESS.c16
+*# attach gp_fly_UZAG.c16
+*# attach gp_frogsalad_vendor_JESS.c16
+*# attach gp_good_bug_CS.c16
+*# attach gp_hair_algae_JESS.c16
+*# attach gp_hairhydra_planter_JESS.c16
+*# attach gp_improved_favplaces.c16
+*# attach gp_inkcap_mushroom_JESS.c16
+*# attach gp_kelpbubble_planter_JESS.c16
+*# attach gp_licorice_quill_CS.c16
+*# attach gp_pickleweed_plant_JESS.c16
+
+*# link 0_00000_map.cos 0_21835_signeledoor.cos 0_21836_CAemitters.cos  21800_agmoss_JESS.cos 21801fleecealgae.cos 21802hairalgae.cos 21803dawnplant.cos 21804licoricequill.cos 21820pickleweedplant.cos 21821dragonfruitplant.cos 21822goodbug.cos 21825frogsaladvendor.cos 21826crayfishtailvendor.cos 21827crayleech.cos 21828capillataoverlay.cos 21834eleplant.cos 21838junglefly.cos 21839leech.cos 0_21837_main_life.cos 21840dhoverlay.cos 21841improvedfavplace.cos 21843desertbird_arnout.cos 21844inkcapmushrooms.cos 21845desertbug_arnout.cos 21846eleport.cos

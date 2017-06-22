@@ -1,0 +1,298 @@
+**
+** Lifts
+**
+
+* Upper lift
+new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
+pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [] 0 1
+pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [] 1 1
+pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
+
+attr 0
+bhvr 3
+mvto 38224 404
+setv ov01 room targ
+setv ov00 0
+setv ov05 0
+setv va00 grap posx posy
+seta va98 targ
+
+* lower lift
+new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
+pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [] 0 1
+pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [] 1 1
+pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
+
+attr 0
+bhvr 3
+mvto 38144 743
+setv ov01 room targ
+setv ov00 0
+setv ov05 1
+setv va01 grap posx posy
+seta va99 targ
+
+*
+** CA link
+*
+
+link va00 va01 1
+
+* Enumerate through elevators to set OVs
+enum 3 1 21806
+	setv ov90 va00
+	seta ov91 va98
+	setv ov92 va01
+	seta ov93 va99
+next
+
+
+
+
+*
+** Lift disabler
+*
+
+scrp 3 1 21806 500
+** Lock the script
+	lock
+** Animate the pointer
+	doif from eq pntr
+		mesg writ pntr 101
+	endi
+
+** Set variables
+
+	targ ov91
+	doif attr eq 4
+		setv va00 1
+	else
+		setv va00 0
+	endi
+	targ ov93
+	doif attr eq 4
+		setv va01 1
+	else
+		setv va01 0
+	endi
+
+** Target the elevine	
+	targ ownr
+
+** If visible for creatures, make invisible
+	doif attr eq 0
+** Since there are just 2 lifts: enum through the lifts to enable/disable both at once.
+		enum 3 1 21806
+** Set invisibility attribute
+			attr 16
+** select enabled button part
+			part 4
+** make button red
+			pose 1
+** break the CA links
+			link ov90 ov92 0
+		next
+	else
+		enum 3 1 21806
+** Set activateable attribute
+			attr 0
+** select button part
+			part 4
+** make button green
+			pose 0
+** make the CA links
+			link ov90 ov92 1
+		next
+	endi
+endm
+
+*
+** lift push: go up
+*
+
+scrp 3 1 21806 1
+	lock
+	inst
+** set variables
+	seta va00 from
+	setv va01 posy
+	setv va02 ov00
+
+** target the pusher
+	targ va00
+** stim target with "wait"
+	stim writ va00 75 0.5
+** If pointer: animate
+	doif targ eq pntr
+		mesg writ pntr 101
+	endi
+
+** target the elevine
+	targ ownr
+** animate the up button
+	part 2
+	pose 1
+
+** Check if elevator is enabled
+	part 4
+	doif pose eq 0
+
+** Find other elevator
+		setv va03 0
+		enum 3 1 21806
+			doif posy < va01 and ov00 eq va02
+				addv va03 1
+				seta va04 targ
+			endi
+		next
+
+** If other elevator found
+		doif va03 ge 1
+			targ va04
+			setv va05 posx
+			setv va06 posy
+
+** retarget original elevator
+			targ ownr
+
+** retarget pusher
+			targ va00
+** if pointer: move camera
+			doif va00 eq pntr
+				cmrp va05 va06 1
+			endi
+			wait 5
+
+** check if the target is a creature
+			doif fmly eq 4
+** if yes: move the creature
+				mvft va05 va06
+** stim "travelled in lift"
+				stim writ va00 94 1
+** urge to 
+** remove attention from elevator
+** reset the verb state to neutral
+				urge writ va00 26 -1 -1 1
+			endi
+		endi
+	endi
+** check if the target is a creature
+	doif fmly eq 4
+** Dissapoint cuz push elevator no work D:		
+		stim writ va00 0 1
+** Tiny urge to maybe pull elevator instead?
+		urge writ va00 26 0.2 2 0.2
+	endi
+
+** wait a little
+	wait 10
+
+	targ ownr
+	part 2
+	pose 0
+
+endm
+
+
+*
+** lift pull go down
+*
+
+scrp 3 1 21806 2
+	lock
+	inst
+** set variables
+	seta va00 from
+	setv va01 posy
+	setv va02 ov00
+
+** target the puller
+	targ va00
+** stim target with "wait"
+	stim writ va00 75 0.5
+** If pointer: animate
+	doif targ eq pntr
+		mesg writ pntr 101
+	endi
+
+** target the elevine
+	targ ownr
+** animate the down button
+	part 3
+	pose 1
+
+** Check if elevator is enabled
+	part 4
+	doif pose eq 0
+
+** Find other elevator
+		setv va03 0
+		enum 3 1 21806
+			doif posy > va01 and ov00 eq va02
+				addv va03 1
+				seta va04 targ
+			endi
+		next
+
+** If other elevator found
+		doif va03 ge 1
+			targ va04
+			setv va05 posx
+			setv va06 posy
+** retarget original elevator
+			targ ownr
+
+** retarget pusher
+			targ va00
+** if pointer: move camera
+			doif va00 eq pntr
+				cmrp va05 va06 1
+			endi
+			wait 5
+
+** check if the target is a creature
+			doif fmly eq 4
+** if yes: move the creature
+				mvft va05 va06
+** stim "travelled in lift"
+				stim writ va00 94 1
+** urge to 
+** remove attention from elevator
+** reset the verb state to neutral
+				urge writ va00 26 -1 -1 1
+			endi
+		endi
+	endi
+** check if the target is a creature
+	doif fmly eq 4
+** Dissapoint cuz push elevator no work D:		
+		stim writ va00 0 1
+** Tiny urge to maybe push elevator instead?
+		urge writ va00 26 0.2 1 0.2
+	endi
+
+** wait a little
+	wait 10
+
+	targ ownr
+	part 3
+	pose 0
+
+endm
+
+
+
+
+**
+** REMOVAL
+**
+
+rscr
+
+enum 3 1 21806
+	kill targ
+next
+
+scrx 3 1 21806 1
+scrx 3 1 21806 2
+scrx 3 1 21806 500

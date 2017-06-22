@@ -1,0 +1,537 @@
+**
+**
+** MAIN
+**
+**
+
+**
+** Wildlife population control
+**
+**
+*
+** Pickleweed
+** Main Upper desert
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 21965 771
+perm 0
+rnge 999
+tick 1
+** Meso desert
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 18920 1840
+perm 0
+rnge 999
+tick 1
+** Meso leftcorridor desert
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 19231 2143
+perm 0
+rnge 999
+tick 1
+*
+** Dragonfruit
+** Main Lower desert
+new: simp 1 1 21821 "blnk" 1 0 10
+mvto 22023 1033
+perm 0
+rnge 999
+tick 1
+** Meso Statue bush
+new: simp 1 1 21821 "blnk" 1 0 10
+mvto 19964 2647
+perm 0
+rnge 999
+tick 1
+*
+** Dawn plant
+** Upper desert
+new: simp 1 1 21803 "blnk" 1 0 10
+mvto 21976 794
+perm 0
+rnge 999
+tick 1
+** Lower desert
+new: simp 1 1 21803 "blnk" 1 0 10
+mvto 22023 1033
+perm 0
+rnge 999
+tick 1
+** Hallway
+new: simp 1 1 21803 "blnk" 1 0 10
+mvto 22099 1339
+perm 0
+rnge 999
+tick 1
+** desert upper
+new: simp 1 1 21803 "blnk" 1 0 10
+mvto 22123 3238
+perm 0
+rnge 999
+tick 1
+** desert lower
+new: simp 1 1 21803 "blnk" 1 0 10
+mvto 22163 3497
+perm 0
+rnge 999
+tick 1
+*
+** Licorice quill
+** Upper desert
+new: simp 1 1 21804 "blnk" 1 0 10
+mvto 21976 794
+perm 0
+rnge 999
+tick 1
+** desert upper
+new: simp 1 1 21804 "blnk" 1 0 10
+mvto 22123 3238
+perm 0
+rnge 999
+tick 1
+** desert lower
+new: simp 1 1 21804 "blnk" 1 0 10
+mvto 22163 3497
+perm 0
+rnge 999
+tick 1
+
+*
+** Flies
+** Grendel hideout
+new: simp 1 1 21838 "blnk" 1 0 10
+setv ov50 0
+mvto 19783 799
+tick 50
+** Main world
+new: simp 1 1 21838 "blnk" 1 0 10
+setv ov50 1
+mvto 22099 2024
+tick 30
+
+**
+** Initial wildlife
+**
+**
+
+*
+** Hideout flies
+reps 8
+	inst
+	new: simp 2 14 21838 "gp_fly_UZAG" 28 0 300
+	mesg wrt+ targ 1000 19783 799 0
+	slow
+repe
+** Main room flies
+reps 14
+	inst
+	new: simp 2 14 21838 "gp_fly_UZAG" 28 0 300
+	mesg wrt+ targ 1000 22099 2024 0
+	slow
+repe
+
+** Main Bottom left biome grass moss
+reps 15
+	inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 22 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 10
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 3
+	mvto 20975 2736
+repe
+
+
+** Main lower swamp agressive moss
+reps 15
+	inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 22 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 10
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 0
+	mvto 22961 2327
+repe
+
+** Meso middle bulbs orange moss
+reps 15
+	inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 22 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 10
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 1
+	mvto 19581 1739
+repe
+
+
+** Meso wooden walkway grass moss
+reps 15
+	inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 22 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 10
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 3
+	mvto 19868 2180
+repe
+
+
+** Jungle lower swamp agressive moss
+reps 15
+	inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 22 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 10
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 0
+	mvto 19943 846
+repe
+
+
+
+
+**
+** Patch plants
+**
+**
+*
+** Hideout Berry plant
+new: simp 1 1 21847 "blnk" 0 0 0
+mvto 19487 442
+tick 1
+
+**
+** Vendors
+**
+**
+*
+** Frogsalad
+** Grendel main Treehouses
+new: simp 2 23 21825 "blnk" 1 0 10
+mesg wrt+ targ 1000 22229 2132 0
+** Grendel hideout upper level
+new: simp 2 23 21825 "blnk" 1 0 10
+mesg wrt+ targ 1000 19785 260 0
+
+*
+** Crayfishtail
+** Grendel main Upper right desert platform
+new: simp 2 23 21826 "blnk" 1 0 10
+mesg wrt+ targ 1000 22764 600 0
+
+*
+** Pickleweed
+** main Upper desert vendor
+new: simp 2 23 21820 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 22253 828 0
+** main Upper desert vendor
+new: simp 2 23 21820 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 21724 780 0
+** main Lower desert vendor
+new: simp 2 23 21820 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 21700 1110 0
+** desert Upper vendor
+new: simp 2 23 21820 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 22440 3280 0
+
+
+
+*
+** Dragonfruit
+
+** Lower desert biome vendor
+new: simp 2 23 21821 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 22290 1062 0
+
+** Lower left tree biome vendor
+new: simp 2 23 21821 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 20700 2748 0
+
+** desert Lower vendor
+new: simp 2 23 21821 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 22118 3485 0
+
+
+*
+** Agressive moss
+new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
+mesg wrt+ targ 1000 22001 1897 0
+
+
+**
+** SCRIPTS
+**
+
+*
+** Dragonfruit population control 
+scrp 1 1 21821 9
+	tick rand 1500 8000
+	setv va00 0
+	esee 2 4 21821
+		addv va00 1
+	next
+	doif va00 le 1
+		setv va02 posx
+		setv va03 posy
+		reps 3
+			inst
+			new: simp 2 8 21821 "gp_dragonfruit_plant_JESS" 2 17 rand 1800 1900
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+			attr 194
+			bhvr 48
+			accg 1
+			fric 25
+			elas 45
+			velo rand -8 8 0
+			tick rand 1 500
+			mvsf va02 va03
+			slow
+		repe
+	endi
+endm
+
+*
+** Pickleweed population control 
+scrp 1 1 21820 9
+	tick rand 1500 8000
+	setv va00 0
+	esee 2 4 21820
+		addv va00 1
+	next
+	doif va00 le 1
+		setv va02 posx
+		setv va03 posy
+		reps 3
+			inst
+			new: simp 2 3 21820 "gp_pickleweed_plant_JESS" 4 10 rand 800 900
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+			attr 194
+			bhvr 48
+			accg 1
+			fric 25
+			elas 30
+			tick rand 1 500
+			velo rand -8 8 0
+			mvsf va02 va03
+			slow
+		repe
+	endi
+endm
+
+*
+** Dawn plant population control
+scrp 1 1 21803 9
+	tick rand 1500 8000
+	setv va00 0
+	esee 2 4 21803
+		addv va00 1
+	next
+	doif va00 le 2
+		setv va02 posx
+		setv va03 posy
+		reps 3
+			inst
+			new: simp 2 3 21803 "gp_dawn_plant_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+			attr 194
+			bhvr 48
+			accg 1
+			fric 60
+			elas 20
+** bhvr: pickup 32 & eat 16 = 48
+			bhvr 48
+** Emit starchy smell
+			emit 7 0.8
+
+** launch seed
+			velo rand -10 10 -5
+			tick rand 1 300
+			mvto va02 va03
+			slow
+		repe
+	endi
+endm
+
+*
+** Licorice quill population control
+scrp 1 1 21804 9
+	tick rand 1500 8000
+	setv va00 0
+	esee 2 4 21804
+		addv va00 1
+	next
+	doif va00 le 2
+		setv va02 posx
+		setv va03 posy
+		reps 3
+			inst
+			new: simp 2 3 21804 "gp_licorice_quill_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + collide 64 + physics 128 = 194** bhvr: pickup 32 & eat 16 = 48
+			attr 194
+			bhvr 48
+			perm 60
+** Physics
+			accg 1
+			fric 70
+			elas 40
+** Emit starchy smell
+			emit 7 0.8
+** launch seed
+			velo rand -7 7 -2
+			tick rand 1 500
+			mvto va02 va03
+			slow
+		repe
+	endi
+endm
+
+*
+** Flies population control
+scrp 1 1 21838 9
+	tick rand 1500 8000
+	doif ov50 eq 0
+** va50 posx1 va51 posx2
+		setv va50 19153
+		setv va51 20420
+** va52 posy1 va53 posy2
+		setv va52 4
+		setv va53 1280
+	else
+** va50 posx1 va51 posx2
+		setv va50 20484
+		setv va51 23300
+** va52 posy1 va53 posy2
+		setv va52 1460
+		setv va53 2950
+	endi
+	setv va00 0
+	inst
+	enum 2 14 21838
+		doif posx ge va50 and posx le va51
+			doif posy ge va52 and posy le va53
+				addv va00 1
+				doif ov50 eq 0
+					doif va00 gt 12
+						kill targ
+					endi
+				else
+					doif va00 gt 16
+						kill targ
+					endi
+				endi
+			endi
+		endi
+	next
+	slow
+	doif ov50 eq 0 and va00 lt 8
+		setv va02 posx
+		setv va03 posy
+		inst
+		new: simp 2 14 21838 "gp_fly_UZAG" 28 0 300
+		mesg wrt+ targ 1000 va02 va03 0
+		slow
+	endi
+	doif ov50 eq 1 and va00 lt 14
+		setv va02 posx
+		setv va03 posy
+		inst
+		new: simp 2 14 21838 "gp_fly_UZAG" 28 0 300
+		mesg wrt+ targ 1000 va02 va03 0
+		slow
+	endi
+endm
+
+
+
+
+**
+**
+** REMOVAL
+**
+**
+
+
+rscr
+
+enum 1 1 21838
+	kill targ
+next
+enum 2 14 21838
+	kill targ
+next
+
+enum 1 1 21820
+	kill targ
+next
+enum 1 1 21821
+	kill targ
+next
+
+enum 2 23 21825
+	kill targ
+next
+enum 2 23 21826
+	kill targ
+next
+enum 2 23 21820
+	kill targ
+next
+enum 2 23 21821
+	kill targ
+next
+
+
+enum 2 8 20171
+	kill targ
+next
+
+enum 1 1 20171
+	kill targ
+next

@@ -1,0 +1,245 @@
+**
+** Sun squash
+**
+
+
+new: comp 2 4 21807 "dh_elevators_CS" 1 7 10
+attr 16
+bhvr 0
+* Flowers
+pat: dull 2 "dh_elevators_CS" 8 29 62 1
+pat: dull 3 "dh_elevators_CS" 8 175 69 1
+pat: dull 4 "dh_elevators_CS" 8 283 70 1
+* Fruit
+pat: dull 5 "dh_elevators_CS" 11 87 172 1
+pat: dull 6 "dh_elevators_CS" 11 100 108 1
+pat: dull 7 "dh_elevators_CS" 11 171 120 1
+* ov00: max amount of fruit at the same time
+setv ov00 3
+* ov02 part 2 fruit timer, ov3 part 3, ov4 part 4
+setv ov02 0
+setv ov03 0
+setv ov04 0
+
+* Tick
+tick 100
+mvto 38769 483
+
+
+
+
+**
+** Sun squash plant timer script
+**
+
+scrp 2 4 21807 9
+
+** Check how many squashes there are growing
+	gsub checkgrow
+** if less squashes than the max limit, random (1 in 4) chance to grow a squash.
+	doif va00 lt ov00
+		doif rand 0 3 eq 0
+			loop
+				setv va01 rand 2 4
+				part va01
+			untl pose eq 0
+			pose 1
+		endi
+	endi
+
+** Grow the existing squashes
+	gsub growsquash
+
+
+	subr checkgrow
+		part 2
+		doif pose ge 1
+			addv va00 1
+		endi
+		part 3
+		doif pose ge 1
+			addv va00 1
+		endi
+		part 4
+		doif pose ge 1
+			addv va00 1
+		endi
+	retn
+
+	subr growsquash
+** Grow the squashes for each part.
+** va05: part1
+** va06: part2
+** va07: the plant life timer
+		setv va05 2
+		setv va06 5
+		setv va07 ov02
+		gsub growsquash2
+		setv ov02 va07
+
+		setv va05 3
+		setv va06 6
+		setv va07 ov03
+		gsub growsquash2
+		setv ov03 va07
+
+		setv va05 4
+		setv va06 7
+		setv va07 ov04
+		gsub growsquash2
+		setv ov04 va07
+
+	retn
+
+	subr growsquash2
+		part va05
+		doif pose eq 1
+			doif va07 lt 4
+				addv va07 1
+			else
+				pose 2
+				setv va07 0
+				part va06
+				pose 1
+			endi
+		elif pose eq 2
+			part va06
+			doif pose lt 4 and va07 eq 0
+				setv va00 pose
+				addv va00 1
+				pose va00
+			else
+				doif va07 eq 0
+					gsub growsquash3
+					part va06
+					pose 0
+					addv va07 1
+				elif va07 gt 5
+					targ ownr
+					part va05
+					pose 0
+
+					setv va07 0
+				else
+
+					addv va07 1
+				endi
+			endi
+		endi
+
+	retn
+
+	subr growsquash3
+		setv va08 posl
+		setv va09 post
+
+		doif va05 eq 2
+			addv va08 87
+			addv va09 172
+		elif va05 eq 3
+			addv va08 100
+			addv va09 108
+		else
+			addv va08 171
+			addv va09 120
+		endi
+
+		setv va10 tick
+		mulv va10 5
+
+** Create a squash
+		new: simp 2 8 21807 "dh_elevators_CS" 2 16 rand 1500 3000
+** attr: carryable 2, bhvr eat 16 + pickup 32 = 48
+		attr 2
+**bhvr 48
+** emit fruit smell
+		emit 6 0.7
+** Physics etc will be set after the tick or after pickup
+		tick va10
+** set life timer
+		setv ov00 0
+		mvto va08 va09
+
+** retarget patch
+		targ ownr
+		part va06
+		pose 0
+		part va05
+		pose 2
+	retn
+endm
+
+** Squash timer script
+*
+
+scrp 2 8 21807 9
+	doif carr eq null
+		doif ov00 eq 0
+			mira rand 0 1
+** attr: pickup 2 + collide 64 + physics 128 = 194
+			attr 194
+			accg 1
+			elas 30
+			fric 70
+			perm 100
+		elif ov00 gt 4
+			kill ownr
+		endi
+		addv ov00 1
+	endi
+endm
+
+** Squash eat script
+*
+
+scrp 2 8 21807 12
+	stim writ from 78 1
+	kill ownr
+endm
+
+** Squash pickup/drop/collide
+*
+
+scrp 2 8 21807 4
+	doif ov00 eq 0
+** attr: pickup 2 + collide 64 + physics 128 = 194
+		attr 194
+		accg 1
+		elas 30
+		fric 70
+		perm 100
+	endi
+
+	pose 0
+endm
+scrp 2 8 21807 5
+	mira rand 0 1
+endm
+scrp 2 8 21807 6
+	doif ov00 eq 0
+** attr: pickup 2 + collide 64 + physics 128 = 194
+		attr 194
+		accg 1
+		elas 30
+		fric 70
+		perm 100
+	endi
+	pose 1
+endm
+
+
+
+
+
+
+
+
+rscr
+
+enum 2 4 21807
+	kill targ
+next
+enum 2 8 21807
+	kill targ
+next
+scrx 2 4 21807 9

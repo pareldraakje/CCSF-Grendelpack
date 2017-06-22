@@ -1,0 +1,55 @@
+** Main treehouses
+new: simp 2 21 21810 "gp_grendeltoy_GHOSTHANDE" 3 0 5000
+mesg wrt+ targ 1000 22343 1872 0
+** Meso main tree
+new: simp 2 21 21810 "gp_grendeltoy_GHOSTHANDE" 3 0 5000
+mesg wrt+ targ 1000 25596 917 0
+
+
+scrp 2 21 21810 1000
+	inst
+	attr 199
+	bhvr 43
+	accg 3
+	elas 0
+	fric 100
+	perm 100
+	mvto _p1_ _p2_
+	slow
+endm
+
+scrp 2 21 21810 1
+	doif ov10 eq 1
+		stim writ from 97 1
+		anim [0 1 2 1 0]
+		sndc "cp_2"
+	else
+		stim writ from 97 1
+		anim [2 1 0 1 2]
+		sndc "cp_2"
+	endi
+endm
+
+scrp 2 21 21810 2
+	doif ov10 eq 1
+		anim [0 1 2]
+		sndc "cp_2"
+		setv ov10 2
+	else
+		anim [2 1 0]
+		sndc "cp_2"
+		setv ov10 1
+	endi
+endm
+
+scrp 2 21 21810 3
+	stim writ from 0 1
+endm
+
+rscr
+enum 2 21 21810
+	kill targ
+next
+scrx 2 21 21810 1
+scrx 2 21 21810 2
+scrx 2 21 21810 3

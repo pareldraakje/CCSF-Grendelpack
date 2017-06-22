@@ -1,0 +1,566 @@
+**
+**
+** Favplace injector
+**
+**
+
+new: simp 1 1 21835 "blnk" 1 0 0
+tick 1
+
+
+**
+** DOORS
+**
+**
+
+**
+** GRENDEL MESO
+** 
+*
+** Door to capillata
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 0
+attr 4
+bhvr 1
+mvto 18985 1531
+** Door to desert hideout
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 1
+attr 4
+bhvr 1
+mvto 19021 1892
+** Door to grendel hideout
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 2
+attr 4
+bhvr 1
+mvto 19852 1857
+** Door to main world
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 3
+attr 4
+bhvr 1
+mvto 19183 2220
+** Door to grendel mother
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 4
+attr 4
+bhvr 1
+mvto 20166 2720
+
+**
+** GRENDEL MOTHER
+**
+*
+** Lower door to meso
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 4
+attr 4
+bhvr 1
+mvto 20554 3468
+
+**
+** GRENDEL HIDEOUT
+**
+*
+** The upper door (goes to the main world)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 5
+attr 4
+bhvr 1
+mvto 20210 547
+*
+** The lower door (goes to the grendel meso)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 2
+attr 4
+bhvr 1
+mvto 20219 889
+**
+** DESERT HIDEOUT
+**
+*
+** The lower door (goes to the grendel meso)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 1
+attr 4
+bhvr 1
+mvto 22607 3619
+*
+** The upper door (goes to the main world)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 6
+attr 4
+bhvr 1
+mvto 21302 3437
+
+**
+** MAIN WORLD
+**
+*
+** The upper desert door (goes to the desert hideout)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 6
+attr 4
+bhvr 1
+mvto 22470 813
+*
+** The main corridor door (to grendel meso)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 3
+attr 4
+bhvr 1
+mvto 22609 1407
+*
+** The right swamp door (to grendel hideout)
+new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+setv ov00 5
+attr 4
+bhvr 1
+mvto 23093 2284
+
+**
+** ELEVINE PLACEHOLDERS
+**
+**
+
+**
+** GRENDEL HIDEOUT
+*
+** The 2nd level elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 0
+mvto 20048 205
+*
+** The 1st level right elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 0
+mvto 20052 495
+*
+** The floor level right elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 0
+mvto 20064 855
+*
+** The 1st level left elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 1
+mvto 19348 489
+*
+** The floor level left elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 1
+mvto 19258 849
+*
+** the -1 level elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 1
+mvto 19298 1144
+
+**
+** MAIN WORLD
+*
+** Upper left tree platform
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 2
+mvto 21390 561
+*
+** Upper left under tree platform
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 2
+mvto 21390 757
+*
+** Left desert cave
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 2
+mvto 21390 1043
+*
+** Left hallway cave
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 2
+mvto 21390 1362
+*
+** Leftmost hallway cave
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 3
+mvto 20722 1358
+*
+** Leftmost swamp upper greenhouse
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 3
+mvto 20883 1773
+*
+** Leftmost machinery room
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 3
+mvto 20866 2250
+*
+** Leftmost lower tree cave
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 3
+mvto 20791 2734
+*
+** Swamp treehouses upper left
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 4
+mvto 21598 1841
+*
+** Swamp treehouses lower left
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 4
+mvto 21557 2235
+*
+** Swamp treehouses upper center
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 5
+mvto 22093 1591
+*
+** Swamp treehouse middle center
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 5
+mvto 22095 1841
+*
+** Swamp treehouse upper right
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 6
+mvto 22658 1842
+*
+** Swamp treehouse middle right
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 6
+mvto 22616 2055
+*
+** Swamp treehouse bottom right
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 6
+mvto 22678 2236
+*
+** Rightmost upper temple
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 7
+mvto 22950 574
+*
+** Rightmost lower temple
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 7
+mvto 22950 770
+*
+** Rightmost hallway
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 7
+mvto 22950 1355
+*
+** Rightmost swamp entrance
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 7
+mvto 22950 1822
+
+**
+** GRENDEL MOTHER
+*
+** Upper elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 8
+mvto 20707 3154
+*
+** Lower elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 8
+mvto 20701 3409
+
+**
+** DESERT
+*
+** Upper elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 9
+mvto 21907 3258
+*
+** Lower elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 9
+mvto 21911 3554
+
+
+**
+** MESO
+*
+** Upper left elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 10
+mvto 19446 1484
+*
+** Middle left (corridor) elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 10
+mvto 19448 1771
+*
+** Lower left elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 10
+mvto 19457 2170
+
+*
+** Middle right statue elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 11
+mvto 19926 2178
+*
+** Lower right statue elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 11
+mvto 19943 2689
+
+*
+** Underwater top elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 12
+mvto 19002 2746
+*
+** Lower right statue elevine
+new: simp 3 1 21835 "blnk" 1 1 100
+setv ov00 12
+mvto 19097 3138
+
+
+
+*
+** Elevine activator script
+new: simp 3 1 21836 "blnk" 1 0 100
+tick 10
+
+
+**
+** FAVPLACE INJECTOR TIMER SCRIPT
+**
+**
+scrp 1 1 21835 9
+* disable ticks
+	tick 0
+* inst
+	inst
+
+**
+** FAVPLACE GRENDEL HIDEOUT
+	new: simp 1 3 21835 "gp_favicons_jungle" 1 0 1
+	attr 272
+	mvto 19908 651
+	tick 10
+**
+** FAVPLACE GRENDEL MESO
+	new: simp 1 3 21836 "gp_favicons_meso" 1 0 1
+	attr 272
+	mvto 24496 909
+	tick 10
+**
+** FAVPLACE GRENDEL MOTHER
+	new: simp 1 3 21837 "gp_favicons_mother" 1 0 1
+	attr 272
+	mvto 20830 3166
+	tick 10
+**
+** FAVPLACE MAIN WORLD
+	new: simp 1 3 21838 "gp_favicons_main" 1 0 1
+	attr 272
+	mvto 22967 1985
+	tick 10
+**
+** FAVPLACE DESERT HIDEOUT
+	new: simp 1 3 21839 "gp_favicons_desert" 1 0 1
+	attr 272
+	mvto 22369 3464
+	tick 10
+* end inst
+	slow
+
+* camera to favplaces
+	targ ownr
+* grendel meso
+	cmrp 24496 909 0
+	wait 20
+* grendel mother
+*	cmrp 20830 3166 0
+*	wait 20
+* main world
+	cmrp 22967 1985 0
+	wait 20
+* grendel hideout
+	cmrp 19908 651 0
+	wait 20
+* desert hideout
+	cmrp 22369 3464 0
+	wait 20
+endm
+
+
+**
+** DOOR EVENT SCRIPTS
+**
+**
+
+*
+** PUSH
+scrp 2 2 21835 1
+	seta va52 from
+	setv va00 ov00
+	seta va50 targ
+	seta va51 targ
+	enum 2 2 21835
+		doif ov00 eq va00
+			doif targ ne va50
+				seta va51 targ
+			endi
+		endi
+	next
+	targ va51
+	setv va00 posx
+	setv va01 posy
+	targ va52
+	doif fmly eq 4
+		lock
+		doif tmvf va00 va01 eq 1
+			zomb 1
+			targ va50
+			attr 16
+			anim [0 0 0 0 0 0 0 0]
+			over
+			attr 4
+			targ va51
+			attr 16
+			targ va52
+** travelled through door
+			stim writ from 95 1
+** no more attention on door
+			urge writ targ 2 -2 1 -2
+			mvft va00 va01
+			zomb 0
+** Travelled through door
+** Discourage from pushing door any further
+			targ va51
+			anim [0 0 0 0 0 0 0 0]
+			over
+			attr 4
+		endi
+		unlk
+	endi
+	doif va52 eq pntr
+		cmrp va00 va01 1
+	endi
+endm
+
+
+*
+** Removal script
+*
+rscr
+* Favplace
+* signpost
+enum 1 1 21835
+	kill targ
+next
+scrx 1 1 21835 9
+
+enum 1 3 21835
+	kill targ
+next
+enum 1 3 21836
+	kill targ
+next
+enum 1 3 21837
+	kill targ
+next
+enum 1 3 21838
+	kill targ
+next
+enum 1 3 21839
+	kill targ
+next
+enum 1 4 21835
+	setv va00 ov50
+	kill targ
+	subv game "ds_favourites" 1
+	enum 1 4 0
+		doif ov50 > va00
+			setv va01 ov50
+			subv va01 1
+			setv ov50 va01
+			setv va02 ov50
+			mulv va02 50
+			addv va02 145
+			flto va02 0
+		endi
+	next
+next
+enum 1 4 21836
+	setv va00 ov50
+	kill targ
+	subv game "ds_favourites" 1
+	enum 1 4 0
+		doif ov50 > va00
+			setv va01 ov50
+			subv va01 1
+			setv ov50 va01
+			setv va02 ov50
+			mulv va02 50
+			addv va02 145
+			flto va02 0
+		endi
+	next
+next
+enum 1 4 21837
+	setv va00 ov50
+	kill targ
+	subv game "ds_favourites" 1
+	enum 1 4 0
+		doif ov50 > va00
+			setv va01 ov50
+			subv va01 1
+			setv ov50 va01
+			setv va02 ov50
+			mulv va02 50
+			addv va02 145
+			flto va02 0
+		endi
+	next
+next
+enum 1 4 21838
+	setv va00 ov50
+	kill targ
+	subv game "ds_favourites" 1
+	enum 1 4 0
+		doif ov50 > va00
+			setv va01 ov50
+			subv va01 1
+			setv ov50 va01
+			setv va02 ov50
+			mulv va02 50
+			addv va02 145
+			flto va02 0
+		endi
+	next
+next
+enum 1 4 21839
+	setv va00 ov50
+	kill targ
+	subv game "ds_favourites" 1
+	enum 1 4 0
+		doif ov50 > va00
+			setv va01 ov50
+			subv va01 1
+			setv ov50 va01
+			setv va02 ov50
+			mulv va02 50
+			addv va02 145
+			flto va02 0
+		endi
+	next
+next
+
+* Doors
+enum 2 2 21835
+	kill targ
+next
+* Lift placeholders
+enum 3 1 21834
+	kill targ
+next

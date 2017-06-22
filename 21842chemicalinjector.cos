@@ -1,0 +1,146 @@
+*
+* Remarks
+*
+* Selected creature changed: script 120
+*
+* Maybe have an icon that shows the current drives&strengths?
+* Maybe have an "alert" of some kind if the creature is sick, and a button to heal?
+* Maybe it could be folded up some kind of machine with a button that is either static and "embedded" somewhere in the meso/mother room. When 'unlocked' it could float relative to the screen, until locked again, when it would return to the meso/mother.
+*
+
+*List of Module Parts
+*====================
+*1  to 19 : Menu buttons & the main module.
+*20 to 49 : Drives Module
+*50 to 59 : Bacteria Module
+*60 to 79 : Toxin Module
+*80 to 99 : Fertility Module
+*
+*
+*Menu Buttons & Main Module (1 to 19)
+*==================================== 
+*PART 1 Button CLOSE VIEW
+*PART 2 Dull MENU
+*PART 3 Button MENU GRAPHSEX (1001)
+*PART 4 Button MENU GRAPHTOX (1002)
+*PART 5 Button MENU GRAPHHEAL (1003)
+*PART 6 Button JECT FOOD (1004)
+*PART 7 Button SCRP BACTERIA VISIBLE (1005)
+*PART 8 Button SCRP BACTERIA REMOVAL (1006)
+*PART 9 Button CHEM SEXDRIVE (1007)
+*PART 10 Button CHEM MED (1008)
+*PART 11 Button CHEM UNSLEEPINESS (1008)
+*PART 12 Button CHEM UNKNOWN (1009)
+*PART 13 Button CHEM TOXINS (1010)
+*PART 14 Textbox INPUT JECTCHEM (1011)
+*PART 15 Button CHEM JECTCHEM (1011)
+*PART 16 Fixd TEXT NORNNAME (1005)
+*PART 17 Fixd TEXT CHEM1
+*PART 18 Fixd TEXT CHEM2
+*PART 19 Fixd TEXT CHEM3
+*PART 20 Fixd TEXT CHEM4
+*PART 21 Fixd TEXT CHEM5
+*PART 22 Fixd TEXT CHEM6
+*PART 23 Textbox INPUT CUSTCHEM1 1012
+*PART 24 Textbox INPUT CUSTCHEM2 1013
+*PART 25 Textbox INPUT CUSTCHEM3 1014
+*PART 26 Grph GRAPH ALL
+
+*List of Scripts Used
+*====================
+*   9 : Timer (Updates COM)
+*1000 : Open Menu Bar1
+*1001 : Graph reproductive chemicals
+*1002 : Graph toxic chemicals
+*1003 : Graph health chemicals
+*1004 : Inject food into the chamber
+*1005 : Make bacteria visible
+*1006 : Kill bacteria
+*1007 : Inject sexdrive chemicals
+*1008 : Inject medical chemicals
+*1009 : Inject nutrients
+*1010 : Inject toxins
+*1011 : Inject custom chemical
+*1012 : Graph custom chemical 1
+*1013 : Graph custom chemical 2
+*1014 : Graph custom chemical 3
+*
+*List of OVs Used
+*================
+*
+* 
+*List of NAMEs Used and expected values
+*======================================
+*"currently opened module" : Either "main","drives","bacteria","toxins" or "fertility"
+
+new: comp 1 2 21842 "mediscreen" 19 18 700
+attr 2
+
+pat: butt 2 "mediscreen" 20 1 0 0 1 [] 0 0
+pat: butt 3 "workshop" 43 2 25 0 1 [1] 1001 0
+pat: butt 4 "workshop" 50 2 50 0 1 [1] 1002 0
+pat: butt 5 "workshop" 25 2 75 0 1 [1] 1003 0
+pat: butt 6 "creature kit module icons" 33 2 0 25 1 [1] 1004 0
+pat: butt 7 "workshop" 57 2 25 25 1 [1] 1005 0
+pat: butt 8 "workshop" 55 2 50 25 1 [1] 1006 0
+pat: butt 9 "creature kit module icons" 45 1 75 25 1 [] 1007 0
+pat: butt 10 "creature kit module icons" 47 3 100 25 1 [1 2 255] 1008 0
+pat: butt 11 "creature kit module icons" 39 1 0 50 1 [] 1009 0
+pat: butt 12 "creature kit module icons" 43 1 25 50 1 [] 1010 0
+pat: butt 13 "creature kit module icons" 63 1 50 50 1 [] 1011 0
+pat: text 14 "creature kit module icons" 20 0 75 1 1012 "WhiteOnTransparentChars"
+pat: butt 15 "medical_control_panel_buttons" 12 2 0 100 1 [1] 1012 0
+pat: fixd 16 "blnk" 0 0 125 1 "WhiteOnTransparentChars"
+
+*PART 14 Textbox INPUT JECTCHEM (1012)
+*PART 15 Button CHEM JECTCHEM (1012)
+*PART 16 Fixd TEXT NORNNAME 
+*PART 17 Fixd TEXT CHEM1
+*PART 18 Fixd TEXT CHEM2
+*PART 19 Fixd TEXT CHEM3
+*PART 20 Fixd TEXT CHEM4
+*PART 21 Fixd TEXT CHEM5
+*PART 22 Fixd TEXT CHEM6
+*PART 23 Textbox INPUT CUSTCHEM1 1013
+*PART 24 Textbox INPUT CUSTCHEM2 1014
+*PART 25 Textbox INPUT CUSTCHEM3 1015
+*PART 26 Grph GRAPH ALL
+
+
+
+part 2
+anim [0]
+part 3
+anim [0]
+part 4
+anim [0]
+part 5
+anim [0]
+part 6
+anim [0]
+part 7
+anim [0]
+part 8
+anim [0]
+part 9
+anim [0]
+part 10
+anim [0]
+part 11
+anim [0]
+part 12
+anim [0]
+part 13
+anim [0]
+part 15
+anim [0]
+
+
+mvto 2426 9276
+
+
+rscr
+
+enum 1 2 21842
+	kill targ
+next
