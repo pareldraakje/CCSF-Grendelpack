@@ -191,7 +191,7 @@ scrp 2 23 21820 9
 				fric 25
 				elas 60
 				tick rand 700 1400
-				mvto va05 va06
+				mvsf va05 va06
 				slow
 
 ** pose ge 5 --> grow to full stage
@@ -347,7 +347,7 @@ scrp 2 4 21820 9
 					elas 90
 					tick rand 700 1400
 					velo rand -2 2 0
-					mvto va05 va06
+					mvsf va05 va06
 					slow
 
 ** pose ge 5 --> grow to full stage

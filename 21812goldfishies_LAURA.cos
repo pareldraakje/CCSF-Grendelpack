@@ -62,7 +62,7 @@ scrp 2 23 21812 1
 	elas 40
 	aero 2
 	accg 1
-	perm rand 50 51
+	perm 98
 	fric 100
 
 *set variable ov03 = egg's time out of water:
@@ -92,7 +92,7 @@ scrp 2 18 21812 1000
 	elas 40
 	aero 2
 	accg 1
-	perm rand 50 51
+	perm 98
 	fric 100
 *set variable ov03 = egg's time out of water:
 	setv ov03 0
@@ -149,7 +149,8 @@ scrp 2 18 21812 9
 				elas 0.5
 ***** GH says: I reset the perm to 0 so that the fish won't beach itself in areas like the
 ***** Norn Terrarium pond.
-				perm 0
+** Pilla says: nope.
+				perm 80
 
 				mvsf va00 va01
 

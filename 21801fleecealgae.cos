@@ -84,8 +84,8 @@ endm
 *
 ** Timer
 scrp 2 23 21801 9
-tick rand 100 4000
-mesg writ ownr 0
+tick rand 500 1200
+mesg writ ownr 0 
 endm
 
 *
@@ -116,7 +116,12 @@ scrp 2 23 21801 1
 	aero 10
 	fric 50
 	elas 60
-	velo rand -8 8 -5
+	setv va20 rand 5 15
+	doif rand 0 1 eq 0
+		negv va20
+	endi
+	
+	velo va20 -5
 	tick 300
 	setv ov00 0
 	mvsf va00 va01

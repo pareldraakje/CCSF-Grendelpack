@@ -79,6 +79,18 @@ mvto ov20 ov21
 tick 20
 
 *
+** Mossy shee tree
+** Meso pond
+new: simp 1 1 21813 "blnk" 1 0 1000
+tick rand 10 100
+mvto 24411 1354
+** Main right swamp
+new: simp 1 1 21813 "blnk" 1 0 1000
+tick rand 10 100
+mvto 23088 1802
+
+
+*
 ** Inkcap mushroom 
 ** Lower main
 new: simp 1 1 21844 "blnk" 1 0 600
@@ -164,6 +176,18 @@ perm 0
 rnge 999
 tick 1
 
+*
+** Blush Shrub
+** Meso desert lobe
+new: simp 1 1 21815 "blnk" 1 0 1000
+mvto 23613 533
+tick 100
+** Main desert
+new: simp 1 1 21815 "blnk" 1 0 1000
+mvto 22000 741
+tick 200
+
+
 **
 ** Initial wildlife
 **
@@ -237,13 +261,13 @@ repe
 ** Meso desert blush shrub
 reps 2
 	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
-	mesg wrt+ targ 1000 rand 23484 23759 589 0
+	mesg wrt+ targ 1000 23600 589 0
 repe
 
 ** Main desert blush shrub
 reps 6
 	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
-	mesg wrt+ targ 1000 rand 21594 2245 721 0
+	mesg wrt+ targ 1000 22000 721 0
 repe
 
 ** Main lower swamp agressive moss
@@ -509,9 +533,18 @@ mesg wrt+ targ 1000 25624 1556 0
 
 rscr
 
+** Grendel mother
+enum 3 3 21823
+	kill targ
+next
 
 ** Ball toys
 enum 2 21 21809
+	kill targ
+next
+
+** Grendel toy
+enum 2 21 21810
 	kill targ
 next
 
@@ -523,6 +556,14 @@ enum 2 4 21800
 	kill targ
 next
 enum 2 23 21800
+	kill targ
+next
+
+** Mossy tree
+enum 2 4 21813
+	kill targ
+next
+enum 2 3 21813
 	kill targ
 next
 
@@ -681,6 +722,14 @@ enum 2 8 21844
 	kill targ
 next
 enum 2 3 21844
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
 	kill targ
 next
 

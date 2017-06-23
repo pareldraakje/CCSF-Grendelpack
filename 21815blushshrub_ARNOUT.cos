@@ -1,8 +1,7 @@
 **
-reps 3
-	inst
-	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
-	mvto rand 38300 38800 rand 600 650
+*	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+
+scrp 2 3 21815 1000
 	attr 195
 	bhvr 59
 	accg 0.5
@@ -11,8 +10,32 @@ reps 3
 	tick 60
 	emit 7 0.5
 	rnge 1000
-	slow
-repe
+	mvsf _p1_ _p2_
+endm
+
+scrp 1 1 21815 9
+	tick rand 100 1200
+	rnge 1200
+	setv va01 posx
+	setv va02 posy
+	inst
+	setv va00 0
+	esee 2 3 21815
+		addv va00 1
+	next
+	esee 2 4 21815
+		addv va00 1
+	next
+	doif va00 lt 3
+		reps rand 1 3
+			new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+			velo rand -5 5 -2
+			mesg wrt+ targ 1000 va01 va02 0
+		repe
+	endi
+endm
+
+
 
 scrp 2 3 21815 1
 	doif carr eq null
@@ -120,7 +143,6 @@ scrp 2 4 21815 9
 		setv ov34 rand 1 4
 		reps ov34
 			new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
-			mvsf va20 va21
 			velo rand -10 10 rand -8 -12
 			attr 195
 			bhvr 59
@@ -130,6 +152,7 @@ scrp 2 4 21815 9
 			tick rand 600 1200
 			emit 7 0.5
 			rnge 1000
+			mvsf va20 va21
 		repe
 		kill ownr
 	retn
@@ -139,14 +162,18 @@ rscr
 enum 2 3 21815
 	kill targ
 next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+
 scrx 2 3 21815 1
 scrx 2 3 21815 2
 scrx 2 3 21815 3
 scrx 2 3 21815 9
 scrx 2 3 21815 12
-enum 2 4 21815
-	kill targ
-next
 scrx 2 4 21815 1
 scrx 2 4 21815 2
 scrx 2 4 21815 9

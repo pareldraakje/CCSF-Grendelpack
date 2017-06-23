@@ -50,16 +50,21 @@
 *# attach gp_kelpbubble_planter_JESS.c16
 *# attach gp_licorice_quill_CS.c16
 *# attach gp_moreballs.c16
+*# attach gp_mossytree_JESS.c16
 *# attach gp_pickleweed_plant_JESS.c16
 *# attach gp_shortcutdoors_CS.c16
 
 
 *# attach bal3.wav
+*# attach chwp.wav
 *# attach cmac.wav
+*# attach dr10.wav
 *# attach drp9.wav
 *# attach elt0.wav
+*# attach gulp.wav
 *# attach hach.wav
 *# attach hit_.wav
+*# attach punc.wav
 *# attach tbal.wav
 
-*# link 21841improvedfavplace.cos 0_00000_map_mesomain.cos 21828capillataoverlay.cos 21800_agmoss_JESS.cos 21801fleecealgae.cos 21802hairalgae.cos 21803dawnplant.cos 21804licoricequill.cos 21808_shortcutdoors.cos 21809_moreballs.cos 21810_grendeltoy.cos 21811_cheesemac_ARNOUT.cos 21812goldfishies_LAURA.cos 21820pickleweedplant.cos 21821dragonfruitplant.cos 21822goodbug.cos 21823grendelmother.cos 21825frogsaladvendor.cos 21826crayfishtailvendor.cos 21827crayfish.cos 21828door_capmeso.cos 21829fernshroomplanter.cos 21830cranberrystoneworthplanter.cos 21831fleeceblackplanter.cos 21832kelpbubbleplanter.cos 21833hairhydraplanter.cos 21834eleplant.cos 21835_calinks_mesomain.cos 21836_CAemitters_mesomain.cos 21838junglefly.cos 21839leech.cos 21842chemicalinjector.cos 21843desertbird_arnout.cos 21844inkcapmushrooms.cos 21845desertbug_arnout.cos 21846eleport.cos 21847ghberries.cos 21848c2berries.cos 21837_mesomain_life.cos 21835_signeledoor_mesomain.cos
+*# link 21841improvedfavplace.cos 0_00000_map_mesomain.cos 21828capillataoverlay.cos 21800_agmoss_JESS.cos 21801fleecealgae.cos 21802hairalgae.cos 21803dawnplant.cos 21804licoricequill.cos 21808_shortcutdoors.cos 21809_moreballs.cos 21810_grendeltoy.cos 21811_cheesemac_ARNOUT.cos 21812goldfishies_LAURA.cos 21813mossytree_GHOLAU.cos 21815blushshrub_ARNOUT.cos 21820pickleweedplant.cos 21821dragonfruitplant.cos 21822goodbug.cos 21823grendelmother.cos 21825frogsaladvendor.cos 21826crayfishtailvendor.cos 21827crayfish.cos 21828door_capmeso.cos 21829fernshroomplanter.cos 21830cranberrystoneworthplanter.cos 21831fleeceblackplanter.cos 21832kelpbubbleplanter.cos 21833hairhydraplanter.cos 21834eleplant.cos 21835_calinks_mesomain.cos 21836_CAemitters_mesomain.cos 21838junglefly.cos 21839leech.cos 21842chemicalinjector.cos 21843desertbird_arnout.cos 21844inkcapmushrooms.cos 21845desertbug_arnout.cos 21846eleport.cos 21847ghberries.cos 21848c2berries.cos 21837_mesomain_life.cos 21835_signeledoor_mesomain.cos

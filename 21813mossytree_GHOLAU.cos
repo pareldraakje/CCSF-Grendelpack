@@ -1,0 +1,217 @@
+** Code by Laura and Ghosthande
+
+*initial seed script 
+* new: simp 2 3 21813 "gp_mossytree_JESS" 1 rand 9 10 1000
+
+scrp 2 3 21813 1000
+	attr 195
+	bhvr 48
+	elas 0.5
+	aero 2
+	accg 0.2
+	perm 100
+** delay growth
+	tick 1200
+	mvsf _p1_ _p2_
+endm
+
+* Population control script
+scrp 1 1 21813 9
+	rnge 700
+	tick rand 400 1200
+	setv va00 0
+	esee 2 3 21813
+		addv va00 1
+	next
+	esee 2 4 21813
+		addv va00 1
+	next
+	doif va00 lt 1
+		setv va10 posx
+		setv va11 posy
+		new: simp 2 3 21813 "gp_mossytree_JESS" 1 rand 9 10 1000
+		mesg wrt+ targ 1000 va10 va11 1
+	endi
+endm
+
+*tree timer script
+scrp 2 4 21813 9
+
+	tick 0
+	gsub grow
+	gsub live
+	gsub seed
+	gsub die
+
+** grow
+	subr grow
+		setv va00 pose
+		reps 7
+			wait 600
+			addv va00 1
+			pose va00
+
+		repe
+	retn
+
+** live
+	subr live
+		loop
+			doif ov10 ne 100
+				setv va01 ov10
+				subv va01 1
+				setv ov10 va01
+			endi
+			wait 1
+		untl ov10 = 100
+	retn
+
+** produce seeds
+	subr seed
+
+		setv va10 posx
+		setv va11 posy
+
+** produce 1 or 3 seeds at a time	
+		reps rand 1 3
+
+** seeds spawned by the tree	
+			new: simp 2 3 21813 "gp_mossytree_JESS" 1 rand 9 10 1000
+
+			attr 195
+			bhvr 48
+			elas 0.5
+			aero 2
+			accg 0.2
+			perm 100
+
+			mvsf va10 va11
+			velo rand -10 10 rand -10 0
+
+			tick 1200
+
+			targ ownr
+		repe
+		wait 6000
+	retn
+
+** die
+	subr die
+		pose 8
+		wait rand 40 80
+		kill ownr
+	retn
+endm
+
+
+*seed pick up script
+scrp 2 3 21813 4
+** "I have gotten"
+	stim writ from 18 1
+endm
+
+
+*seed drop script
+scrp 2 3 21813 5
+** "I have dropped" 
+	stim writ from 19 1
+endm
+
+
+*seed collision script
+scrp 2 3 21813 6
+	sndc "smit"
+endm
+
+
+*seed eat script
+scrp 2 3 21813 12
+	sndc "chwp"
+** "I have eaten plant" 
+	stim writ from 77 1
+	kill ownr
+endm
+
+
+*seed timer script
+scrp 2 3 21813 9
+
+	doif carr eq null and fall eq 0
+
+** set room types	
+		doif rtyp room ownr >= 5 and rtyp room ownr <= 7
+			wait rand 10 40
+
+			setv va00 posx
+			setv va01 posy
+
+** make sure the population isn't too dense already
+			rnge 1000
+			setv ov00 0
+			esee 2 4 21813
+				addv mv00 1
+			next
+			doif ov00 lt 3
+
+				new: simp 2 4 21813 "gp_mossytree_JESS" 9 0 rand 200 6000
+
+				bhvr 3
+				attr 0
+				perm 40
+				emit 7 1
+				accg 3
+				elas 25
+				fric 90
+				aero 2
+
+				setv ov10 rand 200 1000
+				subv va00 170
+				subv va01 400
+				mvto va00 va01
+
+				tick 1200
+
+				kill ownr
+
+** give seeds multiple chances to grow	
+			else
+				addv ov11 1
+				doif ov11 > 3
+					kill ownr
+				endi
+			endi
+		endi
+	endi
+endm
+
+
+*tree push script
+scrp 2 4 21813 1
+** "I have pushed friendly plant"
+	stim writ from 84 1
+endm
+
+
+*tree pull script
+scrp 2 4 21813 2
+** "I have pulled friendly plant"
+	stim writ from 84 1
+endm
+
+
+*remove script
+rscr
+enum 2 4 21813
+	kill targ
+next
+enum 2 3 21813
+	kill targ
+next
+scrx 2 4 21813 9
+scrx 2 3 21813 4
+scrx 2 3 21813 5
+scrx 2 3 21813 6
+scrx 2 3 21813 12
+scrx 2 3 21813 9
+scrx 2 4 21813 1
+scrx 2 4 21813 2

@@ -185,7 +185,7 @@ targ ownr
 			velo rand -30 30 -5
 			tick rand 300 800
 			setv ov00 0
-			mvto va00 va01
+			mvsf va00 va01
 slow
 		repe
 ** Retarget the algae plant
