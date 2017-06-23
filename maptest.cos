@@ -1,0 +1,192 @@
+setv va01 addm 86088 86028 2944 2176 ""
+mmsc 87560 87116 ""
+  setv va00 addr va01 87469 89032 87914 87914 88204 88204
+    rtyp va00 0
+    rmsc 88250 88059 ""
+    setv game "map_tmp_0" va00
+  setv va00 addr va01 87469 89032 86618 86618 87022 87022
+    rtyp va00 0
+    rmsc 88250 86820 ""
+    setv game "map_tmp_1" va00
+  setv va00 addr va01 87469 89032 87022 87022 87518 87318
+    rtyp va00 0
+    rmsc 88250 87220 ""
+    setv game "map_tmp_2" va00
+  setv va00 addr va01 87469 89032 86326 86326 86618 86618
+    rtyp va00 0
+    rmsc 88250 86472 ""
+    setv game "map_tmp_3" va00
+  setv va00 addr va01 87469 89032 86028 86028 86326 86326
+    rtyp va00 0
+    rmsc 88250 86177 ""
+    setv game "map_tmp_4" va00
+  setv va00 addr va01 87469 89032 87518 87318 87914 87914
+    rtyp va00 0
+    rmsc 88250 87666 ""
+    setv game "map_tmp_5" va00
+  setv va00 addr va01 86841 87469 86028 86028 86326 86326
+    rtyp va00 0
+    rmsc 87155 86177 ""
+    setv game "map_tmp_6" va00
+  setv va00 addr va01 86841 87469 86326 86326 86618 86618
+    rtyp va00 0
+    rmsc 87155 86472 ""
+    setv game "map_tmp_7" va00
+  setv va00 addr va01 86841 87469 86618 86618 87022 87022
+    rtyp va00 0
+    rmsc 87155 86820 ""
+    setv game "map_tmp_8" va00
+  setv va00 addr va01 86841 87469 87022 87022 87518 87518
+    rtyp va00 0
+    rmsc 87155 87270 ""
+    setv game "map_tmp_9" va00
+  setv va00 addr va01 86841 87469 87518 87518 87914 87914
+    rtyp va00 0
+    rmsc 87155 87716 ""
+    setv game "map_tmp_10" va00
+  setv va00 addr va01 86841 87469 87914 87914 88204 88204
+    rtyp va00 0
+    rmsc 87155 88059 ""
+    setv game "map_tmp_11" va00
+  setv va00 addr va01 86088 86741 86028 86028 86326 86326
+    rtyp va00 0
+    rmsc 86414 86177 ""
+    setv game "map_tmp_12" va00
+  setv va00 addr va01 86088 86741 86551 86326 86618 86618
+    rtyp va00 0
+    rmsc 86414 86528 ""
+    setv game "map_tmp_13" va00
+  setv va00 addr va01 86088 86741 86908 86618 87022 87022
+    rtyp va00 0
+    rmsc 86414 86892 ""
+    setv game "map_tmp_14" va00
+  setv va00 addr va01 86474 86741 87075 87022 87541 87541
+    rtyp va00 0
+    rmsc 86607 87294 ""
+    setv game "map_tmp_15" va00
+  setv va00 addr va01 86088 86741 87682 87582 87914 87914
+    rtyp va00 0
+    rmsc 86414 87773 ""
+    setv game "map_tmp_16" va00
+  setv va00 addr va01 86088 86741 87914 87914 88204 88204
+    rtyp va00 0
+    rmsc 86414 88059 ""
+    setv game "map_tmp_17" va00
+  setv va00 addr va01 86741 86841 86028 86028 86326 86326
+    rtyp va00 0
+    rmsc 86791 86177 ""
+    setv game "map_tmp_18" va00
+  setv va00 addr va01 86741 86841 86326 86326 86618 86618
+    rtyp va00 0
+    rmsc 86791 86472 ""
+    setv game "map_tmp_19" va00
+  setv va00 addr va01 86741 86841 86618 86618 87022 87022
+    rtyp va00 0
+    rmsc 86791 86820 ""
+    setv game "map_tmp_20" va00
+  setv va00 addr va01 86741 86841 87022 87022 87541 87518
+    rtyp va00 0
+    rmsc 86791 87275 ""
+    setv game "map_tmp_21" va00
+  setv va00 addr va01 86741 86841 87914 87914 88204 88204
+    rtyp va00 0
+    rmsc 86791 88059 ""
+    setv game "map_tmp_22" va00
+  setv va00 addr va01 86235 86474 87228 87075 87619 87581
+    rtyp va00 0
+    rmsc 86354 87375 ""
+    setv game "map_tmp_23" va00
+
+door game "map_tmp_0" game "map_tmp_11" 100
+door game "map_tmp_0" game "map_tmp_5" 100
+door game "map_tmp_1" game "map_tmp_8" 100
+door game "map_tmp_1" game "map_tmp_3" 100
+door game "map_tmp_1" game "map_tmp_2" 100
+door game "map_tmp_2" game "map_tmp_9" 100
+door game "map_tmp_2" game "map_tmp_1" 100
+door game "map_tmp_2" game "map_tmp_5" 100
+door game "map_tmp_3" game "map_tmp_7" 100
+door game "map_tmp_3" game "map_tmp_4" 100
+
+door game "map_tmp_3" game "map_tmp_1" 100
+door game "map_tmp_4" game "map_tmp_6" 100
+door game "map_tmp_4" game "map_tmp_3" 100
+door game "map_tmp_5" game "map_tmp_10" 100
+door game "map_tmp_5" game "map_tmp_2" 100
+door game "map_tmp_5" game "map_tmp_0" 100
+door game "map_tmp_6" game "map_tmp_18" 100
+door game "map_tmp_6" game "map_tmp_4" 100
+door game "map_tmp_6" game "map_tmp_7" 100
+door game "map_tmp_7" game "map_tmp_19" 100
+
+door game "map_tmp_7" game "map_tmp_3" 100
+door game "map_tmp_7" game "map_tmp_6" 100
+door game "map_tmp_7" game "map_tmp_8" 100
+door game "map_tmp_8" game "map_tmp_20" 100
+door game "map_tmp_8" game "map_tmp_1" 100
+door game "map_tmp_8" game "map_tmp_7" 100
+door game "map_tmp_8" game "map_tmp_9" 100
+door game "map_tmp_9" game "map_tmp_21" 100
+door game "map_tmp_9" game "map_tmp_2" 100
+door game "map_tmp_9" game "map_tmp_8" 100
+
+door game "map_tmp_9" game "map_tmp_10" 100
+door game "map_tmp_10" game "map_tmp_5" 100
+door game "map_tmp_10" game "map_tmp_9" 100
+door game "map_tmp_10" game "map_tmp_11" 100
+door game "map_tmp_11" game "map_tmp_22" 100
+door game "map_tmp_11" game "map_tmp_0" 100
+door game "map_tmp_11" game "map_tmp_10" 100
+door game "map_tmp_12" game "map_tmp_18" 100
+door game "map_tmp_13" game "map_tmp_19" 100
+door game "map_tmp_14" game "map_tmp_20" 100
+
+door game "map_tmp_15" game "map_tmp_23" 100
+door game "map_tmp_15" game "map_tmp_21" 100
+door game "map_tmp_16" game "map_tmp_17" 100
+door game "map_tmp_17" game "map_tmp_22" 100
+door game "map_tmp_17" game "map_tmp_16" 100
+door game "map_tmp_18" game "map_tmp_12" 100
+door game "map_tmp_18" game "map_tmp_6" 100
+door game "map_tmp_18" game "map_tmp_19" 100
+door game "map_tmp_19" game "map_tmp_13" 100
+door game "map_tmp_19" game "map_tmp_7" 100
+
+door game "map_tmp_19" game "map_tmp_18" 100
+door game "map_tmp_19" game "map_tmp_20" 100
+door game "map_tmp_20" game "map_tmp_14" 100
+door game "map_tmp_20" game "map_tmp_8" 100
+door game "map_tmp_20" game "map_tmp_19" 100
+door game "map_tmp_20" game "map_tmp_21" 100
+door game "map_tmp_21" game "map_tmp_15" 100
+door game "map_tmp_21" game "map_tmp_9" 100
+door game "map_tmp_21" game "map_tmp_20" 100
+door game "map_tmp_22" game "map_tmp_17" 100
+
+door game "map_tmp_22" game "map_tmp_11" 100
+door game "map_tmp_23" game "map_tmp_15" 100
+
+delg "map_tmp_0"
+delg "map_tmp_1"
+delg "map_tmp_2"
+delg "map_tmp_3"
+delg "map_tmp_4"
+delg "map_tmp_5"
+delg "map_tmp_6"
+delg "map_tmp_7"
+delg "map_tmp_8"
+delg "map_tmp_9"
+delg "map_tmp_10"
+delg "map_tmp_11"
+delg "map_tmp_12"
+delg "map_tmp_13"
+delg "map_tmp_14"
+delg "map_tmp_15"
+delg "map_tmp_16"
+delg "map_tmp_17"
+delg "map_tmp_18"
+delg "map_tmp_19"
+delg "map_tmp_20"
+delg "map_tmp_21"
+delg "map_tmp_22"
+delg "map_tmp_23"

@@ -5,6 +5,14 @@
 **
 
 **
+** TOOLS
+**
+
+** Grendel mother
+new: comp 3 3 21823 "gp_grendelmother_PILLA" 1 0 100
+mesg wrt+ targ 1000 24965 838 0
+
+**
 ** TOYS
 **
 **
@@ -224,6 +232,18 @@ reps 2
 	new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
 	mesg wrt+ targ 1000 23712 1481 0
 
+repe
+
+** Meso desert blush shrub
+reps 2
+	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+	mesg wrt+ targ 1000 rand 23484 23759 589 0
+repe
+
+** Main desert blush shrub
+reps 6
+	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+	mesg wrt+ targ 1000 rand 21594 2245 721 0
 repe
 
 ** Main lower swamp agressive moss

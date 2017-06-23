@@ -313,6 +313,61 @@ scrp 1 1 21835 9
 endm
 
 
+**
+** DOOR EVENT SCRIPTS
+**
+**
+
+*
+** PUSH
+scrp 2 2 21835 1
+	seta va52 from
+	setv va00 ov00
+	seta va50 targ
+	seta va51 targ
+	enum 2 2 21835
+		doif ov00 eq va00
+			doif targ ne va50
+				seta va51 targ
+			endi
+		endi
+	next
+	targ va51
+	setv va00 posx
+	setv va01 posy
+	targ va52
+	doif fmly eq 4
+		lock
+		doif tmvf va00 va01 eq 1
+			zomb 1
+			targ va50
+			attr 16
+			anim [0 0 0 0 0 0 0 0]
+			over
+			attr 4
+			targ va51
+			attr 16
+			targ va52
+** travelled through door
+			stim writ from 95 1
+** no more attention on door
+			urge writ targ 2 -2 1 -2
+			mvft va00 va01
+			zomb 0
+** Travelled through door
+** Discourage from pushing door any further
+			targ va51
+			anim [0 0 0 0 0 0 0 0]
+			over
+			attr 4
+		endi
+		unlk
+	endi
+	doif va52 eq pntr
+		cmrp va00 va01 1
+	endi
+endm
+
 
 *
 ** Removal script

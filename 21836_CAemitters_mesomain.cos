@@ -1,0 +1,554 @@
+**
+** CA EMITTERS
+**
+**
+**
+**
+** MAIN WORLD
+**
+*
+** LIGHT
+** Upper dome lights
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 1
+mvto 21385 143
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 1
+mvto 21847 280
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 1
+mvto 22531 146
+** Upper level lower lights
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.8
+mvto 20948 769
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.8
+mvto 22815 769
+** Desert cave lights
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 21186 1056
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 21626 986
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 22009 984
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 22559 1012
+** Stone corridor lights
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.5
+mvto 20810 1349
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.5
+mvto 22294 1349
+** Mini greenhouse room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.8
+mvto 20767 1721
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.8
+mvto 21088 1772
+** Mini machinery room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 20766 2065
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 20907 2065
+** Lowest tree cavern
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.9
+mvto 21006 2556
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.9
+mvto 21343 2554
+** Treehouses upper level LTR
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 21799 1698
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 22567 1678
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 23107 1778
+** Treehouse lower level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 21740 2109
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 23034 2127
+** Underwater
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.6
+mvto 22186 2619
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 1
+mvto 22436 2575
+*
+** HEAT
+** Upper dome 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 1
+mvto 21385 143
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 1
+mvto 21847 280
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 1
+mvto 22531 146
+** Upper level lower 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 1
+mvto 20948 769
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 1
+mvto 22815 769
+** Desert cave
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.9
+mvto 21186 1056
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.9
+mvto 21626 986
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.9
+mvto 22009 984
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.9
+mvto 22559 1012
+** Stone corridor 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 20810 1349
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 22294 1349
+** Mini greenhouse room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.8
+mvto 20767 1721
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.8
+mvto 21088 1772
+** Mini machinery room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 20766 2065
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 20907 2065
+** Lowest tree cavern
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.8
+mvto 21006 2556
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.8
+mvto 21343 2554
+** Treehouses upper level LTR
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 21799 1698
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 22567 1678
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 23107 1778
+** Treehouse lower level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 21740 2109
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.7
+mvto 23034 2127
+** Underwater
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.4
+mvto 22186 2619
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.4
+mvto 22436 2575
+*
+** MMMMMMMOISTURE
+** Upper dome 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.3
+mvto 21385 143
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.3
+mvto 21847 280
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.3
+mvto 22531 146
+** Upper level lower 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.3
+mvto 20948 769
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.3
+mvto 22815 769
+** Desert cave
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.55
+mvto 21186 1056
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.55
+mvto 21626 986
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.55
+mvto 22009 984
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.55
+mvto 22559 1012
+** Stone corridor 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.7
+mvto 20810 1349
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.7
+mvto 22294 1349
+** Mini greenhouse room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 20767 1721
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 21088 1772
+** Mini machinery room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.9
+mvto 20766 2065
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.9
+mvto 20907 2065
+** Lowest tree cavern
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 21006 2556
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 21006 2556
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 21343 2554
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 21343 2554
+** Treehouses upper level LTR
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.9
+mvto 21799 1698
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.9
+mvto 22567 1678
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.9
+mvto 23107 1778
+** Treehouse lower level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 01
+mvto 21740 2109
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 23034 2127
+** Underwater
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 22186 2619
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 22436 2575
+*
+** NUTRIENTS
+** Upper dome 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21079 652
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21875 848
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22715 647
+** Upper level lower 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21293 866
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22182 855
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22708 849
+** Desert cave
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21186 1165
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21702 1150
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22244 1146
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22770 1161
+** Stone corridor 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20843 1466
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21310 1466
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22322 1466
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22878 1466
+** Mini greenhouse room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20759 1815
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21167 1879
+** Mini machinery room
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 0.4
+mvto 20739 2292
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 0.4
+mvto 21087 2322
+** Lowest tree cavern
+* Atmosphere doesn't work with nutrients
+** Treehouses
+* Wooden walkway doesn't work with nutrients
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22859 1935
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 23104 1925
+** Treehouse lower level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 21726 2319
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 22977 2304
+** Underwater
+* Underwater nutrients no work
+*
+** WATER
+** Upper left pond
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 5 1
+mvto 20710 970
+** Underwater area
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 5 1
+mvto 22190 2652
+** Lower left pond
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 5 1
+mvto 21589 2859
+*
+** HOME SMELLS
+** Ettin home: Top of temple
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 17 1
+mvto 22592 657
+** Norn home: Desert cave
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 15 1
+mvto 22004 1149
+** Grendel home: Top left treehouse + bottom right swamp
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 16 1
+mvto 21784 1936
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 16 1
+mvto 23127 2319
+
+**
+** GRENDEL HIDEOUT
+**
+*
+** Light
+** Upper level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19938 139
+** Upper left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19550 285
+** First level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19959 424
+** Floor level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.5
+mvto 19863 798
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.5
+mvto 19463 1073
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19883 1083
+*
+** Heat
+** Upper level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19938 139
+** Upper left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19550 285
+** First level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19959 424
+** Floor level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19863 798
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19463 1073
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.4
+mvto 19883 1083
+*
+** MMMMOISTURE
+** Upper level center
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 19938 139
+** Upper left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 19550 285
+** First level 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 19959 424
+** Floor level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 19863 798
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 19463 1073
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 19883 1083
+*
+** NUTRIENTS
+** Upper right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20335 296
+** First floor right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20335 594
+** Ground level center
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20060 952
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 19432 1228
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 19919 1240
+*
+** SMELLS
+** NORN HOME SMELL: first floor tree
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 15 0.6
+mvto 19494 588
+** GRENDEL HOME SMELL: Ground floor
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 16 0.8
+mvto 19834 949
+
+**
+** GRENDEL MOTHER
+**
+*
+** Light
+**Up
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.9
+mvto 20786 3102
+** DownL
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.9
+mvto 20555 3349
+** DownR
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.9
+mvto 20976 3364
+*
+** Heat
+**Up
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.6
+mvto 20049 1407
+** Down
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 20210 1709
+*
+** Mmmoisture
+**Up
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 20049 1407
+** Down
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 20210 1709
+*
+** Nutrients
+** Up
+* Wooden platform nopenope
+** Down
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20142 1834
+*
+** Norn home: Up left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 15 0.6
+mvto 19778 1580
+*
+** Grendel home: Down center
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 16 0.7
+mvto 20088 1828
+
+
+rscr
+enum 1 1 21836
+	kill targ
+next
