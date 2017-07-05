@@ -135,87 +135,87 @@ endi
 
 *
 ** Upper left tree platform
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 2
 mvto 21390 561
 *
 ** Upper left under tree platform
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 2
 mvto 21390 757
 *
 ** Left desert cave
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 2
 mvto 21390 1043
 *
 ** Left hallway cave
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 2
 mvto 21390 1362
 *
 ** Leftmost hallway cave
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 3
 mvto 20722 1358
 *
 ** Leftmost swamp upper greenhouse
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 3
 mvto 20883 1773
 *
 ** Leftmost machinery room
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 3
 mvto 20866 2250
 *
 ** Leftmost lower tree cave
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 3
 mvto 20791 2734
 *
 ** Swamp treehouses upper left
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 4
 mvto 21598 1841
 *
 ** Swamp treehouses lower left
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 4
 mvto 21557 2235
 *
 ** Swamp treehouse upper right
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 6
 mvto 22658 1842
 *
 ** Swamp treehouse middle right
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 6
 mvto 22616 2055
 *
 ** Swamp treehouse bottom right
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 6
 mvto 22678 2236
 *
 ** Rightmost upper temple
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 7
 mvto 22950 574
 *
 ** Rightmost lower temple
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 7
 mvto 22950 770
 *
 ** Rightmost hallway
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 7
 mvto 22950 1355
 *
 ** Rightmost swamp entrance
-new: simp 3 1 21835 "blnk" 1 1 100
+new: simp 3 1 21835 "blnk" 1 1 rand 200 500
 setv ov00 7
 mvto 22950 1822
 
@@ -225,47 +225,47 @@ mvto 22950 1822
 
 *
 ** Upper mother tree elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 8
 mvto 25255 879
 *
 ** Lower mother tree elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 8
 mvto 25255 1170
 *
 ** Upper left elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 10
 mvto 23962 181
 *
 ** Middle left (corridor) elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 10
 mvto 23962 472
 *
 ** Lower left elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 10
 mvto 23962 873
 
 *
 ** Middle right statue elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 11
 mvto 24465 880
 *
 ** Lower right statue elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 11
 mvto 24465 1380
 *
 ** Earthblob upper elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 14
 mvto 25693 1163
 ** Earthblob elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 100
+new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
 setv ov00 14
 mvto 25693 1531
 

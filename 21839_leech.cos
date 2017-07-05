@@ -1,0 +1,255 @@
+**
+** Piranha
+**
+**
+
+*
+** Fish creator script
+scrp 2 16 21839 1000
+	frat 4
+	attr 195
+	elas 50
+	accg 0
+	aero 60
+* set ov10 (direction) to -1 or 1.
+	loop
+		setv ov10 rand -1 1
+	untl ov10 ne 0
+	perm 60
+	tick rand 6 10
+	setv ov02 rand 200 600
+	setv ov61 50
+	mvto _p1_ _p2_
+endm
+
+
+*
+** Fish timer script
+scrp 2 16 21839 9
+	tick rand 8 14
+** Check if out of water
+	doif rtyp room targ ne 8 and rtyp room targ ne 9
+** increase out of water timer ov99
+		addv ov99 1
+** Fall down
+		accg 4
+		aero 10
+		setv vely 3
+
+		wait 10
+** If still not in water
+** splash on side
+		doif rtyp room targ ne 8 and rtyp room targ ne 9
+**sndc "fish"
+			anim [0 2 255]
+			accg 4
+			aero 10
+			loop
+				wait 1
+			untl fall eq 0
+** Splash up/down/left/right
+			velo rand -5 5 rand -10 -5
+** if on land for 20 turns, u ded.
+			doif ov99 ge 20
+				stpc
+				anim []
+				wait 30
+				kill ownr
+			endi
+			stop
+		endi
+	else
+** if in water, reset out of water timer ov99 and float
+		setv ov99 0
+		accg 0
+		aero 0
+	endi
+
+
+** Do this randomly 1 in 10 times.
+	doif rand 0 19 eq 0 and base ne 0
+		rnge 1800
+		doif carr eq null
+			inst
+			setv va20 0
+** check for fish
+			esee 2 16 21839
+				addv va20 1
+			next
+** check for eggs
+			esee 2 18 21839
+				addv va20 1
+			next
+** if total less than/equal to 15
+			doif va20 le 15
+
+				rnge 600
+				inst
+				setv va20 0
+** check for fish
+				esee 2 16 21839
+					addv va20 1
+				next
+** check for eggs
+				esee 2 18 21839
+					addv va20 1
+				next
+				doif va20 le 7
+
+
+** lay an egg
+					setv va00 posl
+					setv va01 post
+					new: simp 2 18 21839 "gp_crayleech_JESS" 1 32 10
+					attr 192
+					elas 0
+					fric 100
+					setv ov55 2
+					doif tmvt va00 va01 ne 1
+						kill targ
+						stop
+					endi
+					mvto va00 va01
+					tick rand 100 600
+				endi
+				slow
+				targ ownr
+			endi
+		endi
+	endi
+
+** check for obstacle left and moving left
+	doif obst left lt 25 and ov10 lt 0
+		negv ov10
+	endi
+** check for obstacle right and moving right
+	doif obst rght lt 25 and ov10 gt 0
+		negv ov10
+	endi
+
+** if moving left, animate lefty
+	doif ov10 lt 0
+		setv velx rand -1 -3
+		anim [0 1 2 1 255]
+	else
+** if moving right, animate righty
+		setv velx rand 1 3
+		anim [4 5 6 5 255]
+	endi
+
+** set vertical velocity randomly
+
+	setv va50 posx
+	setv va51 posy
+	subv va51 15
+	setv vely rand -1 1
+	doif grap va50 va51 ne -1
+		doif rtyp grap va50 va51 ne 8 and rtyp grap va50 va51 ne 9
+			setv vely rand 0 1
+		endi
+	endi
+
+	subv ov02 1
+** If tiny, grow
+	doif ov02 le 300 and base eq 0
+		base 8
+	endi
+** If life force up, ded
+	doif ov02 le 0
+		velo 0 0
+		frat 40
+		doif ov10 lt 0
+			anim [3 3 3 3]
+		else
+			anim [7 7 7 7]
+		endi
+		over
+		inst
+** add nutrients to room
+		doif room targ <> -1
+			altr room targ 4 0.1
+			altr room targ 3 0.1
+		endi
+		kill ownr
+	endi
+
+endm
+
+** Egg timer script
+scrp 2 18 21839 9
+** grow
+	doif ov55 gt 0
+		subv ov55 1
+	else
+		setv va00 posl
+		setv va01 post
+		subv va01 8
+		subv va00 8
+
+** Create fish
+		inst
+		new: simp 2 16 21839 "gp_crayleech_JESS" 16 33 1000
+		frat 4
+		attr 195
+		elas 50
+		accg 0
+		setv ov10 rand 0 1
+		doif ov10 eq 0
+			setv ov10 -1
+		endi
+		perm 60
+		setv va99 0
+		setv va98 0
+** Try to find a safe spot to move fish
+		loop
+			doif tmvt va00 va01 ne 1
+				addv va00 1
+				addv va99 1
+			else
+				setv va99 32
+				setv va98 1
+			endi
+		untl va99 ge 32
+
+** If this fails, KILL
+		doif va98 eq 0
+			kill targ
+		else
+** If it succeeds, move the new fish to its new biome. <3
+			tick rand 6 7
+			setv ov02 400
+
+			setv ov61 50
+			mvto va00 va01
+		endi
+		kill ownr
+
+
+	endi
+endm
+
+** On egg pickup
+scrp 2 16 12839 4
+	setv ov99 1
+endm
+
+** On egg drop
+scrp 2 16 21839 5
+	setv ov99 0
+endm
+
+
+
+**
+** Removal script
+**
+
+rscr
+enum 2 16 21839
+	kill targ
+next
+enum 2 18 21839
+	kill targ
+next
+scrx 2 16 21839 9
+scrx 2 16 21839 6

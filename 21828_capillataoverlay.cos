@@ -1,0 +1,875 @@
+**
+**
+** Grendel pack project
+** Range: 21800 - 21899
+**
+**
+
+**
+** Metarooms:
+** Grendelbia
+** Grendel meso
+** Grendel desert
+** Grendel hideout
+**
+** Addon metarooms:
+** Capillata overlay
+
+
+*
+** Capillata extension
+*
+
+** Overlay
+
+* Check if overlay exists
+rtar 1 1 21828
+doif targ eq null
+
+* If not:
+
+*
+** Create the agent
+*	Part 1: upper overlay
+	new: comp 1 1 21828 "gp_capillata_overlay_JESS" 1 0 1
+*	part 2: upper overlay image
+	pat: dull 2 "gp_capillata_overlay_JESS" 1 -78 447 0
+*	part 3: button
+	pat: butt 3 "gp_capillata_overlay_JESS" 11 2 474 490 2 [1] 0 0
+*	part 4: left overlay
+	pat: dull 4 "gp_capillata_overlay_JESS" 4 -77 612 8300
+*	part 5: right overlay
+	pat: dull 5 "gp_capillata_overlay_JESS" 5 865 612 8300
+*	part 6: bubble animation
+	pat: dull 6 "gp_capillata_overlay_JESS" 6 100 490 1
+*	part 7: type indicator (fresh/salt/air)
+	pat: dull 7 "gp_capillata_overlay_JESS" 13 473 468 1
+
+
+** Move into place
+	attr 0
+	bhvr 0
+	mvto 2146 8732
+
+** animate button (to reset animation after hover)
+	part 3
+	anim [0]
+
+** animate bubbles
+	part 6
+	frat 4
+	anim [0 1 2 3 4 255]
+
+** set correct pose for icon
+	part 7
+	pose 2
+
+* Capillata metaroom variable
+	setv ov00 gmap 2625 8940
+
+* Abovedoors - floor
+	setv ov01 grap 2518 8940
+	setv ov02 grap 2625 8940
+	setv ov03 grap 2732 8940
+	setv ov12 grap 2418 8940
+	setv ov13 grap 2832 8940
+
+* Floorlevel
+	setv ov07 grap 2518 9070
+	setv ov08 grap 2625 9070
+	setv ov09 grap 2732 9070
+	setv ov14 grap 2418 9070
+	setv ov15 grap 2832 9070
+
+	setv ov18 grap 2318 9070
+	setv ov19 grap 2932 9070
+
+* Nexttodoors
+	setv ov16 grap 2318 8940
+	setv ov17 grap 2935 8940
+
+	setv ov20 grap 2271 8940
+	setv ov21 grap 3000 8940
+
+
+	doif grap 2400 8780 eq -1
+		setv va20 addr ov00 2384 2481 8760 8760 8878 8878
+		setv va21 addr ov00 2481 2574 8760 8760 8878 8880
+		setv va22 addr ov00 2574 2684 8760 8760 8880 8882
+		setv va23 addr ov00 2684 2887 8760 8760 8882 8882
+		setv va24 addr ov00 2287 2384 8840 8760 8913 8878
+		setv va25 addr ov00 2887 2980 8760 8840 8882 8908
+		setv va26 addr ov00 2197 2245 9212 9212 9326 9360
+		setv va27 addr ov00 2197 2245 9326 9360 9540 9542
+		setv va28 addr ov00 2245 2438 9212 9212 9360 9366
+		setv va29 addr ov00 2245 2438 9360 9366 9542 9544
+		setv va30 addr ov00 2438 2829 9212 9212 9544 9546
+		setv va31 addr ov00 2829 3009 9212 9212 9367 9352
+		setv va32 addr ov00 2829 3009 9367 9352 9546 9547
+		setv va33 addr ov00 3009 3054 9212 9212 9352 9337
+		setv va34 addr ov00 3009 3054 9352 9337 9547 9547
+		setv va35 addr ov00 2100 2197 9440 9361 9525 9540
+		setv va36 addr ov00 3054 3134 9370 9444 9547 9530
+	else
+		setv va20 grap 2390 8780
+		setv va21 grap 2490 8780
+		setv va22 grap 2590 8780
+		setv va23 grap 2690 8780
+		setv va24 grap 2290 8850
+		setv va25 grap 2900 8770
+		setv va26 grap 2200 9220
+		setv va27 grap 2200 9330
+		setv va28 grap 2250 9220
+		setv va29 grap 2250 9370
+		setv va30 grap 2440 9220
+		setv va31 grap 2832 9220
+		setv va32 grap 2832 9370
+		setv va33 grap 3012 9220
+		setv va34 grap 3010 9355
+		setv va35 grap 2105 9445
+		setv va36 grap 3060 9400
+	endi
+** Upper part
+	setv ov11 va20
+	setv ov04 va21
+	setv ov05 va22
+	setv ov06 va23
+	setv ov22 va24
+	setv ov23 va25
+** Lower part
+	setv ov24 va26
+	setv ov25 va27
+	setv ov26 va28
+	setv ov27 va29
+	setv ov28 va30
+	setv ov29 va31
+	setv ov30 va32
+	setv ov31 va33
+	setv ov32 va34
+	setv ov33 va35
+	setv ov34 va36
+
+endi
+
+* Set the alpha channel
+alph 256 0
+
+* Set the doors
+door ov01 ov04 100
+door ov02 ov05 100
+door ov03 ov06 100
+door ov12 ov14 100
+door ov13 ov15 100
+
+door ov01 ov07 0
+door ov02 ov08 0
+door ov03 ov09 0
+door ov12 ov14 0
+door ov13 ov15 0
+door ov16 ov18 0
+door ov17 ov19 0
+
+door ov16 ov20 0
+door ov17 ov21 0
+
+door ov24 ov25 0
+door ov26 ov27 0
+door ov29 ov30 0
+door ov31 ov32 0
+
+* Set the room types
+rtyp ov24 8
+rtyp ov25 8
+rtyp ov26 8
+rtyp ov27 8
+rtyp ov28 8
+rtyp ov29 8
+rtyp ov30 8
+rtyp ov31 8
+rtyp ov32 8
+rtyp ov33 8
+rtyp ov34 8
+
+**
+** Lifts
+**
+
+**
+** ELEVINE PLACEHOLDERS
+**
+**
+
+*
+** Upper capillata platform
+new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
+setv ov00 60
+mvto 2413 8877
+setv va00 room targ
+*
+** Capillata ground floor
+new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
+setv ov00 60
+mvto 2413 9065
+setv va01 room targ
+*
+** Capillata lower elevine
+new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
+setv ov00 60
+mvto 2413 9438
+setv va02 room targ
+
+*
+** Elevine activator script
+new: simp 3 1 21844 "blnk" 1 0 100
+tick 10
+
+*
+** CA links
+link va00 va01 80
+link va01 va02 80
+
+
+********************
+**    Scripts     **
+********************
+
+**
+** Room flooder
+**
+
+scrp 1 1 21828 1
+	mesg writ pntr 101
+	part 2
+	doif pose eq 0
+		rtyp ov24 9
+		rtyp ov25 9
+		rtyp ov26 9
+		rtyp ov27 9
+		rtyp ov28 9
+		rtyp ov29 9
+		rtyp ov30 9
+		rtyp ov31 9
+		rtyp ov32 9
+		rtyp ov33 9
+		rtyp ov34 9
+		pose 1
+		part 6
+		alph 256 0
+		frat 5
+		part 7
+		pose 1
+	elif pose eq 1
+
+		rtyp ov24 3
+		rtyp ov25 3
+		rtyp ov26 3
+		rtyp ov27 3
+		rtyp ov28 3
+		rtyp ov29 3
+		rtyp ov30 3
+		rtyp ov31 3
+		rtyp ov32 3
+		rtyp ov33 3
+		rtyp ov34 3
+		pose 2
+		part 6
+		alph 256 1
+		part 7
+		pose 0
+	else
+		rtyp ov24 8
+		rtyp ov25 8
+		rtyp ov26 8
+		rtyp ov27 8
+		rtyp ov28 8
+		rtyp ov29 8
+		rtyp ov30 8
+		rtyp ov31 8
+		rtyp ov32 8
+		rtyp ov33 8
+		rtyp ov34 8
+		pose 0
+		part 6
+		alph 256 0
+		frat 4
+		part 7
+		pose 2
+	endi
+endm
+
+
+
+
+
+*
+*
+** Change some existing things
+*
+*
+
+**
+** Note: this is an existing script. It allows for norns to move through without errors.
+**
+**
+
+**comms -> centre hub door - push
+scrp 2 2 24 1
+	inst
+** stim with "wait"
+	stim writ from 75 1
+	lock
+*	clear 'change metaroom' signal	
+	setv va99 0
+*	check who gave signal
+	targ from
+*	check if its the pointer
+	doif targ eq pntr
+*		flag meta room change needed
+		setv va99 1
+	endi
+*	only pay attention if from a creature
+	doif fmly eq 4
+*		if its a norn
+		doif gnus eq 1
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 4
+			doif va00 eq 4
+*			if norns are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+*		if its a grendel
+		elif gnus eq 2
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 1
+			doif va00 eq 1
+*			if grendels are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+*		if its an ettin		
+		elif gnus eq 3
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 2
+			doif va00 eq 2
+*			if ettins are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+		endi
+	endi
+	sndc "doro"
+*	check your neighbour door
+	rtar 2 2 26
+	doif targ ne null
+		doif ov00 eq 1
+			stop
+		else
+*			store X Y location
+			setv va00 posx
+			setv va01 posb
+*			store metaroom number
+			setv va02 gmap va00 va01
+*		otherwise animate		
+			mesg writ targ 1
+		endi
+	endi
+	targ ownr
+*	flag you are open
+	setv ov00 1
+*	turn off the lock lights
+	part 1
+	pose 0
+	part 2
+	pose 0
+	part 3
+	pose 0
+*	animate the door
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 11]
+	over
+***************************
+** Only transfers all touching creatures if the pointer activated the door,
+** if it wasn't the pointer then it only transfers the creature that touched it.
+	inst
+	doif from = pntr
+		etch 4 0 0
+			doif targ <> hhld and carr = null and aslp = 0 and dead = 0
+				mvft 2628 9181
+				stim writ targ 95 1
+			endi
+		next
+	else
+		doif touc ownr from = 1
+			inst
+			doif from <> null
+				targ from
+				mvft 2628 9181
+				stim writ targ 95 1
+				setv va99 0
+			endi
+		endi
+	endi
+	targ ownr
+*	if meta change wanted
+	doif va99 eq 1
+		inst
+		subv va00 100
+		subv va01 250
+		doif hhld eq null
+			meta va02 va00 va01 0
+			slow
+		endi
+	endi
+	targ ownr
+	anim [12 11 10 9 8 7 6 5 4 3 2 1 0]
+	over
+***************************
+*	sort out your lock icons
+*		grendels locked?
+	setv va00 ov01
+	andv va00 1
+	doif va00 eq 1
+		part 1
+		pose 2
+	else
+		part 1
+		pose 1
+	endi
+*		ettins locked?
+	setv va00 ov01
+	andv va00 2
+	doif va00 eq 2
+		part 2
+		pose 2
+	else
+		part 2
+		pose 1
+	endi
+*		grendels locked?
+	setv va00 ov01
+	andv va00 4
+	doif va00 eq 4
+		part 3
+		pose 2
+	else
+		part 3
+		pose 1
+	endi
+
+*	reset your movement flag
+	setv ov00 0
+
+
+endm
+
+
+
+
+
+****** Workshop to Right Hub Door  - Push
+scrp 2 2 23 1
+	lock
+	inst
+** stim with "wait"
+	stim writ from 75 1
+*	clear 'change metaroom' signal	
+	setv va99 0
+*	check who gave signal
+	targ from
+*	check if its the pointer
+	doif targ eq pntr
+*		flag metaroom change
+		setv va99 1
+	endi
+*	only pay attention if from a creature
+	doif fmly eq 4
+*		if its a norn
+		doif gnus eq 1
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 4
+			doif va00 eq 4
+*			if norns are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+*		if its a grendel
+		elif gnus eq 2
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 1
+			doif va00 eq 1
+*			if grendels are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+*		if its an ettin		
+		elif gnus eq 3
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 2
+			doif va00 eq 2
+*			if ettins are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+		endi
+	endi
+	sndc "doro"
+*	check your neighbour door
+	rtar 2 2 27
+	doif targ ne null
+		doif ov00 eq 1
+			stop
+		else
+*			store X Y location
+			setv va00 posx
+			setv va01 posy
+*			store metaroom number
+			setv va02 gmap va00 va01
+*		otherwise animate		
+			mesg writ targ 1
+		endi
+	endi
+	targ ownr
+*	flag you are open
+	setv ov00 1
+*	turn off the lock lights
+	part 1
+	pose 0
+	part 2
+	pose 0
+	part 3
+	pose 0
+*	animate the door
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12]
+	over
+***************************
+** Only transfers all touching creatures if the pointer activated the door,
+** if it wasn't the pointer then it only transfers the creature that touched it.
+	inst
+	doif from = pntr
+		etch 4 0 0
+			doif targ <> hhld and carr = null and aslp = 0 and dead = 0
+				mvft 2980 9179
+				stim writ targ 95 1
+			endi
+		next
+	else
+		doif touc ownr from = 1
+			inst
+			doif from <> null
+				targ from
+				mvft 2980 9179
+				stim writ targ 95 1
+				setv va99 0
+			endi
+		endi
+	endi
+	targ ownr
+*	if meta change wanted
+	doif va99 eq 1
+		inst
+		subv va00 100
+		subv va01 250
+		doif hhld eq null
+			meta va02 va00 va01 0
+			slow
+		endi
+	endi
+	targ ownr
+	anim [12 11 10 9 8 7 6 5 4 3 2 1 0]
+	over
+***************************
+*	sort out your lock icons
+*		grendels locked?
+	setv va00 ov01
+	andv va00 1
+	doif va00 eq 1
+		part 1
+		pose 2
+	else
+		part 1
+		pose 1
+	endi
+*		ettins locked?
+	setv va00 ov01
+	andv va00 2
+	doif va00 eq 2
+		part 2
+		pose 2
+	else
+		part 2
+		pose 1
+	endi
+*		grendels locked?
+	setv va00 ov01
+	andv va00 4
+	doif va00 eq 4
+		part 3
+		pose 2
+	else
+		part 3
+		pose 1
+	endi
+
+*	reset your movement flag
+	setv ov00 0
+endm
+
+
+
+
+
+
+
+
+
+
+** Mesa => Hub - Push
+scrp 2 2 22 1
+	lock
+	inst
+** stim with "wait"
+	stim writ from 75 1
+*	clear 'change metaroom' signal	
+	setv va99 0
+*	check who gave signal
+	targ from
+*	check if its the pointer
+	doif targ eq pntr
+*		flag metaroom change
+		setv va99 1
+	endi
+*	only pay attention if from a creature
+	doif fmly eq 4
+*		if its a norn
+		doif gnus eq 1
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 4
+			doif va00 eq 4
+*			if norns are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+*		if its a grendel
+		elif gnus eq 2
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 1
+			doif va00 eq 1
+*			if grendels are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+*		if its an ettin		
+		elif gnus eq 3
+			targ ownr
+*		check your lock status
+			setv va00 ov01
+			andv va00 2
+			doif va00 eq 2
+*			if ettins are blocked then stop
+** 				Stim the from with disappointment (else they'll keep doing it)
+				inst
+				doif from <> null
+					stim writ from 0 1
+				endi
+				stop
+			endi
+		endi
+	endi
+	sndc "doro"
+*	check your neighbour door
+	rtar 2 2 25
+	doif targ ne null
+		doif ov00 eq 1
+			stop
+		else
+*			store X Y location
+			setv va00 posx
+			setv va01 posy
+*			store metaroom number
+			setv va02 gmap va00 va01
+*		otherwise animate		
+			mesg writ targ 1
+		endi
+	endi
+	targ ownr
+*	flag you are open
+	setv ov00 1
+*	turn off the lock lights
+	part 1
+	pose 0
+	part 2
+	pose 0
+	part 3
+	pose 0
+*	animate the door
+	part 0
+	anim [0 1 2 3 4 5 6 7 8 9 10 11 12]
+	over
+***************************
+** Only transfers all touching creatures if the pointer activated the door,
+** if it wasn't the pointer then it only transfers the creature that touched it.
+	inst
+	doif from = pntr
+		etch 4 0 0
+			doif targ <> hhld and carr = null and aslp = 0 and dead = 0
+				mvft 2287 9181
+				stim writ targ 95 1
+			endi
+		next
+	else
+		doif touc ownr from = 1
+			inst
+			doif from <> null
+				targ from
+				mvft 2287 9181
+				stim writ targ 95 1
+				setv va99 0
+			endi
+		endi
+	endi
+	targ ownr
+*	if meta change wanted
+	doif va99 eq 1
+		inst
+		subv va00 100
+		subv va01 250
+		doif hhld eq null
+			meta va02 va00 va01 0
+			slow
+		endi
+	endi
+	targ ownr
+	anim [12 11 10 9 8 7 6 5 4 3 2 1 0]
+	over
+***************************
+*	sort out your lock icons
+*		grendels locked?
+	setv va00 ov01
+	andv va00 1
+	doif va00 eq 1
+		part 1
+		pose 2
+	else
+		part 1
+		pose 1
+	endi
+*		ettins locked?
+	setv va00 ov01
+	andv va00 2
+	doif va00 eq 2
+		part 2
+		pose 2
+	else
+		part 2
+		pose 1
+	endi
+*		grendels locked?
+	setv va00 ov01
+	andv va00 4
+	doif va00 eq 4
+		part 3
+		pose 2
+	else
+		part 3
+		pose 1
+	endi
+
+*	reset your movement flag
+	setv ov00 0
+endm
+
+
+
+
+*
+*
+** Removal script
+*
+*
+
+rscr
+
+** eleplants
+enum 3 1 21844
+	doif ov00 eq 60
+		kill targ
+	endi
+next
+enum 3 1 21845
+	doif ov00 eq 60
+		kill targ
+	endi
+next
+
+** Capillata extension
+enum 1 1 21828
+	doif door ov01 ov07 eq 0
+		door ov12 ov16 100
+		door ov13 ov17 100
+		door ov01 ov07 100
+		door ov02 ov08 100
+		door ov03 ov09 100
+		door ov12 ov14 100
+		door ov13 ov15 100
+
+	endi
+	kill targ
+next
+
+enum 1 2 21828
+	link ov01 ov02 0
+	kill targ
+next
+enum 3 1 21828
+	kill targ
+next

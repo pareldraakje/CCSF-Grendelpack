@@ -1,0 +1,580 @@
+scrp 2 23 21812 1000
+*inject the dispenser and set properties:
+*new: simp 2 23 21812 "gp_goldfishies_JESS" 2 0 500
+
+	bhvr 11
+	attr 199
+	elas 10
+	aero 5
+	accg 10
+	fric 100
+*don't fall through floors!
+	perm 98
+	mvto _p1_ _p2_
+endm
+
+*dispenser hit script:
+scrp 2 23 21812 3
+	sndc "punc"
+*"I have hit!"
+	targ from
+	stim writ targ 92 1
+*reduce anger
+	driv 12 -0.5
+*reduce anger back up drive
+	chem 143 -0.5
+endm
+
+
+*dispenser pull script
+scrp 2 23 21812 2
+** "I have pulled a machine"
+	stim writ from 90 1
+endm
+
+
+*dispenser collision script
+scrp 2 23 21812 6
+	sndc "dr10"
+endm
+
+
+*activate dispenser:
+scrp 2 23 21812 1
+** "I have pushed a machine"
+	stim writ from 90 1
+
+	sndc "gulp"
+*make dispenser open:
+	pose 1
+*lock to ignore further pushes until an egg is dispensed:	
+	lock
+
+*vend fish eggs:
+	setv va00 posx
+*vend egg from the dispenser's mouth with 'post':	
+	setv va01 post
+
+	new: simp 2 18 21812 "gp_goldfishies_JESS" 1 2 501
+
+	bhvr 48
+	attr 195
+	elas 40
+	aero 2
+	accg 1
+	perm 98
+	fric 100
+
+*set variable ov03 = egg's time out of water:
+	setv ov03 0
+
+	mvsf va00 va01
+
+	tick 150
+
+*make the dispenser 'spit out' eggs!
+	velo rand -5 5 rand -5 -10
+
+*time delay before the dispenser closes:
+	wait 15
+
+	targ ownr
+
+*and close dispenser:	
+	pose 0
+endm
+
+* egg creator script
+scrp 2 18 21812 1000
+*	new: simp 2 18 21812 "gp_goldfishies_JESS" 1 2 501
+	bhvr 48
+	attr 195
+	elas 40
+	aero 2
+	accg 1
+	perm 98
+	fric 100
+*set variable ov03 = egg's time out of water:
+	setv ov03 0
+	mvsf _p1_ _p2_
+endm
+
+*egg eat script
+scrp 2 18 21812 12
+	sndc "chwp"
+** "I have eaten protein and fat"
+	stim writ from 79 1
+*****GH says: eggs disappear once eaten ;)
+	kill ownr
+endm
+
+
+*egg timer script:
+scrp 2 18 21812 9
+	doif carr eq null and fall eq 0
+*check room type (8 = freshwater only)
+		doif rtyp room ownr = 8
+			wait rand 10 40
+*sets horizontal and vertical position for the egg:
+			setv va00 posl
+			setv va01 post
+*make sure the population isn't too dense already
+			rnge 1000
+			setv ov00 0
+*classifier for the goldfish here:			
+			esee 2 15 21812
+				addv mv00 1
+			next
+*ov00 uses ESEE to search for fully-grown fish and counts how many it finds:			
+			doif ov00 lt 10
+*****GH says: this bit picks which kind of goldfish it's going to be... comet(?),
+*****panda moor or pearlscale. It also locks the script so Creatures can't interfere.
+				lock
+				setv va98 rand 1 3
+				doif va98 eq 1
+*					va99 = starting sprite
+					setv va99 3
+				elif va98 eq 2
+					setv va99 51
+				else
+					setv va99 99
+				endi
+
+*install goldfish script:
+				new: simp 2 15 21812 "gp_goldfishies_JESS" 16 va99 rand 150 650
+*goldfish properties:
+				bhvr 48
+				attr 195
+				accg 0
+				elas 0.5
+***** GH says: I reset the perm to 0 so that the fish won't beach itself in areas like the
+***** Norn Terrarium pond.
+** Pilla says: nope.
+				perm 80
+
+				mvsf va00 va01
+
+*variables: ov00 = lifespan
+************ov01 = time out of water 
+************ov02 = which direction the goldfish is facing
+************ov04 = check if the goldfish is dead or not
+************ov05 = how much the goldfish has grown over time
+************ov06 = what lifestage the goldfish is at				
+				setv ov00 0
+				setv ov01 0
+				setv ov02 0
+				setv ov04 0
+				setv ov05 0
+				setv ov06 0
+*****GH says: ov07 = has the fish laid eggs yet; ov09 = if it will become jumbo or not
+*****ov10 is a reference to any agent the fish might want to eat
+				setv ov07 0
+				setv ov09 0
+				seta ov10 null
+*****GH says: we check va98 again because we're saving a reference to the fish's color.
+*****ov08 keeps track of the color so that the fish won't change color as they age.
+***************I'm sticking with the order these colors appear in the sprite file:
+***************0 = comet, 1 = panda moor, 2 = pearlscale
+				doif va98 eq 1
+					setv ov08 0
+				elif va98 eq 2
+					setv ov08 1
+				else
+					setv ov08 2
+				endi
+
+				tick 15
+
+				targ ownr
+
+*****GH says: the egg disappears after the fish has hatched
+				kill ownr
+			else
+				addv ov11 1
+				doif ov11 > 5
+					kill ownr
+				endi
+			endi
+		endi
+	else
+*check to see if the eggs in freshwater or not:		
+		addv ov03 1
+*check to see if ov03 (egg's time out of water) is equal to 8 or greater:		
+		doif ov03 >= 8
+*if it is, the egg gets it! >:D		
+			kill ownr
+		endi
+	endi
+endm
+
+
+*goldfish timer script:
+scrp 2 15 21812 9
+***** GH says: this shouldn't be necessary, but it's a precaution since the fish was
+***** having a weird error earlier and I haven't figured out why yet.
+	targ ownr
+
+*add 1 to its lifespan:
+*****	GH says: we do this outside the repeated section, else the fish would age 3x as fast
+	addv ov00 1
+
+***** GH says: we repeat this chunk 3x every time the timer script runs
+	reps 3
+*check if the goldfish is alive or not:
+		doif ov04 = 0
+*check if the goldfish is in freshwater (room type 8) or not:
+			doif rtyp room ownr = 8
+*and set its 'time out of water' variable back to 0:
+				setv ov01 0
+				accg 0
+
+*****GH says: wethe plant-munching code is in its own subroutine, to keep things tidy
+				gsub plant
+
+***fish swimming:
+
+*give goldfish 1 in 5 chance of randomly changing its direction:			
+				doif rand 1 5 = 5
+*change the direction variable to randomly be 0 (right) or 1 (left):
+					setv ov02 rand 0 1
+				endi
+*get left position, right position, and vertical position of this fish
+				setv va00 posl
+				setv va01 posr
+				setv va02 posy
+*get space around the fish: 50 pixels to the left and 50 pixels to the right
+				subv va00 50
+				addv va01 50
+*GRAP gets the room ID at a certain location
+*we're checking to make sure there's a valid room to the left and right of the fish
+				doif grap va00 va02 eq -1
+*if there isn't, it will say -1 instead of a room ID, so we'll tell the fish not to go that way
+					setv ov02 0
+				endi
+				doif grap va01 va02 eq -1
+					setv ov02 1
+				endi
+*if the direction is 0, it'll run the subroutine 'right', otherwise it run the subroutine 'left':
+				doif ov02 = 0
+*and we call the subroutine 'right', because the fish is facing right:			
+					gsub right
+				else
+*and the subroutine 'left', because the fish is facing left:			
+					gsub left
+				endi
+
+*****GH says: is the fish ready to grow up?
+*****A fish lives about 10 minutes, so its lifespan (ov00) should be about 800 when it
+*****dies. It technically has three life stages, so we'll say it grows at regular
+*****intervals. Adult when it's 250, giant (possibly) when it's 500, and it dies at 800.
+*****So this checks if the lifespan has hit 250 and the fish hasn't grown yet
+				doif ov00 ge 125 and ov06 eq 0
+					gsub grow
+				endi
+
+*****GH says: can the fish give birth?
+*****We'll give it maybe 5 intervals since it reached adulthood before it checks this.
+*****We also check ov07 to see if it has laid eggs yet.
+				doif ov00 ge 300 and ov07 eq 0
+					gsub birth
+				endi
+
+*****GH says: the fish might become the jumbo variety at this point
+*****We check the fish's age (ov00), life stage (ov06) and if it can become that big
+*****or not (ov09). The actual code works the same as when the fish becomes an adult.
+				doif ov00 ge 500 and ov06 eq 1 and ov09 ge 10
+					gsub grow
+				endi
+
+*****GH says: has the goldfish reached the end of its lifespan?
+*****Not much else to see here. Just run the death subroutine.
+				doif ov00 ge 800
+					gsub death
+				endi
+			else
+*if the goldfish isn't in freshwater, add 1 to its 'time out of water' variable:
+				addv ov01 1
+***** GH says: and give it a little velocity so it falls
+				accg 4
+				velo 0 2
+*check to see if ov01 is equal to 24 or greater:
+				doif ov01 >= 24
+*If so, the goldfish has been out of the water for too long and dies.
+					gsub death
+				endi
+			endi
+		else
+*if the goldfish is dead, call the death subroutine:	
+			gsub death
+		endi
+	repe
+
+*goldfish death subroutine >:)
+	subr death
+*lock the goldfish, so nothing eats it or interferes with it being dead:
+		lock
+
+		setv ov04 1
+
+*check to see if the goldfish is in freshwater or not:
+		doif rtyp room ownr = 8
+*if in water, set VELO to 0 (no horizontal movement), with a value of -2, so they float upwards!
+			velo 0 -2
+		else
+*and if the goldfish isn't in water:
+			velo 0 4
+		endi
+
+*check to see if POSE is equal to 6 or 14 ('belly up' sprite):
+		doif pose = 6 or pose = 14
+*if the POSE is 6, add 1 to make it 7 or 15 ('fade out' sprite):
+			setv va00 pose
+			addv va00 1
+			pose va00
+*check to see if POSE is equal to 7:
+		elif pose = 7 or pose = 15
+			kill ownr
+		else
+			doif ov02 = 0
+				pose 6
+			else
+*GH says: 14, not 15
+				pose 14
+			endi
+		endi
+		unlk
+	retn
+
+*goldfish birth subroutine:
+	subr birth
+		lock
+*make sure the population isn't too dense already
+		rnge 1000
+		setv ov11 0
+*classifier for the goldfish here:			
+		esee 2 15 21812
+			doif targ ne null
+				addv mv11 1
+			endi
+		next
+*ov00 uses ESEE to search for fully-grown fish and counts how many it finds:			
+		doif ov11 lt 10
+
+*****GH says: adding possibility that the fish lays more than one egg...
+*****otherwise they will keep their own numbers stable, but their
+*****population will never grow naturally.
+			reps rand 1 3
+*create fish eggs:
+				setv va10 posx
+				setv va11 posy
+
+				new: simp 2 18 21812 "gp_goldfishies_JESS" 1 2 501
+
+				bhvr 48
+				attr 195
+				elas 40
+				aero 2
+				accg 1
+				perm rand 50 51
+				fric 100
+
+*set variable ov03 = egg's time out of water:
+				setv ov03 0
+
+				mvsf va00 va01
+
+				tick 150
+				targ ownr
+			repe
+
+		endi
+		unlk
+	retn
+
+***** GH says: the fish were swimming into the floor a lot, so I added this to make sure
+***** they don't "floorbonk". This works just like the part that checks for walls to the
+***** left and right, except it's only looking down, and doesn't look quite as far.
+	subr floor
+		setv va97 rand -2 2
+		setv va00 posx
+		setv va01 posy
+		addv va01 10
+		doif grap va00 va01 eq -1
+			setv va97 -1
+		endi
+	retn
+
+*goldfish swimming left subroutine
+	subr left
+		gsub floor
+*swim randomly up and down:
+		velo rand -4 -2 va97
+*animate:
+		anim [9 10 11 12 13 8]
+		over
+	retn
+
+*goldfish swimming right subroutine
+	subr right
+		gsub floor
+*swim randomly up and down:
+		velo rand 4 2 va97
+*animate:
+		anim [1 2 3 4 5 0]
+		over
+	retn
+
+*****GH's plant-munching subroutine
+	subr plant
+*		lock, because we're interacting with other agents and don't want to be
+*		interrupted!
+		lock
+		inst
+		seta ov10 null
+
+*		check for seeds we might want to eat
+		etch 2 3 0
+*			does it really exist?
+			doif targ ne null
+*				if it's a water weed bud
+				doif spcs eq 14870
+*					we have a 1 in 15 chance of eating a bud we came across
+*					on our own, to (hopefully) keep us from driving the plant
+*					to extinction. But if it is being held by the hand (carr
+*					eq pntr), the player is probably trying to feed it to us
+					doif carr ne null and carr eq pntr
+						seta mv10 targ
+					else
+						doif rand 1 15 eq 15
+							seta mv10 targ
+						endi
+					endi
+				endi
+			endi
+		next
+		targ ownr
+
+*		if we found a seed, we're going to eat it
+		doif ov10 ne null
+*			chomp!
+			sndc "chwp"
+*			goodbye seed!
+			targ ov10
+			doif targ ne null
+				kill targ
+			endi
+			targ ownr
+*			we no longer see it, it is in our belly
+			seta ov10 null
+*			now we can grow up to be big and strong
+			addv ov09 1
+		endi
+
+*		this is just to be on the safe side
+		seta ov10 null
+		targ ownr
+
+*		done, don't need to be locked anymore
+		slow
+		unlk
+	retn
+
+***** GH says: we can't use BASE because the engine is unreliable in how and when it will
+***** use it. So we're going to do what most critters do and 'switch out' the younger fish.
+***** Basically the same as an egg creating a fish and then disappearing... except the
+***** creator is the young fish and the created agent is the next life stage.
+	subr grow
+		lock
+*		This bit makes sure we're grabbing the sprites for the right color.
+		doif ov08 eq 0
+			setv va02 19
+		elif ov08 eq 1
+			setv va02 67
+		else
+			setv va02 115
+		endi
+
+*		Oh, were we making this fish jumbo instead of adult? Then adjust that number.
+		doif ov06 eq 1
+			addv va02 16
+		endi
+
+*		Get the young fish's location
+		setv va00 posx
+		setv va01 posy
+
+*		Now create the new fish
+		new: simp 2 15 21812 "gp_goldfishies_JESS" 16 va02 rand 150 650
+		bhvr 48
+		attr 195
+		accg 0
+		elas 0.5
+		perm 0
+
+*		we copy over all of the younger fish's variables
+*		ovXX controls the TARG agent's permanent variables, while mvXX controls the
+*		OWNR agent's permanent variables, so we just tell the TARG to use what OWNR has
+		setv ov00 mv00
+		setv ov01 mv01
+		setv ov02 mv02
+		setv ov04 mv04
+		setv ov05 mv05
+		setv ov06 mv06
+*		...but we do tell the new fish it's going to be 1 life stage older
+		addv ov06 1
+		setv ov07 mv07
+		setv ov08 mv08
+		setv ov09 mv09
+		seta ov10 mv10
+
+		mvsf va00 va01
+
+		tick 15
+
+		targ ownr
+		unlk
+		kill ownr
+	retn
+endm
+
+
+*goldfish drop script:
+scrp 2 15 21812 5
+	doif rtyp room ownr = 8
+		accg 0
+	else
+		accg 4
+		velo 0 2
+	endi
+endm
+
+
+*goldfish eat script
+scrp 2 15 21812 12
+	sndc "chwp"
+** 'I have eaten a protein-rich critter'
+	stim writ from 80 1
+	kill ownr
+endm
+
+
+*remove script:
+rscr
+enum 2 23 21812
+	kill targ
+next
+enum 2 18 21812
+	kill targ
+next
+enum 2 15 21812
+	kill targ
+next
+scrx 2 23 21812 1
+scrx 2 23 21812 3
+scrx 2 23 21812 2
+scrx 2 23 21812 6
+scrx 2 18 21812 12
+scrx 2 18 21812 9
+scrx 2 15 21812 9
+scrx 2 15 21812 5
+scrx 2 15 21812 12

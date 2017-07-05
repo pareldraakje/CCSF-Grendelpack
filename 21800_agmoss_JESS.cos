@@ -31,8 +31,8 @@
 **
 ** The vendor!
 **
-new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+*new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 
@@ -678,6 +678,7 @@ scrp 2 3 21800 9
 ** Check whether the attributes have already been set
 	doif attr le 2
 ** If not, add attributes and throw the seed somewhere random.
+inst
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
 		attr 194
 ** Will go through some walls
@@ -689,8 +690,10 @@ scrp 2 3 21800 9
 		elas 30
 ** Change pose and launch seed
 		pose 2
+		mvsf posx posy
 		velo rand -8 8 rand -10 -3
 		tick rand 50 150
+
 	else
 ** Attributes have been set 
 ** Check if the seed has settled

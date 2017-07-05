@@ -1,0 +1,318 @@
+*
+* Remarks
+*
+* Selected creature changed: script 120
+*
+* Maybe have an icon that shows the current drives&strengths?
+* Maybe have an "alert" of some kind if the creature is sick, and a button to heal?
+* Maybe it could be folded up some kind of machine with a button that is either static and "embedded" somewhere in the meso/mother room. When 'unlocked' it could float relative to the screen, until locked again, when it would return to the meso/mother.
+*
+
+*List of Module Parts
+*====================
+*1  to 19 : Menu buttons & the main module.
+*20 to 49 : Drives Module
+*50 to 59 : Bacteria Module
+*60 to 79 : Toxin Module
+*80 to 99 : Fertility Module
+*
+*
+*Menu Buttons & Main Module (1 to 19)
+*==================================== 
+
+new: comp 1 2 21842 "gp_chemtool_PILLA" 1 0 700
+attr 16
+
+*PART 1 Button CLOSE VIEW
+*PART 2 Dull MENU
+pat: butt 2 "mediscreen" 20 1 0 0 1 [] 0 0
+*PART 3 Button MENU BUTTONCHEM (1001)
+pat: butt 3 "gp_chemtool_PILLA" 9 2 76 -6 1 [1] 1001 0
+*PART 4 Button MENU BUTTONGRAPH (1002)
+pat: butt 4 "gp_chemtool_PILLA" 11 2 18 -6 1 [1] 1002 0
+part 3
+anim [0]
+part 4
+anim [0]
+mvto 25368 90
+tick 1
+
+** Initialize/change timer
+scrp 1 2 21842 9
+endm
+
+** Module Part Creator / Killer
+scrp 1 2 21842 1006
+** This script expects two parameters which should have been sent from scripts 1001 to 1005.
+** Both are expected to be strings.
+** The first is the module that is currently being open.
+** The second is the module that is being opened.
+** The first one has all it's parts killed
+** The second one has all it's parts created.
+	lock
+	sets va00 _p1_
+	sets va01 _p2_
+	gsub kill_old
+	sets va00 va01
+	gsub kill_old
+	gsub create_new
+
+	subr kill_old
+		inst
+		doif va00 eq "chem"
+			setv va10 -1
+			setv va11 -1
+		elif va00 eq "graph"
+			setv va10 5
+			setv va11 17
+		endi
+
+		loop
+			doif va10 ne -1
+				pat: kill va10
+			endi
+			addv va10 1
+		untl va10 gt va11
+		slow
+	retn
+	subr create_new
+		inst
+		doif va01 eq "chem"
+		elif va01 eq "graph"
+*PART 5 Button Submenu GRAPH: GRAPHLIFE (1003)
+			pat: butt 5 "gp_chemtool_PILLA" 13 2 12 43 1 [1] 1003 0
+*PART 6 Button Submenu GRAPH: GRAPHSEX  (1004)
+			pat: butt 6 "gp_chemtool_PILLA" 15 2 45 43 1 [1] 1004 0
+*PART 7 Button Submenu GRAPH: GRAPHSICK (1005)
+			pat: butt 7 "gp_chemtool_PILLA" 17 2 78 43 1 [1] 1005 0
+*PART 8 Button Submenu GRAPH: GRAPHDRIV (1006)
+			pat: butt 8 "gp_chemtool_PILLA" 19 2 111 43 1 [1] 1006 0
+			part 5
+			anim [0]
+			part 6
+			anim [0]
+			part 7
+			anim [0]
+			part 8
+			anim [0]
+*PART 9 Ptxt submenu GRAPH: CUSTCHEM1 (1007)
+			pat: text 9 "gp_chemtool_PILLA" 21 11 84 1 1007 "WhiteOnTransparentChars"
+*PART 10 Ptxt submenu GRAPH: CUSTCHEM1 (1007)
+			pat: text 10 "gp_chemtool_PILLA" 22 11 118 1 1007 "WhiteOnTransparentChars"
+*PART 11 Ptxt submenu GRAPH: CUSTCHEM1 (1007)
+			pat: text 11 "gp_chemtool_PILLA" 23 11 154 1 1007 "WhiteOnTransparentChars"
+			part 9
+			frmt 106 3 10 3 0 0 2
+			part 10
+			frmt 106 3 10 3 0 0 2
+			part 11
+			frmt 106 3 10 3 0 0 2
+*PART 12 GRAPH grapchemtext
+			pat: fixd 12 "gp_chemtool_PILLA" 24 0 0 1 "GreyOnTransChars"
+			part 12
+			frmt 170 25 279 15 5 1 0
+* PART 13, 14, 15: GRAPH custom graphs
+			pat: fixd 13 "gp_chemtool_PILLA" 24 0 0 1 "GreyOnTransChars"
+			pat: fixd 14 "gp_chemtool_PILLA" 24 0 0 1 "GreyOnTransChars"
+			pat: fixd 15 "gp_chemtool_PILLA" 24 0 0 1 "GreyOnTransChars"
+			part 13
+			frmt 170 130 0 15 5 1 0
+			part 14
+			frmt 170 150 0 15 5 1 0
+			part 15
+			frmt 170 170 0 15 5 1 0
+* PART 16: GRAPH the graph!
+			pat: grph 16 "gp_chemtool_PILLA" 25 312 26 2 64
+
+			part 16
+			grpl 255 255 128 0.0 1.0
+			grpl 255 128 255 0.0 1.0
+			grpl 128 255 255 0.0 1.0
+			grpl 255 128 128 0.0 1.0
+			grpl 128 255 128 0.0 1.0
+			grpl 255 200 100 0.0 1.0
+			grpl 64 64 64 0.0 1.0
+			grpl 200 200 200 0.0 1.0
+			grpl 255 255 255 0.0 1.0
+
+		endi
+		slow
+	retn
+endm
+
+
+
+
+** Menu CHEM
+scrp 1 2 21842 1001
+	part 3
+	anim [1 255]
+	part 4
+	anim [0 255]
+	mesg wrt+ ownr 1006 "graph" "chem" 0
+endm
+
+** Menu GRAPH
+scrp 1 2 21842 1002
+	part 4
+	anim [1 255]
+	part 3
+	anim [0 255]
+	mesg wrt+ ownr 1006 "chem" "graph" 0
+endm
+
+** Menu GRAPH Graphlife 1003
+scrp 1 2 21842 1003
+	part 5
+	anim [1 255]
+	part 6
+	anim [0 255]
+	part 7
+	anim [0 255]
+	part 8
+	anim [0 255]
+
+	part 12
+	ptxt "<tint 255 255 128>Glycogen<tint>\n<tint 255 128 255>Protein<tint>\n<tint 128 255 255>Oxygen<tint>\n<tint 255 128 128>Energy<tint>\n<tint 128 255 128>ATP<tint>\n<tint 255 200 100>Life<tint>"
+
+	targ norn
+	doif crea targ eq 1
+		seta va10 targ
+		targ va10
+		setv va00 chem 4
+		setv va01 chem 11
+		setv va02 chem 30
+		setv va03 chem 34
+		setv va04 chem 35
+		setv va05 chem 125
+		targ ownr
+		part 9
+		setv va06 stoi ptxt
+		part 10
+		setv va07 stoi ptxt
+		part 11
+		setv va08 stoi ptxt
+		targ va10
+		setv va09 chem va06
+		setv va10 chem va07
+		setv va11 chem va08
+
+		targ ownr
+		part 16
+
+
+		grpv 0 va00
+		grpv 1 va01
+		grpv 2 va02
+		grpv 3 va03
+		grpv 4 va04
+		grpv 5 va05
+		grpv 6 va09
+		grpv 7 va10
+		grpv 8 va11
+	endi
+
+	mesg wrt+ ownr 1003 0 0 5
+endm
+
+scrp 1 2 21842 1007
+	inst
+	setv va10 9
+	loop
+		part va10
+		doif ptxt ne ""
+			setv va00 stoi ptxt
+			doif va10 eq 9
+				sets va01 "<tint 0 0 0>"
+			elif va10 eq 10
+				sets va01 "<tint 200 200 200>"
+			else
+				sets va01 "<tint 255 255 255>"
+			endi
+			doif read "chemical_names" va00 ne ""
+				adds va01 read "chemical_names" va00
+			else
+				adds va01 "?"
+			endi
+			adds va01 "<tint>"
+			setv va11 va10
+			addv va11 4
+			part va11
+			ptxt va01
+		endi
+		addv va10 1
+	untl va10 gt 11
+	targ null
+	fcus
+
+	targ ownr
+	part 5
+	doif pose eq 1
+		mesg writ ownr 1003
+	endi
+	part 6
+	doif pose eq 1
+		mesg writ ownr 1004
+	endi
+endm
+
+
+scrp 1 2 21842 1004
+** Menu GRAPH Graphsex 1004
+	part 5
+	anim [0 255]
+	part 6
+	anim [1 255]
+	part 7
+	anim [0 255]
+	part 8
+	anim [0 255]
+
+	part 12
+	ptxt "<tint 255 255 128>Arousal<tint>\n<tint 255 128 255>Libido lowerer<tint>\n<tint 128 255 255>Sex pheromone<tint>\n<tint 255 128 128>Oestrogen<tint>\n<tint 128 255 128>Progesterone<tint>\n<tint 255 200 100>Testosterone<tint>"
+
+	targ norn
+	doif crea targ eq 1
+		seta va10 targ
+		targ va10
+		setv va00 chem 39
+		setv va01 chem 40
+		setv va02 chem 41
+		setv va03 chem 46
+		setv va04 chem 47
+		setv va05 chem 53
+		targ ownr
+		part 9
+		setv va06 stoi ptxt
+		part 10
+		setv va07 stoi ptxt
+		part 11
+		setv va08 stoi ptxt
+		targ va10
+		setv va09 chem va06
+		setv va10 chem va07
+		setv va11 chem va08
+
+		targ ownr
+		part 16
+
+
+		grpv 0 va00
+		grpv 1 va01
+		grpv 2 va02
+		grpv 3 va03
+		grpv 4 va04
+		grpv 5 va05
+		grpv 6 va09
+		grpv 7 va10
+		grpv 8 va11
+	endi
+
+	mesg wrt+ ownr 1004 0 0 5
+endm
+
+rscr
+
+enum 1 2 21842
+	kill targ
+next

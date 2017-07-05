@@ -1,0 +1,228 @@
+**
+** Good bug script
+**
+** Sprites by ChameleonSushi, coding by Arnout.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_good_bug_CS.agents"
+*# DS-Name "Crafty's Good Bug (ChameleonSushi)"
+*# attach gp_good_bug_CS.c16 
+*# depend blnk.c16
+*# desc = "A bug. Bug good."
+*# Agent Animation File = "gp_good_bug_CS.c16"
+*# Agent Sprite First Image = 20
+*# Agent Animation Gallery = "gp_good_bug_CS"
+*
+*
+
+*
+** Injection script
+**
+
+* Population
+*new: simp 2 13 21822 "gp_good_bug_CS" 12 0 990
+*mesg wrt+ targ 1000 21110 2783 0
+
+* Population controller, ov00 = local minimum population
+*new: simp 1 1 21822 "blnk" 1 0 0
+*setv ov00 3
+*mvto 21110 2783
+*tick 1
+
+scrp 1 1 21822 9
+	tick 350
+	rnge 1500
+	lock
+	setv va00 0
+	esee 2 13 21822
+		addv va00 1
+	next
+	doif va00 lt ov00
+		setv va01 posx
+		setv va02 post
+		reps 2
+			targ ownr
+			new: simp 2 13 21822 "gp_good_bug_CS" 12 0 990
+			mesg wrt+ targ 1000 va01 va02 0
+		repe
+	endi
+endm
+
+
+scrp 2 13 21822 1000
+	attr 199
+	bhvr 59
+	accg 2
+	aero 10
+	elas 0
+	fric 50
+	perm 100
+	tick 10
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+*!!!
+	velo rand -8 8 -5
+	mvto _p1_ _p2_
+endm
+
+scrp 2 13 21822 1
+	velo 0 rand -3 -5
+	targ from
+	doif fmly eq 4
+		stim writ targ 85 1
+	endi
+endm
+
+scrp 2 13 21822 2
+	velo 0 rand -3 -5
+	targ from
+	doif fmly eq 4
+		stim writ targ 85 1
+	endi
+endm
+
+scrp 2 13 21822 3
+	velo 0 rand -3 -5
+	targ from
+	doif fmly eq 4
+		stim writ targ 87 1
+	endi
+endm
+
+scrp 2 13 21822 9
+	doif carr <> null
+		stop
+	endi
+*OV11: Regulates bug movement
+	addv ov11 rand 2 3
+*OV12: Regulates bug age
+	addv ov12 rand 1 3
+*OV13: Regulates bug fertility
+	addv ov13 rand 3 5
+*Room type check: If the room type is not soil, increase age and reduce breeding chance
+	doif rtyp room targ ne 0 and rtyp room targ ne 5 and rtyp room targ ne 7
+		addv ov12 rand 7 9
+		subv ov13 rand 1 3
+	endi
+*Water check: If the room type is water, drown
+	doif rtyp room targ eq 8 or rtyp room targ eq 9
+		gsub drwn
+	endi
+	doif ov12 gt 250
+		lock
+		kill ownr
+	endi
+	doif ov13 gt 35
+		setv ov13 0
+		setv va97 0
+		rnge 1000
+		esee 2 13 21822
+			addv va97 1
+		next
+		doif va97 lt 5
+			reps 2
+				targ ownr
+				setv va11 posx
+				setv va12 post
+
+				new: simp 2 13 21822 "gp_good_bug_CS" 12 0 990
+				attr 199
+				bhvr 59
+				accg 2
+				aero 10
+				elas 0
+				fric 50
+				perm 100
+				tick 10
+				setv ov10 rand 0 1
+				doif ov10 eq 0
+					setv ov10 -1
+				endi
+				subv va12 rand 2 6
+				doif tmvt va11 va12 eq 1
+					mvto va11 va12
+					velo rand -5 5 rand -5 -3
+				else
+					kill targ
+				endi
+			repe
+			targ ownr
+		endi
+	endi
+	doif ov11 gt 15
+		setv ov10 rand 0 1
+		setv ov11 0
+		doif ov10 eq 0
+			setv ov10 -1
+		endi
+	endi
+	doif ov10 gt 0
+		gsub rght
+	else
+		gsub left
+	endi
+	subr rght
+		doif ov09 lt 100
+			anim [0 0 1 1 2 2 3 3 4 4 5 5]
+			velo rand 8 10 -2
+		else
+			doif rtyp room targ ne 8 and rtyp room targ ne 9
+				accg 0.5
+			endi
+		endi
+	retn
+
+	subr left
+		doif ov09 lt 100
+			anim [6 6 7 7 8 8 9 9 10 10 11 11]
+			velo rand -8 -10 -2
+		else
+			doif rtyp room targ ne 8 and rtyp room targ ne 9
+				velo 0 1
+				accg 0.2
+			endi
+		endi
+	retn
+	subr drwn
+		doif rtyp room targ eq 8 or rtyp room targ eq 9
+			tick 1
+			accg -0.2
+			velo 0 rand -1 -2
+			setv ov09 100
+			setv ov13 0
+			anim []
+		endi
+	retn
+endm
+
+scrp 2 13 21822 12
+	lock
+	snde "chwp"
+	stim writ targ 80 1
+	kill ownr
+endm
+
+rscr
+enum 2 13 21822
+	kill targ
+next
+enum 1 1 21822
+	kill targ
+next
+scrx 2 13 21822 1
+scrx 2 13 21822 2
+scrx 2 13 21822 3
+scrx 2 13 21822 9
+scrx 2 13 21822 12

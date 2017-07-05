@@ -5,6 +5,23 @@
 **
 
 **
+** RANDOM
+**
+
+** Elevator vendor
+new: simp 2 23 21824 "elevator_vendor_UZAG" 5 0 rand 1000 1500
+** attr: mouseable 2 + activateable 4 + collide 64 + physics 128 = 198
+attr 198
+** Will go through some walls
+perm 60
+** Physics
+accg 1
+aero 1
+fric 70
+elas 20
+mvsf 25430 316
+
+**
 ** TOOLS
 **
 
@@ -18,28 +35,111 @@ mesg wrt+ targ 1000 24965 838 0
 **
 
 ** Meso upper platform
-new: simp 2 21 21809 "gp_moreballs" 16 0 3000
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 mesg wrt+ targ 1000 24276 927 0
-** Meso main tree
-new: simp 2 21 21809 "gp_moreballs" 16 0 3000
+** Meso main tree base
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 base 8
 mesg wrt+ targ 1000 25491 1164 0
+** Meso main tree upper platform
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 25742 905 0
+** Meso underground
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 25789 1559 0
+** Meso tank
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 25001 1771 0
 ** Main upper desert
-new: simp 2 21 21809 "gp_moreballs" 16 0 3000
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 mesg wrt+ targ 1000 21790 787 0
+** Main upper left desert cave
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 16
+mesg wrt+ targ 1000 21171 1123 0
+** Main middle cave
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 22551 1401 0
+** Main middle cave
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 22551 1401 0
+** Main lower right swamp
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 22799 2276 0
 ** Main lower tree island
-new: simp 2 21 21809 "gp_moreballs" 16 0 3000
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 mesg wrt+ targ 1000 21157 2783 0
 ** Main lower swamp
-new: simp 2 21 21809 "gp_moreballs" 16 0 3000
-base 8
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
 mesg wrt+ targ 1000 21495 2243 0
+** Main swamp platform
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 22331 1836 0
 
 
 **
 ** Wildlife population controllers
 **
 **
+
+*
+** REDCAP MUSHROOM
+** Main left desert cave
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 21050 1109
+tick rand 1 100
+** Main middle corridor
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 22575 1381
+tick rand 1 100
+** Main swamp
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 21072 2281
+tick rand 1 100
+** Meso underground
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 25817 1528
+tick rand 1 100
+** Meso grendel hideout bubble
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 24471 546
+tick rand 1 100
+
+*
+** Good bug
+** Main underdesert
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 4
+mvto 22038 1036
+tick 1
+** Main lower underground left beach
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 3
+mvto 21110 2783
+tick 1
+** Meso desert lobe
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 23589 537
+tick 1
+** Meso middle sandy spot
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 23927 939
+tick 1
+** Meso statue lower
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 3
+mvto 24200 1418
+tick 1
 
 *
 ** Flies
@@ -78,17 +178,20 @@ setv ov21 1168
 mvto ov20 ov21
 tick 20
 
-*
-** Mossy shee tree
-** Meso pond
-new: simp 1 1 21813 "blnk" 1 0 1000
-tick rand 10 100
-mvto 24411 1354
-** Main right swamp
-new: simp 1 1 21813 "blnk" 1 0 1000
-tick rand 10 100
-mvto 23088 1802
 
+*
+** Eternal Mossy shee tree meso
+new: simp 2 4 21813 "gp_mossytree_JESS" 9 0 90
+mesg wrt+ targ 1000 24140 1075 0
+*
+** Eternal Mossy shee tree main swamp ledge
+new: simp 2 4 21813 "gp_mossytree_JESS" 9 0 90
+mesg wrt+ targ 1000 22820 1532 0
+*
+** Eternal Mossy shee tree main swamp down
+new: simp 2 4 21813 "gp_mossytree_JESS" 9 0 90
+mira 1
+mesg wrt+ targ 1000 21574 1965 0
 
 *
 ** Inkcap mushroom 
@@ -193,6 +296,29 @@ tick 200
 **
 **
 
+*
+** Gerana
+** Meso underground
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 25820 1519 0
+repe
+** Meso grendelhideout lobe
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 24367 516 0
+repe
+** Main rightswamp
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 22906 2215 0
+repe
+** Main leftswamp
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 21055 2257 0
+repe
+
 ** Main goldfish eggs
 reps 8
 	new: simp 2 18 21812 "goldfishies" 1 2 501
@@ -257,6 +383,7 @@ reps 2
 	mesg wrt+ targ 1000 23712 1481 0
 
 repe
+
 
 ** Meso desert blush shrub
 reps 2
@@ -373,6 +500,19 @@ repe
 ** Patch plants
 **
 **
+
+**
+** Fruit froot tree
+**
+
+** Main desertcave
+new: simp 2 8 21816 "gp_frootfruit_CS" 1 1 980
+setv ov30 1
+mesg wrt+ targ 1000 21058 1050 0
+** Meso 
+new: simp 2 8 21816 "gp_frootfruit_CS" 1 1 980
+setv ov30 1
+mesg wrt+ targ 1000 24150 1381 0
 
 **
 ** C2 berries
@@ -511,6 +651,10 @@ mesg wrt+ targ 1000 22290 1062 0
 new: simp 2 23 21821 "blnk" 1 0 10
 seta va50 targ
 mesg wrt+ targ 1000 20700 2748 0
+** Meso main tree vendor
+new: simp 2 23 21821 "blnk" 1 0 10
+seta va50 targ
+mesg wrt+ targ 1000 25550 1093 0
 
 *
 ** Agressive moss vendor
@@ -560,12 +704,16 @@ enum 2 23 21800
 next
 
 ** Mossy tree
+enum 1 1 21813
+	kill targ
+next
 enum 2 4 21813
 	kill targ
 next
 enum 2 3 21813
 	kill targ
 next
+
 
 ** Fleece algae
 enum 2 23 21801
@@ -652,6 +800,14 @@ enum 2 18 21845
 	kill targ
 next
 enum 1 1 21845
+	kill targ
+next
+
+** Good bug
+enum 2 13 21822
+	kill targ
+next
+enum 1 1 21822
 	kill targ
 next
 
@@ -753,5 +909,59 @@ next
 
 ** Hairhydrangea planter
 enum 2 23 21833
+	kill targ
+next
+
+*Gerana
+
+enum 2 15 21814
+	kill targ
+next
+enum 2 18 21814
+	kill targ
+next
+
+** Redcap mushroom
+enum 1 1 21849
+	kill targ
+next
+enum 2 3 21849
+	kill targ
+next
+enum 2 4 21849
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+
+** Elevator vendor
+enum 2 23 21824
+	kill targ
+next
+setv va00 1
+reps 9
+	enum 2 va00 21824
+		kill targ
+	next
+	addv va00 1
+repe
+
+** Froot fruit tree
+enum 2 4 21816
+	kill targ
+next
+enum 2 8 21816
+	kill targ
+next
+enum 2 10 21816
 	kill targ
 next

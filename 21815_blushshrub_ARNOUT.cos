@@ -1,0 +1,179 @@
+**
+*	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+
+scrp 2 3 21815 1000
+	attr 195
+	bhvr 59
+	accg 0.5
+	elas 0
+	fric 100
+	tick 60
+	emit 7 0.5
+	rnge 1000
+	mvsf _p1_ _p2_
+endm
+
+scrp 1 1 21815 9
+	tick rand 100 1200
+	rnge 1200
+	setv va01 posx
+	setv va02 posy
+	inst
+	setv va00 0
+	esee 2 3 21815
+		addv va00 1
+	next
+	esee 2 4 21815
+		addv va00 1
+	next
+	doif va00 lt 3
+		reps rand 1 3
+			new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+			velo rand -5 5 -2
+			mesg wrt+ targ 1000 va01 va02 0
+		repe
+	endi
+endm
+
+
+
+scrp 2 3 21815 1
+	doif carr eq null
+		velo rand -5 5 rand -3 -5
+	endi
+endm
+
+scrp 2 3 21815 2
+	doif carr eq null
+		velo rand -5 5 rand -3 -5
+	endi
+endm
+
+scrp 2 3 21815 3
+	doif carr eq null
+		velo rand -5 5 rand -3 -5
+	endi
+endm
+
+scrp 2 3 21815 9
+	inst
+	doif carr <> null and fall <> 0
+		stop
+	endi
+	doif rtyp room targ eq 5 or rtyp room targ eq 6 or rtyp room targ eq 7
+		setv va97 0
+		esee 2 4 21815
+			addv va97 1
+		next
+		doif va97 lt 5
+			setv va00 posx
+			setv va01 posy
+			subv va00 7
+			subv va01 3
+			new: simp 2 4 21815 "gp_blush_shrub_CS" 9 1 1000
+			attr 192
+			bhvr 3
+			accg 0.5
+			elas 0
+			fric 100
+			tick rand 100 200
+			setv ov00 pose
+			mvsf va00 va01
+			kill ownr
+		else
+			setv ov77 rand 1 4
+			doif ov77 eq 1
+				kill ownr
+			endi
+		endi
+	else
+		setv ov77 rand 1 4
+		doif ov77 eq 1
+			kill ownr
+		endi
+	endi
+	slow
+
+endm
+
+scrp 2 3 21815 12
+	lock
+	snde "reat"
+	stim writ from 77 1
+	kill ownr
+endm
+
+scrp 2 4 21815 1
+	addv ov50 rand 3 5
+	targ from
+	doif fmly eq 4
+		stim writ from 84 1
+	endi
+endm
+
+scrp 2 4 21815 2
+	addv ov50 rand 3 5
+	targ from
+	doif fmly eq 4
+		stim writ from 84 1
+	endi
+endm
+
+scrp 2 4 21815 9
+	inst
+	tick rand 100 200
+	doif ov00 lt 3
+		addv ov00 1
+		pose ov00
+		setv ov00 pose
+	else
+		addv ov50 rand 1 3
+	endi
+	doif ov50 gt 50
+		gsub bred
+	endi
+	slow
+
+	subr bred
+		lock
+		anim [4 4 4 5 5 5 6 6 6 7 7 7 8 8 8]
+		wait 20
+		setv va20 posx
+		setv va21 posy
+		setv ov34 rand 1 4
+		reps ov34
+			new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+			velo rand -10 10 rand -8 -12
+			attr 195
+			bhvr 59
+			accg 0.5
+			elas 0
+			fric 100
+			tick rand 600 1200
+			emit 7 0.5
+			rnge 1000
+			mvsf va20 va21
+		repe
+		kill ownr
+	retn
+endm
+
+rscr
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+
+scrx 2 3 21815 1
+scrx 2 3 21815 2
+scrx 2 3 21815 3
+scrx 2 3 21815 9
+scrx 2 3 21815 12
+scrx 2 4 21815 1
+scrx 2 4 21815 2
+scrx 2 4 21815 9

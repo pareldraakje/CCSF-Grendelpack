@@ -1,0 +1,346 @@
+**
+** Dawn Plant script
+**
+** Sprites by ChameleonSushi, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_dawnplant_CS.agents"
+*# DS-Name "Dawn Plant (ChameleonSushi)"
+*# attach gp_dawn_plant_CS.c16 
+*# desc = "This is a dawn plant!"
+*# Agent Animation File = "gp_dawn_plant_CS.c16"
+*# Agent Sprite First Image = 6
+*# Agent Animation Gallery = "gp_dawn_plant_CS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** Vend a seed packet
+**
+
+
+*new: simp 2 23 21803 "gp_dawn_plant_CS" 1 16 rand 1000 1500
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+**
+** SCRIPTS
+**
+**
+
+
+**
+** Creator script
+**
+
+scrp 2 23 21803 1000
+	new: simp 2 23 21803 "gp_dawn_plant_CS" 1 16 rand 1000 1500
+** attr: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
+	attr 214
+** Will go through some walls
+	perm 60
+** Physics
+	accg 1
+	aero 1
+	fric 70
+	elas 20
+** launch seed
+
+	mvsf _p1_ _p2_
+	targ ownr
+	kill ownr
+endm
+
+
+**
+** Population control
+**
+
+*
+** Dawn plant population control
+scrp 1 1 21803 9
+	tick rand 1500 8000
+	setv va00 0
+	esee 2 4 21803
+		addv va00 1
+	next
+	doif va00 le 2
+		setv va02 posx
+		setv va03 posy
+		reps 3
+			inst
+			new: simp 2 3 21803 "gp_dawn_plant_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+			attr 194
+			bhvr 48
+			accg 1
+			fric 60
+			elas 20
+** bhvr: pickup 32 & eat 16 = 48
+			bhvr 48
+** Emit starchy smell
+			emit 7 0.8
+
+** launch seed
+			velo rand -10 10 -5
+			tick rand 1 300
+			mvto va02 va03
+			slow
+		repe
+	endi
+endm
+
+
+*
+** Seed packet push script
+*
+
+scrp 2 23 21803 1
+	doif from eq pntr
+		mesg writ pntr 101
+	endi
+	setv va01 posx
+	setv va02 posy
+	inst
+	reps 8
+		new: simp 2 3 21803 "gp_dawn_plant_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+		attr 194
+** Will go through some walls
+		perm 60
+** Physics
+		accg 0.1
+		aero 1
+		fric 60
+		elas 20
+** bhvr: pickup 32 & eat 16 = 48
+		bhvr 48
+** Emit starchy smell
+		emit 7 0.8
+
+** launch seed
+		velo rand -10 10 -5
+		tick rand 300 700
+		mvto va01 va02
+	repe
+
+	targ ownr
+	kill ownr
+
+endm
+
+*
+** Plant growing/seeding script
+*
+
+** TIMER
+scrp 2 4 21803 9
+** Check if the dawn plant is about to start growing: if yes, check if there aren't any other plants in this spot.
+	doif tick eq 2
+** Check if there's enough space to grow: if not, kill the plant placeholder
+		inst
+		setv va00 0
+		rnge 200
+		esee 2 4 21803
+			addv va00 1
+		next
+		doif va00 ge 5
+			kill ownr
+			stop
+		endi
+
+** Check if you're not touching another dawn plant
+		setv va00 0
+		etch 2 4 21803
+			addv va00 1
+		next
+		doif va00 ge 2
+			kill ownr
+			stop
+		endi
+
+** Set the plant growing timer
+		tick rand 40 80
+		slow
+	endi
+** Check if the plant is fully grown. If not, grooww
+	doif pose lt 5
+		setv va00 pose
+		addv va00 1
+		pose va00
+** If the plant is fully grown, animate the 'life' stage
+	elif pose eq 5
+		frat 20
+		anim [6 7 255]
+		tick 500
+** If the plant has lived a happy and long life... set seed and die. Goodbye plant.
+	elif pose gt 5
+		setv va01 posl
+		addv va01 1
+		setv va02 post
+		addv va02 6
+		inst
+
+		reps 2
+
+			new: simp 2 3 21803 "gp_dawn_plant_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+			attr 194
+** Will go through some walls
+			perm 60
+** Physics
+			accg 0.1
+			aero 1
+			fric 90
+			elas 20
+** bhvr: pickup 32 & eat 16 = 48
+			bhvr 48
+** Emit starchy smell
+			emit 7 0.8
+
+** launch seed
+			velo rand -8 8 -7
+			tick rand 50 200
+			mvto va01 va02
+
+
+		repe
+
+		addv va01 12
+
+		new: simp 2 3 21803 "gp_dawn_plant_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+		attr 210
+** Will go through some walls
+		perm 60
+** Physics
+		accg 0.1
+		aero 1
+		fric 90
+		elas 20
+** launch seed
+		velo rand -8 8 -7
+		tick rand 50 200
+		mvto va01 va02
+		slow
+** Retarget the plant
+		targ ownr
+** Kill it ;u;
+		tick 0
+		lock
+		frat 40
+		anim [8 9 10 11 12 13 14]
+		over
+		kill ownr
+		unlk
+	endi
+
+
+endm
+
+
+*
+** Seed timer & eat script
+*
+
+
+*
+** EAT
+scrp 2 3 21803 12
+** Lock the script, so once someone's eating the seed, it can't be interrupted.
+	lock
+** Wait, so the creatures can't overeat :p
+	wait 25
+** Stim the eating creature with "eaten plant"
+	stim writ from 77 1
+** Wait a little more :p
+	wait 25
+** Kill the seed
+	kill ownr
+endm
+
+
+*
+** TIMER
+scrp 2 3 21803 9
+
+** Get the room type of the seed
+	setv va00 posl
+	setv va01 post
+	setv va02 grap va00 va01
+	setv va03 rtyp va02
+
+** only survive: drained soil 7, normal soil 5, atmosphere 1
+	doif carr eq null
+		doif va03 ne 7 and va03 ne 5 and va03 ne 1
+			kill ownr
+			stop
+		endi
+	endi
+
+** Check if the seed has settled
+	doif carr eq null and fall eq 0
+		doif va03 eq 7 or va03 eq 5
+			subv va00 7
+			subv va01 15
+			inst
+
+** Grow plant!
+			new: simp 2 4 21803 "gp_dawn_plant_CS" 15 1 rand 1000 3000
+** attr: invisible 16, bhvr: 0
+			attr 16
+			bhvr 0
+** Set the tick to 2 to trigger the 'do I have enough space to grow' check script
+			tick 2
+** test-move it into the space: if it can't grow there, kill it
+			doif tmvt va00 va01 eq 0
+				kill targ
+			else
+** If it can grow here, grow!
+				mvto va00 va01
+			endi
+		endi
+		slow
+		targ ownr
+		kill ownr
+	endi
+endm
+
+
+*
+*
+** Removal script 
+*
+*
+
+rscr
+
+
+enum 2 23 21803
+	kill targ
+next
+enum 2 3 21803
+	kill targ
+next
+enum 2 4 21803
+	kill targ
+next
+
+
+scrx 2 23 21803 1
+scrx 2 3 21803 9
+scrx 2 4 21803 9

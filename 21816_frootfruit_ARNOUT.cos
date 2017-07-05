@@ -1,0 +1,222 @@
+*Froot Fruit Tree: 2 4 21816
+*ov20 age, ov21 fertility, ov30 = 1 means that the tree will stay alive forever
+*Froot Fruit: 2 8 21816
+*Froot Fruit Detritus: 2 10 21816
+
+* Create a tree
+* new: simp 2 8 21816 "gp_frootfruit_CS" 1 1 980
+* mesg wrt+ targ 1000 posx posy delay
+
+* Tree creation script
+scrp 2 8 21816 1000
+	attr 199
+	bhvr 59
+	accg 5
+	aero 5
+	fric 100
+	elas 20
+	perm 0
+*!!!!!
+	mvto _p1_ _p2_
+	emit 6 0.3
+*This one needs to become a tree faster than its descendants
+	tick 10
+endm
+
+*if pushed, pulled or hit; fly a little bit
+*the ACCG part lets Creatures take them out of the tree
+scrp 2 8 21816 1
+	velo 0 rand -3 -4
+	accg 5
+endm
+
+scrp 2 8 21816 2
+	velo 0 rand -3 -4
+	accg 5
+endm
+
+scrp 2 8 21816 3
+	velo 0 rand -3 -4
+	accg 5
+endm
+
+*Lets Creatures take the fruit out of the tree
+scrp 2 8 21816 4
+	accg 5
+endm
+
+*collision sound
+scrp 2 8 21816 6
+	snde "drip"
+endm
+
+*eat script
+scrp 2 8 21816 12
+*nom
+	lock
+	stim writ from 78 1
+	snde "chwp"
+*contains some healthy stuff as well (But also safe for Toxic Norns)
+	targ from
+*Vitamin E
+	chem 98 0.1
+*Vitamin C
+	chem 99 0.1
+	kill ownr
+endm
+
+*Timer script
+scrp 2 8 21816 9
+	tick rand 500 1200
+	doif carr <> null
+		stop
+	endi
+*this part drops the fruit out of the tree it it's still hanging
+	accg 5
+*Check if there are any trees nearby
+*But before that check if the room type is OK
+	doif rtyp room targ lt 5 or rtyp room targ gt 7
+		addv ov00 1
+	else
+		rnge 1000
+		esee 2 4 21816
+			addv va50 1
+		next
+*If there is less than 1 tree around: Grow
+		doif va50 lt 1
+*Get the current position as variables
+			setv va51 posx
+			subv va51 70
+			setv va52 posy
+*Make the new tree
+			new: simp 2 4 21816 "gp_frootfruit_CS" 1 0 978
+			attr 192
+*Creatures can push, pull, or hit
+			bhvr 3
+			accg 5
+			aero 5
+			fric 100
+			elas 0
+			perm 0
+			mvsf va51 va52
+			tick 400
+*And of course get rid of the fruit
+			kill ownr
+		else
+*Else: Add 1 to the age variable
+			addv ov00 1
+		endi
+	endi
+*If the age variable is too high: Become a detritus
+	doif ov00 gt 5
+		setv va40 posx
+		setv va41 posy
+		new: simp 2 10 21816 "gp_frootfruit_CS" 3 2 979
+		attr 199
+		bhvr 59
+		accg 5
+		aero 5
+		fric 100
+		elas 20
+		perm 0
+		mvsf va40 va41
+		tick rand 300 1200
+		kill ownr
+	endi
+endm
+
+*Push and pull script
+scrp 2 4 21816 1
+	stim writ targ 84 1
+endm
+
+scrp 2 4 21816 2
+	stim writ targ 84 2
+endm
+
+*Tree timer script
+scrp 2 4 21816 9
+*OV20: Age
+	addv ov20 1
+*OV21: Fertility
+	addv ov21 rand 2 4
+	doif ov20 gt 100 and ov30 ne 1
+		kill ownr
+	endi
+	doif ov21 gt 6
+		setv ov21 0
+		reps rand 1 2
+			setv va90 posx
+			addv va90 rand 35 -50
+			setv va91 posy
+			addv va91 rand -25 -30
+			new: simp 2 8 21816 "gp_frootfruit_CS" 1 1 980
+			attr 199
+			bhvr 59
+			accg 0
+			aero 5
+			fric 100
+			elas 20
+			perm 0
+			mvsf va90 va91
+			emit 6 0.3
+			tick rand 800 2000
+		repe
+	endi
+endm
+
+*if pushed, pulled or hit; fly a little bit
+scrp 2 10 21816 1
+	velo 0 rand -3 -4
+endm
+
+scrp 2 10 21816 2
+	velo 0 rand -3 -4
+endm
+
+scrp 2 10 21816 3
+	velo 0 rand -3 -4
+endm
+
+*Detritus timer script
+scrp 2 10 21816 9
+	addv ov06 1
+	doif ov06 lt 3
+		pose ov06
+	else
+		kill ownr
+	endi
+endm
+
+*eat script
+scrp 2 10 21816 12
+*not so nom
+	lock
+	stim writ from 81 1
+	kill ownr
+endm
+
+rscr
+enum 2 4 21816
+	kill targ
+next
+scrx 2 4 21816 1
+scrx 2 4 21816 2
+scrx 2 4 21816 9
+enum 2 8 21816
+	kill targ
+next
+scrx 2 8 21816 1
+scrx 2 8 21816 2
+scrx 2 8 21816 3
+scrx 2 8 21816 6
+scrx 2 8 21816 9
+scrx 2 8 21816 12
+enum 2 10 21816
+	kill targ
+next
+scrx 2 10 21816 1
+scrx 2 10 21816 2
+scrx 2 10 21816 3
+scrx 2 10 21816 9
+scrx 2 10 21816 12

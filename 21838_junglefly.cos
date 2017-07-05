@@ -1,0 +1,342 @@
+**
+** FLIES
+**
+**
+
+** Script numbers: 1000 = injection script, 1001 = fly killed script
+
+
+**
+** SCRIPTS
+** 
+**
+
+**
+** Fly creation script
+**
+scrp 2 15 21838 1000
+	inst
+** Set male/female
+	doif rand 1 2 eq 2
+		setv va00 0
+	else
+		setv va00 15
+	endi
+** Create the fly
+	new: simp 2 15 21838 "gp_fly_UZAG" 28 va00 300
+** attr: mouseable 2 + activateable 4 + collide 64 = 70, bhvr act1 1 + hit 8 + eat 16 + pickup 32 = 57
+	attr 70
+	bhvr 57
+	tick 5
+	mvsf _p1_ _p2_
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+	setv ov11 rand 0 1
+	doif ov11 eq 0
+		setv ov11 -1
+	endi
+	velo rand -4 4 rand -4 4
+
+** kill the fly placeholder
+	targ ownr
+	kill targ
+	slow
+endm
+
+**
+** Fly population control
+**
+
+
+*
+** Flies population control
+scrp 1 1 21838 9
+	tick rand 100 700
+	setv va00 gmap posx posy
+	setv va01 0
+	inst
+	enum 2 15 21838
+		doif gmap posx posy eq va00
+			addv va01 1
+			doif va01 gt 30
+				kill targ
+			endi
+		endi
+	next
+	slow
+
+	doif va01 lt 12
+		setv va02 posx
+		setv va03 posy
+		inst
+		new: simp 2 15 21838 "gp_fly_UZAG" 28 0 300
+		mesg wrt+ targ 1000 va02 va03 0
+		slow
+	endi
+endm
+
+
+
+**
+** Fly killed 
+**
+scrp 2 15 21838 1001
+** become heavy
+	attr 194
+	accg 4
+	velo 0 0
+	elas 0
+	perm 100
+** stop moving
+	tick 0
+	doif pose ge 0 and pose lt 2
+		anim [1]
+	else
+		anim [3]
+	endi
+** Fall down untill not falling anymore
+	loop
+		setv vely 10
+	untl fall = 0
+** Decompose after a bit
+	wait rand 50 100
+** change category to detritus & emit nutrients into soil
+	cato 10
+	emit 4 2
+	frat 40
+	doif pose eq 1
+		anim [4 5 6 7 8]
+	else
+		anim [9 10 11 12 13]
+	endi
+	over
+	targ ownr
+	kill targ
+endm
+
+**
+** Fly timer script
+**
+scrp 2 15 21838 9
+	addv ov01 1
+** If in water or if close to water, fly up
+	doif movs eq 0
+		doif rtyp room targ eq 8 or rtyp room targ eq 9 or prop room targ 5 gt 0.5
+			setv vely -5
+			stop
+		endi
+	endi
+	setv va00 0
+	setv va01 0
+** Check hand coordinates
+	gsub hunt
+*
+** If the hand isn't around, just be a happy fly.
+	doif ov00 eq 0
+** ov14 ov15 = horizontal and vertical distance
+		setv ov14 5
+		setv ov15 5
+** ov10 ov11 = horizontal and vertical acceleration direction
+** ov90 = ?
+		subv ov90 1
+		gsub wall
+		doif ov90 le 0
+			doif va00 ne 1
+				doif rand 0 2 eq 0
+					negv ov10
+				endi
+				addv ov90 rand 1 3
+			endi
+			doif va01 ne 1
+				negv ov11
+				addv ov90 rand 2 5
+			endi
+		endi
+		gsub velo
+		gsub anim
+*
+** If the hand is around, hunt it!
+	elif ov00 eq 1
+** set horizontal and vertical speed
+		setv ov14 3
+		setv ov15 3
+** ov70 and ov71 are posx posy coords of hand
+** ov10 ov11 are horizontal and vertical speed
+		doif posx lt ov70 and ov10 lt 0
+			setv ov10 1
+		endi
+		doif posx gt ov70 and ov10 gt 0
+			setv ov10 -1
+		endi
+		doif posy lt ov71 and ov11 lt 0
+			setv ov11 1
+		endi
+		doif posy gt ov71 and ov11 gt 0
+			setv ov11 -1
+		endi
+		gsub wall
+		gsub velo
+		gsub anim
+	endi
+** Hunt the hand subroutine
+	subr hunt
+		rnge 300
+		setv va99 0
+** Check the hand coordinates if it's in range
+		esee 2 1 1
+			setv va99 1
+			setv va00 posx
+			setv va01 posy
+		next
+
+		targ ownr
+** ov70 ov71 are hand coordinates.
+** No hand to be seen: set ov00 0
+		doif va99 eq 0
+			setv ov00 0
+		else
+			setv ov00 1
+			setv ov70 va00
+			setv ov71 va01
+		endi
+	retn
+*
+** Velocity subroutine
+	subr velo
+** if going left, negative horizontal direction
+		doif ov10 lt 0
+			negv ov14
+** ov12 speed: <0 left, >0 right
+			doif ov12 gt ov14
+				subv ov12 2
+			endi
+			negv ov14
+		else
+
+			doif ov12 lt ov14
+				addv ov12 2
+			endi
+		endi
+
+		doif ov11 lt 0
+
+			negv ov15
+			doif ov13 gt ov15
+				subv ov13 2
+			endi
+			negv ov15
+		else
+
+			doif ov13 lt ov15
+				addv ov13 2
+			endi
+		endi
+
+		setv velx ov12
+		setv vely ov13
+	retn
+*
+** Check for obstacles subroutine
+	subr wall
+** ov10 is horizontal speed: -1 = left, 1 = right
+		doif obst LEFT lt 100 and ov10 lt 0
+			negv ov10
+			setv va00 1
+		endi
+		doif obst RGHT lt 100 and ov10 gt 0
+			negv ov10
+			setv va00 1
+		endi
+** ov11 is vertical speed: -1 = up, 1 = down
+		doif obst _UP_ lt 50 and ov11 lt 0
+			negv ov11
+			setv va01 1
+		endi
+		doif obst DOWN lt 100 and ov11 gt 0
+			negv ov11
+			setv va01 1
+		endi
+	retn
+
+*
+** Animation subroutine
+	subr anim
+** ov12 direction: <0 left, >0 right
+		doif ov12 lt 0
+			anim [0 1 255]
+		elif ov12 gt 0
+			anim [2 3 255]
+		endi
+	retn
+
+endm
+
+
+**
+** Fly push
+**
+scrp 2 15 21838 1
+	targ from
+** If pointer: animate pointerslap and send 'kill' script to fly.
+	doif from eq pntr
+		anim [4 5 5 0]
+		snde "spnk"
+		targ ownr
+		mesg writ targ 1001
+		stop
+	else
+		doif fmly eq 4
+** Play with critter
+			stim writ targ 86 1
+			targ ownr
+			setv vely -20
+		endi
+	endi
+endm
+**
+** Fly hit (creature hit)
+**
+scrp 2 15 21838 3
+	targ from
+	doif fmly eq 4
+** stim hit critter
+		stim writ targ 87 1
+	endi
+	mesg writ targ 5
+	mesg writ ownr 1001
+endm
+**
+** Fly pickup
+**
+scrp 2 15 21838 4
+	targ from
+	doif fmly eq 4
+** Play with critter
+		stim writ targ 86 1
+	endi
+	mesg writ targ 5
+endm
+**
+** Fly eat
+**
+scrp 2 15 21838 12
+	sndc "chwp"
+	targ from
+	doif fmly eq 4
+** Eat animal, fat + protein
+		stim writ targ 80 1
+		chem 10 0.8
+		chem 12 0.4
+	endi
+	targ ownr
+	kill targ
+endm
+
+
+rscr
+
+enum 2 15 21838
+	kill targ
+next

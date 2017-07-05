@@ -1,0 +1,254 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Mushroom
+*reps 3
+*	new: simp 2 3 21849 "gp_redcap_mushroom" 18 7 rand 200 6000
+*	mesg wrt+ targ 1000 21050 1109 0
+*repe
+
+
+scrp 1 1 21849 9
+	tick rand 800 2600
+	rnge 800
+	setv va00 0
+	esee 2 4 21849
+		addv va00 1
+	next
+	doif va00 lt 2
+		setv va01 posx
+		setv va02 posy
+		reps rand 1 3
+			new: simp 2 3 21849 "gp_redcap_mushroom" 18 0 1000
+			rnge 600
+			attr 195
+			bhvr 16
+			elas 0.5
+			aero 2
+			accg 0.05
+			velo rand -35 35 rand -5 0
+			doif tmvt va01 va02 eq 1
+				mvto va01 va02
+				tick 1
+			else
+				kill targ
+			endi
+			targ ownr
+		repe
+		targ ownr
+	endi
+endm
+
+scrp 2 4 21849 1000
+	bhvr 16
+	attr 193
+	perm 40
+	emit 7 1
+	ACCG 3
+	ELAS 25
+	fric 90
+	AERO 2
+	rnge 900
+	setv ov10 rand 102 1000
+	doif tmvt _p1_ _p2_ eq 1
+		mvto _p1_ _p2_
+	endi
+	tick 60
+endm
+
+*Red Cap Mushroom timer
+scrp 2 4 21849 9
+	setv va00 0
+	inst
+	esee 2 4 21849
+		addv va00 1
+	next
+	slow
+	doif va00 > 6
+		kill ownr
+	endi
+	TICK 0
+	targ ownr
+	gsub grow
+	targ ownr
+	gsub live
+	targ ownr
+	gsub seed
+	targ ownr
+	gsub die
+
+	subr grow
+		doif rtyp grap posx posy eq -1 or rtyp grap posx posy eq 8 or rtyp grap posx posy eq 9
+			kill ownr
+			stop
+		endi
+		wait rand 100 200
+		setv va00 pose
+		reps 5
+			wait rand 50 300
+			addv va00 1
+			pose va00
+		repe
+	retn
+
+	subr live
+		loop
+			doif ov10 ne 100
+				setv va01 ov10
+				subv va01 1
+				setv ov10 va01
+			endi
+			wait 1
+		untl ov10 le 100
+	retn
+
+	subr seed
+		esee 2 3 21849
+			addv va66 1
+		next
+		doif va66 < 4
+			setv va10 posx
+			setv va11 post
+			subv va11 20
+			reps rand 2 4
+				new: simp 2 3 21849 "gp_redcap_mushroom" 18 0 1000
+				rnge 600
+				attr 195
+				bhvr 16
+				elas 0.5
+				aero 2
+				accg 0.05
+				velo rand -35 35 rand -5 0
+				doif tmvt va10 va11 eq 1
+					mvto va10 va11
+					tick 1
+				else
+					kill targ
+				endi
+				targ ownr
+			repe
+		elif va66 > 6
+			wait rand 100 500
+		endi
+	retn
+
+	subr die
+		frat 60
+		anim [5 6 7 8 9 10]
+		over
+		emit 4 1
+		kill ownr
+	retn
+endm
+
+scrp 2 3 21849 9
+* speed to drift at
+	setv va10 2.5
+* amount to drift
+	setv va11 50
+	setv va00 rand 0 1
+	setv va12 va11
+	divv va12 2
+	loop
+		setv va01 posx
+		doif va00 eq 0
+			setv velx va10
+			negv velx
+			setv va00 1
+		else
+			setv velx va10
+			setv va00 0
+		endi
+		loop
+			setv va03 va01
+			subv va03 posx
+			absv va03
+		untl fall eq 0 or va03 > va12
+		setv va12 va11
+	untl fall eq 0 and wall eq down
+	wait rand 100 400
+	setv va00 0
+	rnge 600
+	esee 2 4 21849
+		addv va00 1
+	next
+	doif va00 > 5
+		kill ownr
+		stop
+	endi
+
+
+	targ ownr
+	setv va00 posx
+	subv va00 22
+	setv va01 posb
+	subv va01 48
+	new: simp 2 4 21849 "gp_redcap_mushroom" 18 7 rand 200 6000
+	mira rand 0 1
+	inst
+	mesg wrt+ targ 1000 va00 va01 1
+	slow
+	doif targ ne null
+		doif tmvt va00 va01 eq 1
+			mvto va00 va01
+			tick 1
+		else
+			kill targ
+		endi
+	endi
+	targ ownr
+	kill targ
+endm
+
+scrp 2 4 21849 12
+	sndc "chwp"
+	stim writ from 77 .5
+	chem 10 .5
+	chem 12 .5
+	targ ownr
+	kill targ
+endm
+
+scrp 2 3 21849 12
+	sndc "chwp"
+	stim writ from 77 .5
+	chem 10 .4
+	chem 12 .4
+	chem 5 .4
+	targ ownr
+	kill targ
+endm
+
+rscr
+enum 1 1 21849
+	kill targ
+next
+enum 2 3 21849
+	kill targ
+next
+enum 2 4 21849
+	kill targ
+next
+
+scrx 2 3 21849 1000
+scrx 2 3 21849 9
+scrx 2 4 21849 1000
+scrx 2 4 21849 9
+scrx 1 1 21849 9

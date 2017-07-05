@@ -1,0 +1,249 @@
+**
+** Elevator creator timer
+**
+
+scrp 3 1 21836 9
+	tick 0
+	inst
+	enum 3 1 21835
+		setv va00 ov00
+		setv va01 posl
+		setv va02 post
+**family: 3 1 lift
+		new: comp 3 1 21834 "gp_eleplant_JESS" 1 0 rand 200 500
+** set bhvr (act1 act2 = 3)
+		bhvr 3
+* down(pull)/up(push)/disable
+		pat: butt 2 "gp_eleplant_JESS" 9 2 4 54 1 [1] 1 1
+		pat: butt 3 "gp_eleplant_JESS" 11 2 33 35 1 [1] 0 1
+		pat: butt 4 "gp_eleplant_JESS" 13 4 29 97 1 [1] 500 1
+* plant/floweranim
+		pat: dull 5 "gp_eleplant_JESS" 1 0 78 1
+		pat: dull 6 "gp_eleplant_JESS" 4 0 0 1
+		mvto va01 va02
+		setv ov00 va00
+		setv ov01 room targ
+** enabled/disabled
+		setv ov02 1
+		setv va00 grap posx posy
+		seta va98 targ
+
+*animate parts
+		part 2
+		anim [0]
+		part 3
+		anim [0]
+		part 4
+		anim [0]
+		part 5
+		frat 25
+		anim [2 1 0 255]
+		part 6
+		frat 4
+		anim [0 0 0 0 0 1 2 3 4 255]
+	next
+
+	enum 3 1 21835
+		kill targ
+	next
+
+endm
+
+
+** Lifts
+
+**
+** LIFT EVENT SCRIPTS
+**
+**
+
+*
+** PULL (go down)
+scrp 3 1 21834 2
+	lock
+* Check if lift is enabled
+	doif ov02 ne 1
+		stop
+	endi
+
+* Set lift variable to warp to
+	seta va50 targ
+	setv va00 ov00
+	setv va01 posy
+	setv va02 0
+* Check all lifts to find one that's lower
+	inst
+	enum 3 1 21834
+** check if same elevator group
+		doif ov00 eq va00
+** check if enabled
+			doif ov02 eq 1
+** check if posy > original lift (lower)
+				doif posy gt va01
+** check if va02=0 or va02 greater than posy (lower lift available: take higher up one)
+					doif va02 eq 0 or va02 gt posy
+						seta va50 targ
+						setv va02 posy
+					endi
+				endi
+			endi
+		endi
+	next
+
+	targ ownr
+* Check if there is an active lift under this lift
+	doif va02 eq 0
+* If not, stim disappointment
+		stim writ from 0 1
+		urge writ from 26 -1 -1 2
+	else
+* If yes, do stuff!
+* Animate
+		part 2
+		anim [1 1]
+		over
+		anim [0 0]
+* Check if comand from hand
+		doif from eq pntr
+* animate pointer
+			mesg writ pntr 101
+* move camera to other lift
+			targ va50
+			cmrp posx posy 1
+		endi
+* Check if command from creature
+		targ from
+		doif fmly eq 4
+			targ va50
+			setv va00 posx
+			setv va01 posy
+			targ from
+			doif movs eq 0 and tmvf va00 va01 eq 1
+** move creature
+				mvft va00 va01
+** wait, stim writ travelled lift, stim writ, -go down
+				stim writ targ 75 1
+				stim writ targ 94 1
+				stim writ targ 52 -0.5
+** Discourage from pulling elevator any further
+				urge writ targ 26 -2 -1 2
+			endi
+		endi
+	endi
+	unlk
+endm
+
+*
+** PUSH (go up)
+scrp 3 1 21834 1
+	lock
+* Check if lift is enabled
+	doif ov02 ne 1
+		stop
+	endi
+* Set lift variable to warp to
+	seta va50 targ
+	setv va00 ov00
+	setv va01 posy
+	setv va02 0
+* Check all lifts to find one that's lower
+	inst
+	enum 3 1 21834
+** check if same elevator group
+		doif ov00 eq va00
+** check if enabled
+			doif ov02 eq 1
+** check if posy < original lift (higher)
+				doif posy lt va01
+** check if va02=0 or va02 smaller than posy (higher lift available: take lower one)
+					doif va02 eq 0 or va02 lt posy
+						seta va50 targ
+						setv va02 posy
+					endi
+				endi
+			endi
+		endi
+	next
+
+	targ ownr
+* Check if there is an active lift above this lift
+	doif va02 eq 0
+* If not, stim disappointment
+		stim writ from 0 1
+		urge writ from 26 -1 -1 2
+	else
+* If yes, do stuff!
+* Animate
+		part 3
+		anim [1 1]
+		over
+		anim [0 0]
+
+* Check if comand from hand
+		doif from eq pntr
+* animate pointer
+			mesg writ pntr 101
+* move camera to other lift
+			targ va50
+			cmrp posx posy 1
+		endi
+* Check if command from creature
+		targ from
+		doif fmly eq 4
+			targ va50
+			setv va00 posx
+			setv va01 posy
+			targ from
+			doif movs eq 0 and tmvf va00 va01 eq 1
+** move creature
+				mvft va00 va01
+** stim writ wait & travelled lift & -go up
+				stim writ targ 75 1
+				stim writ targ 94 10
+				stim writ targ 51 -0.5
+** Discourage from pushing elevator any further
+				urge writ targ 26 -2 -1 2
+			endi
+		endi
+	endi
+	unlk
+endm
+
+*
+** ENABLE/DISABLE
+scrp 3 1 21834 500
+	doif ov02 eq 1
+		attr 16
+		setv ov02 0
+		part 4
+		base 2
+		anim [0]
+	else
+		attr 0
+		setv ov02 1
+		part 4
+		base 0
+		anim [0]
+	endi
+endm
+
+
+*
+** Removal script
+*
+
+rscr
+
+
+enum 3 1 21834
+	kill targ
+next
+enum 3 1 21835
+	kill targ
+next
+enum 3 1 21836
+	kill targ
+next
+
+scrx 3 1 21834 1
+scrx 3 1 21834 2

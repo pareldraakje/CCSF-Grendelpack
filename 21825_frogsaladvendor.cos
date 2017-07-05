@@ -1,0 +1,342 @@
+**
+** Frog & salad vendor
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_frogsalad_vendor_JESS.agents"
+*# DS-Name "Frog kebab and salad bowl vendor (Jesseth)"
+*# attach gp_frogsalad_vendor_JESS.c16 
+*# desc = "A vendor that vends frog kebabs. And salad bowls. "
+*# Agent Animation File = "gp_frogsalad_vendor_JESS.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_frogsalad_vendor_JESS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The vendor
+**
+
+*new: comp 2 23 21825 "gp_frogsalad_vendor_JESS" 1 0 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+**
+** SCRIPTS
+**
+**
+**
+
+**
+** Creator script
+**
+
+scrp 2 23 21825 1000
+	new: comp 2 23 21825 "gp_frogsalad_vendor_JESS" 1 0 rand 800 900
+** Attributes: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+	perm 100
+	accg 4
+	aero 1
+	fric 90
+	elas 20
+** behaviour: act1 + hit 8 = 9
+	bhvr 9
+** emit a tiny bit of food smell
+	emit 8 0.05
+
+
+** Create the animations
+** The pipe
+	pat: dull 2 "gp_frogsalad_vendor_JESS" 1 35 30 1
+** The frogs
+	pat: dull 3 "gp_frogsalad_vendor_JESS" 6 16 22 1
+** The water
+	pat: dull 4 "gp_frogsalad_vendor_JESS" 9 0 36 1
+
+** Create the buttons
+** The kebab button
+	pat: butt 5 "gp_frogsalad_vendor_JESS" 12 2 23 58 1 [] 500 0
+** The salad button
+	pat: butt 6 "gp_frogsalad_vendor_JESS" 14 2 40 77 2 [] 501 0
+
+	part 2
+	frat 5
+	anim [ 0 0 0 0 1 2 3 4 255 ]
+
+	part 3
+	frat 8
+	anim [0 0 0 2 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 2 0 0 0 0 1 255]
+
+	part 4
+	frat 3
+	anim [0 1 2 255]
+	tick rand 1000 10000
+
+
+	mvsf _p1_ _p2_
+	targ ownr
+	kill ownr
+endm
+
+
+**
+** VENDOR
+**
+
+*
+** TIMER
+scrp 2 23 21825 9
+	doif movs eq 0
+		mesg writ ownr 0
+		tick rand 1000 10000
+	endi
+endm
+*
+** HIT SCRIPT
+scrp 2 23 21825 3
+	stim writ from 92 1
+endm
+*
+** Creature push
+
+scrp 2 23 21825 1
+	doif from eq pntr
+		mesg writ pntr 101
+	else
+		stim writ from 90 1
+	endi
+
+	setv va00 rand 0 1
+	setv va05 posl
+	setv va06 post
+
+	lock
+
+	setv va07 va00
+	addv va07 5
+** animate the button
+	part va07
+	frat 3
+	anim [1 0 1 0]
+	over
+
+** Vend some kebab/salad
+	targ ownr
+
+	addv va05 17
+	addv va06 84
+
+	setv va07 va00
+	mulv va07 2
+	addv va07 16
+
+	setv va08 va00
+	addv va08 11
+
+	inst
+	new: simp 2 va08 21825 "gp_frogsalad_vendor_JESS" 2 va07 rand 2000 2200
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+	attr 194
+	bhvr 48
+** won't go through walls
+	perm 100
+** Physics
+	accg 0.6
+	aero 1
+	fric 25
+	elas 40
+** set category to "food"
+	cato 11
+** emit fat
+	emit 8 0.6
+** tick before disappearing
+	tick rand 1200 1800
+	mvto va05 va06
+	unlk
+
+endm
+
+
+** button1 push
+
+scrp 2 23 21825 500
+	doif from eq pntr
+		mesg writ pntr 101
+	endi
+
+	setv va05 posl
+	setv va06 post
+
+	lock
+
+	part 5
+	frat 3
+	anim [1 0 1 0]
+	over
+
+** Vend some kebab/salad
+	targ ownr
+
+	addv va05 17
+	addv va06 84
+
+	inst
+	new: simp 2 11 21825 "gp_frogsalad_vendor_JESS" 2 16 rand 2000 2200
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+	attr 194
+	bhvr 48
+** won't go through walls
+	perm 100
+** Physics
+	accg 0.6
+	aero 1
+	fric 25
+	elas 40
+** set category to "food"
+	cato 11
+** emit fat
+	emit 8 0.6
+** tick before disappearing
+	tick rand 1200 1800
+	mvto va05 va06
+	unlk
+
+endm
+
+** button2 push
+
+scrp 2 23 21825 501
+
+	doif from eq pntr
+		mesg writ pntr 101
+	endi
+
+	setv va05 posl
+	setv va06 post
+
+	lock
+
+	part 6
+	frat 3
+	anim [1 0 1 0]
+	over
+
+** Vend some kebab/salad
+	targ ownr
+
+	addv va05 17
+	addv va06 84
+
+	inst
+	new: simp 2 12 21825 "gp_frogsalad_vendor_JESS" 2 18 rand 2000 2200
+** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+	attr 194
+	bhvr 48
+** won't go through walls
+	perm 100
+** Physics
+	accg 0.6
+	aero 1
+	fric 25
+	elas 40
+** set category to "food"
+	cato 11
+** emit fat
+	emit 8 0.6
+** tick before disappearing
+	tick rand 1200 1800
+	mvto va05 va06
+	unlk
+
+endm
+
+
+
+** FOOD
+* 
+
+** Frog kebab eat script
+scrp 2 11 21825 12
+	lock
+	wait 5
+	stim writ from 79 1
+	wait 5
+
+	doif pose ne 1
+		pose 1
+	else
+		kill ownr
+	endi
+	unlk
+endm
+
+** Frog kebab timer script
+scrp 2 11 21825 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+** Salad eat script
+scrp 2 12 21825 12
+	lock
+	wait 5
+	stim writ from 79 1
+	wait 5
+
+	doif pose ne 1
+		pose 1
+	else
+		kill ownr
+	endi
+	unlk
+endm
+
+** Salad timer script
+scrp 2 12 21825 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 2 23 21825
+	kill targ
+next
+enum 2 11 21825
+	kill targ
+next
+enum 2 12 21825
+	kill targ
+next
+
+scrx 2 23 21825 9
+scrx 2 23 21825 3
+scrx 2 23 21825 1
+scrx 2 11 21825 9
+scrx 2 11 21825 12
+scrx 2 12 21825 9
+scrx 2 12 21825 12

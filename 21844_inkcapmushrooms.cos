@@ -1,0 +1,317 @@
+
+
+*** Inkcap mushrooms
+
+
+** Mushroom seeder timer script
+scrp 1 1 21844 9
+	lock
+	tick rand 600 2200
+	perm 90
+	rnge 1800
+*create spores
+* lower main
+	setv va00 0
+	esee 2 8 21844
+		addv va00 1
+	next
+
+	doif va00 lt 2
+		targ ownr
+		setv va01 posl
+		setv va02 post
+
+		reps 4
+			new: simp 2 3 21844 "gp_inkcap_mushroom_JESS" 1 0 600
+*picked up creature and hand, gravity and boundaries
+			attr 195
+			bhvr 16
+			elas 0
+			fric 100
+			accg 1
+			aero 0
+			perm rand 30 70
+*	dormancy counter - reaches 0 and dies
+			setv ov72 rand 10 40
+			mvsf va01 va02
+			velo rand -5 5 rand -5 0
+			tick rand 1 100
+		repe
+*		dbg: outs "Shrooms created"
+	endi
+endm
+
+***SEED eat
+scrp 2 3 21844 12
+	stim writ from 77 1
+	kill ownr
+endm
+
+***SEED timer
+scrp 2 3 21844 9
+	inst
+
+	setv va00 gmap posx posy
+* Check if in valid place
+	doif va00 eq -1
+		kill ownr
+		stop
+	endi
+
+* Population check: there can't be more than 12 mushrooms growing in a single spot
+	setv va01 0
+	rnge 1600
+	esee 2 8 21844
+		addv va01 1
+
+	next
+	doif va01 gt 30
+		kill ownr
+	endi
+
+*	if not being carried or falling
+	doif fall eq 0 and carr eq null
+* Seeds don't swim.
+		doif rtyp room targ eq 8 or rtyp room targ eq 9
+			kill ownr
+		endi
+*	check environment to test whether can sprout
+		gsub envi
+*	if don't survive envi test, go dormant
+		gsub dorm
+	endi
+
+**environment test - grow if successful
+	subr envi
+*	light check
+		doif prop room targ 1 le 1
+			setv va00 1
+		endi
+*	heat check
+		doif prop room targ 2 le 1
+			setv va01 1
+		endi
+*	nutrient check
+		doif prop room targ 4 ge 0.3
+			setv va02 1
+		endi
+
+*	can I grow?	
+		doif va00 eq 1 and va01 eq 1 and va02 eq 1
+			gsub grow
+		endi
+	retn
+
+**growing into plant routine
+	subr grow
+
+		rnge 11
+		setv va20 0
+		esee 2 8 21844
+			addv va20 1
+		next
+		doif va20 gt 0
+			kill ownr
+			stop
+		endi
+
+		rnge 150
+		setv va20 0
+		esee 2 8 21844
+			addv va20 1
+		next
+		doif va20 gt 3
+			kill ownr
+			stop
+		endi
+
+		setv va00 posl
+		setv va01 post
+		setv va90 perm
+		new: simp 2 8 21844 "gp_inkcap_mushroom_JESS" 62 1 600
+		attr 195
+		bhvr 16
+		elas 0
+		fric 100
+		perm va90
+		accg 2
+		doif tmvt va00 va01 ne 1
+			kill targ
+			kill ownr
+		endi
+		mvto va00 va01
+		tick rand 200 600
+		kill ownr
+	retn
+**dormancy routine
+	subr dorm
+*	make it invisible
+		attr 16
+		over
+*	reduce dormancy counter
+		subv ov72 1
+*	if been dormant too long, die
+		doif ov72 le 0
+			doif room targ ne -1
+				altr room targ 3 0.1
+				altr room targ 4 0.1
+				kill ownr
+			else
+				kill ownr
+			endi
+		endi
+	retn
+endm
+
+****FUNGI plant timer
+scrp 2 8 21844 9
+**OV00 is state
+*0=growing
+*1=sporeing
+*2=dying
+*3=picked
+
+*increase age
+	addv ov01 1
+
+**growing
+	doif ov00 eq 0
+		doif base eq 0
+			doif pose lt 6
+				setv va00 pose
+				addv va00 1
+				pose va00
+			else
+				setv va01 rand 0 3
+				mulv va01 14
+				addv va01 6
+				pose 0
+				base va01
+				pose 0
+			endi
+		else
+			doif pose eq 0
+				frat 10
+				anim [1 2 3 4 5 6 7 8 9 10 11 12 13 255]
+			else
+				setv ov00 1
+			endi
+		endi
+	endi
+
+**sporeing
+	doif ov00 eq 1
+		addv ov02 1
+		doif rand 0 5 eq 0
+*	create a spore
+			inst
+			setv va00 posl
+			setv va01 post
+			new: simp 2 3 21844 "gp_inkcap_mushroom_JESS" 1 0 600
+*picked up creature and hand, gravity and boundaries
+			attr 195
+			bhvr 16
+			elas 0
+			fric 100
+			perm rand 40 70
+			doif tmvt va00 va01 <> 1
+				kill targ
+				targ ownr
+				setv ov00 2
+				stop
+			endi
+			mvto va00 va01
+			velo rand -5 5 rand -5 0
+			tick rand 300 600
+*	dormancy counter - reaches 0 and dies
+			setv ov72 rand 10 40
+		endi
+
+		doif ov02 gt 30
+			setv ov00 2
+		endi
+	endi
+
+**dying
+	doif ov00 eq 2
+		doif base ne 0
+			base 0
+			pose 7
+		endi
+
+		doif pose gt 6
+			pose 6
+		else
+			setv va00 pose
+			subv va00 2
+			pose va00
+			doif pose lt 1
+				altr room targ 3 0.2
+				altr room targ 4 0.2
+				kill ownr
+			endi
+		endi
+	endi
+
+**if you've been picked
+	doif ov00 eq 3
+*	if not carried or falling
+		doif carr eq null and fall eq 0
+			altr room targ 3 0.2
+			altr room targ 4 0.2
+			kill ownr
+		endi
+	endi
+endm
+
+**FUNGI picked
+scrp 2 8 21844 4
+	setv ov00 3
+	doif base ne 0
+		pose 0
+	endi
+endm
+
+***FUNGI eat
+scrp 2 8 21844 12
+	inst
+*produce new spores when fungi is eaten
+	setv va00 posl
+	setv va01 post
+	stim writ from 78 1
+	reps 2
+		new: simp 2 3 21844 "gp_inkcap_mushroom_JESS" 1 0 600
+*picked up creature and hand, gravity and boundaries
+		attr 195
+		bhvr 16
+		elas 0
+		fric 100
+		perm rand 30 70
+		doif tmvt va00 va01 eq 1
+			mvto va00 va01
+			velo rand -5 5 rand -4 0
+			tick rand 300 600
+
+*	dormancy counter - reaches 0 and dies
+			setv ov72 rand 10 40
+		else
+			kill targ
+		endi
+	repe
+	kill ownr
+endm
+
+
+******REMOVAL
+rscr
+inst
+enum 1 1 21844
+	kill targ
+next
+enum 2 8 21844
+	kill targ
+next
+enum 2 3 21844
+	kill targ
+next
+scrx 2 3 21844 9
