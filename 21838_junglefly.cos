@@ -37,6 +37,7 @@ scrp 2 15 21838 1000
 	doif ov11 eq 0
 		setv ov11 -1
 	endi
+	perm 1
 	velo rand -4 4 rand -4 4
 
 ** kill the fly placeholder

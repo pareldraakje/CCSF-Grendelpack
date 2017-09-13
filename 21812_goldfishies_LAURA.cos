@@ -4,10 +4,10 @@ scrp 2 23 21812 1000
 
 	bhvr 11
 	attr 199
-	elas 10
+	elas 25
 	aero 5
 	accg 10
-	fric 100
+	fric 40
 *don't fall through floors!
 	perm 98
 	mvto _p1_ _p2_
@@ -63,7 +63,7 @@ scrp 2 23 21812 1
 	aero 2
 	accg 1
 	perm 98
-	fric 100
+	fric 40
 
 *set variable ov03 = egg's time out of water:
 	setv ov03 0
@@ -93,7 +93,7 @@ scrp 2 18 21812 1000
 	aero 2
 	accg 1
 	perm 98
-	fric 100
+	fric 40
 *set variable ov03 = egg's time out of water:
 	setv ov03 0
 	mvsf _p1_ _p2_
@@ -146,7 +146,7 @@ scrp 2 18 21812 9
 				bhvr 48
 				attr 195
 				accg 0
-				elas 0.5
+				elas 25
 ***** GH says: I reset the perm to 0 so that the fish won't beach itself in areas like the
 ***** Norn Terrarium pond.
 ** Pilla says: nope.
@@ -227,7 +227,7 @@ scrp 2 15 21812 9
 *and set its 'time out of water' variable back to 0:
 				setv ov01 0
 				accg 0
-
+				aero 0
 *****GH says: wethe plant-munching code is in its own subroutine, to keep things tidy
 				gsub plant
 
@@ -279,6 +279,7 @@ scrp 2 15 21812 9
 					gsub birth
 				endi
 
+				targ ownr
 *****GH says: the fish might become the jumbo variety at this point
 *****We check the fish's age (ov00), life stage (ov06) and if it can become that big
 *****or not (ov09). The actual code works the same as when the fish becomes an adult.
@@ -296,6 +297,7 @@ scrp 2 15 21812 9
 				addv ov01 1
 ***** GH says: and give it a little velocity so it falls
 				accg 4
+				aero 10
 				velo 0 2
 *check to see if ov01 is equal to 24 or greater:
 				doif ov01 >= 24
@@ -343,6 +345,7 @@ scrp 2 15 21812 9
 			endi
 		endi
 		unlk
+		targ ownr
 	retn
 
 *goldfish birth subroutine:
@@ -364,6 +367,7 @@ scrp 2 15 21812 9
 *****otherwise they will keep their own numbers stable, but their
 *****population will never grow naturally.
 			reps rand 1 3
+				targ ownr
 *create fish eggs:
 				setv va10 posx
 				setv va11 posy
@@ -376,31 +380,44 @@ scrp 2 15 21812 9
 				aero 2
 				accg 1
 				perm rand 50 51
-				fric 100
+				fric 40
 
 *set variable ov03 = egg's time out of water:
 				setv ov03 0
 
-				mvsf va00 va01
-
-				tick 150
-				targ ownr
+				doif tmvt va00 va01 eq 1
+					mvto va00 va01
+					tick 150
+					targ ownr
+				else
+					kill targ
+				endi
 			repe
 
 		endi
 		unlk
+		targ ownr
 	retn
 
 ***** GH says: the fish were swimming into the floor a lot, so I added this to make sure
 ***** they don't "floorbonk". This works just like the part that checks for walls to the
 ***** left and right, except it's only looking down, and doesn't look quite as far.
 	subr floor
-		setv va97 rand -2 2
+		setv va97 rand -1 1
 		setv va00 posx
-		setv va01 posy
+		setv va01 posb
 		addv va01 10
-		doif grap va00 va01 eq -1
+		doif rtyp grap va00 va01 ne 8 and rtyp grap va00 va01 ne 9
 			setv va97 -1
+			setv va55 1
+		endi
+		setv va01 post
+		subv va01 14
+		doif rtyp grap va00 va01 ne 8 and rtyp grap va00 va01 ne 9
+			setv va97 1
+			doif va55 eq 1
+				setv va97 0
+			endi
 		endi
 	retn
 
@@ -408,7 +425,7 @@ scrp 2 15 21812 9
 	subr left
 		gsub floor
 *swim randomly up and down:
-		velo rand -4 -2 va97
+		velo rand -3 -2 va97
 *animate:
 		anim [9 10 11 12 13 8]
 		over
@@ -418,7 +435,7 @@ scrp 2 15 21812 9
 	subr right
 		gsub floor
 *swim randomly up and down:
-		velo rand 4 2 va97
+		velo rand 3 2 va97
 *animate:
 		anim [1 2 3 4 5 0]
 		over
@@ -477,6 +494,7 @@ scrp 2 15 21812 9
 *		done, don't need to be locked anymore
 		slow
 		unlk
+		targ ownr
 	retn
 
 ***** GH says: we can't use BASE because the engine is unreliable in how and when it will
@@ -508,7 +526,7 @@ scrp 2 15 21812 9
 		bhvr 48
 		attr 195
 		accg 0
-		elas 0.5
+		elas 25
 		perm 0
 
 *		we copy over all of the younger fish's variables

@@ -182,7 +182,7 @@ scrp 2 3 21849 9
 			absv va03
 		untl fall eq 0 or va03 > va12
 		setv va12 va11
-	untl fall eq 0 and wall eq down
+	untl fall eq 0
 	wait rand 100 400
 	setv va00 0
 	rnge 600

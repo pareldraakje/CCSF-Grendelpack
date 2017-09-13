@@ -163,6 +163,7 @@ endm
 
 ** Menu GRAPH Graphlife 1003
 scrp 1 2 21842 1003
+	inst
 	part 5
 	anim [1 255]
 	part 6
@@ -215,6 +216,62 @@ scrp 1 2 21842 1003
 	mesg wrt+ ownr 1003 0 0 5
 endm
 
+
+** Menu GRAPH Graphsex 1004
+scrp 1 2 21842 1004
+	inst
+	part 5
+	anim [0 255]
+	part 6
+	anim [1 255]
+	part 7
+	anim [0 255]
+	part 8
+	anim [0 255]
+
+	part 12
+	ptxt "<tint 255 255 128>Arousal P<tint>\n<tint 255 128 255>Libido lowerer<tint>\n<tint 128 255 255>Sex pheromone<tint>\n<tint 255 128 128>Oestrogen<tint>\n<tint 128 255 128>Progesterone<tint>\n<tint 255 200 100>Testosterone<tint>"
+
+	targ norn
+	doif crea targ eq 1
+		seta va10 targ
+		targ va10
+		setv va00 chem 39
+		setv va01 chem 40
+		setv va02 chem 41
+		setv va03 chem 46
+		setv va04 chem 47
+		setv va05 chem 53
+		targ ownr
+		part 9
+		setv va06 stoi ptxt
+		part 10
+		setv va07 stoi ptxt
+		part 11
+		setv va08 stoi ptxt
+		targ va10
+		setv va09 chem va06
+		setv va10 chem va07
+		setv va11 chem va08
+
+		targ ownr
+		part 16
+
+
+		grpv 0 va00
+		grpv 1 va01
+		grpv 2 va02
+		grpv 3 va03
+		grpv 4 va04
+		grpv 5 va05
+		grpv 6 va09
+		grpv 7 va10
+		grpv 8 va11
+	endi
+
+	mesg wrt+ ownr 1004 0 0 5
+endm
+
 scrp 1 2 21842 1007
 	inst
 	setv va10 9
@@ -256,60 +313,6 @@ scrp 1 2 21842 1007
 	endi
 endm
 
-
-scrp 1 2 21842 1004
-** Menu GRAPH Graphsex 1004
-	part 5
-	anim [0 255]
-	part 6
-	anim [1 255]
-	part 7
-	anim [0 255]
-	part 8
-	anim [0 255]
-
-	part 12
-	ptxt "<tint 255 255 128>Arousal<tint>\n<tint 255 128 255>Libido lowerer<tint>\n<tint 128 255 255>Sex pheromone<tint>\n<tint 255 128 128>Oestrogen<tint>\n<tint 128 255 128>Progesterone<tint>\n<tint 255 200 100>Testosterone<tint>"
-
-	targ norn
-	doif crea targ eq 1
-		seta va10 targ
-		targ va10
-		setv va00 chem 39
-		setv va01 chem 40
-		setv va02 chem 41
-		setv va03 chem 46
-		setv va04 chem 47
-		setv va05 chem 53
-		targ ownr
-		part 9
-		setv va06 stoi ptxt
-		part 10
-		setv va07 stoi ptxt
-		part 11
-		setv va08 stoi ptxt
-		targ va10
-		setv va09 chem va06
-		setv va10 chem va07
-		setv va11 chem va08
-
-		targ ownr
-		part 16
-
-
-		grpv 0 va00
-		grpv 1 va01
-		grpv 2 va02
-		grpv 3 va03
-		grpv 4 va04
-		grpv 5 va05
-		grpv 6 va09
-		grpv 7 va10
-		grpv 8 va11
-	endi
-
-	mesg wrt+ ownr 1004 0 0 5
-endm
 
 rscr
 

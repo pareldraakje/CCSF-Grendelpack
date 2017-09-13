@@ -18,9 +18,12 @@ link grap 25694 1237 grap 25727 1603 100
 link grap 24322 231 grap 25219 509 100
 
 *main upperleft
-link grap 21385 648 grap 21385 838 100
-link grap 21385 838 grap 21385 923 100
-link grap 21385 923 grap 21385 1455 100
+link grap 21385 648 grap 21385 738 100
+link grap 21385 738 grap 21385 856 100
+link grap 21385 856 grap 21385 956 100
+link grap 21385 956 grap 21385 1440 100
+link grap 21385 1440 grap 21385 1640 100
+link grap 21385 1640 grap 21385 1890 100
 *main leftmost
 link grap 20799 1455 grap 20799 1809 100
 link grap 20799 1809 grap 20799 2307 100
@@ -28,7 +31,7 @@ link grap 20799 2307 grap 20799 2392 100
 *main upper right
 link grap 23032 678 grap 23032 871 100
 link grap 23032 871 grap 23032 1451 100
-link grap 23032 1451 grap 23032 1500 100
+link grap 23032 1451 grap 23032 1550 100
 *main left swamp elevators
 link grap 21668 1941 grap 21668 2007 100
 *main center swamp elevators
