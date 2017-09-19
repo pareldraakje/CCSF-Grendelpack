@@ -32,6 +32,8 @@ doif targ eq null
 ** Create the agent
 *	Part 1: upper overlay
 	new: comp 1 1 21828 "gp_capillata_overlay_JESS" 1 0 1
+** play looping bubble sounds
+	sndl "DG09"
 *	part 2: upper overlay image
 	pat: dull 2 "gp_capillata_overlay_JESS" 1 -78 447 0
 *	part 3: button
@@ -276,6 +278,8 @@ scrp 1 1 21828 1
 		alph 256 1
 		part 7
 		pose 0
+** stop looping bubble sounds
+		stpc
 	else
 		rtyp ov24 8
 		rtyp ov25 8
@@ -294,6 +298,9 @@ scrp 1 1 21828 1
 		frat 4
 		part 7
 		pose 2
+** play looping bubble sounds once more
+		sndl "DG09"
+
 	endi
 endm
 
