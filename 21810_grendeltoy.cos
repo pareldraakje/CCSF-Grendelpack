@@ -1,10 +1,3 @@
-** Main treehouses
-new: simp 2 21 21810 "gp_grendeltoy_GHOSTHANDE" 3 0 5000
-mesg wrt+ targ 1000 22343 1872 0
-** Meso main tree
-new: simp 2 21 21810 "gp_grendeltoy_GHOSTHANDE" 3 0 5000
-mesg wrt+ targ 1000 25596 917 0
-
 
 scrp 2 21 21810 1000
 	inst

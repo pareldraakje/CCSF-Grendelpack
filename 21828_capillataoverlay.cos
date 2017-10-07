@@ -205,13 +205,13 @@ rtyp ov34 8
 ** Upper capillata platform
 new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
 setv ov00 60
-mvto 2413 8877
+mvto 2413 8882
 setv va00 room targ
 *
 ** Capillata ground floor
 new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
 setv ov00 60
-mvto 2413 9065
+mvto 2413 9078
 setv va01 room targ
 *
 ** Capillata lower elevine

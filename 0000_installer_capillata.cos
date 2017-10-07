@@ -15,6 +15,6 @@
 *# attach gp_capillata_overlay_JESS.c16
 *# attach gp_eleport_UZAG.c16
 *# attach gp_improved_favplaces.c16
-*# attach DG09.wav
+*# attach dg09.wav
 
 *# link 21841_improvedfavplace.cos 21846_eleport.cos 21828_capillataoverlay.cos

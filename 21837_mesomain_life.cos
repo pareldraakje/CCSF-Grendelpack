@@ -34,6 +34,13 @@ mesg wrt+ targ 1000 24965 838 0
 **
 **
 
+** Main treehouses
+new: simp 2 21 21810 "gp_grendeltoy_GHOSTHANDE" 3 0 5000
+mesg wrt+ targ 1000 22343 1872 0
+** Meso main tree
+new: simp 2 21 21810 "gp_grendeltoy_GHOSTHANDE" 3 0 5000
+mesg wrt+ targ 1000 25596 917 0
+
 ** Meso upper platform
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 mesg wrt+ targ 1000 24276 927 0

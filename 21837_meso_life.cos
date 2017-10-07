@@ -1,0 +1,442 @@
+**
+** TOYS
+**
+**
+
+** Meso upper platform
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+mesg wrt+ targ 1000 24276 927 0
+** Meso main tree base
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 8
+mesg wrt+ targ 1000 25491 1164 0
+** Meso main tree upper platform
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 25742 905 0
+** Meso underground
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 25789 1559 0
+** Meso tank
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 24
+mesg wrt+ targ 1000 25001 1771 0
+
+
+**
+** Wildlife population controllers
+**
+**
+
+*
+** REDCAP MUSHROOM
+** Meso underground
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 25817 1528
+tick rand 1 100
+** Meso grendel hideout bubble
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 24471 546
+tick rand 1 100
+
+*
+** Good bug
+** Meso desert lobe
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 23589 537
+tick rand 1 100
+** Meso middle sandy spot
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 23927 939
+tick rand 1 100
+** Meso statue lower
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 3
+mvto 24200 1418
+tick rand 1 100
+
+*
+** Flies
+** Meso
+new: simp 1 1 21838 "blnk" 1 0 10
+mvto 24706 1136
+tick rand 1 100
+
+*
+** Drumstick birds
+** Meso
+new: simp 1 1 21843 "blnk" 1 0 0
+setv ov20 25567
+setv ov21 1168
+mvto ov20 ov21
+tick rand 20 180
+
+
+*
+** Eternal Mossy shee tree meso
+new: simp 2 4 21813 "gp_mossytree_JESS" 9 0 90
+mesg wrt+ targ 1000 24140 1075 0
+
+*
+** Hair algae
+** Meso
+new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
+mesg wrt+ targ 1000 23869 1752 0
+
+*
+** Pickleweed
+** Meso desert
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 23777 540
+perm 0
+rnge 999
+tick 1
+** Meso leftcorridor desert
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 23785 915
+perm 0
+rnge 999
+tick 1
+
+*
+** Dragonfruit
+** Meso Statue bush
+new: simp 1 1 21821 "blnk" 1 0 10
+mvto 24252 1423
+perm 0
+rnge 999
+tick 1
+
+*
+** Blush Shrub
+** Meso desert lobe
+new: simp 1 1 21815 "blnk" 1 0 1000
+mvto 23613 533
+tick 100
+
+
+**
+** Initial wildlife
+**
+**
+
+*
+** Gerana
+** Meso underground
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 25820 1519 0
+repe
+** Meso grendelhideout lobe
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 24367 516 0
+repe
+
+** Meso goldfish eggs
+reps 6
+	new: simp 2 18 21812 "goldfishies" 1 2 501
+	mesg wrt+ targ 1000 23754 1805 0
+	velo rand -5 5 rand -5 0
+	tick rand 10 1000
+repe
+
+** Meso flies
+reps 10
+	inst
+	new: simp 2 15 21838 "gp_fly_UZAG" 28 0 300
+	mesg wrt+ targ 1000 24747 769 0
+	slow
+repe
+
+** Meso bubble leeches
+reps 10
+	new: simp 2 16 21839 "gp_crayleech_JESS" 16 33 1000
+	mesg wrt+ targ 1000 23673 1709 0
+repe
+
+** Meso bubble crayfish
+reps 4
+	new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
+	mesg wrt+ targ 1000 23735 1887 0
+repe
+** Meso tiny pond crayfish
+reps 2
+	new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
+	mesg wrt+ targ 1000 23712 1481 0
+
+repe
+
+** Meso desert blush shrub
+reps 2
+	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+	mesg wrt+ targ 1000 23600 589 0
+repe
+
+**
+** Patch plants
+**
+**
+
+**
+** C2 berries
+**
+** Meso hanging leaves
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 24284
+setv ov06 236
+setv ov07 729
+setv ov08 39
+tick 1
+
+** Meso grendel hideout bulb (purple)
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 24127
+setv ov06 147
+setv ov07 502
+setv ov08 70
+setv ov04 2
+tick 1
+
+** Meso mother leaves (yellow)
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 25184
+setv ov06 470
+setv ov07 605
+setv ov08 71
+setv ov04 1
+tick 1
+
+**
+** Vendors
+**
+**
+
+*
+** Cheese dispenser
+** Meso upper corridor
+new: comp 2 23 21811 "gp_ccmac" 9 0 1000
+mesg wrt+ targ 1000 23762 180 0
+
+*
+** Crayleech
+** Meso bubble
+new: comp 2 23 21827 "gp_crayleech_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 23690 1908 0
+
+
+**
+**
+** REMOVAL
+**
+**
+
+
+rscr
+
+** Grendel mother
+enum 3 3 21823
+	kill targ
+next
+
+** Ball toys
+enum 2 21 21809
+	kill targ
+next
+
+** Grendel toy
+enum 2 21 21810
+	kill targ
+next
+
+** Mossy tree
+enum 1 1 21813
+	kill targ
+next
+enum 2 4 21813
+	kill targ
+next
+enum 2 3 21813
+	kill targ
+next
+
+** Hair algae
+enum 2 23 21802
+	kill targ
+next
+enum 2 4 21802
+	kill targ
+next
+enum 2 3 21802
+	kill targ
+next
+
+** Dragonfruit
+enum 1 1 21821
+	kill targ
+next
+enum 2 4 21821
+	kill targ
+next
+enum 2 8 21821
+	kill targ
+next
+enum 2 23 21821
+	kill targ
+next
+
+** Goldfishies
+enum 2 18 21812
+	kill targ
+next
+enum 2 15 21812
+	kill targ
+next
+enum 2 23 21812
+	kill targ
+next
+
+** Flies
+enum 2 15 21838
+	kill targ
+next
+enum 1 1 21838
+	kill targ
+next
+
+** Good bug
+enum 2 13 21822
+	kill targ
+next
+enum 1 1 21822
+	kill targ
+next
+
+** Drumstick bird
+enum 2 18 21843
+	kill targ
+next
+enum 2 14 21843
+	kill targ
+next
+enum 2 15 21843
+	kill targ
+next
+enum 1 1 21843
+	kill targ
+next
+
+** Pickleweed
+enum 1 1 21820
+	kill targ
+next
+enum 2 3 21820
+	kill targ
+next
+enum 2 4 21820
+	kill targ
+next
+enum 2 23 21820
+	kill targ
+next
+
+** Berry patch plant
+enum 1 1 21848
+	kill targ
+next
+enum 2 8 21848
+	kill targ
+next
+
+** Leech
+enum 2 16 21839
+	kill targ
+next
+enum 2 15 21839
+	kill targ
+next
+enum 2 18 21839
+	kill targ
+next
+** Crayfish
+enum 2 23 21827
+	kill targ
+next
+enum 2 16 21827
+	kill targ
+next
+enum 2 15 21827
+	kill targ
+next
+enum 2 18 21827
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+
+** Cheese dispenser
+enum 2 23 21811
+	kill targ
+next
+
+*Gerana
+enum 2 15 21814
+	kill targ
+next
+enum 2 18 21814
+	kill targ
+next
+
+** Redcap mushroom
+enum 1 1 21849
+	kill targ
+next
+enum 2 3 21849
+	kill targ
+next
+enum 2 4 21849
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+
+** Elevator vendor
+enum 2 23 21824
+	kill targ
+next
+setv va00 1
+reps 9
+	enum 2 va00 21824
+		kill targ
+	next
+	addv va00 1
+repe
+
+** Froot fruit tree
+enum 2 4 21816
+	kill targ
+next
+enum 2 8 21816
+	kill targ
+next
+enum 2 10 21816
+	kill targ
+next

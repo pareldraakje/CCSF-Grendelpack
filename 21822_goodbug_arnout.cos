@@ -47,7 +47,7 @@ scrp 1 1 21822 9
 	esee 2 13 21822
 		addv va00 1
 	next
-	doif va00 lt ov00
+	doif va00 lt ov00 and rand 0 5 eq 5
 		setv va01 posx
 		setv va02 post
 		reps 2
@@ -131,7 +131,7 @@ scrp 2 13 21822 9
 		esee 2 13 21822
 			addv va97 1
 		next
-		doif va97 lt 5
+		doif va97 lt 3 and rand 0 5 eq 5
 			reps 2
 				targ ownr
 				setv va11 posx

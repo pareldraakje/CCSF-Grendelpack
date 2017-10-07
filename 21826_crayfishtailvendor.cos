@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_crayfishtail_vendor_JESS.agents"
-*# DS-Name "Crayfish tail vendor (Jesseth)"
-*# attach gp_crayfishtail_vendor_JESS.c16 
-*# desc = "A vendor that vends crayfish tails. Well, at least one of the tails is from a crayfish... "
+*# DS-Name "Crayfish vendor"
+*# attach gp_crayfishtail_vendor_JESS.c16 GrenP_CrayfishtailVendor.catalogue
+*# desc = "A vendor that vends crayfish tails. Well, at least one of the tails might be crayfish...\nSprites by Jesseth."
 *# Agent Animation File = "gp_crayfishtail_vendor_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_crayfishtail_vendor_JESS"
@@ -32,8 +32,8 @@
 ** The vendor
 **
 
-*new: comp 2 23 21826 "gp_crayfishtail_vendor_JESS" 1 0 rand 800 900
-*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+new: comp 2 23 21826 "gp_crayfishtail_vendor_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 **
 ** SCRIPTS

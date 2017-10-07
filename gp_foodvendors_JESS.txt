@@ -1,0 +1,93 @@
+"en-GB"
+
+group DSAG "GP - Crayfish tail vendor"
+
+"Agent Type" 0
+
+"Script Count" 1
+"Script 1" @ "21826_crayfishtailvendor.cos"
+
+
+
+
+"Agent Description" "A vendor that vends crayfish tails. Well, at least one of the tails is from a crayfish... \n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_crayfishtail_vendor_JESS.c16"
+
+"Agent Animation Gallery" "gp_crayfishtail_vendor_JESS"
+
+"Agent Sprite First Image" 0
+
+"Dependency Count" 2
+
+
+"Dependency 1" "gp_crayfishtail_vendor_JESS.c16"
+
+"Dependency Category 1" 2
+"Dependency 2" "GrenP_CrayfishtailVendor.catalogue"
+
+
+"Dependency Category 2" 7
+
+
+"Remove script" "enum 2 23 21826\n	kill targ\nnext\nenum 2 4 21826\n	kill targ\nnext\nenum 2 11 21826\n	kill targ\nnext\nenum 2 12 21826\n	kill targ\nnext\n\nscrx 2 23 21826 9\nscrx 2 23 21826 3\nscrx 2 23 21826 1\nscrx 2 11 21826 9\nscrx 2 11 21826 12\nscrx 2 12 21826 9\nscrx 2 12 21826 12"
+
+
+
+
+
+
+
+
+
+
+
+group DSAG "GP - Frog vendor"
+
+"Agent Type" 0
+
+
+"Script Count" 1
+
+"Script 1" @ "21825_frogsaladvendor.cos"
+
+
+
+"Agent Description" "A vendor that vends frog kebabs. And salad bowls. \n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_frogsalad_vendor_JESS.c16"
+
+"Agent Animation Gallery" "gp_frogsalad_vendor_JESS"
+
+"Agent Sprite First Image" 0
+
+
+"Dependency Count" 2
+
+
+"Dependency 1" "gp_frogsalad_vendor_JESS.c16"
+"Dependency Category 1" 2
+
+"Dependency 2" "GrenP_FrogsaladVendor.catalogue"
+
+
+"Dependency Category 2" 7
+
+
+
+
+
+
+
+"Remove script" "enum 2 23 21825\n	kill targ\nnext\nenum 2 11 21825\n	kill targ\nnext\nenum 2 12 21825\n	kill targ\nnext\n\nscrx 2 23 21825 9\nscrx 2 23 21825 3\nscrx 2 23 21825 1\nscrx 2 11 21825 9\nscrx 2 11 21825 12\nscrx 2 12 21825 9\nscrx 2 12 21825 12"
+
+
+inline FILE "GrenP_CrayfishtailVendor.catalogue" "GrenP_CrayfishtailVendor.catalogue"
+
+inline FILE "gp_crayfishtail_vendor_JESS.c16" "gp_crayfishtail_vendor_JESS.c16"
+inline FILE "GrenP_FrogsaladVendor.catalogue" "GrenP_FrogsaladVendor.catalogue"
+
+inline FILE "gp_frogsalad_vendor_JESS.c16" "gp_frogsalad_vendor_JESS.c16"
+
+
+

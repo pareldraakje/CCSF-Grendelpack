@@ -1,0 +1,18 @@
+*capillata-meso
+link grap 23563 221 grap 2629 8912 100
+
+* meso upperleft elevators
+link grap 23920 259 grap 23921 393 100
+link grap 23921 393 grap 23928 654 100
+* meso statue elevator
+link grap 24423 977 grap 24423 1081 100
+* meso pond elevator
+link grap 23622 1533 grap 23622 1903 100
+* meso pond storage teleport
+link grap 23946 1914 grap 24235 1812 100
+* meso tree platform
+link grap 25206 954 grap 25206 1018 100
+* meso ground bulb
+link grap 25694 1237 grap 25727 1603 100
+* meso airlock tech
+link grap 24322 231 grap 25219 509 100

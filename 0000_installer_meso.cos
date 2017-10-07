@@ -1,65 +1,52 @@
 *
 * CAOS2PRAY CHUNK
 *
-*# Pray-File "grendelpack_mesomain.agents"
-*# DS-Name "Grendel Pack Meso&Main"
-*# desc = "Inject meso & main"
-*# Agent Animation File = "blnk.c16"
+*# Pray-File "grendelpack_meso.agents"
+*# DS-Name "Banshee Ark Meso"
+*# desc = "Inject the Banshee Ark Meso"
+*# Agent Animation File = "gp_favicons_meso.c16"
 *# Agent Sprite First Image = 1
-*# Agent Animation Gallery = "blnk"
-*# Web URL = "http://creaturescaves.com/"
-*# Web Label = "Pilla @ CC"
+*# Agent Animation Gallery = "gp_favicons_meso"
+*# Web URL = "http://creaturescaves.com/thebansheeark"
+*# Web Label = "The Banshee Ark"
 
 *# depend blnk.c16
 
 *# attach gp_meso.blk
 *# attach gp_mainworld.blk
 
-*# attach gp_agressive_moss_JESS.c16
-*# attach gp_blush_shrub_CS.c16
+*# attach gp_airlock.c16
+*# attach gp_blush_shrub_CS.c16 GrenP_Blushshrub.catalogue
 *# attach gp_c2berries.c16
 *# attach gp_capillata_overlay_JESS.c16
-*# attach gp_ccmac.c16
-*# attach gp_cranstone_planter_JESS.c16
-*# attach gp_crayfishtail_vendor_JESS.c16
-*# attach gp_crayleech_JESS.c16
-*# attach gp_dawn_plant_CS.c16
-*# attach gp_desertlancebug_CS.c16
-*# attach gp_desertstickbird_CS.c16
-*# attach gp_dhoverlay_CS.c16
+*# attach gp_ccmac.c16 GrenP_CheeseMachine.catalogue
+*# attach gp_crayleech_JESS.c16 GrenP_Crayfish.catalogue
+*# attach gp_dragonfruit_plant_JESS.c16 GrenP_Dragonfruit.catalogue
+*# attach gp_desertstickbird_CS.c16 GrenP_DrumstickBird.catalogue
 *# attach gp_doorcapmeso_UZAG.c16
 *# attach gp_doormesocap_UZAG.c16
-*# attach gp_dragonfruit_plant_JESS.c16
 *# attach gp_eleplant_JESS.c16
 *# attach gp_eleport_UZAG.c16
-*# attach gp_favicons_main.c16
 *# attach gp_favicons_meso.c16
-*# attach gp_fernshroom_planter_JESS.c16
-*# attach gp_fleece_algae_JESS.c16
-*# attach gp_fleeceblack_planter_JESS.c16
-*# attach gp_fly_UZAG.c16
-*# attach gp_frogsalad_vendor_JESS.c16
-*# attach gp_gerana.c16
-*# attach gp_goldfishies_JESS.c16
-*# attach gp_good_bug_CS.c16
-*# attach gp_grendelmother_PILLA.c16
-*# attach gp_grendeltoy_GHOSTHANDE.c16
-*# attach gp_hair_algae_JESS.c16
-*# attach gp_hairhydra_planter_JESS.c16
-*# attach gp_improved_favplaces.c16
-*# attach gp_inkcap_mushroom_JESS.c16
-*# attach gp_kelpbubble_planter_JESS.c16
-*# attach gp_licorice_quill_CS.c16
-*# attach gp_moreballs.c16
-*# attach gp_mossytree_JESS.c16
-*# attach gp_pickleweed_plant_JESS.c16
-*# attach gp_redcap_mushroom.c16
-*# attach gp_shortcutdoors_CS.c16
+*# attach gp_fly_UZAG.c16 
+*# attach gp_gerana.c16 GrenP_Gerana.catalogue
+*# attach gp_goldfishies_JESS.c16 GrenP_Goldfishies.catalogue
+*# attach gp_good_bug_CS.c16 GrenP_Goodbug.catalogue
+*# attach gp_grendelmother_PILLA.c16 
+*# attach gp_grendelmother_UZAG.c16 GrenP_Grenmother.catalogue
+*# attach gp_grendeltoy_GHOSTHANDE.c16 GrenP_GrendelToy.catalogue
+*# attach gp_hair_algae_JESS.c16 GrenP_HairAlgae.catalogue
+*# attach gp_improved_favplaces.c16 improvedfav_pilla_help.catalogue
+*# attach gp_moreballs.c16 GrenP_Creatures2Balls.catalogue
+*# attach gp_mossytree_JESS.c16 GrenP_MossyTree.catalogue
+*# attach gp_pickleweed_plant_JESS.c16 GrenP_Pickleweedplant.catalogue
+*# attach gp_redcap_mushroom.c16 GrenP_RedcapMushroom.catalogue
 
 *# attach bal3.wav
 *# attach chwp.wav
 *# attach cmac.wav
 *# attach dr10.wav
+*# attach DG09.wav
 *# attach drp9.wav
 *# attach elt0.wav
 *# attach gulp.wav
@@ -68,4 +55,5 @@
 *# attach punc.wav
 *# attach tbal.wav
 
-*# link 21841_improvedfavplace.cos 0_00000_map_meso.cos 0_00000_map_main.cos 21828_capillataoverlay.cos 21800_agmoss_JESS.cos 21801_fleecealgae.cos 21802_hairalgae.cos 21803_dawnplant.cos 21804_licoricequill.cos 21808_shortcutdoors.cos 21809_moreballs.cos 21810_grendeltoy.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21816_frootfruit_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21823_grendelmother.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 21828_door_capmeso.cos 21829_fernshroomplanter.cos 21830_cranberrystoneworthplanter.cos 21831_fleeceblackplanter.cos 21832_kelpbubbleplanter.cos 21833_hairhydraplanter.cos 21834_eleplant.cos 21835_calinks_mesomain.cos 21836_CAemitters_mesomain.cos 21838_junglefly.cos 21839_leech.cos 21842_chemicalinjector.cos 21843_desertbird_ARNOUT.cos 21844_inkcapmushrooms.cos 21845_desertbug_ARNOUT.cos 21846_eleport.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21837_mesomain_life.cos 21835_signeledoor_mesomain.cos
+** TODO CA emitters meso
+*# link 21841_improvedfavplace.cos 0_00000_map_meso.cos 21828_capillataoverlay.cos 21802_hairalgae.cos 21809_moreballs.cos 21810_grendeltoy.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21823_grendelmother.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 21828_door_capmeso.cos 21834_eleplant.cos 21835_calinks_meso.cos 21836_CAemitters_mesomain.cos 21838_junglefly.cos 21839_leech.cos 21843_desertbird_ARNOUT.cos 21845_desertbug_ARNOUT.cos 21846_eleport.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21850_airlock.cos 21835_signeledoor_meso.cos 21837_meso_life.cos 
