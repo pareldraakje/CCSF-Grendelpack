@@ -6,7 +6,7 @@
 *# DS-Name "GP - Blush Shrub"
 *# attach gp_blush_shrub_CS.c16 GrenP_BlushShrub.catalogue
 *# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
-*# Agent Animation File = "gp_licorice_quill_CS.c16"
+*# Agent Animation File = "gp_blush_shrub_CS.c16"
 *# Agent Sprite First Image = 5
 *# Agent Animation Gallery = "gp_blush_shrub_CS"
 *

@@ -21,7 +21,7 @@ group DSAG "GP - Blush Shrub"
 
 "Agent Description" "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
 
-"Agent Animation File" "gp_licorice_quill_CS.c16"
+"Agent Animation File" "gp_blush_shrub_CS.c16"
 
 "Agent Animation Gallery" "gp_blush_shrub_CS"
 
@@ -137,7 +137,7 @@ group DSGB "GPGB - Blush Shrub"
 
 "Agent Description" "It's blushing! It's a shrub! It's the wonderful blush shrub. Sprites:CosmiSynth - Code:Arnout"
 
-"Agent Animation File" "gp_licorice_quill_CS.c16"
+"Agent Animation File" "gp_blush_shrub_CS.c16"
 
 "Agent Animation Gallery" "gp_blush_shrub_CS"
 

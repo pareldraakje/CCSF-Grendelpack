@@ -64,7 +64,6 @@ scrp 2 23 21801 1000
 	part 0
 	frat 16
 	anim [ 0 1 2 3 4 3 2 1 255]
-	tick 10
 	mvsf _p1_ _p2_
 endm
 
