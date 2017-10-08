@@ -1,0 +1,27 @@
+"en-GB"
+
+
+group DSAG "GP - Planter (CranStone)"
+
+"Dependency 1" "gp_cranstone_planter_JESS.c16"
+"Dependency 2" "GrenP_Cranberrystoneworth.catalogue"
+"Agent Animation Gallery" "gp_cranstone_planter_JESS"
+"Agent Description" "A planter containing cranberry and stoneworth plants.\n\nSprites by Jesseth"
+"Agent Animation File" "gp_cranstone_planter_JESS.c16"
+"Agent Animation Gallery" "gp_cranstone_planter_JESS"
+"Remove script" "enum 2 23 21830\n	kill targ\nnext\nenum 2 3 21830\n	kill targ\nnext\nenum 2 8 21830\n	kill targ\nnext\n\nscrx 2 23 21830 1\nscrx 2 23 21830 9\n\nscrx 2 3 21830 9\nscrx 2 3 21830 12\nscrx 2 8 21830 9\nscrx 2 8 21830 12"
+
+"Script Count" 1
+"Script 1" @ "21830_cranberrystoneworthplanter.cos"
+
+"Agent Type" 0
+"Dependency Count" 2
+"Dependency Category 1" 2
+"Dependency Category 2" 7
+"Agent Sprite First Image" 0
+
+
+
+inline FILE "GrenP_Cranberrystoneworth.catalogue" "GrenP_Cranberrystoneworth.catalogue"
+inline FILE "gp_cranstone_planter_JESS.c16" "gp_cranstone_planter_JESS.c16"
+

@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_fernshroom_planter_JESS.agents"
-*# DS-Name "Pickleweed Plant (Jesseth)"
-*# attach gp_fernshroom_planter_JESS.c16 
-*# desc = "Some pretty pickleweed."
+*# DS-Name "GP - Planter (fernshroom)"
+*# attach gp_fernshroom_planter_JESS.c16 GrenP_FernShroomPlanter.catalogue
+*# desc = "A planter with ferns and tiny button mushrooms."
 *# Agent Animation File = "gp_fernshroom_planter_JESS.c16"
 *# Agent Sprite First Image = 20
 *# Agent Animation Gallery = "gp_fernshroom_planter_JESS"
@@ -32,8 +32,8 @@
 ** The planter
 **
 
-*new: simp 1 1 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
-*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+new: simp 1 1 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 **

@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_cranstone_planter_JESS.agents"
-*# DS-Name "Cranberry stoneworth planter(Jesseth)"
-*# attach gp_cranstone_planter_JESS.c16 
-*# desc = "A cranstone planter"
+*# DS-Name "GP - Planter (CranStone)"
+*# attach gp_cranstone_planter_JESS.c16 GrenP_Cranberrystoneworth.catalogue
+*# desc = "A planter containing cranberry and stoneworth plants.\n\nSprites by Jesseth"
 *# Agent Animation File = "gp_cranstone_planter_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_cranstone_planter_JESS"
@@ -32,8 +32,8 @@
 ** The planter
 **
 
-*new: simp 1 1 21830 "gp_cranstone_planter_JESS" 1 0 rand 700 900
-*mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+new: simp 1 1 21830 "gp_cranstone_planter_JESS" 1 0 rand 700 900
+mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
 
 **
 ** SCRIPTS

@@ -1,0 +1,27 @@
+"en-GB"
+
+
+group DSAG "GP - Planter (fleeceblack)"
+
+"Dependency 1" "gp_fleeceblack_planter_JESS.c16"
+"Dependency 2" "GrenP_Fleeceblackplanter.catalogue"
+"Agent Animation Gallery" "gp_fleeceblack_planter_JESS"
+"Agent Description" "A fleece algae planter.\n\nSprites by Jesseth"
+"Agent Animation File" "gp_fleeceblack_planter_JESS.c16"
+"Agent Animation Gallery" "gp_fleeceblack_planter_JESS"
+"Remove script" "enum 2 23 21831\n	kill targ\nnext\nenum 2 3 21831\n	kill targ\nnext\nenum 2 8 21831\n	kill targ\nnext\n\nscrx 2 23 21831 1\nscrx 2 23 21831 9\n\nscrx 2 3 21831 9\nscrx 2 3 21831 12\nscrx 2 8 21831 9\nscrx 2 8 21831 12"
+
+"Script Count" 1
+"Script 1" @ "21831_fleeceblackplanter.cos"
+
+"Agent Type" 0
+"Dependency Count" 2
+"Dependency Category 1" 2
+"Dependency Category 2" 7
+"Agent Sprite First Image" 0
+
+
+
+inline FILE "GrenP_Fleeceblackplanter.catalogue" "GrenP_Fleeceblackplanter.catalogue"
+inline FILE "gp_fleeceblack_planter_JESS.c16" "gp_fleeceblack_planter_JESS.c16"
+

@@ -1,0 +1,212 @@
+"en-GB"
+
+
+
+
+group DSAG "GP - Planter (CranStone)"
+
+
+"Agent Type" 0
+
+
+"Agent Animation File" "gp_cranstone_planter_JESS.c16"
+
+"Agent Animation Gallery" "gp_cranstone_planter_JESS"
+
+"Agent Sprite First Image" 0
+"Agent Description" "A planter containing cranberry and stoneworth plants.\n\nSprites by Jesseth"
+
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_cranstone_planter_JESS.c16"
+
+"Dependency 2" "GrenP_Cranberrystoneworth.catalogue"
+
+
+"Remove script" "enum 2 23 21830\n	kill targ\nnext\nenum 2 3 21830\n	kill targ\nnext\nenum 2 8 21830\n	kill targ\nnext\n\nscrx 2 23 21830 1\nscrx 2 23 21830 9\n\nscrx 2 3 21830 9\nscrx 2 3 21830 12\nscrx 2 8 21830 9\nscrx 2 8 21830 12"
+"Script Count" 1
+
+"Script 1" @ "21830_cranberrystoneworthplanter.cos"
+
+
+
+
+group DSAG "GP - Planter (fernshroom)"
+
+
+"Agent Type" 0
+
+
+"Agent Description" "A planter with ferns and tiny button mushrooms."
+
+"Agent Animation File" "gp_fernshroom_planter_JESS.c16"
+
+"Agent Animation Gallery" "gp_fernshroom_planter_JESS"
+
+"Agent Sprite First Image" 20
+
+
+
+
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_fernshroom_planter_JESS.c16"
+
+"Dependency 2" "GrenP_FernShroomPlanter.catalogue"
+
+"Remove script" "enum 1 1 21829\n	kill targ\nnext\nenum 2 23 21829\n	kill targ\nnext\nenum 2 3 21829\n	kill targ\nnext\nenum 2 11 21829\n	kill targ\nnext\n\nscrx 1 1 21829 1000\nscrx 2 23 21829 1\nscrx 2 23 21829 9\n\nscrx 2 3 21829 9\nscrx 2 3 21829 12\nscrx 2 11 21829 9\nscrx 2 11 21829 12"
+
+
+"Script Count" 1
+
+"Script 1" @ "21829_fernshroomplanter.cos"
+
+
+
+
+
+
+
+group DSAG "GP - Planter (fleeceblack)"
+
+
+"Agent Type" 0
+"Agent Description" "A fleece algae planter.\n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_fleeceblack_planter_JESS.c16"
+
+"Agent Animation Gallery" "gp_fleeceblack_planter_JESS"
+"Agent Sprite First Image" 0
+
+
+
+
+
+
+
+"Dependency Count" 2
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+"Dependency 1" "gp_fleeceblack_planter_JESS.c16"
+"Dependency 2" "GrenP_Fleeceblackplanter.catalogue"
+
+"Remove script" "enum 2 23 21831\n	kill targ\nnext\nenum 2 3 21831\n	kill targ\nnext\nenum 2 8 21831\n	kill targ\nnext\n\nscrx 2 23 21831 1\nscrx 2 23 21831 9\n\nscrx 2 3 21831 9\nscrx 2 3 21831 12\nscrx 2 8 21831 9\nscrx 2 8 21831 12"
+
+
+"Script Count" 1
+
+"Script 1" @ "21831_fleeceblackplanter.cos"
+
+
+
+
+
+
+
+group DSAG "GP - Planter (hairhydra)"
+
+
+"Agent Type" 0
+
+
+"Agent Description" "A planter with hair algae and a cute hydrangea that bounces around.\n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_hairhydra_planter_JESS.c16"
+
+"Agent Animation Gallery" "gp_hairhydra_planter_JESS"
+
+"Agent Sprite First Image" 0
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+"Dependency Category 2" 7
+
+
+"Dependency 1" "gp_hairhydra_planter_JESS.c16"
+
+"Dependency 2" "GrenP_Hairhydraplanter.catalogue"
+
+
+"Remove script" "enum 2 23 21833\n	kill targ\nnext\nenum 2 21 21833\n	kill targ\nnext\nenum 2 3 21833\n	kill targ\nnext\n\nscrx 2 23 21833 1\nscrx 2 23 21833 9\n\nscrx 2 21 21833 9\nscrx 2 21 21833 1\nscrx 2 21 21833 2\nscrx 2 21 21833 3\nscrx 2 3 21833 9\nscrx 2 3 21833 12"
+
+
+"Script Count" 1
+
+"Script 1" @ "21833_hairhydraplanter.cos"
+
+
+
+
+
+
+group DSAG "GP - Planter (kelpbubble)"
+
+
+"Agent Type" 0
+
+"Agent Description" "A planter featuring kelp! And it looks like sometimes there comes out a bubble too.\n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_kelpbubble_planter_JESS.c16"
+
+"Agent Animation Gallery" "gp_kelpbubble_planter_JESS"
+
+"Agent Sprite First Image" 0
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_kelpbubble_planter_JESS.c16"
+
+"Dependency 2" "GrenP_KelpBubblePlanter.catalogue"
+
+
+
+"Remove script" "enum 2 23 21832\n	kill targ\nnext\nenum 2 21 21832\n	kill targ\nnext\nenum 2 11 21832\n	kill targ\nnext\n\nscrx 2 23 21832 1\nscrx 2 23 21832 9\n\nscrx 2 21 21832 9\nscrx 2 21 21832 1\nscrx 2 21 21832 2\nscrx 2 21 21832 3\nscrx 2 11 21832 9\nscrx 2 11 21832 12"
+
+
+"Script Count" 1
+"
+Script 1" @ "21832_kelpbubbleplanter.cos"
+
+
+
+
+
+
+
+inline FILE "GrenP_Cranberrystoneworth.catalogue" "GrenP_Cranberrystoneworth.catalogue" inline FILE "gp_cranstone_planter_JESS.c16" "gp_cranstone_planter_JESS.c16"
+
+
+inline FILE "GrenP_FernShroomPlanter.catalogue" "GrenP_FernShroomPlanter.catalogue" 
+inline FILE "gp_fernshroom_planter_JESS.c16" "gp_fernshroom_planter_JESS.c16"
+
+
+inline FILE "GrenP_Fleeceblackplanter.catalogue" "GrenP_Fleeceblackplanter.catalogue" inline FILE "gp_fleeceblack_planter_JESS.c16" "gp_fleeceblack_planter_JESS.c16"
+
+
+
+inline FILE "GrenP_Hairhydraplanter.catalogue" "GrenP_Hairhydraplanter.catalogue"
+inline FILE "gp_hairhydra_planter_JESS.c16" "gp_hairhydra_planter_JESS.c16"
+
+
+inline FILE "GrenP_KelpBubblePlanter.catalogue" "GrenP_KelpBubblePlanter.catalogue"
+inline FILE "gp_kelpbubble_planter_JESS.c16" "gp_kelpbubble_planter_JESS.c16"
+
+
+
+
