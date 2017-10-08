@@ -31,8 +31,8 @@
 **
 ** The vendor!
 **
-new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+*new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 
