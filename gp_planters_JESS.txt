@@ -35,23 +35,19 @@ group DSAG "GP - Planter (CranStone)"
 
 
 
-
 group DSAG "GP - Planter (fernshroom)"
 
 
 "Agent Type" 0
 
 
-"Agent Description" "A planter with ferns and tiny button mushrooms."
+"Agent Description" "A planter with ferns and tiny button mushrooms.\n\nSprites by Jesseth"
 
 "Agent Animation File" "gp_fernshroom_planter_JESS.c16"
 
 "Agent Animation Gallery" "gp_fernshroom_planter_JESS"
 
-"Agent Sprite First Image" 20
-
-
-
+"Agent Sprite First Image" 0
 
 
 "Dependency Count" 2
@@ -112,8 +108,6 @@ group DSAG "GP - Planter (fleeceblack)"
 
 
 
-
-
 group DSAG "GP - Planter (hairhydra)"
 
 
@@ -145,8 +139,6 @@ group DSAG "GP - Planter (hairhydra)"
 "Script Count" 1
 
 "Script 1" @ "21833_hairhydraplanter.cos"
-
-
 
 
 
@@ -206,7 +198,4 @@ inline FILE "gp_hairhydra_planter_JESS.c16" "gp_hairhydra_planter_JESS.c16"
 
 inline FILE "GrenP_KelpBubblePlanter.catalogue" "GrenP_KelpBubblePlanter.catalogue"
 inline FILE "gp_kelpbubble_planter_JESS.c16" "gp_kelpbubble_planter_JESS.c16"
-
-
-
 
