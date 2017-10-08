@@ -1,0 +1,132 @@
+"en-GB"
+
+
+
+
+group DSAG "GP - Blush Shrub"
+
+
+"Agent Type" 0
+
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_blush_shrub_CS.c16"
+
+"Dependency 2" "GrenP_BlushShrub.catalogue"
+
+
+"Agent Description" "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
+
+"Agent Animation File" "gp_licorice_quill_CS.c16"
+
+"Agent Animation Gallery" "gp_blush_shrub_CS"
+
+"Agent Sprite First Image" 5
+
+
+"Remove script" "enum 2 3 21815\n	kill targ\nnext\nenum 2 4 21815\n	kill targ\nnext\nenum 1 1 21815\n	kill targ\nnext\n\nscrx 2 3 21815 1\nscrx 2 3 21815 2\nscrx 2 3 21815 3\nscrx 2 3 21815 9\nscrx 2 3 21815 12\nscrx 2 4 21815 1\nscrx 2 4 21815 2\nscrx 2 4 21815 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21815_blushshrub_ARNOUT.cos"
+
+
+
+
+
+group DSAG "GP - Dawn Plant"
+
+
+
+"Agent Type" 0
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_dawn_plant_CS.c16"
+
+"Dependency 2" "GrenP_DawnPlant.catalogue"
+
+
+"Agent Description" "This is a dawn plant. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
+
+"Agent Animation File" "gp_dawn_plant_CS.c16"
+
+"Agent Animation Gallery" "gp_dawn_plant_CS"
+
+"Agent Sprite First Image" 6
+
+"Remove script" "enum 2 23 21803\n	kill targ\nnext\nenum 2 3 21803\n	kill targ\nnext\nenum 2 4 21803\n	kill targ\nnext\n\n\nscrx 2 23 21803 1\nscrx 2 3 21803 9\nscrx 2 4 21803 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21803_dawnplant.cos"
+
+
+
+
+
+group DSAG "GP - Licorice Quill"
+
+
+"Agent Type" 0
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_licorice_quill_CS.c16"
+
+"Dependency 2" "GrenP_LicoriceQuil.catalogue"
+
+
+"Agent Description" "Yay, it's a licorice quill. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
+
+"Agent Animation File" "gp_licorice_quill_CS.c16"
+
+"Agent Animation Gallery" "gp_licorice_quill_CS"
+
+"Agent Sprite First Image" 6
+
+
+
+
+
+"Remove script" "enum 2 23 21804\n	kill targ\nnext\nenum 2 3 21804\n	kill targ\nnext\nenum 2 4 21804\n	kill targ\nnext\n\n\nscrx 2 23 21804 1\nscrx 2 3 21804 9\nscrx 2 4 21804 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21804_licoricequill.cos"
+
+
+
+
+
+
+inline FILE "GrenP_BlushShrub.catalogue" "GrenP_BlushShrub.catalogue"
+inline FILE "gp_blush_shrub_CS.c16" "gp_blush_shrub_CS.c16"
+
+
+
+
+inline FILE "GrenP_DawnPlant.catalogue" "GrenP_DawnPlant.catalogue"
+inline FILE "gp_dawn_plant_CS.c16" "gp_dawn_plant_CS.c16"
+
+
+inline FILE "GrenP_LicoriceQuil.catalogue" "GrenP_LicoriceQuil.catalogue"
+inline FILE "gp_licorice_quill_CS.c16" "gp_licorice_quill_CS.c16"
+
+

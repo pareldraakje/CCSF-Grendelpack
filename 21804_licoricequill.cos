@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_licoricequill_CS.agents"
-*# DS-Name "Licorice Quill (ChameleonSushi)"
-*# attach gp_licorice_quill_CS.c16 
-*# desc = "Yay, it's a licorice quill!"
+*# DS-Name "GP - Licorice Quill"
+*# attach gp_licorice_quill_CS.c16 GrenP_LicoriceQuil.catalogue
+*# desc = "Yay, it's a licorice quill. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
 *# Agent Animation File = "gp_licorice_quill_CS.c16"
 *# Agent Sprite First Image = 6
 *# Agent Animation Gallery = "gp_licorice_quill_CS"
@@ -32,8 +32,8 @@
 ** The vendor!
 **
 
-*new: simp 2 3 21804 "gp_licorice_quill_CS" 1 14 rand 1000 1500
-*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+new: simp 2 3 21804 "gp_licorice_quill_CS" 1 14 rand 1000 1500
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 **
 ** SCRIPTS

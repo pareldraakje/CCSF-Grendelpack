@@ -1,7 +1,7 @@
 **
 ** Dawn Plant script
 **
-** Sprites by ChameleonSushi, coding by Pilla.
+** Sprites by CosmiSynth, coding by Pilla.
 **
 **
 ** Feel free to use this code however you want.
@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_dawnplant_CS.agents"
-*# DS-Name "Dawn Plant (ChameleonSushi)"
-*# attach gp_dawn_plant_CS.c16 
-*# desc = "This is a dawn plant!"
+*# DS-Name "GP - Dawn Plant"
+*# attach gp_dawn_plant_CS.c16 GrenP_DawnPlant.catalogue
+*# desc = "This is a dawn plant. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
 *# Agent Animation File = "gp_dawn_plant_CS.c16"
 *# Agent Sprite First Image = 6
 *# Agent Animation Gallery = "gp_dawn_plant_CS"
@@ -33,8 +33,8 @@
 **
 
 
-*new: simp 2 23 21803 "gp_dawn_plant_CS" 1 16 rand 1000 1500
-*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+new: simp 2 23 21803 "gp_dawn_plant_CS" 1 16 rand 1000 1500
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 **

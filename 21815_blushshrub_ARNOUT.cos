@@ -1,5 +1,44 @@
 **
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_blushshrub_CS.agents"
+*# DS-Name "GP - Blush Shrub"
+*# attach gp_blush_shrub_CS.c16 GrenP_BlushShrub.catalogue
+*# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
+*# Agent Animation File = "gp_licorice_quill_CS.c16"
+*# Agent Sprite First Image = 5
+*# Agent Animation Gallery = "gp_blush_shrub_CS"
+*
+*
+
+**
 *	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+
+new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 1000
+mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+
+
+** Seed packet creator script
+
+scrp 2 23 21815 1000
+	new: simp 2 23 21803 "gp_blush_shrub_CS" 1 10 rand 1000 1500
+** attr: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
+	attr 214
+** Will go through some walls
+	perm 60
+** Physics
+	accg 1
+	aero 1
+	fric 70
+	elas 20
+** launch seed
+	mvsf _p1_ _p2_
+	targ ownr
+	kill ownr
+endm
+
+** Seed creator script
 
 scrp 2 3 21815 1000
 	attr 195
@@ -12,6 +51,46 @@ scrp 2 3 21815 1000
 	rnge 1000
 	mvsf _p1_ _p2_
 endm
+
+** Seed packet push script
+*
+** Seed packet push script
+*
+
+scrp 2 23 21815 1
+	doif from eq pntr
+		mesg writ pntr 101
+	endi
+	setv va01 posx
+	setv va02 posy
+	inst
+	reps 8
+		new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 rand 1000 1500
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+		attr 194
+** Will go through some walls
+		perm 60
+** Physics
+		accg 0.1
+		aero 1
+		fric 60
+		elas 20
+** bhvr: pickup 32 & eat 16 = 48
+		bhvr 48
+** Emit starchy smell
+		emit 7 0.8
+
+** launch seed
+		velo rand -10 10 -5
+		tick rand 300 700
+		mvto va01 va02
+	repe
+
+	targ ownr
+	kill ownr
+
+endm
+
 
 scrp 1 1 21815 9
 	tick rand 100 1200
