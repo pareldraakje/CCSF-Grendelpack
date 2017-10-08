@@ -16,8 +16,8 @@
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_hair_algae_JESS.agents"
 *# DS-Name "Hair Algae (Jesseth)"
-*# attach gp_hair_algae_JESS.c16 
-*# desc = "Some pretty hair algae to decorate your underwater areas."
+*# attach gp_hair_algae_JESS.c16  GrenP_HairAlgae.catalogue
+*# desc = "Some pretty hair algae to decorate your underwater areas.\n\nSprites by Jesseth"
 *# Agent Animation File = "gp_hair_algae_JESS.c16"
 *# Agent Sprite First Image = 6
 *# Agent Animation Gallery = "gp_hair_algae_JESS"
@@ -32,8 +32,8 @@
 ** The vendor!
 **
 
-*new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
-*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 **

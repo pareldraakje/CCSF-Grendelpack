@@ -29,13 +29,26 @@
 **
 
 **
-** The vendor!
+** Algae seed
 **
-
-new: comp 2 23 21801 "gp_fleece_algae_JESS" 5 12 rand 800 900
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
-
-
+inst
+			new: simp 2 3 21801 "gp_fleece_algae_JESS" 1 0 rand 1000 2000
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+			attr 194
+** bhvr: eat 16 + pickup 32 = 48
+			bhvr 48
+** Will go through most walls
+			perm 30
+** Physics
+			accg 0.01
+			aero 1
+			fric 50
+			elas 80
+** launch seed
+			velo rand -7 7 -2
+			tick rand 100 200
+			mvsf game "ch_x" game "ch_y"
+slow
 
 **
 ** Scripts

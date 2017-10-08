@@ -1,5 +1,5 @@
 **
-** Fleece algae script
+** Hair algae script
 **
 ** Sprites by Jesseth, coding by Pilla.
 **
@@ -14,13 +14,13 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_fleece_algae_JESS.agents"
-*# DS-Name "Fleece Algae (Jesseth)"
-*# attach gp_fleece_algae_JESS.c16 GrenP_FleeceAlgae.catalogue
-*# desc = "Some pretty fleece algae to decorate your underwater areas.\n\nSprites by Jesseth"
-*# Agent Animation File = "gp_fleece_algae_JESS.c16"
+*# Pray-File "gp_hair_algae_JESS.agents"
+*# DS-Name "Hair Algae (Jesseth)"
+*# attach gp_hair_algae_JESS.c16  GrenP_HairAlgae.catalogue
+*# desc = "Some pretty hair algae to decorate your underwater areas.\n\nSprites by Jesseth"
+*# Agent Animation File = "gp_hair_algae_JESS.c16"
 *# Agent Sprite First Image = 6
-*# Agent Animation Gallery = "gp_fleece_algae_JESS"
+*# Agent Animation Gallery = "gp_hair_algae_JESS"
 *
 *
 
@@ -29,13 +29,26 @@
 **
 
 **
-** The vendor!
+** The Gardenbox seed
 **
 
-new: comp 2 23 21801 "gp_fleece_algae_JESS" 5 12 rand 800 900
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
-
-
+inst
+			new: simp 2 3 21802 "gp_hair_algae_JESS" 1 0 rand 1000 3000
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+			attr 194
+** bhvr: eat 16 + pickup 32 = 48
+			bhvr 48
+** Will go through most walls
+			perm 30
+** Physics
+			accg 0.2
+			aero 10
+			fric 50
+			elas 40
+			velo rand -30 30 -5
+			tick rand 100 200
+			mvsf "ch_x" game "ch_y"
+slow
 
 **
 ** Scripts
@@ -46,65 +59,69 @@ mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 ** Creator script
 **
 
-scrp 2 23 21801 1000
+scrp 2 23 21802 1000
+
+	new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
 ** Attributes: mouseable 2 + collide 64 + physics 128 = 194
 	attr 194
 ** bhvr: act1 + hit 8 = 9
 	bhvr 9
-
 	perm 100
-	accg 1
+	accg 2
 	aero 1
 	fric 80
 	elas 20
+	bhvr 0
 
 ** Create the button
-	pat: butt 1 "gp_fleece_algae_JESS" 17 2 11 71 1 [] 0 1
+	pat: butt 1 "gp_hair_algae_JESS" 14 2 15 53 1 [] 0 1
 ** Animate the algae
 	part 0
 	frat 16
 	anim [ 0 1 2 3 4 3 2 1 255]
-	tick 10
-	mvsf _p1_ _p2_
-endm
 
+	mvsf _p1_ _p2_
+	tick 10
+	targ ownr
+	kill ownr
+
+endm
 
 **
 ** Vendor scripts
 **
-**
-
-*
-** HIT SCRIPT
-scrp 2 23 21801 3
-	stim writ from 92 1
-endm
-
 
 *
 ** Timer
-scrp 2 23 21801 9
-tick rand 500 1200
-mesg writ ownr 0 
+scrp 2 23 21802 9
+	tick rand 100 4000
+	mesg writ ownr 0
+endm
+
+*
+** Hit
+scrp 2 23 21802 3
+	stim writ from 92 1
 endm
 
 *
 ** Activate 
-scrp 2 23 21801 1
-	lock
+scrp 2 23 21802 1
+
 	doif from eq pntr
 		mesg writ pntr 101
 	else
+** stim activate machinery
 		stim writ from 90 1
 	endi
 
-	setv va00 posl
-	addv va00 rand 8 47
-	setv va01 posb
-	subv va01 rand 26 61
 	part 1
 	anim [1 0]
-	new: simp 2 3 21801 "gp_fleece_algae_JESS" 1 0 rand 1000 3000
+	setv va00 posx
+	addv va00 rand -5 5
+	setv va01 posy
+	addv va01 rand -5 5
+	new: simp 2 3 21802 "gp_hair_algae_JESS" 1 0 rand 1000 3000
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
 	attr 194
 ** bhvr: eat 16 + pickup 32 = 48
@@ -115,31 +132,27 @@ scrp 2 23 21801 1
 	accg 0.2
 	aero 10
 	fric 50
-	elas 60
-	setv va20 rand 5 15
-	doif rand 0 1 eq 0
-		negv va20
-	endi
-	
-	velo va20 -5
+	elas 40
+	velo rand -20 20 -5
 	tick 300
 	setv ov00 0
 	mvsf va00 va01
 endm
+
 
 *
 ** Algae growing/seeding script
 *
 
 ** TIMER
-scrp 2 4 21801 9
+scrp 2 4 21802 9
 ** Check if the algae is about to start growing: if yes, check if there aren't too many other algae around.
 	doif tick eq 2
 ** Check if there's enough space to grow: if not, kill the algae placeholder
 		inst
 		setv va00 0
-		rnge 90
-		esee 2 4 21801
+		rnge 100
+		esee 2 4 21802
 			addv va00 1
 		next
 		doif va00 ge 1
@@ -151,23 +164,27 @@ scrp 2 4 21801 9
 		slow
 	endi
 ** Check if the algae is fully grown. If not, grooww
-	doif pose lt 4
+	doif pose lt 3
 		setv va00 pose
 		addv va00 1
 		pose va00
 ** If the algae is fully grown, animate the 'life' stage
-	elif pose eq 4
+	elif pose eq 3
 		frat 12
-		anim [5 6 7 8 9 8 7 6 255]
-		tick 3500
+		anim [4 5 6 5 255]
+		tick rand 3000 3800
 ** If the algae has lived a happy and long life... set seed and die. Goodbye algae.
 	elif pose ge 4
-		setv va01 posy
 ** Make 3 seed
 		reps 3
-			setv va00 posx
-			addv va00 rand -5 5
-			new: simp 2 3 21801 "gp_fleece_algae_JESS" 1 0 rand 1000 2000
+targ ownr	
+	inst
+			setv va00 posl
+			addv va00 rand 8 47
+			setv va01 posb
+			subv va01 rand 26 61
+
+			new: simp 2 3 21802 "gp_hair_algae_JESS" 1 0 rand 1000 3000
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
 			attr 194
 ** bhvr: eat 16 + pickup 32 = 48
@@ -175,22 +192,23 @@ scrp 2 4 21801 9
 ** Will go through most walls
 			perm 30
 ** Physics
-			accg 0.01
-			aero 1
+			accg 0.2
+			aero 10
 			fric 50
-			elas 80
-** launch seed
-			velo rand -7 7 -2
-			tick rand 100 200
-			mvto va00 va01
+			elas 40
+			velo rand -30 30 -5
+			tick rand 300 800
+			setv ov00 0
+			mvsf va00 va01
+slow
 		repe
 ** Retarget the algae plant
 		targ ownr
 ** Kill it ;u;
 		tick 0
 		lock
-		frat 40
-		anim [10 10]
+		frat 70
+		anim [7 7]
 		over
 		kill ownr
 		unlk
@@ -200,16 +218,18 @@ scrp 2 4 21801 9
 endm
 
 
+*
+** Seed timer script
+*
 
 *
 ** Seed script
 *
 
-
 *
 ** EAT
 
-scrp 2 3 21801 12
+scrp 2 3 21802 12
 ** Lock the script, so once someone's eating the seed, it can't be interrupted.
 	lock
 ** Wait, so the creatures can't overeat :p
@@ -222,15 +242,17 @@ scrp 2 3 21801 12
 	kill ownr
 endm
 
+
+
 *
 ** TIMER
-scrp 2 3 21801 9
+scrp 2 3 21802 9
 
 ** Get the room type of the seed
 	setv va00 posl
 	subv va00 34
 	setv va01 posb
-	subv va01 75
+	subv va01 69
 	setv va02 grap posx posy
 	setv va03 rtyp va02
 
@@ -247,23 +269,30 @@ scrp 2 3 21801 9
 		inst
 
 ** Grow algae!
-		new: simp 2 4 21801 "gp_fleece_algae_JESS" 11 1 rand 1000 3000
+		new: simp 2 4 21802 "gp_hair_algae_JESS" 8 1 rand 1000 3000
 ** attr: invisible 16, bhvr: 0
 		attr 16
 		bhvr 0
 ** Set the tick to 2 to trigger the 'do I have enough space to grow' check script
 		tick 2
-** test-move it into the space: if it can't grow there, kill it
-		doif tmvt va00 va01 eq 0
-			kill targ
-		else
+		setv va04 0
+		loop
+			addv va04 1
+			subv va01 1
+			doif tmvt va00 va01 ne 0
 ** If it can grow here, grow!
-			mvto va00 va01
-		endi
-		slow
-		targ ownr
-		kill ownr
+				mvto va00 va01
+			endi
+		untl tmvt va00 va01 ne 0 or va04 gt 7
 	endi
+** test-move it into the space: if it can't grow there, kill it
+	doif va04 gt 7
+		kill targ
+	endi
+
+	slow
+	targ ownr
+	kill ownr
 endm
 
 
@@ -273,18 +302,19 @@ endm
 
 rscr
 
-enum 2 23 21801
-	kill targ
-next
-enum 2 3 21801
-	kill targ
-next
-enum 2 4 21801
+enum 2 23 21802
 	kill targ
 next
 
-scrx 2 23 21801 1
-scrx 2 23 21801 3
-scrx 2 3 21801 9
-scrx 2 3 21801 12
-scrx 2 4 21801 9
+enum 2 3 21802
+	kill targ
+next
+enum 2 4 21802
+	kill targ
+next
+
+scrx 2 23 21802 1
+scrx 2 23 21802 3
+scrx 2 3 21802 9
+scrx 2 3 21802 12
+scrx 2 4 21802 9

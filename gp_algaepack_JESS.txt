@@ -1,0 +1,155 @@
+"en-GB"
+
+group DSAG "GP - Fleece Algae"
+
+
+"Agent Description" "Some pretty fleece algae to decorate your underwater areas.\n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_fleece_algae_JESS.c16"
+
+"Agent Animation Gallery" "gp_fleece_algae_JESS"
+"Agent Sprite First Image" 6
+"Agent Type" 0
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_fleece_algae_JESS.c16"
+
+"Dependency 2" "GrenP_FleeceAlgae.catalogue"
+
+
+
+"Remove script" "enum 2 23 21801\n	kill targ\nnext\nenum 2 3 21801\n	kill targ\nnext\nenum 2 4 21801\n	kill targ\nnext\n\nscrx 2 23 21801 1\nscrx 2 23 21801 3\nscrx 2 3 21801 9\nscrx 2 3 21801 12\nscrx 2 4 21801 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21801_fleecealgae.cos"
+
+
+
+
+
+
+group DSAG "GP - Hair Algae"
+
+
+"Agent Type" 0
+
+"Agent Description" "Some pretty hair algae to decorate your underwater areas.\n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_hair_algae_JESS.c16"
+
+"Agent Animation Gallery" "gp_hair_algae_JESS"
+
+"Agent Sprite First Image" 6
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_hair_algae_JESS.c16"
+
+"Dependency 2" "GrenP_HairAlgae.catalogue"
+
+"Remove script" "enum 2 23 21802\n	kill targ\nnext\n\nenum 2 3 21802\n	kill targ\nnext\nenum 2 4 21802\n	kill targ\nnext\n\nscrx 2 23 21802 1\nscrx 2 23 21802 3\nscrx 2 3 21802 9\nscrx 2 3 21802 12\nscrx 2 4 21802 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21802_hairalgae.cos"
+
+
+
+
+group DSGB "GPGB - Fleece Algae"
+
+
+"Agent Author" "Jesseth & Pilla"
+"GB_Category" 4
+"Agent Type" 0
+
+"Agent Description" "Some pretty fleece algae. Sprites:Jesseth"
+
+"Agent Animation File" "gp_fleece_algae_JESS.c16"
+
+"Agent Animation Gallery" "gp_fleece_algae_JESS"
+"Agent Sprite First Image" 0
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_fleece_algae_JESS.c16"
+
+"Dependency 2" "GrenP_FleeceAlgae.catalogue"
+
+
+
+"Remove script" "enum 2 23 21801\n	kill targ\nnext\nenum 2 3 21801\n	kill targ\nnext\nenum 2 4 21801\n	kill targ\nnext\n\nscrx 2 23 21801 1\nscrx 2 23 21801 3\nscrx 2 3 21801 9\nscrx 2 3 21801 12\nscrx 2 4 21801 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21801_fleecealgae_gb.cos"
+
+
+
+group DSGB "GPGB - Hair Algae"
+
+
+"Agent Author" "Jesseth & Pilla"
+"GB_Category" 4
+"Agent Type" 0
+
+"Agent Description" "Some pretty hair algae. Sprites:Jesseth"
+
+"Agent Animation File" "gp_hair_algae_JESS.c16"
+
+"Agent Animation Gallery" "gp_hair_algae_JESS"
+
+"Agent Sprite First Image" 0
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_hair_algae_JESS.c16"
+
+"Dependency 2" "GrenP_HairAlgae.catalogue"
+
+"Remove script" "enum 2 23 21802\n	kill targ\nnext\n\nenum 2 3 21802\n	kill targ\nnext\nenum 2 4 21802\n	kill targ\nnext\n\nscrx 2 23 21802 1\nscrx 2 23 21802 3\nscrx 2 3 21802 9\nscrx 2 3 21802 12\nscrx 2 4 21802 9"
+
+
+"Script Count" 1
+
+"Script 1" @ "21802_hairalgae_gb.cos"
+
+
+
+
+
+
+
+
+
+
+
+
+inline FILE "GrenP_FleeceAlgae.catalogue" "GrenP_FleeceAlgae.catalogue"
+inline FILE "gp_fleece_algae_JESS.c16" "gp_fleece_algae_JESS.c16"
+
+
+
+
+inline FILE "GrenP_HairAlgae.catalogue" "GrenP_HairAlgae.catalogue"
+inline FILE "gp_hair_algae_JESS.c16" "gp_hair_algae_JESS.c16"
+
+
