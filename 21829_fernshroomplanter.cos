@@ -32,8 +32,8 @@
 ** The planter
 **
 
-new: simp 1 1 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+*new: simp 1 1 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 **

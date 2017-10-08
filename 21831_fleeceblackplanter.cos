@@ -32,8 +32,8 @@
 ** The planter
 **
 
-new: comp 2 23 21831 "gp_fleeceblack_planter_JESS" 1 0 rand 700 900
-mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+*new: comp 2 23 21831 "gp_fleeceblack_planter_JESS" 1 0 rand 700 900
+*mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
 
 
 **

@@ -32,8 +32,8 @@
 ** The planter
 **
 
-new: simp 1 1 21830 "gp_cranstone_planter_JESS" 1 0 rand 700 900
-mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+*new: simp 1 1 21830 "gp_cranstone_planter_JESS" 1 0 rand 700 900
+*mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
 
 **
 ** SCRIPTS
