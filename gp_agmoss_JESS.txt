@@ -1,0 +1,172 @@
+"en-GB"
+
+
+
+
+group DSAG "GP - Agressive Moss"
+
+
+
+"Agent Type" 0
+
+
+"Agent Description" "This moss is... Quite agressive.\n\nSprites by Jesseth"
+
+"Agent Animation File" "gp_agressive_moss_JESS.c16"
+
+"Agent Animation Gallery" "gp_agressive_moss_JESS"
+"Agent Sprite First Image" 46
+
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_agressive_moss_JESS.c16"
+
+"Dependency 2" "GrenP_AggressiveMoss.catalogue"
+
+
+
+
+"Remove script" "enum 2 23 21800\n	kill targ\nnext\n\nenum 2 3 21800\n	kill targ\nnext\nenum 2 4 21800\n	kill targ\nnext\n\nscrx 2 23 21800 1\nscrx 2 23 21800 3\nscrx 2 23 21800 500\nscrx 2 23 21800 501\nscrx 2 23 21800 502\nscrx 2 23 21800 503\n\n\n\nscrx 2 3 21800 4\nscrx 2 3 21800 12\nscrx 2 3 21800 9\nscrx 2 4 21800 9"
+
+
+
+"Script Count" 1
+
+"Script 1" @ "21800_agmoss_JESS.cos"
+
+
+
+
+group DSGB "GPGB - Agressive Moss 1"
+
+
+
+"Agent Type" 0
+"GB_Category" 2
+"Agent Author" "Jesseth & Pilla"
+"Agent Description" "This moss is... Quite agressive. Sprites:Jesseth"
+
+"Agent Animation File" "gp_agressive_moss_JESS.c16"
+
+"Agent Animation Gallery" "gp_agressive_moss_JESS"
+"Agent Sprite First Image" 7
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_agressive_moss_JESS.c16"
+
+"Dependency 2" "GrenP_AggressiveMoss.catalogue"
+
+
+"Remove script" "enum 2 23 21800\n	kill targ\nnext\n\nenum 2 3 21800\n	kill targ\nnext\nenum 2 4 21800\n	kill targ\nnext\n\nscrx 2 23 21800 1\nscrx 2 23 21800 3\nscrx 2 23 21800 500\nscrx 2 23 21800 501\nscrx 2 23 21800 502\nscrx 2 23 21800 503\n\n\n\nscrx 2 3 21800 4\nscrx 2 3 21800 12\nscrx 2 3 21800 9\nscrx 2 4 21800 9"
+
+"Script Count" 1
+
+"Script 1" @ "21800_agmoss_JESS_1_gb.cos"
+
+group DSGB "GPGB - Agressive Moss 2"
+
+
+
+"Agent Type" 0
+"GB_Category" 2
+"Agent Author" "Jesseth & Pilla"
+"Agent Description" "This moss is... Quite agressive. Sprites:Jesseth"
+
+"Agent Animation File" "gp_agressive_moss_JESS.c16"
+
+"Agent Animation Gallery" "gp_agressive_moss_JESS"
+"Agent Sprite First Image" 19
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_agressive_moss_JESS.c16"
+
+"Dependency 2" "GrenP_AggressiveMoss.catalogue"
+
+
+"Remove script" "enum 2 23 21800\n	kill targ\nnext\n\nenum 2 3 21800\n	kill targ\nnext\nenum 2 4 21800\n	kill targ\nnext\n\nscrx 2 23 21800 1\nscrx 2 23 21800 3\nscrx 2 23 21800 500\nscrx 2 23 21800 501\nscrx 2 23 21800 502\nscrx 2 23 21800 503\n\n\n\nscrx 2 3 21800 4\nscrx 2 3 21800 12\nscrx 2 3 21800 9\nscrx 2 4 21800 9"
+
+"Script Count" 1
+
+"Script 1" @ "21800_agmoss_JESS_2_gb.cos"
+
+group DSGB "GPGB - Agressive Moss 3"
+
+
+
+"Agent Type" 0
+"GB_Category" 2
+"Agent Author" "Jesseth & Pilla"
+"Agent Description" "This moss is... Quite agressive. Sprites:Jesseth"
+
+"Agent Animation File" "gp_agressive_moss_JESS.c16"
+
+"Agent Animation Gallery" "gp_agressive_moss_JESS"
+"Agent Sprite First Image" 42
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_agressive_moss_JESS.c16"
+
+"Dependency 2" "GrenP_AggressiveMoss.catalogue"
+
+
+"Remove script" "enum 2 23 21800\n	kill targ\nnext\n\nenum 2 3 21800\n	kill targ\nnext\nenum 2 4 21800\n	kill targ\nnext\n\nscrx 2 23 21800 1\nscrx 2 23 21800 3\nscrx 2 23 21800 500\nscrx 2 23 21800 501\nscrx 2 23 21800 502\nscrx 2 23 21800 503\n\n\n\nscrx 2 3 21800 4\nscrx 2 3 21800 12\nscrx 2 3 21800 9\nscrx 2 4 21800 9"
+
+"Script Count" 1
+
+"Script 1" @ "21800_agmoss_JESS_3_gb.cos"
+
+group DSGB "GPGB - Agressive Moss 4"
+
+
+
+"Agent Type" 0
+"GB_Category" 2
+"Agent Author" "Jesseth & Pilla"
+"Agent Description" "This moss is... Quite agressive. Sprites:Jesseth"
+
+"Agent Animation File" "gp_agressive_moss_JESS.c16"
+
+"Agent Animation Gallery" "gp_agressive_moss_JESS"
+"Agent Sprite First Image" 60
+"Dependency Count" 2
+
+"Dependency Category 1" 2
+
+"Dependency Category 2" 7
+
+"Dependency 1" "gp_agressive_moss_JESS.c16"
+
+"Dependency 2" "GrenP_AggressiveMoss.catalogue"
+
+
+"Remove script" "enum 2 23 21800\n	kill targ\nnext\n\nenum 2 3 21800\n	kill targ\nnext\nenum 2 4 21800\n	kill targ\nnext\n\nscrx 2 23 21800 1\nscrx 2 23 21800 3\nscrx 2 23 21800 500\nscrx 2 23 21800 501\nscrx 2 23 21800 502\nscrx 2 23 21800 503\n\n\n\nscrx 2 3 21800 4\nscrx 2 3 21800 12\nscrx 2 3 21800 9\nscrx 2 4 21800 9"
+
+"Script Count" 1
+
+"Script 1" @ "21800_agmoss_JESS_4_gb.cos"
+
+
+
+
+
+
+
+inline FILE "GrenP_AggressiveMoss.catalogue" "GrenP_AggressiveMoss.catalogue"
+inline FILE "gp_agressive_moss_JESS.c16" "gp_agressive_moss_JESS.c16"
+

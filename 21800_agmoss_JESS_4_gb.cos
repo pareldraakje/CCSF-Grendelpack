@@ -1,0 +1,618 @@
+**
+** Agressive moss script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_agmoss_JESS.agents"
+*# DS-Name "GP - Agressive Moss"
+*# attach gp_agressive_moss_JESS.c16 GrenP_AggressiveMoss.catalogue 
+*# desc = "This moss is... Quite agressive.by Jesseth"
+*# Agent Animation File = "gp_agressive_moss_JESS.c16"
+*# Agent Sprite First Image = 6
+*# Agent Animation Gallery = "gp_agressive_moss_JESS"
+*
+*
+
+*
+** Injection script
+**
+
+inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 34 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 30
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 2
+	mvsf game "ch_x" game "ch_y"
+slow
+
+*
+** Plant script
+*
+
+** TIMER
+
+scrp 2 4 21800 9
+** Check if the moss is about to start growing
+	doif tick eq 2
+
+** Check if there's enough space to grow: if not, kill the moss placeholder
+		inst
+		setv va00 0
+		etch 2 4 21800
+			addv va00 1
+		next
+		doif va00 gt 2
+			kill ownr
+			stop
+		endi
+** Set the moss growing timer
+		tick rand 120 250
+		slow
+	endi
+
+**
+** MOSS 0
+**
+	doif ov00 eq 0
+
+** Check if the moss is fully grown. If not, grooww
+		doif pose lt 4
+			setv va00 pose
+			addv va00 1
+			pose va00
+		elif pose eq 4
+			pose 5
+			setv va00 tick
+			mulv va00 2
+			tick va00
+
+** If the moss is fully grown, animate the 'life' stage
+		elif pose eq 5
+			frat 5
+			anim [6 7 255]
+			setv va00 tick
+			mulv va00 2
+			tick va00
+		elif pose ge 5
+
+** Create the floating seeds 8D (3 seed)
+** Variable preparation (seed 1)
+			setv va00 posl
+			setv va01 post
+			addv va00 6
+			addv va01 6
+			setv va02 tick
+			setv va03 ov00
+** Run the seed-making subroutine
+			gsub makeseed
+** Animate the seed
+			anim [0 1 255]
+** Retarget the moss plant
+			targ ownr
+
+** Variable preparation + seed routine (seed 2)
+			setv va00 posl
+			setv va01 post
+			addv va00 18
+			addv va01 4
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [1 0 255]
+			targ ownr
+
+** Variable preparation + seed routine (seed 3)
+			setv va00 posl
+			setv va01 post
+			addv va00 26
+			addv va01 6
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [0 1 255]
+			targ ownr
+
+** If the moss has lived long enough, die >:3
+			setv va00 tick
+			tick 0
+			lock
+			wait va00
+			pose 4
+			frat 40
+			anim [3 2 1]
+			over
+			kill ownr
+			unlk
+
+		endi
+
+**
+** MOSS 1
+**
+
+	elif ov00 eq 1
+
+** Check if the moss is fully grown. If not, grooww
+		doif pose lt 5
+			setv va00 pose
+			addv va00 1
+			pose va00
+		elif pose eq 5
+			pose 6
+			setv va00 tick
+			mulv va00 2
+			tick va00
+		elif pose eq 6
+			frat 8
+			anim [7 8 255]
+			setv va00 tick
+			mulv va00 3
+			tick va00
+		elif pose ge 7
+
+** Create the floating seeds 8D (3 seed)
+** Variable preparation (seed 1)
+			setv va00 posl
+			setv va01 post
+			addv va00 2
+			addv va01 1
+			setv va02 tick
+			setv va03 ov00
+** Run the seed-making subroutine
+			gsub makeseed
+** Animate the seed
+			anim [0 1 255]
+** Retarget the moss plant
+			targ ownr
+
+
+** Variable preparation + seed routine (seed 2)
+			setv va00 posl
+			setv va01 post
+			addv va00 13
+			addv va01 1
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [1 0 255]
+			targ ownr
+
+
+** Variable preparation + seed routine (seed 3)
+			setv va00 posl
+			setv va01 post
+			addv va00 24
+			addv va01 2
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [0 1 255]
+			targ ownr
+
+
+** If the moss has lived long enough, die >:3
+			setv va00 tick
+			tick 0
+			lock
+			wait va00
+			pose 5
+			frat 40
+			anim [4 3 2 1]
+			over
+			kill ownr
+			unlk
+
+		endi
+
+**
+** MOSS 2
+**
+
+	elif ov00 eq 2
+
+** Check if the moss is fully grown. If not, grooww
+		doif pose lt 5
+			setv va00 pose
+			addv va00 1
+			pose va00
+		elif pose eq 5
+			pose 6
+			setv va00 tick
+			mulv va00 2
+			tick va00
+		elif pose eq 6
+			frat 12
+			anim [7 8 255]
+			setv va00 tick
+			mulv va00 3
+			tick va00
+		elif pose ge 7
+
+** Create the floating seeds 8D (3 seed)
+** Variable preparation (seed 1)
+			setv va00 posl
+			setv va01 post
+			addv va00 9
+			addv va01 11
+			setv va02 tick
+			setv va03 ov00
+** Run the seed-making subroutine
+			gsub makeseed
+** Animate the seed
+			anim [0 1 255]
+** Retarget the moss plant
+			targ ownr
+
+
+** Variable preparation + seed routine (seed 2)
+			setv va00 posl
+			setv va01 post
+			addv va00 18
+			addv va01 3
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [1 0 255]
+			targ ownr
+
+
+** Variable preparation + seed routine (seed 3)
+			setv va00 posl
+			setv va01 post
+			addv va00 36
+			addv va01 9
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [0 1 255]
+			targ ownr
+
+
+** If the moss has lived long enough, die >:3
+			setv va00 tick
+			tick 0
+			lock
+			wait va00
+			pose 5
+			frat 40
+			anim [4 3 2 1]
+			over
+			kill ownr
+			unlk
+
+		endi
+
+
+**
+** MOSS 3
+**
+	elif ov00 eq 3
+
+** Check if the moss is fully grown. If not, grooww
+		doif pose lt 4
+			setv va00 pose
+			addv va00 1
+			pose va00
+		elif pose eq 4
+			pose 5
+			setv va00 tick
+			mulv va00 2
+			tick va00
+
+** If the moss is fully grown, animate the 'life' stage
+		elif pose eq 5
+			frat 5
+			anim [6 7 255]
+			setv va00 tick
+			mulv va00 2
+			tick va00
+		elif pose ge 5
+
+** Create the floating seeds 8D (3 seed)
+** Variable preparation (seed 1)
+			setv va00 posl
+			setv va01 post
+			addv va00 1
+			addv va01 4
+			setv va02 tick
+			setv va03 ov00
+** Run the seed-making subroutine
+			gsub makeseed
+** Animate the seed
+			anim [0 1 255]
+** Retarget the moss plant
+			targ ownr
+
+
+** Variable preparation + seed routine (seed 2)
+			setv va00 posl
+			setv va01 post
+			addv va00 14
+			addv va01 2
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [1 0 255]
+			targ ownr
+
+
+** Variable preparation + seed routine (seed 3)
+			setv va00 posl
+			setv va01 post
+			addv va00 25
+			addv va01 6
+			setv va02 tick
+			setv va03 ov00
+			gsub makeseed
+			anim [0 1 255]
+			targ ownr
+
+
+** If the moss has lived long enough, die >:3
+			setv va00 tick
+			tick 0
+			lock
+			wait va00
+			pose 4
+			frat 40
+			anim [3 2 1]
+			over
+			kill ownr
+			unlk
+
+		endi
+	endi
+
+
+
+
+** The seed-making subroutine
+
+	subr makeseed
+** Make this part run in a single tick, so things can't be undefined
+		inst
+		setv va91 ov00
+		doif va91 eq 0
+			setv va90 8
+		elif va91 eq 1
+			setv va90 20
+		elif va91 eq 2
+			setv va90 32
+		elif va91 eq 3
+			setv va90 43
+		else
+			kill ownr
+			stop
+		endi
+** Create seed. <3
+		new: simp 2 3 21800 "gp_agressive_moss_JESS" 3 va90 rand 1000 3000
+** attr: mouseable 2 + collisions 64, the seed will get influence from gravity/physics
+** AFTER the time tick or AFTER the seed has been picked up by a creature.
+		attr 66
+		perm 70
+** bhvr: eat 16 + pickup 32 = 48
+		bhvr 48
+
+** Set variables
+		setv ov00 va03
+		setv ov01 va01
+
+** Emit starchy smell
+		emit 7 0.8
+
+** Tick to define time after which it'll stop floating and drop on the ground
+		tick va02
+
+** Stop single-tick mode
+		slow
+
+		doif va91 eq 0
+			frat 5
+		elif va91 eq 1
+			frat 7
+		elif va91 eq 2
+			frat 10
+		elif va91 eq 3
+			frat 13
+		endi
+
+		doif tmvt va00 va01 eq 1
+			mvto va00 va01
+		else
+			kill targ
+		endi
+
+
+
+
+	retn
+endm
+
+
+*
+** Seed scripts
+*
+
+*
+** TIMER
+scrp 2 3 21800 9
+
+** Check whether the attributes have already been set
+	doif attr le 66
+** If not, add attributes and throw the seed somewhere random.
+		inst
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+		attr 194
+** Will go through some walls
+		perm 70
+** Physics
+		accg 0.3
+		aero 0.2
+		fric 5
+		elas 30
+** Change pose and launch seed
+		pose 2
+		velo rand -8 8 rand -10 -3
+		tick rand 50 150
+
+		doif tmvt posx posy eq 1
+			mvto posx posy
+		else
+			kill targ
+		endi
+
+	else
+** Attributes have been set 
+** Check if the seed has settled
+		doif carr eq null and fall eq 0
+			inst
+
+** Get the room type of the seed
+			setv va00 posx
+			setv va01 posb
+			setv va02 grap posx posy
+			setv va03 rtyp va02
+
+** Don't grow in freshwater or saltwater areas
+			doif va03 eq -1 or va03 eq 8 or va03 eq 9
+				kill ownr
+			else
+** Woo it may be able to grow. Set the plant type.
+				setv va04 posl
+				setv va05 ov00
+
+				doif va05 eq 0
+					subv va04 19
+					subv va01 24
+					setv va06 0
+					setv va07 8
+				elif va05 eq 1
+					subv va04 14
+					subv va01 14
+					setv va06 11
+					setv va07 9
+				elif va05 eq 2
+					subv va04 25
+					subv va01 35
+					setv va06 23
+					setv va07 9
+				elif va05 eq 3
+					subv va04 17
+					subv va01 30
+					setv va06 35
+					setv va07 8
+				endi
+
+** Grow a new moss plant!
+				new: simp 2 4 21800 "gp_agressive_moss_JESS" va07 va06 rand 1000 3000
+** attr: invisible 16, bhvr: 0
+				attr 16
+				bhvr 0
+** Set the tick to 2 to trigger the 'do I have enough space to grow' check script
+				tick 2
+** Set the moss type (depends on the seed)
+				setv ov00 va05
+				setv va50 va01
+				subv va50 3
+** test-move it into the space: if it can't grow there, kill it
+				doif tmvt va04 va50 eq 0
+					kill targ
+				else
+** If it can grow here, grow!
+					mvto va04 va01
+				endi
+				targ ownr
+				kill ownr
+			endi
+			slow
+		endi
+	endi
+endm
+
+*
+** PICKUP
+
+scrp 2 3 21800 4
+** Check whether the attributes have already been set
+	doif attr le 2
+** If not, add attributes.
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+		attr 194
+** Will go through some walls
+		perm 70
+** Physics
+		accg 0.2
+		aero 0.2
+		fric 10
+		elas 40
+** Change pose
+		pose 2
+	endi
+endm
+
+*
+** EAT
+
+scrp 2 3 21800 12
+** Lock the script, so once someone's eating the seed, it can't be interrupted.
+	lock
+** Wait, so the creatures can't overeat :p
+	wait 5
+** Stim the eating creature with "eaten plant"
+	stim writ from 77 1
+** Wait a little more :p
+	wait 5
+** Kill the seed
+	kill ownr
+endm
+
+
+
+
+
+rscr
+
+enum 2 23 21800
+	kill targ
+next
+
+enum 2 3 21800
+	kill targ
+next
+enum 2 4 21800
+	kill targ
+next
+
+scrx 2 23 21800 1
+scrx 2 23 21800 3
+scrx 2 23 21800 500
+scrx 2 23 21800 501
+scrx 2 23 21800 502
+scrx 2 23 21800 503
+
+
+
+scrx 2 3 21800 4
+scrx 2 3 21800 12
+scrx 2 3 21800 9
+scrx 2 4 21800 9
