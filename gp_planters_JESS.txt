@@ -77,7 +77,7 @@ group DSAG "GP - Planter (fleeceblack)"
 
 
 "Agent Type" 0
-"Agent Description" "A fleece algae planter.\n\nSprites by Jesseth"
+"Agent Description" "A fleece algae and black coral planter.\n\nSprites by Jesseth"
 
 "Agent Animation File" "gp_fleeceblack_planter_JESS.c16"
 
@@ -114,7 +114,7 @@ group DSAG "GP - Planter (hairhydra)"
 "Agent Type" 0
 
 
-"Agent Description" "A planter with hair algae and a cute hydrangea that bounces around.\n\nSprites by Jesseth"
+"Agent Description" "A planter with hair algae and a cute water hydra that bounces around.\n\nSprites by Jesseth"
 
 "Agent Animation File" "gp_hairhydra_planter_JESS.c16"
 
@@ -148,7 +148,7 @@ group DSAG "GP - Planter (kelpbubble)"
 
 "Agent Type" 0
 
-"Agent Description" "A planter featuring kelp! And it looks like sometimes there comes out a bubble too.\n\nSprites by Jesseth"
+"Agent Description" "A planter featuring kelp! And it even has a pretty sea squirt that sometimes blows a bubble.\n\nSprites by Jesseth"
 
 "Agent Animation File" "gp_kelpbubble_planter_JESS.c16"
 
@@ -172,8 +172,8 @@ group DSAG "GP - Planter (kelpbubble)"
 
 
 "Script Count" 1
-"
-Script 1" @ "21832_kelpbubbleplanter.cos"
+
+"Script 1" @ "21832_kelpbubbleplanter.cos"
 
 
 
