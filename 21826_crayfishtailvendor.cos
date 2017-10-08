@@ -32,8 +32,8 @@
 ** The vendor
 **
 
-new: comp 2 23 21826 "gp_crayfishtail_vendor_JESS" 1 0 rand 800 900
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+*new: comp 2 23 21826 "gp_crayfishtail_vendor_JESS" 1 0 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 **
 ** SCRIPTS

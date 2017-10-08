@@ -1,7 +1,7 @@
 *
 * CAOS2PRAY CHUNK
 *
-*# Pray-File "grendelpack_meso.agents"
+*# Pray-File "gp_meso.agents"
 *# DS-Name "Banshee Ark Meso"
 *# desc = "Inject the Banshee Ark Meso"
 *# Agent Animation File = "gp_favicons_meso.c16"
@@ -28,7 +28,7 @@
 *# attach gp_eleplant_JESS.c16
 *# attach gp_eleport_UZAG.c16
 *# attach gp_favicons_meso.c16
-*# attach gp_fly_UZAG.c16 
+*# attach gp_fly_UZAG.c16 GrenP_JungleFly.catalogue
 *# attach gp_gerana.c16 GrenP_Gerana.catalogue
 *# attach gp_goldfishies_JESS.c16 GrenP_Goldfishies.catalogue
 *# attach gp_good_bug_CS.c16 GrenP_Goodbug.catalogue
