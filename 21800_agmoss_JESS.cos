@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_agmoss_JESS.agents"
-*# DS-Name "Agressive Moss"
+*# DS-Name "GP - Agressive Moss"
 *# attach gp_agressive_moss_JESS.c16 GrenP_AggressiveMoss.catalogue 
-*# desc = "This moss is... Quite agressive.\n\nSprites by Jesseth"
+*# desc = "This moss is... Quite agressive.by Jesseth"
 *# Agent Animation File = "gp_agressive_moss_JESS.c16"
 *# Agent Sprite First Image = 6
 *# Agent Animation Gallery = "gp_agressive_moss_JESS"
@@ -31,8 +31,8 @@
 **
 ** The vendor!
 **
-*new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
-*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 
 
@@ -155,9 +155,9 @@ scrp 2 23 21800 3
 		tick rand 50 150
 		setv ov00 va02
 		doif tmvt va00 va01 eq 1
-		mvto va00 va01
+			mvto va00 va01
 		else
-		kill targ
+			kill targ
 		endi
 	repe
 
@@ -187,11 +187,11 @@ scrp 2 23 21800 500
 	velo rand -8 8 -5
 	tick 300
 	setv ov00 0
-doif tmvt va00 va01 eq 1
+	doif tmvt va00 va01 eq 1
 		mvto va00 va01
-		else
+	else
 		kill targ
-		endi
+	endi
 endm
 
 *
@@ -218,11 +218,12 @@ scrp 2 23 21800 501
 	velo rand -8 8 -5
 	tick 300
 	setv ov00 1
-doif tmvt va00 va01 eq 1
+	doif tmvt va00 va01 eq 1
 		mvto va00 va01
-		else
+	else
 		kill targ
-		endiendm
+	endi
+endm
 
 *
 ** Button 3 activated
@@ -248,11 +249,11 @@ scrp 2 23 21800 502
 	velo rand -8 8 -5
 	tick 300
 	setv ov00 3
-doif tmvt va00 va01 eq 1
+	doif tmvt va00 va01 eq 1
 		mvto va00 va01
-		else
+	else
 		kill targ
-		endi
+	endi
 endm
 
 *
@@ -279,11 +280,11 @@ scrp 2 23 21800 503
 	velo rand -8 8 -5
 	tick 300
 	setv ov00 2
-doif tmvt va00 va01 eq 1
+	doif tmvt va00 va01 eq 1
 		mvto va00 va01
-		else
+	else
 		kill targ
-		endi
+	endi
 endm
 
 
@@ -642,7 +643,7 @@ scrp 2 4 21800 9
 			setv va90 32
 		elif va91 eq 3
 			setv va90 43
-		else	
+		else
 			kill ownr
 			stop
 		endi
@@ -668,7 +669,7 @@ scrp 2 4 21800 9
 ** Stop single-tick mode
 		slow
 
-doif va91 eq 0
+		doif va91 eq 0
 			frat 5
 		elif va91 eq 1
 			frat 7
@@ -679,12 +680,12 @@ doif va91 eq 0
 		endi
 
 		doif tmvt va00 va01 eq 1
-		mvto va00 va01
+			mvto va00 va01
 		else
-		kill targ
+			kill targ
 		endi
 
-		
+
 
 
 	retn
@@ -702,7 +703,7 @@ scrp 2 3 21800 9
 ** Check whether the attributes have already been set
 	doif attr le 66
 ** If not, add attributes and throw the seed somewhere random.
-inst
+		inst
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
 		attr 194
 ** Will go through some walls
@@ -718,9 +719,9 @@ inst
 		tick rand 50 150
 
 		doif tmvt posx posy eq 1
-		mvto posx posy
+			mvto posx posy
 		else
-		kill targ
+			kill targ
 		endi
 
 	else
