@@ -10,7 +10,7 @@ group DSAG "GP - Crayfish tail vendor"
 
 
 
-"Agent Description" "A vendor that vends crayfish tails. Well, at least one of the tails is from a crayfish... \n\nSprites by Jesseth"
+"Agent Description" "A vendor that vends crayfish tails and delicious seaweed. \n\nSprites by Jesseth"
 
 "Agent Animation File" "gp_crayfishtail_vendor_JESS.c16"
 
