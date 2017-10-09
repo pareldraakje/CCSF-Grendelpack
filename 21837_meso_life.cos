@@ -138,7 +138,7 @@ repe
 
 ** Meso goldfish eggs
 reps 6
-	new: simp 2 18 21812 "goldfishies" 1 2 501
+	new: simp 2 18 21812 "gp_goldfishies_JESS" 1 2 501
 	mesg wrt+ targ 1000 23754 1805 0
 	velo rand -5 5 rand -5 0
 	tick rand 10 1000
