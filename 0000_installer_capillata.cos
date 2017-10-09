@@ -12,10 +12,10 @@
 
 *# depend blnk.c16
 
-*# attach gp_capillata_overlay_JESS.c16
+*# attach gp_capillata_overlay_JESS.c16 GrenP_Capillataoverlay.catalogue
 *# attach gp_favicons_capillata.c16
-*# attach gp_eleport_UZAG.c16
-*# attach gp_improved_favplaces.c16
+*# attach gp_eleport_UZAG.c16 GrenP_Eleport.catalogue
+*# attach gp_improved_favplaces.c16 improvedfav_pilla_help.catalogue
 *# attach dg09.wav
 
 *# link 21841_improvedfavplace.cos 21846_eleport.cos 21828_capillataoverlay.cos
