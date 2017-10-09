@@ -151,10 +151,7 @@ doif targ eq null
 	setv ov33 va35
 	setv ov34 va36
 
-endi
 
-* Set the alpha channel
-alph 256 0
 
 * Set the doors
 door ov01 ov04 100
@@ -179,6 +176,36 @@ door ov26 ov27 0
 door ov29 ov30 0
 door ov31 ov32 0
 
+
+** Create lifts
+**
+*
+** Upper capillata platform
+	new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
+	setv ov00 60
+	mvto 2413 8882
+	setv va00 room targ
+*
+** Capillata ground floor
+	new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
+	setv ov00 60
+	mvto 2413 9078
+	setv va01 room targ
+*
+** Capillata lower elevine
+	new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
+	setv ov00 60
+	mvto 2413 9438
+	setv va02 room targ
+*
+** CA links
+link va00 va01 80
+link va01 va02 80
+*
+** Elevine activator script
+	new: simp 3 1 21844 "blnk" 1 0 100
+	tick 10
+
 * Set the room types
 rtyp ov24 8
 rtyp ov25 8
@@ -192,43 +219,18 @@ rtyp ov32 8
 rtyp ov33 8
 rtyp ov34 8
 
-**
-** Lifts
-**
+endi
 
-**
-** ELEVINE PLACEHOLDERS
-**
-**
 
-*
-** Upper capillata platform
-new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
-setv ov00 60
-mvto 2413 8882
-setv va00 room targ
-*
-** Capillata ground floor
-new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
-setv ov00 60
-mvto 2413 9078
-setv va01 room targ
-*
-** Capillata lower elevine
-new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
-setv ov00 60
-mvto 2413 9438
-setv va02 room targ
+
+* Set the alpha channel
+alph 256 0
+
 
 *
-** Elevine activator script
-new: simp 3 1 21844 "blnk" 1 0 100
-tick 10
-
-*
-** CA links
-link va00 va01 80
-link va01 va02 80
+** Change the capillata favourite place icon
+rtar 1 4 11
+gall "gp_favicons_capillata" 1
 
 
 ********************
@@ -303,7 +305,6 @@ scrp 1 1 21828 1
 
 	endi
 endm
-
 
 
 

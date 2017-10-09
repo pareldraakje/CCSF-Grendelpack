@@ -4,15 +4,16 @@
 *# Pray-File "gp_capillata.agents"
 *# DS-Name "GP - Capillata expansion"
 *# desc = "Inject this agent to increase the capillata size: this agent creates an extra room below the capillata, which can be flooded with either fresh or salt water. Above the capillata, some extra space is also created."
-*# Agent Animation File = "blnk.c16"
+*# Agent Animation File = "gp_favicons_capillata.c16"
 *# Agent Sprite First Image = 1
-*# Agent Animation Gallery = "blnk"
+*# Agent Animation Gallery = "gp_favicons_capillata"
 *# Web URL = "http://creaturescaves.com/"
 *# Web Label = "the Banshee Ark development team"
 
 *# depend blnk.c16
 
 *# attach gp_capillata_overlay_JESS.c16
+*# attach gp_favicons_capillata.c16
 *# attach gp_eleport_UZAG.c16
 *# attach gp_improved_favplaces.c16
 *# attach dg09.wav
