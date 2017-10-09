@@ -6,23 +6,13 @@
 ** Meso upper platform
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 mesg wrt+ targ 1000 24276 927 0
-** Meso main tree base
-new: simp 2 21 21809 "gp_moreballs" 40 0 3000
-base 8
-mesg wrt+ targ 1000 25491 1164 0
-** Meso main tree upper platform
-new: simp 2 21 21809 "gp_moreballs" 40 0 3000
-base 24
-mesg wrt+ targ 1000 25742 905 0
+** Meso bush
+new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
+mesg wrt+ targ 1000 24185 1300 0
 ** Meso underground
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 base 32
 mesg wrt+ targ 1000 25789 1559 0
-** Meso tank
-new: simp 2 21 21809 "gp_moreballs" 40 0 3000
-base 24
-mesg wrt+ targ 1000 25001 1771 0
-
 
 **
 ** Wildlife population controllers

@@ -1,0 +1,59 @@
+*
+** Injection
+
+* new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
+* mesg wrt+ targ 1000 posx posy 0
+
+scrp 2 21 21810 1000
+	inst
+	attr 199
+	bhvr 43
+	accg 3
+	elas 0
+	fric 100
+	perm 100
+	frat 5
+	anim [0 1 255]
+	mvto _p1_ _p2_
+	slow
+endm
+
+scrp 2 21 21810 1
+	lock
+	doif ov10 eq 1
+		stim writ from 97 1
+		anim [2 3 4 1 2 3 4]
+	else
+		stim writ from 97 1
+		anim [2 3 4 1 2 3 4]
+	endi
+	over
+	anim [0 1 255]
+endm
+
+scrp 2 21 21810 2
+	lock
+	doif ov10 eq 1
+		stim writ from 97 0.5
+		anim [2 3 4]
+		setv ov10 2
+	else
+		stim writ from 97 0.5
+		anim [2 3 4]
+		setv ov10 1
+	endi
+	over
+	anim [0 1 255]
+endm
+
+scrp 2 21 21810 3
+	stim writ from 0 1
+endm
+
+rscr
+enum 2 21 21810
+	kill targ
+next
+scrx 2 21 21810 1
+scrx 2 21 21810 2
+scrx 2 21 21810 3
