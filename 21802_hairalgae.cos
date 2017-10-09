@@ -47,7 +47,6 @@ mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 scrp 2 23 21802 1000
 
-	new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
 ** Attributes: mouseable 2 + collide 64 + physics 128 = 194
 	attr 194
 ** bhvr: act1 + hit 8 = 9
@@ -67,9 +66,8 @@ scrp 2 23 21802 1000
 	anim [ 0 1 2 3 4 3 2 1 255]
 
 	mvsf _p1_ _p2_
-	tick 10
-	targ ownr
-	kill ownr
+
+tick 0
 
 endm
 
