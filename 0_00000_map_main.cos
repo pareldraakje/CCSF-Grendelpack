@@ -1,4 +1,4 @@
-setv va01 addm 20483 0 2944 3072 "gp_mainworld"
+setv va01 addm 20483 0 2875 2979 "gp_mainworld"
 mmsc 21955 1536 ""
   setv va00 addr va01 20598 20692 582 404 619 591
     rtyp va00 0
