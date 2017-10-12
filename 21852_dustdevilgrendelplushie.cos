@@ -1,0 +1,78 @@
+**
+** Grendel Plushie script
+**
+** Sprites by Linda, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "dustdevilgrendelplushie.agents"
+*# DS-Name "Dustdevil Grendel Plushie"
+*# attach dustdevilgrendelplushie.c16 dustdevilgrendelplushie.catalogue
+*# desc = "This is a plushie shaped like a Dustdevil Grendel. It needs some attention and love, your creatures will certainly get some love back.by Linda"
+*# Agent Animation File = "dustdevilgrendelplushie.c16"
+*# Agent Animation Gallery = "dustdevilgrendelplushie"
+*# Agent Sprite First Image = 1
+*
+
+
+*
+** Injection
+
+new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 3000
+mesg wrt+ targ 1000 6173 9173 0
+
+scrp 2 21 21852 1000
+	inst
+	core 0 95 0 104
+	attr 199
+	bhvr 43
+	accg 3
+	elas 0
+	fric 100
+	perm 100
+	frat 3
+	pose 0
+	mvsf _p1_ _p2_
+	slow
+endm
+
+scrp 2 21 21852 1
+	lock
+	stim writ from 97 1
+	anim [1 0 1 0 1 0]
+	over
+	pose 0
+	unlk
+endm
+
+scrp 2 21 21852 2
+	lock
+	stim writ from 97 0.5
+	anim [1 0 1 0]
+	over
+	pose 0
+	unlk
+endm
+
+scrp 2 21 21852 3
+	stim writ from 0 1
+	velo rand -3 3 -2
+endm
+
+rscr
+enum 2 21 21852
+	kill targ
+next
+scrx 2 21 21852 1000
+scrx 2 21 21852 1
+scrx 2 21 21852 2
+scrx 2 21 21852 3

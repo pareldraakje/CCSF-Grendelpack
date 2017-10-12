@@ -1,0 +1,26 @@
+**
+** Grendel Plushie Statue GB script
+**
+** Sprites by Linda, coding by Pilla.
+*
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "dustdevilgrendelplushie.agents"
+*# DS-Name "GB Dustdevil Grendel Plushie"
+*# GB_Category 1
+*# attach dustdevilgrendelplushie.c16 dustdevilgrendelplushie.catalogue
+*# desc = "This is a plushie shaped like a Dustdevil Grendel. It needs some attention and love, your creatures will certainly get some love back.by Linda"
+*# Agent Animation File = "dustdevilgrendelplushie.c16"
+*# Agent Animation Gallery = "dustdevilgrendelplushie"
+*# Agent Sprite First Image = 3
+*
+
+** Injection
+
+new: simp 1 1 21852 "dustdevilgrendelplushie" 1 2 500
+mvto game "ch_x" game "ch_y"
