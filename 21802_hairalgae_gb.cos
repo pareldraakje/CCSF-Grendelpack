@@ -47,7 +47,7 @@ inst
 			elas 40
 			velo rand -30 30 -5
 			tick rand 100 200
-			mvsf "ch_x" game "ch_y"
+			mvsf game "ch_x" game "ch_y"
 slow
 
 **
