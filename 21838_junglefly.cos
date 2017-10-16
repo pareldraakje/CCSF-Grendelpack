@@ -84,35 +84,51 @@ endm
 ** Fly killed 
 **
 scrp 2 15 21838 1001
-** become heavy
+	inst
+	setv va00 posl
+	setv va01 post
+	new: simp 2 15 21838 "gp_fly_UZAG" 28 15 300
 	attr 194
-	accg 4
-	velo 0 0
-	elas 0
 	perm 100
+	doif tmvt va00 va01 eq 1
+		setv va02 1
+	endi
+	kill targ
+	targ ownr
+	doif va02 ne 1
+		kill ownr
+		stop
+	else
+** become heavy
+		attr 194
+		accg 4
+		velo 0 0
+		elas 0
+		perm 100
 ** stop moving
-	tick 0
-	doif pose ge 0 and pose lt 2
-		anim [1]
-	else
-		anim [3]
-	endi
+		tick 0
+		doif pose ge 0 and pose lt 2
+			anim [1]
+		else
+			anim [3]
+		endi
 ** Fall down untill not falling anymore
-	loop
-		setv vely 10
-	untl fall = 0
+		loop
+			setv vely 10
+		untl fall = 0
 ** Decompose after a bit
-	wait rand 50 100
+		wait rand 50 100
 ** change category to detritus & emit nutrients into soil
-	cato 10
-	emit 4 2
-	frat 40
-	doif pose eq 1
-		anim [4 5 6 7 8]
-	else
-		anim [9 10 11 12 13]
+		cato 10
+		emit 4 2
+		frat 40
+		doif pose eq 1
+			anim [4 5 6 7 8]
+		else
+			anim [9 10 11 12 13]
+		endi
+		over
 	endi
-	over
 	targ ownr
 	kill targ
 endm
