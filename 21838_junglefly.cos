@@ -113,9 +113,11 @@ scrp 2 15 21838 1001
 			anim [3]
 		endi
 ** Fall down untill not falling anymore
+		setv va70 0
 		loop
 			setv vely 10
-		untl fall = 0
+			addv va70 1
+		untl fall = 0 or va70 gt 50
 ** Decompose after a bit
 		wait rand 50 100
 ** change category to detritus & emit nutrients into soil
