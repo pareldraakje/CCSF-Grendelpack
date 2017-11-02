@@ -151,6 +151,20 @@ doif targ eq null
 	setv ov33 va35
 	setv ov34 va36
 
+* Set the room types
+rtyp ov24 8
+rtyp ov25 8
+rtyp ov26 8
+rtyp ov27 8
+rtyp ov28 8
+rtyp ov29 8
+rtyp ov30 8
+rtyp ov31 8
+rtyp ov32 8
+rtyp ov33 8
+rtyp ov34 8
+
+
 
 
 * Set the doors
@@ -205,19 +219,6 @@ link va01 va02 80
 ** Elevine activator script
 	new: simp 3 1 21844 "blnk" 1 0 100
 	tick 10
-
-* Set the room types
-rtyp ov24 8
-rtyp ov25 8
-rtyp ov26 8
-rtyp ov27 8
-rtyp ov28 8
-rtyp ov29 8
-rtyp ov30 8
-rtyp ov31 8
-rtyp ov32 8
-rtyp ov33 8
-rtyp ov34 8
 
 endi
 

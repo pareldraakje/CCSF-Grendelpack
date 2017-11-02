@@ -1,6 +1,7 @@
 * Dummy CA emitter for the esee function
 new: simp 1 1 21836 "blnk" 1 0 10
 rnge 1800
+perm 50
 setv ov50 1
 seta va99 targ
 mvto 24580 160
@@ -16,12 +17,14 @@ pat: dull 6 "gp_airlock" 30 428 15 1
 part 4
 frat 10
 
-* Get the 3 rooms: 00 airlock, 01 meso, 02 space
-setv ov00 grap 24419 174
-setv ov01 grap 24218 181
-setv ov02 grap 24678 181
-seta ov03 va99
-door ov00 ov02 0
+* Get the rooms: 00 airlock, 01 meso, 02 space, 03 airlock to space
+
+setv ov00 grap 24420 210
+setv ov01 grap 24213 210
+setv ov02 grap 24679 210
+setv ov03 grap 24625 210
+seta ov04 va99
+door ov03 ov02 0
 
 mvto 24190 54
 
@@ -33,23 +36,21 @@ scrp 1 1 21836 1010
 		esee 0 0 0
 			setv va00 posx
 			setv va01 posy
-			doif grap va00 va01 eq grap 24419 174
-				doif targ <> ownr and carr = null
-					doif fmly <> 1
-						doif fmly = 2 and gnus = 1
+			doif targ <> ownr and carr = null
+				doif fmly <> 1
+					doif fmly = 2 and gnus = 1
+					else
+						doif attr lt 64
+							kill targ
 						else
-							doif attr lt 64
-								kill targ
-							else
-								subv va01 10
-								velo rand 15 20 rand -10 -15
-								mvsf va00 va01
-								attr 198
-								elas 80
-								accg 1
-								aero 1
-								fric 1
-							endi
+							subv va01 10
+							velo rand 15 20 rand -10 -15
+							mvsf va00 va01
+							attr 198
+							elas 80
+							accg 1
+							aero 1
+							fric 1
 						endi
 					endi
 				endi
@@ -58,56 +59,55 @@ scrp 1 1 21836 1010
 
 		wait 10
 		inst
-		esee 0 0 0
-			doif grap posx posy eq grap 24419 174 or grap posx posy eq grap 24787 174
-				doif targ <> ownr and carr = null
-					doif fmly <> 1
-						doif fmly = 2 and gnus = 1
-						else
-							setv va00 posx
-							setv va01 posy
-							subv va00 41
-							subv va01 39
-							doif fmly = 4
-								dead
-								setv va66 1
-							else
-								setv va66 0
-							endi
-							kill targ
 
-							reps 4
-								new: simp 1 1 46 "dust cloud" 4 8 1000
+		esee 0 0 0
+			doif targ <> ownr and carr = null
+				doif fmly <> 1
+					doif fmly = 2 and gnus = 1
+					else
+						setv va00 posx
+						setv va01 posy
+						subv va00 41
+						subv va01 39
+						doif fmly = 4
+							dead
+							setv va66 1
+						else
+							setv va66 0
+						endi
+						kill targ
+
+						reps 4
+							new: simp 1 1 46 "dust cloud" 4 8 1000
+							doif tmvt va00 va01 <> 1
+								kill targ
+							else
+								mvto va00 va01
+								setv vely rand -5 5
+								setv velx rand -5 5
+								attr 192
+								accg 0.1
+								elas 100
+								anim [0 1 2 3]
+								tick rand 30 40
+							endi
+						repe
+						doif va66 = 1
+							reps 8
+								new: simp 1 1 46 "bone" 12 0 1000
 								doif tmvt va00 va01 <> 1
 									kill targ
-								else
-									mvto va00 va01
-									setv vely rand -5 5
-									setv velx rand -5 5
-									attr 192
-									accg 0.1
-									elas 100
-									anim [0 1 2 3]
-									tick rand 30 40
+									stop
 								endi
+								mvto va00 va01
+								setv vely rand -5 5
+								setv velx rand -5 5
+								attr 192
+								accg 0
+								elas 100
+								anim [0 1 2 3 4 5 6 7 8 9 10 11 255]
+								tick rand 50 60
 							repe
-							doif va66 = 1
-								reps 8
-									new: simp 1 1 46 "bone" 12 0 1000
-									doif tmvt va00 va01 <> 1
-										kill targ
-										stop
-									endi
-									mvto va00 va01
-									setv vely rand -5 5
-									setv velx rand -5 5
-									attr 192
-									accg 0
-									elas 100
-									anim [0 1 2 3 4 5 6 7 8 9 10 11 255]
-									tick rand 50 60
-								repe
-							endi
 						endi
 					endi
 				endi
@@ -137,10 +137,10 @@ scrp 1 1 21850 1001
 	gsub spopen
 
 * Open door to space
-	door ov00 ov02 100
+	door ov03 ov02 100
 
 * Do the airlock magic
-	seta va01 ov03
+	seta va01 ov04
 	mesg writ va01 1010
 
 
@@ -148,7 +148,7 @@ scrp 1 1 21850 1001
 	wait 40
 
 * Close door to space
-	door ov00 ov02 0
+	door ov03 ov02 0
 
 *Subroutine animation close door and unlock chamber
 	gsub unlock

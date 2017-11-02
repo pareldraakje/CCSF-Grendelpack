@@ -29,7 +29,7 @@
 *
 ** Injection script
 **
-new: comp 2 23 21851 "gp_nudioxy_JESS" 1 0 rand 800 900
+new: comp 2 23 21851 "gp_nudioxy_JESS" 12 0 rand 800 900
 mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 **
@@ -39,6 +39,9 @@ mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 scrp 2 23 21851 1000
 	new: comp 2 23 21851 "gp_nudioxy_JESS" 12 0 rand 800 3000
+** Set vendor default animation
+	frat 5
+	anim [5 6 7 2 8 9 3 255]
 ** Attributes: mouseable 2 + collide 64 + physics 128 = 194
 	attr 194
 ** bhvr: act1 1 + hit 8 = 9
@@ -51,13 +54,10 @@ scrp 2 23 21851 1000
 	elas 20
 
 ** part 4: oxy button
-	pat: butt 4 "gp_nudioxy_JESS" 12 2 3 25 1 [1] 500 1
+	pat: butt 4 "gp_nudioxy_JESS" 12 2 0 0 1 [1] 500 1
 ** part 5: nudibranch
-	pat: butt 5 "gp_nudioxy_JESS" 14 2 3 25 1 [1] 501 1
+	pat: butt 5 "gp_nudioxy_JESS" 14 2 0 0 1 [1] 501 1
 
-** Set vendor default animation
-	part 1
-	anim [0 1 2 3 4 5 6 7 8 9 10 11 255]
 ** Set button default animations
 	part 4
 	anim [0]
@@ -81,7 +81,7 @@ scrp 2 23 21851 500
 	setv va00 posx
 	subv va00 25
 	setv va01 post
-	new: simp 2 15 21853 "gp_nudioxy_JESS" 20 38 1000
+	new: simp 2 16 21853 "gp_nudioxy_JESS" 20 38 1000
 	mesg wrt+ targ 1000 va00 va01 0
 endm
 *
@@ -90,6 +90,7 @@ scrp 2 23 21851 501
 	setv va00 posx
 	addv va00 14
 	setv va01 post
+	subv va01 20
 	new: simp 2 15 21851 "gp_nudioxy_JESS" 24 17 rand 2000 3000
 	velo rand -3 3 -10
 	mesg wrt+ targ 1000 va00 va01 0
