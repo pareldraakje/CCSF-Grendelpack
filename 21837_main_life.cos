@@ -57,6 +57,13 @@ tick 30
 **
 **
 
+**
+** Main oxymonacanthus
+**
+
+new: simp 2 16 21853 "gp_nudioxy_JESS" 20 38 1000
+mesg wrt+ targ 1000 22539 2689 0
+
 ** Main room flies
 reps 14
 	inst

@@ -1,0 +1,123 @@
+**
+** CA EMITTERS
+**
+**
+**
+** GRENDEL HIDEOUT
+**
+*
+** Light
+** Upper level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19938 139
+** Upper left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19550 285
+** First level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19959 424
+** Floor level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.5
+mvto 19863 798
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.5
+mvto 19463 1073
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 1 0.7
+mvto 19883 1083
+*
+** Heat
+** Upper level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19938 139
+** Upper left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19550 285
+** First level light
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19959 424
+** Floor level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19863 798
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.5
+mvto 19463 1073
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 2 0.4
+mvto 19883 1083
+*
+** MMMMOISTURE
+** Upper level center
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 19938 139
+** Upper left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 19550 285
+** First level 
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 0.8
+mvto 19959 424
+** Floor level
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 19863 798
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 19463 1073
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 3 1
+mvto 19883 1083
+*
+** NUTRIENTS
+** Upper right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20335 296
+** First floor right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20335 594
+** Ground level center
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 20060 952
+** -1left
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 19432 1228
+** -1right
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 4 1
+mvto 19919 1240
+*
+** SMELLS
+** NORN HOME SMELL: first floor tree
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 15 0.6
+mvto 19494 588
+** GRENDEL HOME SMELL: Ground floor
+new: simp 1 1 21836 "blnk" 1 0 10
+emit 16 0.8
+mvto 19834 949
+
+
+rscr
+enum 1 1 21836
+	kill targ
+next
