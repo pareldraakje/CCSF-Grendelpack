@@ -25,10 +25,7 @@
 * Check if overlay exists
 rtar 1 1 21828
 doif targ eq null
-
 * If not:
-
-*
 ** Create the agent
 *	Part 1: upper overlay
 	new: comp 1 1 21828 "gp_capillata_overlay_JESS" 1 0 0
@@ -47,28 +44,22 @@ doif targ eq null
 *	part 7: type indicator (fresh/salt/air)
 	pat: dull 7 "gp_capillata_overlay_JESS" 13 473 468 1
 
-
 ** Move into place
 	attr 0
 	bhvr 0
 	mvto 2146 8732
-
 ** animate button (to reset animation after hover)
 	part 3
 	anim [0]
-
 ** animate bubbles
 	part 6
 	frat 4
 	anim [0 1 2 3 4 255]
-
 ** set correct pose for icon
 	part 7
 	pose 2
-
 * Capillata metaroom variable
 	setv ov00 gmap 2625 8940
-
 * Abovedoors - floor
 	setv ov01 grap 2518 8940
 	setv ov02 grap 2625 8940
@@ -151,29 +142,12 @@ doif targ eq null
 	setv ov33 va35
 	setv ov34 va36
 
-* Set the room types
-	rtyp ov24 8
-	rtyp ov25 8
-	rtyp ov26 8
-	rtyp ov27 8
-	rtyp ov28 8
-	rtyp ov29 8
-	rtyp ov30 8
-	rtyp ov31 8
-	rtyp ov32 8
-	rtyp ov33 8
-	rtyp ov34 8
-
-
-
-
-* Set the doors
+** Set the doors
 	door ov01 ov04 100
 	door ov02 ov05 100
 	door ov03 ov06 100
 	door ov12 ov14 100
 	door ov13 ov15 100
-
 	door ov01 ov07 0
 	door ov02 ov08 0
 	door ov03 ov09 0
@@ -181,58 +155,52 @@ doif targ eq null
 	door ov13 ov15 0
 	door ov16 ov18 0
 	door ov17 ov19 0
-
 	door ov16 ov20 0
 	door ov17 ov21 0
-
 	door ov24 ov25 0
 	door ov26 ov27 0
 	door ov29 ov30 0
 	door ov31 ov32 0
-
+* make the capillata extension visible
+	alph 256 0
+* Check if meso injected, if yes add door gallery
+	doif game "gpmeso" eq 1
+		part 0
+		gall "gp_doorcapmeso_UZAG" 0
+	endi
 
 ** Create lifts
-**
-*
 ** Upper capillata platform
 	new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
 	setv ov00 60
 	mvto 2413 8882
 	setv va00 room targ
-*
 ** Capillata ground floor
 	new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
 	setv ov00 60
 	mvto 2413 9078
 	setv va01 room targ
-*
 ** Capillata lower elevine
 	new: simp 3 1 21845 "gp_eleport_UZAG" 1 0 100
 	setv ov00 60
 	mvto 2413 9438
 	setv va02 room targ
-*
-** CA links
-	link va00 va01 80
-	link va01 va02 80
-*
+
 ** Elevine activator script
 	new: simp 3 1 21844 "blnk" 1 0 100
 	tick 10
 
+** CA links
+	link va00 va01 80
+	link va01 va02 80
+
+** Change the capillata favourite place icon
+	rtar 1 4 11
+	gall "gp_favicons_capillata" 1
 endi
 
 
-
-* Set the alpha channel
-alph 256 0
-
-
 *
-** Change the capillata favourite place icon
-rtar 1 4 11
-gall "gp_favicons_capillata" 1
-
 
 ********************
 **    Scripts     **
@@ -847,38 +815,63 @@ endm
 *
 
 rscr
-
+** only remove if the gp meso isn't there
+doif game "gpmeso" ne 1
 ** eleplants
-enum 3 1 21844
-	doif ov00 eq 60
-		kill targ
-	endi
-next
-enum 3 1 21845
-	doif ov00 eq 60
-		kill targ
-	endi
-next
+	enum 3 1 21844
+		doif ov00 eq 60
+			kill targ
+		endi
+	next
+	enum 3 1 21845
+		doif ov00 eq 60
+			kill targ
+		endi
+	next
 
 ** Capillata extension
-enum 1 1 21828
-	doif door ov01 ov07 eq 0
-		door ov12 ov16 100
-		door ov13 ov17 100
-		door ov01 ov07 100
-		door ov02 ov08 100
-		door ov03 ov09 100
-		door ov12 ov14 100
-		door ov13 ov15 100
+	enum 1 1 21828
+** only remove if the gp meso isn't there
+		doif door ov01 ov07 eq 0
+			door ov01 ov07 100
+			door ov02 ov08 100
+			door ov03 ov09 100
+			door ov12 ov14 100
+			door ov13 ov15 100
+			door ov16 ov18 100
+			door ov17 ov19 100
+			door ov16 ov20 100
+			door ov17 ov21 100
+			door ov24 ov25 100
+			door ov26 ov27 100
+			door ov29 ov30 100
+			door ov31 ov32 100
+		endi
+		rtyp ov24 0
+		rtyp ov25 0
+		rtyp ov26 0
+		rtyp ov27 0
+		rtyp ov28 0
+		rtyp ov29 0
+		rtyp ov30 0
+		rtyp ov31 0
+		rtyp ov32 0
+		rtyp ov33 0
+		rtyp ov34 0
 
-	endi
-	kill targ
-next
+		kill targ
+	next
 
-enum 1 2 21828
-	link ov01 ov02 0
-	kill targ
-next
-enum 3 1 21828
-	kill targ
-next
+	enum 1 2 21828
+		link ov01 ov02 0
+		kill targ
+	next
+	enum 3 1 21846
+		kill targ
+	next
+
+** Change the capillata favourite place icon
+	rtar 1 4 11
+	gall "fav_place_corridor" 1
+
+endi
