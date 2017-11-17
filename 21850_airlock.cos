@@ -1,6 +1,6 @@
 doif game "gpmeso" ne 1
 * Dummy CA emitter for the esee function
-	new: simp 1 1 21836 "blnk" 1 0 10
+	new: simp 1 2 21850 "blnk" 1 0 10
 	rnge 1800
 	perm 50
 	setv ov50 1
@@ -31,7 +31,7 @@ doif game "gpmeso" ne 1
 endi
 
 * The airlock magic script!
-scrp 1 1 21836 1010
+scrp 1 1 21850 1010
 	doif ov50 eq 1
 		inst
 		esee 0 0 0
@@ -199,7 +199,7 @@ rscr
 enum 1 1 21850
 	kill targ
 next
-enum 1 1 21836
+enum 1 2 21850
 	doif ov50 eq 1
 		kill targ
 	endi
