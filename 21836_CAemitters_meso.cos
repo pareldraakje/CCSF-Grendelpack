@@ -3,10 +3,220 @@
 **
 **
 
-** TODO ;u;
+doif game "gpmeso" ne 1
 
 **
+** CA EMITTERS
+**
+**
+**
+** MESO
+**
+*
+** Light
+** Upper left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.7
+	mvto 23927 100
+** Upper mid desert
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1
+	mvto 23678 366
+** upper mid jungle
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.5
+	mvto 24290 385
+** Mid left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 24180 749
+** mid right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 25255 749
+** Floor left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 24129 1264
+** Floor mid
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 24791 1224
+** Floor right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 25430 1100
+** Underwater
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.6
+	mvto 23690 1707
+** Storage
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 24500 1764
+** Earthblob
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.3
+	mvto 25752 1423
+*
+** Heat
+** Upper left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.7
+	mvto 23927 100
+** Upper mid desert
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 1
+	mvto 23678 366
+** upper mid jungle
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.8
+	mvto 24290 385
+** Mid left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.8
+	mvto 24180 749
+** mid right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.7
+	mvto 25255 749
+** Floor left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.7
+	mvto 24129 1264
+** Floor mid
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.7
+	mvto 24791 1224
+** Floor right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.7
+	mvto 25430 1100
+** Underwater
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.6
+	mvto 23690 1707
+** Storage
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.6
+	mvto 24500 1764
+** Earthblob
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 0.7
+	mvto 25752 1423
+*
+** MMMMOISTURE
+** Upper left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.5
+	mvto 23927 100
+** Upper mid desert
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0
+	mvto 23678 366
+** upper mid jungle
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 1
+	mvto 24290 385
+** Mid left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.5
+	mvto 24180 749
+** mid right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.6
+	mvto 25255 749
+** Floor left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.8
+	mvto 24129 1264
+** Floor mid
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.7
+	mvto 24791 1224
+** Floor right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.6
+	mvto 25430 1100
+** Underwater
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1
+	mvto 23690 1707
+** Storage
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.9
+	mvto 24500 1764
+** Earthblob
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.8
+	mvto 25752 1423
+*
+** NUTRIENTS
+** Upper left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0
+	mvto 23927 100
+** Upper mid desert
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.5
+	mvto 23678 366
+** upper mid jungle
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 1
+	mvto 24290 385
+** Mid left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.3
+	mvto 24180 749
+** mid right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0
+	mvto 25255 749
+** Floor left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.8
+	mvto 24129 1264
+** Floor mid
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.8
+	mvto 24791 1224
+** Floor right
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.8
+	mvto 25430 1100
+** Underwater
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.5
+	mvto 23690 1707
+** Storage
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0
+	mvto 24500 1764
+** Earthblob
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.7
+	mvto 25752 1423
+*
+** SMELLS
+** NORN HOME SMELL: mid left
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 15 1
+	mvto 23826 874
+** GRENDEL HOME SMELL: egg layer
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 16 1
+	mvto 24940 858
+
+endi
+
+*
+** REMOVAL
+*
+
 rscr
+setv va00 gmap 24925 1089
 enum 1 1 21836
-	kill targ
+	doif gmap posx posy eq va00
+		kill targ
+	endi
 next
