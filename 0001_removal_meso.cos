@@ -72,3 +72,8 @@ enum 1 1 21821
 		kill targ
 	endi
 next
+enum 1 1 21855
+doif gmap posx posy eq va00
+		kill targ
+	endi
+next

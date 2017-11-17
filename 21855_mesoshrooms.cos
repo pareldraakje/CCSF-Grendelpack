@@ -1,0 +1,69 @@
+scrp 1 1 21855 9
+	new: simp 2 11 21855 "gp_fernshroom_planter_JESS" 1 15 rand 1200 1900
+** attr: mouseable 2 + collide 64 + physics 128 + invisible 16 = 210
+** bhvr: eat 16 + pickup 32 = 48
+	attr 210
+	bhvr 48
+** Will go through some walls
+	perm 80
+** Physics
+	accg 2
+	aero 1
+	fric 90
+	elas 10
+** timer
+	setv ov00 0
+	alph 255 1
+	tick 120
+	mvsf rand 24065 25697 1118
+endm
+
+**
+** MUSHROOM EAT
+**
+
+scrp 2 11 21855 12
+	lock
+	wait 10
+** stim eat food
+	stim writ from 79 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** MUSHROOM TIMER
+**
+
+scrp 2 11 21855 9
+	doif ov00 eq 0
+		rnge 300
+		setv va00 0
+		esee 2 11 21855
+			addv va00 1
+		next
+		targ ownr
+		doif va00 lt 2
+			setv ov00 1
+			tick rand 1000 2000
+			alph 0 0
+			attr 194
+			emit 8 0.6
+		else
+			kill ownr
+		endi
+	else
+		doif carr eq null
+			kill ownr
+		endi
+	endi
+endm
+
+rscr
+enum 2 11 21855
+	kill targ
+next
+enum 1 1 21855
+	kill targ
+next

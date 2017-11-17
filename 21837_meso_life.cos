@@ -185,6 +185,11 @@ repe
 **
 **
 
+** Mushrooms
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 24284 236
+tick rand 300 1000
+
 **
 ** C2 berries
 **
