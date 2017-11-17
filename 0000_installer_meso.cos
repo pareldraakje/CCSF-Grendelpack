@@ -1,6 +1,7 @@
 *
 * CAOS2PRAY CHUNK
 *
+** variable: game "gpmeso"
 *# Pray-File "gp_meso.agents"
 *# DS-Name "GP  Meso"
 *# desc = "Inject the Banshee Ark Meso"
@@ -42,6 +43,8 @@
 *# attach gp_mossytree_JESS.c16 GrenP_MossyTree.catalogue
 *# attach gp_pickleweed_plant_JESS.c16 GrenP_Pickleweedplant.catalogue
 *# attach gp_redcap_mushroom.c16 GrenP_RedcapMushroom.catalogue
+*# attach dustdevilgrendelplushie.c16 dustdevilgrendelplushie.catalogue
+*# attach gp_tank.c16 GrenP_Mesoflooder.catalogue
 
 *# attach bal3.wav
 *# attach chwp.wav
@@ -57,4 +60,79 @@
 *# attach tbal.wav
 
 ** TODO CA emitters meso
-*# link 21841_improvedfavplace.cos 0_00000_map_meso.cos 21828_capillataoverlay.cos 21802_hairalgae.cos 21809_moreballs.cos 21810_bonsai.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21823_grendelmother.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 21828_door_capmeso.cos 21834_eleplant.cos 21835_calinks_meso.cos 21836_CAemitters_mesomain.cos 21838_junglefly.cos 21839_leech.cos 21843_desertbird_ARNOUT.cos 21845_desertbug_ARNOUT.cos 21846_eleport.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21850_airlock.cos 21835_signeledoor_meso.cos 21837_meso_life.cos 
+*# link 0001_removal_meso.cos 21841_improvedfavplace.cos 0_00000_map_meso.cos 21828_capillataoverlay.cos 21802_hairalgae.cos 21809_moreballs.cos 21810_bonsai.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21823_grendelmother.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 21828_door_capmeso.cos 21834_eleplant.cos 21835_calinks_meso.cos 21836_CAemitters_meso.cos 21838_junglefly.cos 21839_leech.cos 21843_desertbird_ARNOUT.cos 21845_desertbug_ARNOUT.cos 21846_eleport.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21852_dustdevilgrendelplushie.cos 21850_airlock.cos 21854_mesoflooder.cos 21835_signeledoor_meso.cos 21837_meso_life.cos 0001_setvar_meso.cos 0001_setvar_capillata.cos
+
+*
+* REMOVAL SCRIPT
+*
+
+rscr
+inst
+setv va00 gmap 23400 200
+* generic remover: remove everything inside metaroom
+enum 2 0 0
+	doif gmap posx posy eq va00
+		setv va01 gnus
+		doif va01 ne 1 and va01 ne 2 and va02 ne 12
+			kill targ
+		endi
+	endi
+next
+* Remove gadgets
+enum 3 8 0
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+
+** Remove population controllers
+enum 1 1 21813
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21822
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21838
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21843
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21820
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21848
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21849
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21815
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21802
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21821
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next

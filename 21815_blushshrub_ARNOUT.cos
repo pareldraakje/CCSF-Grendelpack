@@ -5,7 +5,7 @@
 *# Pray-File "gp_blushshrub_CS.agents"
 *# DS-Name "GP - Blush Shrub"
 *# attach gp_blush_shrub_CS.c16 GrenP_BlushShrub.catalogue
-*# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
+*# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.by CosmiSynthby Arnout"
 *# Agent Animation File = "gp_blush_shrub_CS.c16"
 *# Agent Sprite First Image = 5
 *# Agent Animation Gallery = "gp_blush_shrub_CS"
@@ -15,8 +15,8 @@
 **
 *	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
 
-new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 1000
-mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+*new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 1000
+*mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
 
 
 ** Seed packet creator script

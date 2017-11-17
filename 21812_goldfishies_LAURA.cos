@@ -360,6 +360,11 @@ scrp 2 15 21812 9
 				addv mv11 1
 			endi
 		next
+		esee 2 18 21812
+			doif targ ne null
+				addv mv11 1
+			endi
+		next
 *ov00 uses ESEE to search for fully-grown fish and counts how many it finds:			
 		doif ov11 lt 10
 

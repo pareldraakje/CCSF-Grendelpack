@@ -1,0 +1,172 @@
+
+doif game "gpmeso" ne 1
+*
+*
+
+** add invisible markers in the meso for the floodable rooms
+	new: simp 1 1 21854 "blnk" 1 0 1
+	mvto 24281 1809
+	new: simp 1 1 21854 "blnk" 1 0 1
+	mvto 24416 1809
+	new: simp 1 1 21854 "blnk" 1 0 1
+	mvto 24613 1809
+	new: simp 1 1 21854 "blnk" 1 0 1
+	mvto 25007 1809
+	new: simp 1 1 21854 "blnk" 1 0 1
+	mvto 24220 1809
+** add door markers
+* Left marker
+* Right marker
+	setv va00 grap 24130 1809
+	setv va01 grap 24220 1808
+
+
+
+** add flooding button
+	new: comp 1 2 21854 "blnk" 1 0 1
+* part 1: type screen
+	pat: dull 1 "gp_tank" 0 0 0 0
+* part 2: left button screen
+	pat: butt 2 "gp_tank" 3 2 2 10 1 [1] 1001 1
+	part 2
+	anim [0]
+* part 3: right button screen
+	pat: butt 3 "gp_tank" 5 2 56 10 1 [1] 1002 1
+	part 3
+	anim [0]
+* part 4: Valve animation
+	pat: dull 4 "gp_tank" 33 -26 106 1
+* part 5: Tank flooding animation
+	pat: dull 5 "gp_tank" 7 27 11 0
+	part 5
+	frat 2
+* part 6: valve button
+	pat: dull 6 "gp_tank" 19 2 243 2
+	part 6
+	frat 10
+
+	setv ov00 0
+	setv ov01 va00
+	setv ov02 va01
+	door ov01 ov02 0
+	mvto 24196 1509
+	mesg writ targ 1002
+
+endi
+
+* left button
+scrp 1 2 21854 1001
+	doif ov00 eq 0
+		setv ov00 9
+		part 1
+		pose 2
+	elif ov00 eq 9
+		setv ov00 8
+		part 1
+		pose 1
+		gsub opendoor
+	else
+		setv ov00 0
+		part 1
+		pose 0
+		gsub closedoor
+	endi
+	gsub bgchange
+
+	setv va00 ov00
+
+	enum 1 1 21854
+		rtyp grap posx posy va00
+	next
+
+	subr bgchange
+		part 5
+		doif ov00 eq 9
+			anim [1 2 3 4]
+		elif ov00 eq 8
+			anim [5 6 7 8]
+		else
+			anim [9 10 11 0]
+		endi
+	retn
+	subr opendoor
+		part 6
+		anim [1 2 2 2 255]
+		part 4
+		anim [1 2 3 4 5 6 7 8 9 10 11 12]
+		door ov01 ov02 100
+	retn
+
+	subr closedoor
+		part 6
+		anim [0]
+		part 4
+		anim [11 10 9 8 7 6 5 4 3 2 1 0]
+		door ov01 ov02 0
+	retn
+endm
+
+
+* right button
+scrp 1 2 21854 1002
+	doif ov00 eq 0
+		setv ov00 8
+		part 1
+		pose 1
+		gsub opendoor
+	elif ov00 eq 8
+		setv ov00 9
+		part 1
+		pose 2
+		gsub closedoor
+	else
+		setv ov00 0
+		part 1
+		pose 0
+	endi
+	gsub bgchange
+
+	setv va00 ov00
+
+	enum 1 1 21854
+		rtyp grap posx posy va00
+	next
+
+	subr bgchange
+		part 5
+		doif ov00 eq 9
+			anim [7 6 5 4]
+		elif ov00 eq 8
+			anim [11 10 9 8]
+		else
+			anim [3 2 1 0]
+		endi
+	retn
+	subr opendoor
+		part 6
+		anim [1 2 2 2 255]
+		part 4
+		anim [1 2 3 4 5 6 7 8 9 10 11 12]
+		door ov01 ov02 100
+	retn
+
+	subr closedoor
+		part 6
+		anim [0]
+		part 4
+		anim [11 10 9 8 7 6 5 4 3 2 1 0]
+		door ov01 ov02 0
+	retn
+endm
+
+**
+** Removal script
+**
+
+rscr
+enum 1 1 21854
+	kill targ
+next
+enum 1 2 21854
+	kill targ
+next

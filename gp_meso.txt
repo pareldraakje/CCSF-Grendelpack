@@ -1,0 +1,270 @@
+"en-GB"
+
+
+group DSAG "GP  Meso"
+
+"Dependency 1" "gp_meso.blk"
+"Dependency 2" "gp_mainworld.blk"
+"Dependency 3" "gp_airlock.c16"
+"Dependency 4" "GrenP_Airlock.catalogue"
+"Dependency 5" "gp_blush_shrub_CS.c16"
+"Dependency 6" "GrenP_Blushshrub.catalogue"
+"Dependency 7" "gp_c2berries.c16"
+"Dependency 8" "GrenP_C2Berries.catalogue"
+"Dependency 9" "gp_capillata_overlay_JESS.c16"
+"Dependency 10" "GrenP_Capillataoverlay.catalogue"
+"Dependency 11" "gp_favicons_capillata.c16"
+"Dependency 12" "gp_ccmac.c16"
+"Dependency 13" "GrenP_CheeseMac.catalogue"
+"Dependency 14" "gp_crayleech_JESS.c16"
+"Dependency 15" "GrenP_Crayfish.catalogue"
+"Dependency 16" "gp_dragonfruit_plant_JESS.c16"
+"Dependency 17" "GrenP_Dragonfruit.catalogue"
+"Dependency 18" "gp_desertstickbird_CS.c16"
+"Dependency 19" "GrenP_DrumstickBird.catalogue"
+"Dependency 20" "gp_doorcapmeso_UZAG.c16"
+"Dependency 21" "GrenP_DoorCapMeso.catalogue"
+"Dependency 22" "gp_doormesocap_UZAG.c16"
+"Dependency 23" "gp_eleplant_JESS.c16"
+"Dependency 24" "GrenP_Eleplant.catalogue"
+"Dependency 25" "gp_eleport_UZAG.c16"
+"Dependency 26" "GrenP_Eleport.catalogue"
+"Dependency 27" "gp_favicons_meso.c16"
+"Dependency 28" "GrenP_FavplaceMeso.catalogue"
+"Dependency 29" "gp_fly_UZAG.c16"
+"Dependency 30" "GrenP_JungleFly.catalogue"
+"Dependency 31" "gp_gerana.c16"
+"Dependency 32" "GrenP_Gerana.catalogue"
+"Dependency 33" "gp_goldfishies_JESS.c16"
+"Dependency 34" "GrenP_Goldfishies.catalogue"
+"Dependency 35" "gp_good_bug_CS.c16"
+"Dependency 36" "GrenP_Goodbug.catalogue"
+"Dependency 37" "gp_grendelmother_PILLA.c16"
+"Dependency 38" "gp_grendelmother_UZAG.c16"
+"Dependency 39" "GrenP_Grenmother.catalogue"
+"Dependency 40" "gp_bonsai_JESS.c16"
+"Dependency 41" "GrenP_Bonsai.catalogue"
+"Dependency 42" "gp_hair_algae_JESS.c16"
+"Dependency 43" "GrenP_HairAlgae.catalogue"
+"Dependency 44" "gp_improved_favplaces.c16"
+"Dependency 45" "improvedfav_pilla_help.catalogue"
+"Dependency 46" "gp_moreballs.c16"
+"Dependency 47" "GrenP_Creatures2Balls.catalogue"
+"Dependency 48" "gp_mossytree_JESS.c16"
+"Dependency 49" "GrenP_MossyTree.catalogue"
+"Dependency 50" "gp_pickleweed_plant_JESS.c16"
+"Dependency 51" "GrenP_Pickleweedplant.catalogue"
+"Dependency 52" "gp_redcap_mushroom.c16"
+"Dependency 53" "GrenP_RedcapMushroom.catalogue"
+"Dependency 54" "dustdevilgrendelplushie.c16"
+"Dependency 55" "dustdevilgrendelplushie.catalogue"
+"Dependency 56" "gp_tank.c16"
+"Dependency 57" "GrenP_Mesoflooder.catalogue"
+"Dependency 58" "bal3.wav"
+"Dependency 59" "chwp.wav"
+"Dependency 60" "cmac.wav"
+"Dependency 61" "dr10.wav"
+"Dependency 62" "DG09.wav"
+"Dependency 63" "drp9.wav"
+"Dependency 64" "elt0.wav"
+"Dependency 65" "gulp.wav"
+"Dependency 66" "hach.wav"
+"Dependency 67" "hit_.wav"
+"Dependency 68" "punc.wav"
+"Dependency 69" "tbal.wav"
+"Dependency 70" "blnk.c16"
+"Agent Animation Gallery" "gp_favicons_meso"
+"Agent Description" "Inject the Banshee Ark Meso"
+"Agent Animation File" "gp_favicons_meso.c16"
+"Agent Animation Gallery" "gp_favicons_meso"
+"Web URL" "http://creaturescaves.com/thebansheeark"
+"Web Label" "The Banshee Ark"
+"Remove script" "inst\nsetv va00 gmap 23400 200\nenum 2 0 0\n	doif gmap posx posy eq va00\n		setv va01 gnus\n		doif va01 ne 1 and va01 ne 2 and va02 ne 12\n			kill targ\n		endi\n	endi\nnext\nenum 3 8 0\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\n\nenum 1 1 21813\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21822\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21838\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21843\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21820\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21848\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21849\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21815\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21802\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21821\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext"
+
+"Script Count" 39
+"Script 1" @ "0000_installer_meso.cos"
+"Script 2" @ "0001_removal_meso.cos"
+"Script 3" @ "21841_improvedfavplace.cos"
+"Script 4" @ "0_00000_map_meso.cos"
+"Script 5" @ "21828_capillataoverlay.cos"
+"Script 6" @ "21802_hairalgae.cos"
+"Script 7" @ "21809_moreballs.cos"
+"Script 8" @ "21810_bonsai.cos"
+"Script 9" @ "21811_cheesemac_ARNOUT.cos"
+"Script 10" @ "21812_goldfishies_LAURA.cos"
+"Script 11" @ "21813_mossytree_GHOLAU.cos"
+"Script 12" @ "21814_gerana_LIAM.cos"
+"Script 13" @ "21815_blushshrub_ARNOUT.cos"
+"Script 14" @ "21820_pickleweedplant.cos"
+"Script 15" @ "21821_dragonfruitplant.cos"
+"Script 16" @ "21822_goodbug_arnout.cos"
+"Script 17" @ "21823_grendelmother.cos"
+"Script 18" @ "21825_frogsaladvendor.cos"
+"Script 19" @ "21826_crayfishtailvendor.cos"
+"Script 20" @ "21827_crayfish.cos"
+"Script 21" @ "21828_door_capmeso.cos"
+"Script 22" @ "21834_eleplant.cos"
+"Script 23" @ "21835_calinks_meso.cos"
+"Script 24" @ "21836_CAemitters_meso.cos"
+"Script 25" @ "21838_junglefly.cos"
+"Script 26" @ "21839_leech.cos"
+"Script 27" @ "21843_desertbird_ARNOUT.cos"
+"Script 28" @ "21845_desertbug_ARNOUT.cos"
+"Script 29" @ "21846_eleport.cos"
+"Script 30" @ "21847_ghberries.cos"
+"Script 31" @ "21848_c2berries.cos"
+"Script 32" @ "21849_redcap_mushroom.cos"
+"Script 33" @ "21852_dustdevilgrendelplushie.cos"
+"Script 34" @ "21850_airlock.cos"
+"Script 35" @ "21854_mesoflooder.cos"
+"Script 36" @ "21835_signeledoor_meso.cos"
+"Script 37" @ "21837_meso_life.cos"
+"Script 38" @ "0001_setvar_meso.cos"
+"Script 39" @ "0001_setvar_capillata.cos"
+
+"Agent Type" 0
+"Dependency Count" 70
+"Dependency Category 1" 6
+"Dependency Category 2" 6
+"Dependency Category 3" 2
+"Dependency Category 4" 7
+"Dependency Category 5" 2
+"Dependency Category 6" 7
+"Dependency Category 7" 2
+"Dependency Category 8" 7
+"Dependency Category 9" 2
+"Dependency Category 10" 7
+"Dependency Category 11" 2
+"Dependency Category 12" 2
+"Dependency Category 13" 7
+"Dependency Category 14" 2
+"Dependency Category 15" 7
+"Dependency Category 16" 2
+"Dependency Category 17" 7
+"Dependency Category 18" 2
+"Dependency Category 19" 7
+"Dependency Category 20" 2
+"Dependency Category 21" 7
+"Dependency Category 22" 2
+"Dependency Category 23" 2
+"Dependency Category 24" 7
+"Dependency Category 25" 2
+"Dependency Category 26" 7
+"Dependency Category 27" 2
+"Dependency Category 28" 7
+"Dependency Category 29" 2
+"Dependency Category 30" 7
+"Dependency Category 31" 2
+"Dependency Category 32" 7
+"Dependency Category 33" 2
+"Dependency Category 34" 7
+"Dependency Category 35" 2
+"Dependency Category 36" 7
+"Dependency Category 37" 2
+"Dependency Category 38" 2
+"Dependency Category 39" 7
+"Dependency Category 40" 2
+"Dependency Category 41" 7
+"Dependency Category 42" 2
+"Dependency Category 43" 7
+"Dependency Category 44" 2
+"Dependency Category 45" 7
+"Dependency Category 46" 2
+"Dependency Category 47" 7
+"Dependency Category 48" 2
+"Dependency Category 49" 7
+"Dependency Category 50" 2
+"Dependency Category 51" 7
+"Dependency Category 52" 2
+"Dependency Category 53" 7
+"Dependency Category 54" 2
+"Dependency Category 55" 7
+"Dependency Category 56" 2
+"Dependency Category 57" 7
+"Dependency Category 58" 1
+"Dependency Category 59" 1
+"Dependency Category 60" 1
+"Dependency Category 61" 1
+"Dependency Category 62" 1
+"Dependency Category 63" 1
+"Dependency Category 64" 1
+"Dependency Category 65" 1
+"Dependency Category 66" 1
+"Dependency Category 67" 1
+"Dependency Category 68" 1
+"Dependency Category 69" 1
+"Dependency Category 70" 2
+"Agent Sprite First Image" 1
+
+
+
+inline FILE "DG09.wav" "DG09.wav"
+inline FILE "GrenP_Airlock.catalogue" "GrenP_Airlock.catalogue"
+inline FILE "GrenP_Blushshrub.catalogue" "GrenP_Blushshrub.catalogue"
+inline FILE "GrenP_Bonsai.catalogue" "GrenP_Bonsai.catalogue"
+inline FILE "GrenP_C2Berries.catalogue" "GrenP_C2Berries.catalogue"
+inline FILE "GrenP_Capillataoverlay.catalogue" "GrenP_Capillataoverlay.catalogue"
+inline FILE "GrenP_CheeseMac.catalogue" "GrenP_CheeseMac.catalogue"
+inline FILE "GrenP_Crayfish.catalogue" "GrenP_Crayfish.catalogue"
+inline FILE "GrenP_Creatures2Balls.catalogue" "GrenP_Creatures2Balls.catalogue"
+inline FILE "GrenP_DoorCapMeso.catalogue" "GrenP_DoorCapMeso.catalogue"
+inline FILE "GrenP_Dragonfruit.catalogue" "GrenP_Dragonfruit.catalogue"
+inline FILE "GrenP_DrumstickBird.catalogue" "GrenP_DrumstickBird.catalogue"
+inline FILE "GrenP_Eleplant.catalogue" "GrenP_Eleplant.catalogue"
+inline FILE "GrenP_Eleport.catalogue" "GrenP_Eleport.catalogue"
+inline FILE "GrenP_FavplaceMeso.catalogue" "GrenP_FavplaceMeso.catalogue"
+inline FILE "GrenP_Gerana.catalogue" "GrenP_Gerana.catalogue"
+inline FILE "GrenP_Goldfishies.catalogue" "GrenP_Goldfishies.catalogue"
+inline FILE "GrenP_Goodbug.catalogue" "GrenP_Goodbug.catalogue"
+inline FILE "GrenP_Grenmother.catalogue" "GrenP_Grenmother.catalogue"
+inline FILE "GrenP_HairAlgae.catalogue" "GrenP_HairAlgae.catalogue"
+inline FILE "GrenP_JungleFly.catalogue" "GrenP_JungleFly.catalogue"
+inline FILE "GrenP_Mesoflooder.catalogue" "GrenP_Mesoflooder.catalogue"
+inline FILE "GrenP_MossyTree.catalogue" "GrenP_MossyTree.catalogue"
+inline FILE "GrenP_Pickleweedplant.catalogue" "GrenP_Pickleweedplant.catalogue"
+inline FILE "GrenP_RedcapMushroom.catalogue" "GrenP_RedcapMushroom.catalogue"
+inline FILE "bal3.wav" "bal3.wav"
+inline FILE "chwp.wav" "chwp.wav"
+inline FILE "cmac.wav" "cmac.wav"
+inline FILE "dr10.wav" "dr10.wav"
+inline FILE "drp9.wav" "drp9.wav"
+inline FILE "dustdevilgrendelplushie.c16" "dustdevilgrendelplushie.c16"
+inline FILE "dustdevilgrendelplushie.catalogue" "dustdevilgrendelplushie.catalogue"
+inline FILE "elt0.wav" "elt0.wav"
+inline FILE "gp_airlock.c16" "gp_airlock.c16"
+inline FILE "gp_blush_shrub_CS.c16" "gp_blush_shrub_CS.c16"
+inline FILE "gp_bonsai_JESS.c16" "gp_bonsai_JESS.c16"
+inline FILE "gp_c2berries.c16" "gp_c2berries.c16"
+inline FILE "gp_capillata_overlay_JESS.c16" "gp_capillata_overlay_JESS.c16"
+inline FILE "gp_ccmac.c16" "gp_ccmac.c16"
+inline FILE "gp_crayleech_JESS.c16" "gp_crayleech_JESS.c16"
+inline FILE "gp_desertstickbird_CS.c16" "gp_desertstickbird_CS.c16"
+inline FILE "gp_doorcapmeso_UZAG.c16" "gp_doorcapmeso_UZAG.c16"
+inline FILE "gp_doormesocap_UZAG.c16" "gp_doormesocap_UZAG.c16"
+inline FILE "gp_dragonfruit_plant_JESS.c16" "gp_dragonfruit_plant_JESS.c16"
+inline FILE "gp_eleplant_JESS.c16" "gp_eleplant_JESS.c16"
+inline FILE "gp_eleport_UZAG.c16" "gp_eleport_UZAG.c16"
+inline FILE "gp_favicons_capillata.c16" "gp_favicons_capillata.c16"
+inline FILE "gp_favicons_meso.c16" "gp_favicons_meso.c16"
+inline FILE "gp_fly_UZAG.c16" "gp_fly_UZAG.c16"
+inline FILE "gp_gerana.c16" "gp_gerana.c16"
+inline FILE "gp_goldfishies_JESS.c16" "gp_goldfishies_JESS.c16"
+inline FILE "gp_good_bug_CS.c16" "gp_good_bug_CS.c16"
+inline FILE "gp_grendelmother_PILLA.c16" "gp_grendelmother_PILLA.c16"
+inline FILE "gp_grendelmother_UZAG.c16" "gp_grendelmother_UZAG.c16"
+inline FILE "gp_hair_algae_JESS.c16" "gp_hair_algae_JESS.c16"
+inline FILE "gp_improved_favplaces.c16" "gp_improved_favplaces.c16"
+inline FILE "gp_mainworld.blk" "gp_mainworld.blk"
+inline FILE "gp_meso.blk" "gp_meso.blk"
+inline FILE "gp_moreballs.c16" "gp_moreballs.c16"
+inline FILE "gp_mossytree_JESS.c16" "gp_mossytree_JESS.c16"
+inline FILE "gp_pickleweed_plant_JESS.c16" "gp_pickleweed_plant_JESS.c16"
+inline FILE "gp_redcap_mushroom.c16" "gp_redcap_mushroom.c16"
+inline FILE "gp_tank.c16" "gp_tank.c16"
+inline FILE "gulp.wav" "gulp.wav"
+inline FILE "hach.wav" "hach.wav"
+inline FILE "hit_.wav" "hit_.wav"
+inline FILE "improvedfav_pilla_help.catalogue" "improvedfav_pilla_help.catalogue"
+inline FILE "punc.wav" "punc.wav"
+inline FILE "tbal.wav" "tbal.wav"
+

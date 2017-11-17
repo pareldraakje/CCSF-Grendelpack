@@ -3,66 +3,67 @@
 ** CAPILLATA
 **
 
+doif game "gpmeso" ne 1
 **
 ** Door overlay
 **
 
-rtar 1 1 21828
-part 0
-gall "gp_doorcapmeso_UZAG" 0
+	rtar 1 1 21828
+	part 0
+	gall "gp_doorcapmeso_UZAG" 0
 
 ** Door to capillata
-new: comp 2 2 21828 "gp_doormesocap_UZAG" 2 0 100
-pat: butt 2 "gp_doormesocap_UZAG" 0 23 0 0 0 [] 0 0
-pat: dull 3 "gp_doormesocap_UZAG" 23 88 47 0
-pat: butt 4 "gp_doormesocap_UZAG" 24 2 112 55 1 [] 1004 1
-pat: butt 5 "gp_doormesocap_UZAG" 26 3 -5 6 1 [] 1005 1
-pat: butt 6 "gp_doormesocap_UZAG" 29 3 -17 39 1 [] 1006 1
-pat: butt 7 "gp_doormesocap_UZAG" 32 3 -23 70 1 [] 1007 1
-part 5
-pose 1
-part 6
-pose 1
-part 7
-pose 1
+	new: comp 2 2 21828 "gp_doormesocap_UZAG" 2 0 100
+	pat: butt 2 "gp_doormesocap_UZAG" 0 23 0 0 0 [] 0 0
+	pat: dull 3 "gp_doormesocap_UZAG" 23 88 47 0
+	pat: butt 4 "gp_doormesocap_UZAG" 24 2 112 55 1 [] 1004 1
+	pat: butt 5 "gp_doormesocap_UZAG" 26 3 -5 6 1 [] 1005 1
+	pat: butt 6 "gp_doormesocap_UZAG" 29 3 -17 39 1 [] 1006 1
+	pat: butt 7 "gp_doormesocap_UZAG" 32 3 -23 70 1 [] 1007 1
+	part 5
+	pose 1
+	part 6
+	pose 1
+	part 7
+	pose 1
 * Door ID
-setv ov00 0
+	setv ov00 0
 * Door enable
-setv ov01 1
-attr 0
-bhvr 1
-mvto 23524 160
+	setv ov01 1
+	attr 0
+	bhvr 1
+	mvto 23524 160
 ** Door to gp meso
-new: comp 2 2 21828 "gp_doorcapmeso_UZAG" 1 1 100
-pat: butt 2 "gp_doorcapmeso_UZAG" 1 12 0 0 0 [] 0 0
-pat: butt 4 "gp_doorcapmeso_UZAG" 31 2 21 37 1 [] 1004 1
-pat: butt 5 "gp_doorcapmeso_UZAG" 13 3 39 19 1 [] 1007 1
-pat: butt 6 "gp_doorcapmeso_UZAG" 16 3 49 41 1 [] 1006 1
-pat: butt 7 "gp_doorcapmeso_UZAG" 19 3 35 62 1 [] 1005 1
-pat: butt 8 "gp_doorcapmeso_UZAG" 22 3 185 20 1 [] 1007 1
-pat: butt 9 "gp_doorcapmeso_UZAG" 25 3 177 43 1 [] 1006 1
-pat: butt 10 "gp_doorcapmeso_UZAG" 28 3 185 64 1 [] 1005 1
+	new: comp 2 2 21828 "gp_doorcapmeso_UZAG" 1 1 100
+	pat: butt 2 "gp_doorcapmeso_UZAG" 1 12 0 0 0 [] 0 0
+	pat: butt 4 "gp_doorcapmeso_UZAG" 31 2 21 37 1 [] 1004 1
+	pat: butt 5 "gp_doorcapmeso_UZAG" 13 3 39 19 1 [] 1007 1
+	pat: butt 6 "gp_doorcapmeso_UZAG" 16 3 49 41 1 [] 1006 1
+	pat: butt 7 "gp_doorcapmeso_UZAG" 19 3 35 62 1 [] 1005 1
+	pat: butt 8 "gp_doorcapmeso_UZAG" 22 3 185 20 1 [] 1007 1
+	pat: butt 9 "gp_doorcapmeso_UZAG" 25 3 177 43 1 [] 1006 1
+	pat: butt 10 "gp_doorcapmeso_UZAG" 28 3 185 64 1 [] 1005 1
 
-part 5
-pose 1
-part 6
-pose 1
-part 7
-pose 1
-part 8
-pose 1
-part 9
-pose 1
-part 10
-pose 1
+	part 5
+	pose 1
+	part 6
+	pose 1
+	part 7
+	pose 1
+	part 8
+	pose 1
+	part 9
+	pose 1
+	part 10
+	pose 1
 * Door ID
-setv ov00 1
+	setv ov00 1
 * Door enable
-setv ov01 1
-attr 0
-bhvr 1
-mvto 2519 8844
-
+	setv ov01 1
+	attr 0
+	bhvr 1
+	mvto 2519 8844
+endi
 
 
 

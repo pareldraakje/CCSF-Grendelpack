@@ -31,7 +31,7 @@ doif targ eq null
 *
 ** Create the agent
 *	Part 1: upper overlay
-	new: comp 1 1 21828 "gp_capillata_overlay_JESS" 1 0 1
+	new: comp 1 1 21828 "gp_capillata_overlay_JESS" 1 0 0
 ** play looping bubble sounds
 	sndl "DG09"
 *	part 2: upper overlay image
@@ -152,43 +152,43 @@ doif targ eq null
 	setv ov34 va36
 
 * Set the room types
-rtyp ov24 8
-rtyp ov25 8
-rtyp ov26 8
-rtyp ov27 8
-rtyp ov28 8
-rtyp ov29 8
-rtyp ov30 8
-rtyp ov31 8
-rtyp ov32 8
-rtyp ov33 8
-rtyp ov34 8
+	rtyp ov24 8
+	rtyp ov25 8
+	rtyp ov26 8
+	rtyp ov27 8
+	rtyp ov28 8
+	rtyp ov29 8
+	rtyp ov30 8
+	rtyp ov31 8
+	rtyp ov32 8
+	rtyp ov33 8
+	rtyp ov34 8
 
 
 
 
 * Set the doors
-door ov01 ov04 100
-door ov02 ov05 100
-door ov03 ov06 100
-door ov12 ov14 100
-door ov13 ov15 100
+	door ov01 ov04 100
+	door ov02 ov05 100
+	door ov03 ov06 100
+	door ov12 ov14 100
+	door ov13 ov15 100
 
-door ov01 ov07 0
-door ov02 ov08 0
-door ov03 ov09 0
-door ov12 ov14 0
-door ov13 ov15 0
-door ov16 ov18 0
-door ov17 ov19 0
+	door ov01 ov07 0
+	door ov02 ov08 0
+	door ov03 ov09 0
+	door ov12 ov14 0
+	door ov13 ov15 0
+	door ov16 ov18 0
+	door ov17 ov19 0
 
-door ov16 ov20 0
-door ov17 ov21 0
+	door ov16 ov20 0
+	door ov17 ov21 0
 
-door ov24 ov25 0
-door ov26 ov27 0
-door ov29 ov30 0
-door ov31 ov32 0
+	door ov24 ov25 0
+	door ov26 ov27 0
+	door ov29 ov30 0
+	door ov31 ov32 0
 
 
 ** Create lifts
@@ -213,8 +213,8 @@ door ov31 ov32 0
 	setv va02 room targ
 *
 ** CA links
-link va00 va01 80
-link va01 va02 80
+	link va00 va01 80
+	link va01 va02 80
 *
 ** Elevine activator script
 	new: simp 3 1 21844 "blnk" 1 0 100
@@ -422,7 +422,7 @@ scrp 2 2 24 1
 	doif from = pntr
 		etch 4 0 0
 			doif targ <> hhld and carr = null and aslp = 0 and dead = 0
-				mvft 2628 9181
+				mvsf 2628 9181
 				stim writ targ 95 1
 			endi
 		next
@@ -431,7 +431,7 @@ scrp 2 2 24 1
 			inst
 			doif from <> null
 				targ from
-				mvft 2628 9181
+				mvsf 2628 9181
 				stim writ targ 95 1
 				setv va99 0
 			endi
@@ -595,7 +595,7 @@ scrp 2 2 23 1
 	doif from = pntr
 		etch 4 0 0
 			doif targ <> hhld and carr = null and aslp = 0 and dead = 0
-				mvft 2980 9179
+				mvsf 2980 9179
 				stim writ targ 95 1
 			endi
 		next
@@ -604,7 +604,7 @@ scrp 2 2 23 1
 			inst
 			doif from <> null
 				targ from
-				mvft 2980 9179
+				mvsf 2980 9179
 				stim writ targ 95 1
 				setv va99 0
 			endi

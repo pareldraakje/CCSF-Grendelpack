@@ -9,10 +9,12 @@ tick 1
 
 **
 ** FAVPLACE GRENDEL MESO
+doif game "gpmeso" ne 1
 	new: simp 1 3 21836 "gp_favicons_meso" 1 0 1
 	attr 272
 	mvto 24720 953
 	tick 10
+endi
 
 
 **
@@ -33,7 +35,7 @@ tick 1
 **
 
 ** If desert hideout injected, create doors to/from desert hideout
-doif game "gp_deserthideout" eq 1
+doif game "gpdeserthideout" eq 1
 ** Door meso > desert hideout
 	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
 	setv ov00 2
@@ -50,7 +52,7 @@ endi
 
 *
 ** If grendel hideout injected, create doors to/from grendel hideout
-doif game "gp_grendelhideout" eq 1
+doif game "gpgrendelhideout" eq 1
 ** Door meso > grendel hideout
 	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
 	setv ov00 5
@@ -77,57 +79,58 @@ endi
 ** MESO
 **
 
+doif game "gpmeso" ne 1
 *
 ** Upper mother tree elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 8
-mvto 25255 879
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 8
+	mvto 25255 879
 *
 ** Lower mother tree elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 8
-mvto 25255 1170
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 8
+	mvto 25255 1180
 *
 ** Upper left elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 10
-mvto 23962 181
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 10
+	mvto 23962 181
 *
 ** Middle left (corridor) elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 10
-mvto 23962 472
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 10
+	mvto 23962 472
 *
 ** Lower left elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 10
-mvto 23962 873
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 10
+	mvto 23962 873
 
 *
 ** Middle right statue elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 11
-mvto 24465 880
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 11
+	mvto 24465 880
 *
 ** Lower right statue elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 11
-mvto 24465 1380
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 11
+	mvto 24465 1380
 *
 ** Earthblob upper elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 14
-mvto 25693 1163
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 14
+	mvto 25693 1163
 ** Earthblob elevine
-new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
-setv ov00 14
-mvto 25693 1531
+	new: simp 3 1 21835 "gp_eleplant_JESS" 1 0 rand 200 500
+	setv ov00 14
+	mvto 25693 1531
 
 *
 ** Elevine activator script
-new: simp 3 1 21836 "blnk" 1 0 100
-tick 10
-
+	new: simp 3 1 21836 "blnk" 1 0 100
+	tick 10
+endi
 
 **
 ** FAVPLACE INJECTOR TIMER SCRIPT

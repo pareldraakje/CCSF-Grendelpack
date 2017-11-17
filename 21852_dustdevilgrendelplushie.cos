@@ -27,8 +27,8 @@
 *
 ** Injection
 
-new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 3000
-mesg wrt+ targ 1000 6173 9173 0
+*new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 3000
+*mesg wrt+ targ 1000 6173 9173 0
 
 scrp 2 21 21852 1000
 	inst

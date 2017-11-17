@@ -1,14 +1,19 @@
+
+
 **
 ** TOYS
 **
 **
 
-** Meso upper platform
+** Meso top left
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
-mesg wrt+ targ 1000 24276 927 0
+mesg wrt+ targ 1000 23832 875 0
 ** Meso bush
 new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
-mesg wrt+ targ 1000 24185 1300 0
+mesg wrt+ targ 1000 24618 1300 0
+** meso top right
+new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 1000
+mesg wrt+ targ 1000 25500 798 0
 ** Meso underground
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 base 32
@@ -75,6 +80,9 @@ mesg wrt+ targ 1000 24140 1075 0
 ** Meso
 new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
 mesg wrt+ targ 1000 23869 1752 0
+new: simp 1 1 21802 "blnk" 1 0 0
+mvto 23869 1823
+tick 1
 
 *
 ** Pickleweed
@@ -93,9 +101,15 @@ tick 1
 
 *
 ** Dragonfruit
-** Meso Statue bush
+** Meso Statue left
 new: simp 1 1 21821 "blnk" 1 0 10
-mvto 24252 1423
+mvto 24452 1343
+perm 0
+rnge 999
+tick 1
+** Meso Statue right
+new: simp 1 1 21821 "blnk" 1 0 10
+mvto 25752 1083
 perm 0
 rnge 999
 tick 1
@@ -180,6 +194,7 @@ setv ov05 24284
 setv ov06 236
 setv ov07 729
 setv ov08 39
+mvto 24284 236
 tick 1
 
 ** Meso grendel hideout bulb (purple)
@@ -189,6 +204,7 @@ setv ov06 147
 setv ov07 502
 setv ov08 70
 setv ov04 2
+mvto 24284 236
 tick 1
 
 ** Meso mother leaves (yellow)
@@ -198,6 +214,7 @@ setv ov06 470
 setv ov07 605
 setv ov08 71
 setv ov04 1
+mvto 24284 236
 tick 1
 
 **
@@ -242,6 +259,11 @@ enum 2 21 21810
 	kill targ
 next
 
+** Grendel plushie
+enum 2 21 21852
+	kill targ
+next
+
 ** Mossy tree
 enum 1 1 21813
 	kill targ
@@ -261,6 +283,9 @@ enum 2 4 21802
 	kill targ
 next
 enum 2 3 21802
+	kill targ
+next
+enum 1 1 21802
 	kill targ
 next
 

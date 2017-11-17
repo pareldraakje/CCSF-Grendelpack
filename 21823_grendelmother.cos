@@ -16,17 +16,31 @@
 *
 
 **
+** GRENDEL MOTHER
+**
+**
+
+doif game "gpmeso" ne 1
+new: comp 3 3 21823 "gp_grendelmother_UZAG" 9 0 100
+mesg wrt+ targ 1000 24960 829 0
+endi
+
+**
 ** Grendel egg maker script.
 ** This goes through the grendel egg agents you have installed.
 ** Functions: left/right buttons, male/female switch, breed name, go button
 **
 
-new: comp 3 3 21823 "gp_grendelmother_UZAG" 9 0 100
-mesg wrt+ targ 1000 24960 879 0
-
 **grendel egg maker
 scrp 3 3 21823 1000
-	attr 18
+	attr 208
+	fric 90
+	elas 10
+	accg 4
+	aero 5
+	perm 100
+	emit 16 0.5
+
 ** text box, GO button, left button, right button, gender button
 	pat: fixd 1 "gp_grendelmother_PILLA" 1 -10 -8 5 "whiteontransparentchars"
 	pat: butt 2 "gp_grendelmother_UZAG" 9 2 78 76 1 [0] 1001 0
@@ -49,7 +63,7 @@ scrp 3 3 21823 1000
 
 ** Females default. Because I can.
 	setv ov00 2
-	mvto _p1_ _p2_
+	mvsf _p1_ _p2_
 	tick 1
 endm
 

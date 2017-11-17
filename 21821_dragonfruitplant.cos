@@ -84,7 +84,7 @@ endm
 ** POPULATION MONITOR
 **
 
- 
+
 scrp 1 1 21821 9
 	tick rand 1500 8000
 	setv va00 0
@@ -429,7 +429,7 @@ scrp 2 4 21821 9
 		endi
 
 		setv va00 0
-		rnge 210
+		rnge 180
 		esee 2 4 21821
 			addv va00 1
 		next

@@ -50,7 +50,8 @@ scrp 3 1 21844 9
 		part 3
 		anim [0]
 		part 4
-		anim [0]
+		frat rand 2 4
+		anim [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 255]
 		part 5
 		setv va10 sean
 		mulv va10 2
