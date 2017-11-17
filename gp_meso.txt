@@ -60,19 +60,21 @@ group DSAG "GP  Meso"
 "Dependency 55" "dustdevilgrendelplushie.catalogue"
 "Dependency 56" "gp_tank.c16"
 "Dependency 57" "GrenP_Mesoflooder.catalogue"
-"Dependency 58" "bal3.wav"
-"Dependency 59" "chwp.wav"
-"Dependency 60" "cmac.wav"
-"Dependency 61" "dr10.wav"
-"Dependency 62" "DG09.wav"
-"Dependency 63" "drp9.wav"
-"Dependency 64" "elt0.wav"
-"Dependency 65" "gulp.wav"
-"Dependency 66" "hach.wav"
-"Dependency 67" "hit_.wav"
-"Dependency 68" "punc.wav"
-"Dependency 69" "tbal.wav"
-"Dependency 70" "blnk.c16"
+"Dependency 58" "gp_fernshroom_planter_JESS.c16"
+"Dependency 59" "GrenP_MesoShroom.catalogue"
+"Dependency 60" "bal3.wav"
+"Dependency 61" "chwp.wav"
+"Dependency 62" "cmac.wav"
+"Dependency 63" "dr10.wav"
+"Dependency 64" "DG09.wav"
+"Dependency 65" "drp9.wav"
+"Dependency 66" "elt0.wav"
+"Dependency 67" "gulp.wav"
+"Dependency 68" "hach.wav"
+"Dependency 69" "hit_.wav"
+"Dependency 70" "punc.wav"
+"Dependency 71" "tbal.wav"
+"Dependency 72" "blnk.c16"
 "Agent Animation Gallery" "gp_favicons_meso"
 "Agent Description" "Inject the Banshee Ark Meso"
 "Agent Animation File" "gp_favicons_meso.c16"
@@ -117,13 +119,13 @@ group DSAG "GP  Meso"
 "Script 33" @ "21852_dustdevilgrendelplushie.cos"
 "Script 34" @ "21850_airlock.cos"
 "Script 35" @ "21854_mesoflooder.cos"
-"Script 36" @ "21835_signeledoor_meso.cos"
-"Script 37" @ "21837_meso_life.cos"
-"Script 38" @ "0001_setvar_meso.cos"
-"Script 39" @ "0001_setvar_capillata.cos"
+"Script 36" @ "21855_mesoshrooms.cos"
+"Script 37" @ "21835_signeledoor_meso.cos"
+"Script 38" @ "21837_meso_life.cos"
+"Script 39" @ "0001_setvar_meso.cos"
 
 "Agent Type" 0
-"Dependency Count" 70
+"Dependency Count" 72
 "Dependency Category 1" 6
 "Dependency Category 2" 6
 "Dependency Category 3" 2
@@ -181,8 +183,8 @@ group DSAG "GP  Meso"
 "Dependency Category 55" 7
 "Dependency Category 56" 2
 "Dependency Category 57" 7
-"Dependency Category 58" 1
-"Dependency Category 59" 1
+"Dependency Category 58" 2
+"Dependency Category 59" 7
 "Dependency Category 60" 1
 "Dependency Category 61" 1
 "Dependency Category 62" 1
@@ -193,7 +195,9 @@ group DSAG "GP  Meso"
 "Dependency Category 67" 1
 "Dependency Category 68" 1
 "Dependency Category 69" 1
-"Dependency Category 70" 2
+"Dependency Category 70" 1
+"Dependency Category 71" 1
+"Dependency Category 72" 2
 "Agent Sprite First Image" 1
 
 
@@ -219,6 +223,7 @@ inline FILE "GrenP_Goodbug.catalogue" "GrenP_Goodbug.catalogue"
 inline FILE "GrenP_Grenmother.catalogue" "GrenP_Grenmother.catalogue"
 inline FILE "GrenP_HairAlgae.catalogue" "GrenP_HairAlgae.catalogue"
 inline FILE "GrenP_JungleFly.catalogue" "GrenP_JungleFly.catalogue"
+inline FILE "GrenP_MesoShroom.catalogue" "GrenP_MesoShroom.catalogue"
 inline FILE "GrenP_Mesoflooder.catalogue" "GrenP_Mesoflooder.catalogue"
 inline FILE "GrenP_MossyTree.catalogue" "GrenP_MossyTree.catalogue"
 inline FILE "GrenP_Pickleweedplant.catalogue" "GrenP_Pickleweedplant.catalogue"
@@ -246,6 +251,7 @@ inline FILE "gp_eleplant_JESS.c16" "gp_eleplant_JESS.c16"
 inline FILE "gp_eleport_UZAG.c16" "gp_eleport_UZAG.c16"
 inline FILE "gp_favicons_capillata.c16" "gp_favicons_capillata.c16"
 inline FILE "gp_favicons_meso.c16" "gp_favicons_meso.c16"
+inline FILE "gp_fernshroom_planter_JESS.c16" "gp_fernshroom_planter_JESS.c16"
 inline FILE "gp_fly_UZAG.c16" "gp_fly_UZAG.c16"
 inline FILE "gp_gerana.c16" "gp_gerana.c16"
 inline FILE "gp_goldfishies_JESS.c16" "gp_goldfishies_JESS.c16"
