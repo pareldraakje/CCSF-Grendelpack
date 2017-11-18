@@ -32,8 +32,8 @@
 ** The seed packet!
 **
 
-new: simp 2 23 21804 "gp_licorice_quill_CS" 1 14 rand 1000 1500
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+*new: simp 2 23 21804 "gp_licorice_quill_CS" 1 14 rand 1000 1500
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 **
 ** SCRIPTS
