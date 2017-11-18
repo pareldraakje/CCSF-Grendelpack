@@ -1,0 +1,208 @@
+
+
+**
+** TOYS
+**
+**
+
+** Top right
+new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
+mesg wrt+ targ 1000 22401 3145 0
+
+**
+** Wildlife population controllers
+**
+**
+
+*
+** Good bug
+** Up
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 22167 3259
+tick rand 1 100
+
+*
+** Desert lance bug
+** Up
+new: simp 1 1 21845 "blnk" 1 0 0
+mvto 22167 3259
+tick 200
+
+*
+** Drumstick birds
+** Lower left
+new: simp 1 1 21843 "blnk" 1 0 0
+setv ov20 21609
+setv ov21 3574
+mvto ov20 ov21
+tick rand 20 180
+** Upper mid
+new: simp 1 1 21843 "blnk" 1 0 0
+setv ov20 21896
+setv ov21 3114
+mvto ov20 ov21
+tick rand 20 180
+
+*
+** Pickleweed
+** Upper mid
+new: comp 2 23 21820 "gp_pickleweed_plant_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 21803 3309 0
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 21703 3209
+perm 0
+rnge 999
+tick 1
+** Lower left
+new: simp 1 1 21820 "blnk" 1 0 10
+mvto 21638 3622
+perm 0
+rnge 999
+tick 1
+*
+** Dragonfruit
+** Lower right
+new: comp 2 23 21821 "gp_dragonfruit_plant_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 22101 3440 0
+new: simp 1 1 21821 "blnk" 1 0 1
+mvto 22404 3550
+perm 0
+rnge 999
+tick 1
+** Upper right
+new: simp 1 1 21821 "blnk" 1 0 1
+mvto 22444 3130
+perm 0
+rnge 999
+tick 1
+*
+** Licorice Quill
+** Down
+new: simp 1 1 21804 "blnk" 1 0 1000
+mvto 22162 3453
+tick rand 1 100
+
+*
+** Dawn plant
+** Up
+new: simp 1 1 21803 "blnk" 1 0 1000
+mvto 21915 3224
+tick rand 1 100
+** Down
+new: simp 1 1 21803 "blnk" 1 0 1000
+mvto 22162 3453
+tick rand 1 100
+
+*
+** Blush Shrub
+** Up
+new: simp 1 1 21815 "blnk" 1 0 1000
+mvto 21915 3224
+tick 100
+** Down
+new: simp 1 1 21815 "blnk" 1 0 1000
+mvto 22162 3453
+tick 100
+
+
+**
+** Initial wildlife
+**
+**
+
+** Upper blush shrub
+reps 2
+	new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 1000
+	mesg wrt+ targ 1000 21915 3224 0
+repe
+
+**
+** Vendors
+**
+**
+
+**
+**
+** REMOVAL
+**
+**
+
+
+rscr
+
+** Grendel toy
+enum 2 21 21810
+	kill targ
+next
+
+** Dragonfruit
+enum 1 1 21821
+	kill targ
+next
+enum 2 4 21821
+	kill targ
+next
+enum 2 8 21821
+	kill targ
+next
+enum 2 23 21821
+	kill targ
+next
+** Good bug
+enum 2 13 21822
+	kill targ
+next
+enum 1 1 21822
+	kill targ
+next
+
+** Drumstick bird
+enum 2 18 21843
+	kill targ
+next
+enum 2 14 21843
+	kill targ
+next
+enum 2 15 21843
+	kill targ
+next
+enum 1 1 21843
+	kill targ
+next
+
+** Pickleweed
+enum 1 1 21820
+	kill targ
+next
+enum 2 3 21820
+	kill targ
+next
+enum 2 4 21820
+	kill targ
+next
+enum 2 23 21820
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+
+** Froot fruit tree
+enum 2 4 21816
+	kill targ
+next
+enum 2 8 21816
+	kill targ
+next
+enum 2 10 21816
+	kill targ
+next
