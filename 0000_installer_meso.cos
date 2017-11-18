@@ -14,7 +14,6 @@
 *# depend blnk.c16
 
 *# attach gp_meso.blk
-*# attach gp_mainworld.blk
 
 *# attach gp_airlock.c16 GrenP_Airlock.catalogue
 *# attach gp_blush_shrub_CS.c16 GrenP_Blushshrub.catalogue
