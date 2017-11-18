@@ -12,3 +12,8 @@ link grap 23610 1533 grap 23610 1903 50
 link grap 25439 954 grap 25439 1068 50
 * meso ground bulb
 link grap 25745 1216 grap 25745 1503 50
+
+* desert - meso
+doif game "gpdeserthideout" eq 1
+	link grap 22621 3604 grap 23626 538 50
+endi
