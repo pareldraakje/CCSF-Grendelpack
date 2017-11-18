@@ -393,6 +393,11 @@ scrp 2 8 21821 9
 			tick 2
 
 ** test-move it into the space: if it can't grow there, kill it
+			reps 3
+				doif tmvt va00 va01 eq 0
+					subv va01 1
+				endi
+			repe
 			doif tmvt va00 va01 eq 0
 				kill targ
 			else
