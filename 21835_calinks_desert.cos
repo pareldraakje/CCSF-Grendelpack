@@ -1,0 +1,12 @@
+* desert elevators
+
+link grap 21983 3277 grap 21983 3443 60
+link grap 21983 3443 grap 21983 3596 100
+
+* desert - meso
+doif game "gpmeso" eq 1
+	link grap 22621 3604 grap 23626 538 50
+endi
+doif game "gpmain" eq 1
+	link grap 21652 3662 grap 22031 1096 50
+endi
