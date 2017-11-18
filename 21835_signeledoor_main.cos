@@ -22,49 +22,28 @@ tick 10
 **
 
 ** If desert hideout injected, create doors to/from desert hideout
-doif game "gp_deserthideout" eq 1
-** Door meso > desert hideout
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 2
-	attr 4
-	bhvr 1
-	mvto 23620 552
-** Door desert hideout > meso
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 2
-	attr 4
-	bhvr 1
-	mvto 22627 3603
+doif game "gpdeserthideout" eq 1
 ** Door main > desert hideout
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 3
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
 	attr 4
 	bhvr 1
-	mvto 23620 552
+	mvto 22010 1091
 ** Door desert hideout > main
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 3
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
 	attr 4
 	bhvr 1
-	mvto 22492 824
+	mvto 21643 3665
 endi
 
 *
 ** If grendel hideout injected, create doors to/from grendel hideout
-doif game "gp_grendelhideout" eq 1
-** Door meso > grendel hideout
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 5
-	attr 4
-	bhvr 1
-	mvto 24420 551
-** Door grendel hideout > meso
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 5
-	attr 4
-	bhvr 1
-	mvto 20228 897
-
+doif game "gpgrendelhideout" eq 1
 ** Door main > grendel hideout
 	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
 	setv ov00 6
@@ -287,6 +266,10 @@ next
 
 * Doors
 enum 2 2 21835
+	kill targ
+next
+* Doors
+enum 2 2 21808
 	kill targ
 next
 * Lift placeholders
