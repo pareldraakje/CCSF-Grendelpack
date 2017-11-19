@@ -352,7 +352,12 @@ endm
 ** fruit eat script
 scrp 2 8 21821 12
 	lock
-	stim writ from 78 1
+	doif crea from eq 1
+		targ from
+		stim writ from 78 1
+		chem 99 50
+		targ ownr
+	endi
 	wait 25
 	doif pose eq 0
 		pose 1
