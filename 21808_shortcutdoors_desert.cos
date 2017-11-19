@@ -1,0 +1,141 @@
+
+**
+** Shortcut doors
+** If main injected, create doors to/from main
+doif game "gpmain" eq 1 and game "gpdeserthideout" ne 1
+** Door main > desert hideout
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
+	attr 4
+	bhvr 1
+	mvto 22010 1091
+** Door desert hideout > main
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
+	attr 4
+	bhvr 1
+	mvto 21643 3665
+endi
+
+**
+** Shortcut teleporters
+** If neither meso or main injected, create doors to/from capillata
+doif game "gpmain" ne 1 and game "gpmeso" ne 1 and game "gpdeserthideout" ne 1
+** Door capillata > desert hideout
+	new: comp 2 2 21808 "gp_radioteleport" 3 0 100
+	setv ov00 50
+	setv ov01 0
+	attr 198
+	perm 100
+	fric 100
+	aero 1
+	accg 3
+	elas 0
+	bhvr 1
+	frat 3
+	mvto 22363 3566
+** Door desert hideout > main
+	new: comp 2 2 21808 "gp_radioteleport" 3 0 100
+	setv ov00 50
+	setv ov01 0
+	attr 198
+	perm 100
+	fric 100
+	aero 1
+	accg 3
+	elas 0
+	frat 3
+	bhvr 1
+	mvsf game "CreatorX" game "CreatorY"
+endi
+
+
+**
+** TELEPORTER EVENT SCRIPTS
+**
+**
+
+*
+** Disable
+scrp 2 2 21808 1004
+	doif ov01 eq 0
+		setv va00 ov00
+		enum 2 2 21808
+			doif ov00 eq va00
+				attr 16
+				setv ov01 1
+				part 2
+				pose 1
+			endi
+		next
+	else
+		setv va00 ov00
+		enum 2 2 21808
+			doif ov00 eq va00
+				attr 4
+				setv ov01 0
+				part 2
+				pose 0
+			endi
+		next
+	endi
+endm
+*
+** PUSH
+scrp 2 2 21808 1
+	doif ov01 eq 0
+		seta va52 from
+		setv va00 ov00
+		seta va50 targ
+		seta va51 targ
+		enum 2 2 21808
+			doif ov00 eq va00
+				anim [1 2 1 0]
+				doif targ ne va50
+					seta va51 targ
+				endi
+			endi
+		next
+		targ va51
+		setv va00 posx
+		setv va01 posy
+		targ va52
+		doif fmly eq 4
+			lock
+			doif tmvf va00 va01 eq 1
+				targ va50
+				attr 16
+				anim [0 0 0 0 0 0 0 0]
+				over
+				attr 4
+				targ va51
+				attr 16
+				targ va52
+** travelled through door
+				stim writ from 95 1
+** no more attention on door
+				urge writ targ 2 -2 1 -2
+				mvft va00 va01
+** Travelled through door
+** Discourage from pushing door any further
+				targ va51
+				anim [0 0 0 0 0 0 0 0]
+				over
+				attr 4
+			endi
+			unlk
+		endi
+		doif va52 eq pntr
+			cmrp va00 va01 1
+		endi
+	endi
+endm
+
+rscr
+enum 2 2 21808
+	kill targ
+next

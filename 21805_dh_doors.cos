@@ -3,7 +3,7 @@
 **
 
 ** Check if meso injected
-doif game "gpmeso" eq 1
+doif game "gpmeso" eq 1 and game "gpdeserthideout" ne 1
 **
 ** The door inside desert hideout
 	new: comp 2 2 21805 "gp_dhelevators_CS" 16 19 1
@@ -50,61 +50,6 @@ doif game "gpmeso" eq 1
 	anim [0]
 	mvto 23520 440
 endi
-**
-** Shortcut doors
-** If main injected, create doors to/from main
-doif game "gpmain" eq 1
-** Door main > desert hideout
-	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
-	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-	setv ov00 1
-	setv ov01 0
-	attr 4
-	bhvr 1
-	mvto 22010 1091
-** Door desert hideout > main
-	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
-	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-	setv ov00 1
-	setv ov01 0
-	attr 4
-	bhvr 1
-	mvto 21643 3665
-endi
-
-**
-** Shortcut teleporters
-** If neither meso or main injected, create doors to/from capillata
-doif game "gpmain" ne 1 and game "gpmeso" ne 1
-** Door capillata > desert hideout
-	new: comp 2 2 21808 "gp_radioteleport" 3 0 100
-	setv ov00 50
-	setv ov01 0
-	attr 198
-	perm 100
-	fric 100
-	aero 1
-	accg 3
-	elas 0
-	bhvr 1
-	frat 3
-	mvto 22363 3566
-** Door desert hideout > main
-	new: comp 2 2 21808 "gp_radioteleport" 3 0 100
-	setv ov00 50
-	setv ov01 0
-	attr 198
-	perm 100
-	fric 100
-	aero 1
-	accg 3
-	elas 0
-	frat 3
-	bhvr 1
-	mvsf game "CreatorX" game "CreatorY"
-endi
-
-
 
 **
 ** SCRIPTS

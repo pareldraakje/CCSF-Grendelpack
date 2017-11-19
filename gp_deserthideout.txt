@@ -1,0 +1,180 @@
+"en-GB"
+
+
+group DSAG "GP  Desert Hideout"
+
+"Dependency 1" "gp_deserthideout.blk"
+"Dependency 2" "gp_blush_shrub_CS.c16"
+"Dependency 3" "GrenP_Blushshrub.catalogue"
+"Dependency 4" "gp_desertlancebug_CS.c16"
+"Dependency 5" "GrenP_DesertLanceBug.catalogue"
+"Dependency 6" "gp_dragonfruit_plant_JESS.c16"
+"Dependency 7" "GrenP_Dragonfruit.catalogue"
+"Dependency 8" "gp_desertstickbird_CS.c16"
+"Dependency 9" "GrenP_DrumstickBird.catalogue"
+"Dependency 10" "gp_favicons_desert.c16"
+"Dependency 11" "GrenP_FavplaceDesert.catalogue"
+"Dependency 12" "gp_good_bug_CS.c16"
+"Dependency 13" "GrenP_Goodbug.catalogue"
+"Dependency 14" "gp_bonsai_JESS.c16"
+"Dependency 15" "GrenP_Bonsai.catalogue"
+"Dependency 16" "gp_pickleweed_plant_JESS.c16"
+"Dependency 17" "GrenP_Pickleweedplant.catalogue"
+"Dependency 18" "gp_licorice_quill_CS.c16"
+"Dependency 19" "GrenP_LicoriceQuil.catalogue"
+"Dependency 20" "gp_dawn_plant_CS.c16"
+"Dependency 21" "GrenP_DawnPlant.catalogue"
+"Dependency 22" "gp_dawn_plant_CS.c16"
+"Dependency 23" "GrenP_DawnPlant.catalogue"
+"Dependency 24" "gp_dhelevators_CS.c16"
+"Dependency 25" "GrenP_DesertElevators.catalogue"
+"Dependency 26" "gp_shortcutdoors_CS.c16"
+"Dependency 27" "GrenP_ShortcutDoor.catalogue"
+"Dependency 28" "gp_radioteleport.c16"
+"Dependency 29" "GrenP_SunSquash.catalogue"
+"Dependency 30" "gp_dhoverlay_CS.c16"
+"Dependency 31" "GrenP_DesertOverlay.catalogue"
+"Dependency 32" "gp_doordhmeso_CS.c16"
+"Dependency 33" "GrenP_DoorDesertMeso.catalogue"
+"Dependency 34" "bal3.wav"
+"Dependency 35" "chwp.wav"
+"Dependency 36" "cmac.wav"
+"Dependency 37" "dr10.wav"
+"Dependency 38" "DG09.wav"
+"Dependency 39" "drp9.wav"
+"Dependency 40" "elt0.wav"
+"Dependency 41" "gulp.wav"
+"Dependency 42" "hach.wav"
+"Dependency 43" "hit_.wav"
+"Dependency 44" "punc.wav"
+"Dependency 45" "tbal.wav"
+"Dependency 46" "blnk.c16"
+"Agent Animation Gallery" "gp_favicons_desert"
+"Agent Description" "Inject the Banshee Ark Desert Hideout"
+"Agent Animation File" "gp_favicons_desert.c16"
+"Agent Animation Gallery" "gp_favicons_desert"
+"Web URL" "http://creaturescaves.com/thebansheeark"
+"Web Label" "The Banshee Ark"
+"Remove script" "inst\nsetv va00 gmap 21475 3359\nenum 2 0 0\n	doif gmap posx posy eq va00\n		setv va01 gnus\n		doif va01 ne 1 and va01 ne 2 and va02 ne 12\n			kill targ\n		endi\n	endi\nnext\nenum 3 8 0\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\n\nenum 1 1 21802\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21803\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21804\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21813\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21815\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21820\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21821\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21822\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21838\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21843\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext\nenum 1 1 21845\n	doif gmap posx posy eq va00\n		kill targ\n	endi\nnext"
+
+"Script Count" 23
+"Script 1" @ "0000_installer_dhideout.cos"
+"Script 2" @ "0001_removal_deserthideout.cos"
+"Script 3" @ "0_00000_map_deserthideout.cos"
+"Script 4" @ "21805_dh_doors.cos"
+"Script 5" @ "21808_shortcutdoors_desert.cos"
+"Script 6" @ "21806_dh_elevines.cos"
+"Script 7" @ "21807_dh_sunsquash.cos"
+"Script 8" @ "21840_dhoverlay.cos"
+"Script 9" @ "21803_dawnplant.cos"
+"Script 10" @ "21804_licoricequill.cos"
+"Script 11" @ "21810_bonsai.cos"
+"Script 12" @ "21815_blushshrub_ARNOUT.cos"
+"Script 13" @ "21820_pickleweedplant.cos"
+"Script 14" @ "21821_dragonfruitplant.cos"
+"Script 15" @ "21822_goodbug_arnout.cos"
+"Script 16" @ "21826_crayfishtailvendor.cos"
+"Script 17" @ "21843_desertbird_ARNOUT.cos"
+"Script 18" @ "21845_desertbug_ARNOUT.cos"
+"Script 19" @ "21835_calinks_desert.cos"
+"Script 20" @ "21836_CAemitters_deserthideout.cos"
+"Script 21" @ "21837_desert_life.cos"
+"Script 22" @ "21835_signpost_deserthideout.cos"
+"Script 23" @ "0001_setvar_deserthideout.cos"
+
+"Agent Type" 0
+"Dependency Count" 46
+"Dependency Category 1" 6
+"Dependency Category 2" 2
+"Dependency Category 3" 7
+"Dependency Category 4" 2
+"Dependency Category 5" 7
+"Dependency Category 6" 2
+"Dependency Category 7" 7
+"Dependency Category 8" 2
+"Dependency Category 9" 7
+"Dependency Category 10" 2
+"Dependency Category 11" 7
+"Dependency Category 12" 2
+"Dependency Category 13" 7
+"Dependency Category 14" 2
+"Dependency Category 15" 7
+"Dependency Category 16" 2
+"Dependency Category 17" 7
+"Dependency Category 18" 2
+"Dependency Category 19" 7
+"Dependency Category 20" 2
+"Dependency Category 21" 7
+"Dependency Category 22" 2
+"Dependency Category 23" 7
+"Dependency Category 24" 2
+"Dependency Category 25" 7
+"Dependency Category 26" 2
+"Dependency Category 27" 7
+"Dependency Category 28" 2
+"Dependency Category 29" 7
+"Dependency Category 30" 2
+"Dependency Category 31" 7
+"Dependency Category 32" 2
+"Dependency Category 33" 7
+"Dependency Category 34" 1
+"Dependency Category 35" 1
+"Dependency Category 36" 1
+"Dependency Category 37" 1
+"Dependency Category 38" 1
+"Dependency Category 39" 1
+"Dependency Category 40" 1
+"Dependency Category 41" 1
+"Dependency Category 42" 1
+"Dependency Category 43" 1
+"Dependency Category 44" 1
+"Dependency Category 45" 1
+"Dependency Category 46" 2
+"Agent Sprite First Image" 1
+
+
+
+inline FILE "DG09.wav" "DG09.wav"
+inline FILE "GrenP_Blushshrub.catalogue" "GrenP_Blushshrub.catalogue"
+inline FILE "GrenP_Bonsai.catalogue" "GrenP_Bonsai.catalogue"
+inline FILE "GrenP_DawnPlant.catalogue" "GrenP_DawnPlant.catalogue"
+inline FILE "GrenP_DesertElevators.catalogue" "GrenP_DesertElevators.catalogue"
+inline FILE "GrenP_DesertLanceBug.catalogue" "GrenP_DesertLanceBug.catalogue"
+inline FILE "GrenP_DesertOverlay.catalogue" "GrenP_DesertOverlay.catalogue"
+inline FILE "GrenP_DoorDesertMeso.catalogue" "GrenP_DoorDesertMeso.catalogue"
+inline FILE "GrenP_Dragonfruit.catalogue" "GrenP_Dragonfruit.catalogue"
+inline FILE "GrenP_DrumstickBird.catalogue" "GrenP_DrumstickBird.catalogue"
+inline FILE "GrenP_FavplaceDesert.catalogue" "GrenP_FavplaceDesert.catalogue"
+inline FILE "GrenP_Goodbug.catalogue" "GrenP_Goodbug.catalogue"
+inline FILE "GrenP_LicoriceQuil.catalogue" "GrenP_LicoriceQuil.catalogue"
+inline FILE "GrenP_Pickleweedplant.catalogue" "GrenP_Pickleweedplant.catalogue"
+inline FILE "GrenP_ShortcutDoor.catalogue" "GrenP_ShortcutDoor.catalogue"
+inline FILE "GrenP_SunSquash.catalogue" "GrenP_SunSquash.catalogue"
+inline FILE "bal3.wav" "bal3.wav"
+inline FILE "chwp.wav" "chwp.wav"
+inline FILE "cmac.wav" "cmac.wav"
+inline FILE "dr10.wav" "dr10.wav"
+inline FILE "drp9.wav" "drp9.wav"
+inline FILE "elt0.wav" "elt0.wav"
+inline FILE "gp_blush_shrub_CS.c16" "gp_blush_shrub_CS.c16"
+inline FILE "gp_bonsai_JESS.c16" "gp_bonsai_JESS.c16"
+inline FILE "gp_dawn_plant_CS.c16" "gp_dawn_plant_CS.c16"
+inline FILE "gp_deserthideout.blk" "gp_deserthideout.blk"
+inline FILE "gp_desertlancebug_CS.c16" "gp_desertlancebug_CS.c16"
+inline FILE "gp_desertstickbird_CS.c16" "gp_desertstickbird_CS.c16"
+inline FILE "gp_dhelevators_CS.c16" "gp_dhelevators_CS.c16"
+inline FILE "gp_dhoverlay_CS.c16" "gp_dhoverlay_CS.c16"
+inline FILE "gp_doordhmeso_CS.c16" "gp_doordhmeso_CS.c16"
+inline FILE "gp_dragonfruit_plant_JESS.c16" "gp_dragonfruit_plant_JESS.c16"
+inline FILE "gp_favicons_desert.c16" "gp_favicons_desert.c16"
+inline FILE "gp_good_bug_CS.c16" "gp_good_bug_CS.c16"
+inline FILE "gp_licorice_quill_CS.c16" "gp_licorice_quill_CS.c16"
+inline FILE "gp_pickleweed_plant_JESS.c16" "gp_pickleweed_plant_JESS.c16"
+inline FILE "gp_radioteleport.c16" "gp_radioteleport.c16"
+inline FILE "gp_shortcutdoors_CS.c16" "gp_shortcutdoors_CS.c16"
+inline FILE "gulp.wav" "gulp.wav"
+inline FILE "hach.wav" "hach.wav"
+inline FILE "hit_.wav" "hit_.wav"
+inline FILE "punc.wav" "punc.wav"
+inline FILE "tbal.wav" "tbal.wav"
+
