@@ -1,34 +1,34 @@
-doif game "gpmeso" ne 1
+*doif game "gpmeso" ne 1
 * Dummy CA emitter for the esee function
-	new: simp 1 2 21850 "blnk" 1 0 10
-	rnge 1800
-	perm 50
-	setv ov50 1
-	seta va99 targ
-	mvto 24580 160
+new: simp 1 1 21850 "blnk" 1 0 10
+rnge 1800
+perm 50
+setv ov50 1
+seta va99 targ
+mvto 24580 160
 
 * The airlock buttons
 
-	new: comp 1 1 21850 "gp_airlock" 58 10 100
-	pat: butt 2 "gp_airlock" 0 2 2 157 1 [] 1001 0
-	pat: butt 3 "gp_airlock" 2 2 359 146 1 [] 1001 0
-	pat: dull 4 "gp_airlock" 4 354 118 1
-	pat: dull 5 "gp_airlock" 10 44 71 1
-	pat: dull 6 "gp_airlock" 30 428 15 1
-	part 4
-	frat 10
+new: comp 1 1 21850 "gp_airlock" 58 10 100
+pat: butt 2 "gp_airlock" 0 2 2 157 1 [] 1001 0
+pat: butt 3 "gp_airlock" 2 2 359 146 1 [] 1001 0
+pat: dull 4 "gp_airlock" 4 354 118 1
+pat: dull 5 "gp_airlock" 10 44 71 1
+pat: dull 6 "gp_airlock" 30 428 15 1
+part 4
+frat 10
 
 * Get the rooms: 00 airlock, 01 meso, 02 space, 03 airlock to space
 
-	setv ov00 grap 24420 210
-	setv ov01 grap 24213 210
-	setv ov02 grap 24679 210
-	setv ov03 grap 24625 210
-	seta ov04 va99
-	door ov03 ov02 0
+setv ov00 grap 24420 210
+setv ov01 grap 24213 210
+setv ov02 grap 24679 210
+setv ov03 grap 24625 210
+seta ov04 va99
+door ov03 ov02 0
 
-	mvto 24190 54
-endi
+mvto 24190 54
+*endi
 
 * The airlock magic script!
 scrp 1 1 21850 1010
@@ -198,9 +198,4 @@ endm
 rscr
 enum 1 1 21850
 	kill targ
-next
-enum 1 2 21850
-	doif ov50 eq 1
-		kill targ
-	endi
 next
