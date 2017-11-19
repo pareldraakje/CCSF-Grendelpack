@@ -4,14 +4,14 @@
 
 doif game "gpdeserthideout" ne 1
 * Upper lift
-	new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
-	pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [1] 0 1
+	new: comp 3 1 21806 "gp_dhelevators_CS" 1 0 10
+	pat: butt 2 "gp_dhelevators_CS" 1 2 0 30 1 [1] 0 1
 	part 2
 	anim [0]
-	pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [1] 1 1
+	pat: butt 3 "gp_dhelevators_CS" 3 2 0 30 1 [1] 1 1
 	part 3
 	anim [0]
-	pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
+	pat: butt 4 "gp_dhelevators_CS" 5 2 25 55 1 [] 500 1
 
 	attr 0
 	bhvr 3
@@ -23,14 +23,14 @@ doif game "gpdeserthideout" ne 1
 	seta va98 targ
 
 * lower lift
-	new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
-	pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [1] 0 1
+	new: comp 3 1 21806 "gp_dhelevators_CS" 1 0 10
+	pat: butt 2 "gp_dhelevators_CS" 1 2 0 30 1 [1] 0 1
 	part 2
 	anim [0]
-	pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [1] 1 1
+	pat: butt 3 "gp_dhelevators_CS" 3 2 0 30 1 [1] 1 1
 	part 3
 	anim [0]
-	pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
+	pat: butt 4 "gp_dhelevators_CS" 5 2 25 55 1 [] 500 1
 
 	attr 0
 	bhvr 3

@@ -19,7 +19,7 @@
 *# attach gp_junglev2.blk
 *# attach gp_mainworld.blk
 
-*# attach dh_elevators_CS.c16
+*# attach gp_dhelevators_CS.c16
 *# attach gp_agressive_moss_JESS.c16
 *# attach gp_c2berries.c16
 *# attach gp_capillata_overlay_JESS.c16

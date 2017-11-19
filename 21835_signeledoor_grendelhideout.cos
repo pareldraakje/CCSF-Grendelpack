@@ -19,25 +19,25 @@ tick 1
 *
 
 ** Door to grendel hideout
-new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
 setv ov00 2
 attr 4
 bhvr 1
-mvto 19852 1857
+mvto 24386 480
 
 **
 ** GRENDEL HIDEOUT
 **
 *
 ** The upper door (goes to the main world)
-new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
 setv ov00 5
 attr 4
 bhvr 1
 mvto 20210 547
 *
 ** The lower door (goes to the grendel meso)
-new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
 setv ov00 2
 attr 4
 bhvr 1
@@ -48,7 +48,7 @@ mvto 20219 889
 **
 *
 ** The right swamp door (to grendel hideout)
-new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
 setv ov00 5
 attr 4
 bhvr 1

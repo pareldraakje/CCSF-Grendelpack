@@ -126,7 +126,6 @@ scrp 3 3 21823 9
 				doif pray file pray agts ov90 "Egg Glyph File 2" "blnk.s16" 2 1 eq 1
 					gall "blnk" 0
 				else
-					part 6
 					anim [0]
 					gall pray agts ov90 "Egg Gallery female" "blnk" 0
 					anms pray agts ov90 "Egg Animation String" "0"

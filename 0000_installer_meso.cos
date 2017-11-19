@@ -21,7 +21,7 @@
 *# attach gp_capillata_overlay_JESS.c16 GrenP_Capillataoverlay.catalogue
 *# attach gp_favicons_capillata.c16
 *# attach gp_ccmac.c16 GrenP_CheeseMac.catalogue
-*# attach gp_crayleech_JESS.c16 GrenP_Crayfish.catalogue
+*# attach gp_crayleech_JESS.c16 GrenP_Crayfish.catalogue GrenP_Leech.catalogue
 *# attach gp_dragonfruit_plant_JESS.c16 GrenP_Dragonfruit.catalogue
 *# attach gp_desertstickbird_CS.c16 GrenP_DrumstickBird.catalogue
 *# attach gp_doorcapmeso_UZAG.c16 GrenP_DoorCapMeso.catalogue

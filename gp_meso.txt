@@ -17,67 +17,68 @@ group DSAG "GP  Meso"
 "Dependency 12" "GrenP_CheeseMac.catalogue"
 "Dependency 13" "gp_crayleech_JESS.c16"
 "Dependency 14" "GrenP_Crayfish.catalogue"
-"Dependency 15" "gp_dragonfruit_plant_JESS.c16"
-"Dependency 16" "GrenP_Dragonfruit.catalogue"
-"Dependency 17" "gp_desertstickbird_CS.c16"
-"Dependency 18" "GrenP_DrumstickBird.catalogue"
-"Dependency 19" "gp_doorcapmeso_UZAG.c16"
-"Dependency 20" "GrenP_DoorCapMeso.catalogue"
-"Dependency 21" "gp_doormesocap_UZAG.c16"
-"Dependency 22" "gp_eleplant_JESS.c16"
-"Dependency 23" "GrenP_Eleplant.catalogue"
-"Dependency 24" "gp_eleport_UZAG.c16"
-"Dependency 25" "GrenP_Eleport.catalogue"
-"Dependency 26" "gp_favicons_meso.c16"
-"Dependency 27" "GrenP_FavplaceMeso.catalogue"
-"Dependency 28" "gp_fly_UZAG.c16"
-"Dependency 29" "GrenP_JungleFly.catalogue"
-"Dependency 30" "gp_gerana.c16"
-"Dependency 31" "GrenP_Gerana.catalogue"
-"Dependency 32" "gp_goldfishies_JESS.c16"
-"Dependency 33" "GrenP_Goldfishies.catalogue"
-"Dependency 34" "gp_good_bug_CS.c16"
-"Dependency 35" "GrenP_Goodbug.catalogue"
-"Dependency 36" "gp_grendelmother_PILLA.c16"
-"Dependency 37" "gp_grendelmother_UZAG.c16"
-"Dependency 38" "GrenP_Grenmother.catalogue"
-"Dependency 39" "gp_bonsai_JESS.c16"
-"Dependency 40" "GrenP_Bonsai.catalogue"
-"Dependency 41" "gp_hair_algae_JESS.c16"
-"Dependency 42" "GrenP_HairAlgae.catalogue"
-"Dependency 43" "gp_improved_favplaces.c16"
-"Dependency 44" "improvedfav_pilla_help.catalogue"
-"Dependency 45" "gp_moreballs.c16"
-"Dependency 46" "GrenP_Creatures2Balls.catalogue"
-"Dependency 47" "gp_mossytree_JESS.c16"
-"Dependency 48" "GrenP_MossyTree.catalogue"
-"Dependency 49" "gp_pickleweed_plant_JESS.c16"
-"Dependency 50" "GrenP_Pickleweedplant.catalogue"
-"Dependency 51" "gp_redcap_mushroom.c16"
-"Dependency 52" "GrenP_RedcapMushroom.catalogue"
-"Dependency 53" "dustdevilgrendelplushie.c16"
-"Dependency 54" "dustdevilgrendelplushie.catalogue"
-"Dependency 55" "gp_tank.c16"
-"Dependency 56" "GrenP_Mesoflooder.catalogue"
-"Dependency 57" "gp_fernshroom_planter_JESS.c16"
-"Dependency 58" "GrenP_MesoShroom.catalogue"
-"Dependency 59" "gp_shortcutdoors_CS.c16"
-"Dependency 60" "GrenP_ShortcutDoor.catalogue"
-"Dependency 61" "gp_doordhmeso_CS.c16"
-"Dependency 62" "GrenP_DoorDesertMeso.catalogue"
-"Dependency 63" "bal3.wav"
-"Dependency 64" "chwp.wav"
-"Dependency 65" "cmac.wav"
-"Dependency 66" "dr10.wav"
-"Dependency 67" "DG09.wav"
-"Dependency 68" "drp9.wav"
-"Dependency 69" "elt0.wav"
-"Dependency 70" "gulp.wav"
-"Dependency 71" "hach.wav"
-"Dependency 72" "hit_.wav"
-"Dependency 73" "punc.wav"
-"Dependency 74" "tbal.wav"
-"Dependency 75" "blnk.c16"
+"Dependency 15" "GrenP_Leech.catalogue"
+"Dependency 16" "gp_dragonfruit_plant_JESS.c16"
+"Dependency 17" "GrenP_Dragonfruit.catalogue"
+"Dependency 18" "gp_desertstickbird_CS.c16"
+"Dependency 19" "GrenP_DrumstickBird.catalogue"
+"Dependency 20" "gp_doorcapmeso_UZAG.c16"
+"Dependency 21" "GrenP_DoorCapMeso.catalogue"
+"Dependency 22" "gp_doormesocap_UZAG.c16"
+"Dependency 23" "gp_eleplant_JESS.c16"
+"Dependency 24" "GrenP_Eleplant.catalogue"
+"Dependency 25" "gp_eleport_UZAG.c16"
+"Dependency 26" "GrenP_Eleport.catalogue"
+"Dependency 27" "gp_favicons_meso.c16"
+"Dependency 28" "GrenP_FavplaceMeso.catalogue"
+"Dependency 29" "gp_fly_UZAG.c16"
+"Dependency 30" "GrenP_JungleFly.catalogue"
+"Dependency 31" "gp_gerana.c16"
+"Dependency 32" "GrenP_Gerana.catalogue"
+"Dependency 33" "gp_goldfishies_JESS.c16"
+"Dependency 34" "GrenP_Goldfishies.catalogue"
+"Dependency 35" "gp_good_bug_CS.c16"
+"Dependency 36" "GrenP_Goodbug.catalogue"
+"Dependency 37" "gp_grendelmother_PILLA.c16"
+"Dependency 38" "gp_grendelmother_UZAG.c16"
+"Dependency 39" "GrenP_Grenmother.catalogue"
+"Dependency 40" "gp_bonsai_JESS.c16"
+"Dependency 41" "GrenP_Bonsai.catalogue"
+"Dependency 42" "gp_hair_algae_JESS.c16"
+"Dependency 43" "GrenP_HairAlgae.catalogue"
+"Dependency 44" "gp_improved_favplaces.c16"
+"Dependency 45" "improvedfav_pilla_help.catalogue"
+"Dependency 46" "gp_moreballs.c16"
+"Dependency 47" "GrenP_Creatures2Balls.catalogue"
+"Dependency 48" "gp_mossytree_JESS.c16"
+"Dependency 49" "GrenP_MossyTree.catalogue"
+"Dependency 50" "gp_pickleweed_plant_JESS.c16"
+"Dependency 51" "GrenP_Pickleweedplant.catalogue"
+"Dependency 52" "gp_redcap_mushroom.c16"
+"Dependency 53" "GrenP_RedcapMushroom.catalogue"
+"Dependency 54" "dustdevilgrendelplushie.c16"
+"Dependency 55" "dustdevilgrendelplushie.catalogue"
+"Dependency 56" "gp_tank.c16"
+"Dependency 57" "GrenP_Mesoflooder.catalogue"
+"Dependency 58" "gp_fernshroom_planter_JESS.c16"
+"Dependency 59" "GrenP_MesoShroom.catalogue"
+"Dependency 60" "gp_shortcutdoors_CS.c16"
+"Dependency 61" "GrenP_ShortcutDoor.catalogue"
+"Dependency 62" "gp_doordhmeso_CS.c16"
+"Dependency 63" "GrenP_DoorDesertMeso.catalogue"
+"Dependency 64" "bal3.wav"
+"Dependency 65" "chwp.wav"
+"Dependency 66" "cmac.wav"
+"Dependency 67" "dr10.wav"
+"Dependency 68" "DG09.wav"
+"Dependency 69" "drp9.wav"
+"Dependency 70" "elt0.wav"
+"Dependency 71" "gulp.wav"
+"Dependency 72" "hach.wav"
+"Dependency 73" "hit_.wav"
+"Dependency 74" "punc.wav"
+"Dependency 75" "tbal.wav"
+"Dependency 76" "blnk.c16"
 "Agent Animation Gallery" "gp_favicons_meso"
 "Agent Description" "Inject the Banshee Ark Meso"
 "Agent Animation File" "gp_favicons_meso.c16"
@@ -129,7 +130,7 @@ group DSAG "GP  Meso"
 "Script 40" @ "0001_setvar_meso.cos"
 
 "Agent Type" 0
-"Dependency Count" 75
+"Dependency Count" 76
 "Dependency Category 1" 6
 "Dependency Category 2" 2
 "Dependency Category 3" 7
@@ -144,55 +145,55 @@ group DSAG "GP  Meso"
 "Dependency Category 12" 7
 "Dependency Category 13" 2
 "Dependency Category 14" 7
-"Dependency Category 15" 2
-"Dependency Category 16" 7
-"Dependency Category 17" 2
-"Dependency Category 18" 7
-"Dependency Category 19" 2
-"Dependency Category 20" 7
-"Dependency Category 21" 2
+"Dependency Category 15" 7
+"Dependency Category 16" 2
+"Dependency Category 17" 7
+"Dependency Category 18" 2
+"Dependency Category 19" 7
+"Dependency Category 20" 2
+"Dependency Category 21" 7
 "Dependency Category 22" 2
-"Dependency Category 23" 7
-"Dependency Category 24" 2
-"Dependency Category 25" 7
-"Dependency Category 26" 2
-"Dependency Category 27" 7
-"Dependency Category 28" 2
-"Dependency Category 29" 7
-"Dependency Category 30" 2
-"Dependency Category 31" 7
-"Dependency Category 32" 2
-"Dependency Category 33" 7
-"Dependency Category 34" 2
-"Dependency Category 35" 7
-"Dependency Category 36" 2
+"Dependency Category 23" 2
+"Dependency Category 24" 7
+"Dependency Category 25" 2
+"Dependency Category 26" 7
+"Dependency Category 27" 2
+"Dependency Category 28" 7
+"Dependency Category 29" 2
+"Dependency Category 30" 7
+"Dependency Category 31" 2
+"Dependency Category 32" 7
+"Dependency Category 33" 2
+"Dependency Category 34" 7
+"Dependency Category 35" 2
+"Dependency Category 36" 7
 "Dependency Category 37" 2
-"Dependency Category 38" 7
-"Dependency Category 39" 2
-"Dependency Category 40" 7
-"Dependency Category 41" 2
-"Dependency Category 42" 7
-"Dependency Category 43" 2
-"Dependency Category 44" 7
-"Dependency Category 45" 2
-"Dependency Category 46" 7
-"Dependency Category 47" 2
-"Dependency Category 48" 7
-"Dependency Category 49" 2
-"Dependency Category 50" 7
-"Dependency Category 51" 2
-"Dependency Category 52" 7
-"Dependency Category 53" 2
-"Dependency Category 54" 7
-"Dependency Category 55" 2
-"Dependency Category 56" 7
-"Dependency Category 57" 2
-"Dependency Category 58" 7
-"Dependency Category 59" 2
-"Dependency Category 60" 7
-"Dependency Category 61" 2
-"Dependency Category 62" 7
-"Dependency Category 63" 1
+"Dependency Category 38" 2
+"Dependency Category 39" 7
+"Dependency Category 40" 2
+"Dependency Category 41" 7
+"Dependency Category 42" 2
+"Dependency Category 43" 7
+"Dependency Category 44" 2
+"Dependency Category 45" 7
+"Dependency Category 46" 2
+"Dependency Category 47" 7
+"Dependency Category 48" 2
+"Dependency Category 49" 7
+"Dependency Category 50" 2
+"Dependency Category 51" 7
+"Dependency Category 52" 2
+"Dependency Category 53" 7
+"Dependency Category 54" 2
+"Dependency Category 55" 7
+"Dependency Category 56" 2
+"Dependency Category 57" 7
+"Dependency Category 58" 2
+"Dependency Category 59" 7
+"Dependency Category 60" 2
+"Dependency Category 61" 7
+"Dependency Category 62" 2
+"Dependency Category 63" 7
 "Dependency Category 64" 1
 "Dependency Category 65" 1
 "Dependency Category 66" 1
@@ -204,7 +205,8 @@ group DSAG "GP  Meso"
 "Dependency Category 72" 1
 "Dependency Category 73" 1
 "Dependency Category 74" 1
-"Dependency Category 75" 2
+"Dependency Category 75" 1
+"Dependency Category 76" 2
 "Agent Sprite First Image" 1
 
 
@@ -231,6 +233,7 @@ inline FILE "GrenP_Goodbug.catalogue" "GrenP_Goodbug.catalogue"
 inline FILE "GrenP_Grenmother.catalogue" "GrenP_Grenmother.catalogue"
 inline FILE "GrenP_HairAlgae.catalogue" "GrenP_HairAlgae.catalogue"
 inline FILE "GrenP_JungleFly.catalogue" "GrenP_JungleFly.catalogue"
+inline FILE "GrenP_Leech.catalogue" "GrenP_Leech.catalogue"
 inline FILE "GrenP_MesoShroom.catalogue" "GrenP_MesoShroom.catalogue"
 inline FILE "GrenP_Mesoflooder.catalogue" "GrenP_Mesoflooder.catalogue"
 inline FILE "GrenP_MossyTree.catalogue" "GrenP_MossyTree.catalogue"

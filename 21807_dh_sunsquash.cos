@@ -3,17 +3,17 @@
 **
 
 
-new: comp 2 4 21807 "dh_elevators_CS" 1 7 10
+new: comp 2 4 21807 "gp_dhelevators_CS" 1 7 10
 attr 16
 bhvr 0
 * Flowers
-pat: dull 2 "dh_elevators_CS" 8 29 62 1
-pat: dull 3 "dh_elevators_CS" 8 175 69 1
-pat: dull 4 "dh_elevators_CS" 8 283 70 1
+pat: dull 2 "gp_dhelevators_CS" 8 29 62 1
+pat: dull 3 "gp_dhelevators_CS" 8 175 69 1
+pat: dull 4 "gp_dhelevators_CS" 8 283 70 1
 * Fruit
-pat: dull 5 "dh_elevators_CS" 11 87 172 1
-pat: dull 6 "dh_elevators_CS" 11 100 108 1
-pat: dull 7 "dh_elevators_CS" 11 171 120 1
+pat: dull 5 "gp_dhelevators_CS" 11 87 172 1
+pat: dull 6 "gp_dhelevators_CS" 11 100 108 1
+pat: dull 7 "gp_dhelevators_CS" 11 171 120 1
 * ov00: max amount of fruit at the same time
 setv ov00 3
 * ov02 part 2 fruit timer, ov3 part 3, ov4 part 4
@@ -148,7 +148,7 @@ scrp 2 4 21807 9
 		mulv va10 5
 
 ** Create a squash
-		new: simp 2 8 21807 "dh_elevators_CS" 2 16 rand 1500 3000
+		new: simp 2 8 21807 "gp_dhelevators_CS" 2 16 rand 1500 3000
 ** attr: carryable 2, bhvr eat 16 + pickup 32 = 48
 		attr 2
 **bhvr 48

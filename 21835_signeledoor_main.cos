@@ -45,13 +45,13 @@ endi
 ** If grendel hideout injected, create doors to/from grendel hideout
 doif game "gpgrendelhideout" eq 1
 ** Door main > grendel hideout
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+	new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
 	setv ov00 6
 	attr 4
 	bhvr 1
 	mvto 23106 2289
 ** Door grendel hideout > main
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
+	new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
 	setv ov00 6
 	attr 4
 	bhvr 1
