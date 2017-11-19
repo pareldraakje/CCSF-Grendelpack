@@ -404,7 +404,12 @@ scrp 2 3 21820 12
 	lock
 	wait 25
 ** stim eat plant
-	stim writ from 77 1
+	doif crea from eq 1
+		targ from
+		stim writ from 77 1
+		chem 98 50
+		targ ownr
+	endi
 	wait 25
 	kill ownr
 	unlk
