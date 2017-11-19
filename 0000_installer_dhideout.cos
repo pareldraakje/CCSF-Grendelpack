@@ -27,7 +27,7 @@
 *# attach gp_dawn_plant_CS.c16 GrenP_DawnPlant.catalogue
 *# attach gp_dawn_plant_CS.c16 GrenP_DawnPlant.catalogue
 *# attach gp_dhelevators_CS.c16 GrenP_ShortcutDoor.catalogue
-*# attach gp_shortcutdoors_CS.c16
+*# attach gp_shortcutdoors_CS.c16 GrenP_SunSquash.catalogue
 *# attach gp_radioteleport.c16 
 *# attach gp_dhoverlay_CS.c16 GrenP_DesertOverlay.catalogue
 *# attach gp_doordhmeso_CS.c16 GrenP_DoorDesertMeso.catalogue
@@ -44,11 +44,10 @@
 *# attach punc.wav
 *# attach tbal.wav
 
-** TODO CA emitters desert
-*# link 0001_removal_desert.cos 0_00000_map_deserthideout.cos 
+*# link 0001_removal_deserthideout.cos 0_00000_map_deserthideout.cos 
 *# link 21805_dh_doors.cos 21806_dh_elevines.cos 21807_dh_sunsquash.cos 21840_dhoverlay.cos 21808_shortcutdoors.cos
 *# link 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21826_crayfishtailvendor.cos  21843_desertbird_ARNOUT.cos 21845_desertbug_ARNOUT.cos 
-*# link 21835_calinks_desert.cos 21836_CAemitters_desert.cos 21837_desert_life.cos 0001_setvar_deserthideout.cos
+*# link 21835_calinks_desert.cos 21836_CAemitters_deserthideout.cos 21837_desert_life.cos 0001_setvar_deserthideout.cos
 
 *
 * REMOVAL SCRIPT

@@ -2,59 +2,60 @@
 ** Lifts
 **
 
+doif game "gpdeserthideout" ne 1
 * Upper lift
-new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
-pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [1] 0 1
-part 2
-anim [0]
-pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [1] 1 1
-part 3
-anim [0]
-pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
+	new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
+	pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [1] 0 1
+	part 2
+	anim [0]
+	pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [1] 1 1
+	part 3
+	anim [0]
+	pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
 
-attr 0
-bhvr 3
-mvto 21991 3298
-setv ov01 room targ
-setv ov00 0
-setv ov05 0
-setv va00 grap posx posy
-seta va98 targ
+	attr 0
+	bhvr 3
+	mvto 21991 3298
+	setv ov01 room targ
+	setv ov00 0
+	setv ov05 0
+	setv va00 grap posx posy
+	seta va98 targ
 
 * lower lift
-new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
-pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [1] 0 1
-part 2
-anim [0]
-pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [1] 1 1
-part 3
-anim [0]
-pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
+	new: comp 3 1 21806 "dh_elevators_CS" 1 0 10
+	pat: butt 2 "dh_elevators_CS" 1 2 0 30 1 [1] 0 1
+	part 2
+	anim [0]
+	pat: butt 3 "dh_elevators_CS" 3 2 0 30 1 [1] 1 1
+	part 3
+	anim [0]
+	pat: butt 4 "dh_elevators_CS" 5 2 25 55 1 [] 500 1
 
-attr 0
-bhvr 3
-mvto 21991 3603
-setv ov01 room targ
-setv ov00 0
-setv ov05 1
-setv va01 grap posx posy
-seta va99 targ
+	attr 0
+	bhvr 3
+	mvto 21991 3603
+	setv ov01 room targ
+	setv ov00 0
+	setv ov05 1
+	setv va01 grap posx posy
+	seta va99 targ
 
 *
 ** CA link
 *
 
-link va00 va01 1
+	link va00 va01 1
 
 * Enumerate through elevators to set OVs
-enum 3 1 21806
-	setv ov90 va00
-	seta ov91 va98
-	setv ov92 va01
-	seta ov93 va99
-next
+	enum 3 1 21806
+		setv ov90 va00
+		seta ov91 va98
+		setv ov92 va01
+		seta ov93 va99
+	next
 
-
+endi
 
 
 *

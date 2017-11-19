@@ -1,0 +1,31 @@
+*
+* REMOVAL SCRIPT
+*
+
+rscr
+inst
+setv va00 gmap 22085 3540
+* generic remover: remove everything inside metaroom
+enum 2 0 0
+	doif gmap posx posy eq va00
+		setv va01 gnus
+		doif va01 ne 1 and va01 ne 2 and va02 ne 12
+			kill targ
+		endi
+	endi
+next
+* Remove gadgets
+enum 3 8 0
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+
+** Remove population controllers
+enum 1 1 0
+	doif spcs gt 21801 and spcs lt 21860 and spcs ne 21836 and spcs ne 21840
+		doif gmap posx posy eq va00
+			kill targ
+		endi
+	endi
+next

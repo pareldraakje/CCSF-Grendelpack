@@ -6,119 +6,110 @@
 ** DESERT HIDEOUT
 **
 *
+doif game "gpdeserthideout" ne 1
+
 ** Light
 ** Up
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 1
-mvto 21482 3336
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 1
-mvto 21721 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 1
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 1
-mvto 22263 3256
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 1
-mvto 22510 3288
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.5
+	mvto 21482 3336
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.5
+	mvto 21721 3275
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.5
+	mvto 22001 3275
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.5
+	mvto 22263 3256
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.5
+	mvto 22510 3288
 ** Down
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 0.9
-mvto 21650 3623
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 0.9
-mvto 21886 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 0.9
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 0.7
-mvto 22172 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 1 0.3
-mvto 22416 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.1
+	mvto 21650 3623
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.1
+	mvto 21886 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 1.1
+	mvto 22091 3575
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 1 0.3
+	mvto 22516 3597
 *
 ** Heat
 ** Up
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 21482 3336
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 21721 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 22263 3256
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 22510 3288
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 21482 3336
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 21721 3275
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 22001 3275
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 22263 3256
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 22510 3288
 ** Down
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 21650 3623
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 21886 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 22172 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 2 5
-mvto 22416 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 21650 3623
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 21886 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 22090 3595
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 3
+	mvto 22242 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 2 1
+	mvto 22504 3597
 *
 ** MMMMOISTURE
 ** Down
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 3 0.3
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 3 0.3
-mvto 22172 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 3 0.3
-mvto 22416 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.1
+	mvto 22001 3575
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.16
+	mvto 22172 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 3 0.2
+	mvto 22510 3597
 *
 ** NUTRIENTS
 ** Up
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.4
-mvto 21482 3336
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.4
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.4
-mvto 22510 3288
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.3
+	mvto 21482 3336
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.3
+	mvto 22001 3275
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.3
+	mvto 22510 3288
 ** Down
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.8
-mvto 21650 3623
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.6
-mvto 21886 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.4
-mvto 22001 3275
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.6
-mvto 22172 3597
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 4 0.6
-mvto 22416 3597
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.5
+	mvto 21650 3623
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 4 0.5
+	mvto 22416 3597
 *
 ** SMELLS
 ** ETTIN HOME SMELL: first floor
-new: simp 1 1 21836 "blnk" 1 0 10
-emit 17 1
-mvto 21796 3306
+	new: simp 1 1 21836 "blnk" 1 0 10
+	emit 17 1
+	mvto 21796 3306
+endi
 
 rscr
 enum 1 1 21836
