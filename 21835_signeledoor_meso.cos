@@ -35,24 +35,57 @@ endi
 **
 
 ** If desert hideout injected, create doors to/from desert hideout
-doif game "gpdeserthideout" eq 1
-** Door meso > desert hideout
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 2
+doif game "gpdeserthideout" eq 1 and game "gpmeso" ne 1
+**
+** The door inside desert hideout
+	new: comp 2 2 21805 "gp_dhelevators_CS" 16 19 1
+** Activateable
 	attr 4
-	bhvr 1
-	mvto 23620 552
-** Door desert hideout > meso
-	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
-	setv ov00 2
+* The idle animation, teleporting door animation & disable button
+	pat: dull 2 "gp_dhelevators_CS" 35 92 59 1
+	pat: dull 3 "gp_dhelevators_cs" 18 0 0 2
+	pat: butt 4 "gp_dhelevators_CS" 40 2 113 83 1 [] 500 1
+* The disabled OV
+	setv ov00 0
+* lift id
+	setv ov01 0
+** The idle animation
+	part 2
+	frat 2
+	anim [0 0 0 0 0 0 0 0 0 4 3 2 1 255]
+** the frametick of the teleporting animation
+	part 3
+	frat 2
+	mvto 22532 3524
+**
+** the door inside meso
+	new: comp 2 2 21805 "gp_doordhmeso_CS" 28 9 1
+** Activateable
 	attr 4
-	bhvr 1
-	mvto 22627 3603
+* The idle animation, teleporting door animation & disable button
+	pat: dull 2 "gp_doordhmeso_CS" 0 0 0 1
+	pat: dull 3 "gp_doordhmeso_CS" 9 0 0 2
+	pat: butt 4 "gp_doordhmeso_CS" 26 2 54 99 1 [1 0 255] 500 1
+* The disabled OV
+	setv ov00 0
+* lift id
+	setv ov01 1
+** The idle animation
+	part 2
+	frat 4
+	anim [2 4 0 0 0 6 7 8 255]
+** the frametick of the teleporting animation
+	part 3
+	frat 2
+	part 4
+	frat 5
+	anim [0]
+	mvto 23520 440
 endi
 
 *
 ** If grendel hideout injected, create doors to/from grendel hideout
-doif game "gpgrendelhideout" eq 1
+doif game "gpgrendelhideout" eq 1 and game "gpmeso" ne 1
 ** Door meso > grendel hideout
 	new: simp 2 2 21835 "dh_elevators_CS" 1 0 100
 	setv ov00 5
