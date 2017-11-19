@@ -17,3 +17,13 @@ link grap 25745 1216 grap 25745 1503 50
 doif game "gpdeserthideout" eq 1
 	link grap 22621 3604 grap 23626 538 50
 endi
+
+* main - meso
+doif game "gpmain" eq 1
+
+*main swamp - meso swamp
+link grap 22560 2329 grap 25936 1576 100
+*main desert - meso desert
+link grap 23724 871 grap 22045 1141 100
+
+endi
