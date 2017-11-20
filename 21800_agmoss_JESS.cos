@@ -683,6 +683,7 @@ scrp 2 4 21800 9
 			mvto va00 va01
 		else
 			kill targ
+			stop
 		endi
 
 
