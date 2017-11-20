@@ -20,10 +20,10 @@
 **
 **
 
-doif game "gpmeso" ne 1
+*doif game "gpmeso" ne 1
 new: comp 3 3 21823 "gp_grendelmother_UZAG" 9 0 100
 mesg wrt+ targ 1000 24960 829 0
-endi
+*endi
 
 **
 ** Grendel egg maker script.
@@ -118,7 +118,6 @@ scrp 3 3 21823 9
 				else
 					anim [0]
 					gall pray agts ov90 "Egg Gallery male" "blnk" 0
-					anms pray agts ov90 "Egg Animation String" "0"
 				endi
 			elif ov00 eq 2
 				part 6
@@ -128,7 +127,6 @@ scrp 3 3 21823 9
 				else
 					anim [0]
 					gall pray agts ov90 "Egg Gallery female" "blnk" 0
-					anms pray agts ov90 "Egg Animation String" "0"
 				endi
 			endi
 		endi
@@ -313,7 +311,6 @@ scrp 3 3 21823 1001
 				else
 					anim [0]
 					gall pray agts ov90 "Egg Gallery male" "blnk" 0
-					anms pray agts ov90 "Egg Animation String" "0"
 				endi
 			elif ov00 eq 2
 				part 6
@@ -324,7 +321,6 @@ scrp 3 3 21823 1001
 					part 6
 					anim [0]
 					gall pray agts ov90 "Egg Gallery female" "blnk" 0
-					anms pray agts ov90 "Egg Animation String" "0"
 				endi
 			endi
 		endi
@@ -347,7 +343,6 @@ scrp 3 3 21823 1001
 				else
 					anim [0]
 					gall pray agts ov90 "Egg Gallery male" "blnk" 0
-					anms pray agts ov90 "Egg Animation String" "0"
 				endi
 			elif ov00 eq 2
 				part 6
@@ -358,7 +353,6 @@ scrp 3 3 21823 1001
 					part 6
 					anim [0]
 					gall pray agts ov90 "Egg Gallery female" "blnk" 0
-					anms pray agts ov90 "Egg Animation String" "0"
 				endi
 			endi
 		endi

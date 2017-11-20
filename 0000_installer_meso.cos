@@ -46,7 +46,6 @@
 *# attach gp_tank.c16 GrenP_Mesoflooder.catalogue
 *# attach gp_fernshroom_planter_JESS.c16 GrenP_MesoShroom.catalogue
 *# attach gp_shortcutdoors_CS.c16 GrenP_ShortcutDoor.catalogue
-*# attach gp_doordhmeso_CS.c16 GrenP_DoorDesertMeso.catalogue
 
 *# attach bal3.wav
 *# attach chwp.wav
@@ -62,7 +61,9 @@
 *# attach tbal.wav
 
 ** TODO CA emitters meso
-*# link 0001_removal_meso.cos 21841_improvedfavplace.cos 0_00000_map_meso.cos 21828_capillataoverlay.cos 21802_hairalgae.cos 21809_moreballs.cos 21810_bonsai.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21823_grendelmother.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 21828_door_capmeso.cos 21834_eleplant.cos 21835_calinks_meso.cos 21836_CAemitters_meso.cos 21838_junglefly.cos 21839_leech.cos 21843_desertbird_ARNOUT.cos 21845_desertbug_ARNOUT.cos 21846_eleport.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21852_dustdevilgrendelplushie.cos 21850_airlock.cos 21854_mesoflooder.cos 21855_mesoshrooms.cos 21808_shortcutdoors_meso.cos 21835_signeledoor_meso.cos 21837_meso_life.cos 0001_setvar_meso.cos
+*# link 0001_removal_meso.cos 21841_improvedfavplace.cos 0_00000_map_meso.cos 21828_capillataoverlay.cos 
+*# link 21802_hairalgae.cos 21809_moreballs.cos 21810_bonsai.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21823_grendelmother.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 21828_door_capmeso.cos 21834_eleplant.cos 21838_junglefly.cos 21839_leech.cos 21843_desertbird_ARNOUT.cos 21845_desertbug_ARNOUT.cos 21846_eleport.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21852_dustdevilgrendelplushie.cos 
+*# link 21835_calinks_meso.cos 21836_CAemitters_meso.cos 21850_airlock.cos 21854_mesoflooder.cos 21855_mesoshrooms.cos 21808_shortcutdoors_meso.cos 21835_signeledoor_meso.cos 21837_meso_life.cos 0001_setvar_meso.cos
 
 *
 * REMOVAL SCRIPT
