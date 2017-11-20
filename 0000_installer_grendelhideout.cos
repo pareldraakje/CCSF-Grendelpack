@@ -1,0 +1,120 @@
+*
+* CAOS2PRAY CHUNK
+*
+** variable: game "gpjunglehideout"
+*# Pray-File "gp_junglehideout.agents"
+*# DS-Name "GP  Jungle Hideout"
+*# desc = "Inject the Banshee Ark Jungle Hideout"
+*# Agent Animation File = "gp_favicons_jungle.c16"
+*# Agent Sprite First Image = 1
+*# Agent Animation Gallery = "gp_favicons_jungle"
+*# Web URL = "http://creaturescaves.com/thebansheeark"
+*# Web Label = "The Banshee Ark"
+
+*# depend blnk.c16
+
+*# attach gp_grendelhideout.blk
+
+*# attach gp_blush_shrub_CS.c16 GrenP_Blushshrub.catalogue
+*# attach gp_favicons_desert.c16 GrenP_FavplaceDesert.catalogue
+*# attach gp_bonsai_JESS.c16 GrenP_Bonsai.catalogue
+*# attach gp_dawn_plant_CS.c16 GrenP_DawnPlant.catalogue
+*# attach gp_radioteleport.c16 GrenP_ShortcutDoor.catalogue
+*# attach gp_doormesojungle_UZAG.c16 GrenP_DoorJungleMeso.catalogue
+*# attach bal3.wav
+*# attach chwp.wav
+*# attach cmac.wav
+*# attach dr10.wav
+*# attach DG09.wav
+*# attach drp9.wav
+*# attach elt0.wav
+*# attach gulp.wav
+*# attach hach.wav
+*# attach hit_.wav
+*# attach punc.wav
+*# attach tbal.wav
+
+*# link 0001_removal_grendelhideout.cos 0_00000_map_grendelhideout.cos 
+*# link 21856_door_ghmeso 21808_shortcutdoors_jungle.cos 
+*# link 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 21826_frogsaladvendor.cos
+*# link 21835_calinks_desert.cos 21836_CAemitters_grendelhideout.cos 21837_jungle_life.cos 21835_signpost_deserthideout.cos 0001_setvar_deserthideout.cos
+
+*
+* REMOVAL SCRIPT
+*
+
+rscr
+inst
+setv va00 gmap 21475 3359
+* generic remover: remove everything inside metaroom
+enum 2 0 0
+	doif gmap posx posy eq va00
+		setv va01 gnus
+		doif va01 ne 1 and va01 ne 2 and va02 ne 12
+			kill targ
+		endi
+	endi
+next
+* Remove gadgets
+enum 3 8 0
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+
+** Remove population controllers
+enum 1 1 21802
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21803
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21804
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21813
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21815
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21820
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21821
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21822
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21838
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21843
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
+enum 1 1 21845
+	doif gmap posx posy eq va00
+		kill targ
+	endi
+next
