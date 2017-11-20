@@ -14,14 +14,16 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_aster.agents"
-*# DS-Name "GP - Aster Flower"
-*# attach gp_aster.c16 GrenP_AsterFlower.catalogue
-*# desc = "This is an aster flower, it's job is to look pretty."
+*# Pray-File "gp_gb_aster.agent"
+*# DSGB-Name "Aster Flower"
+*# Attach gp_aster.c16
+
+*# desc = "This is an aster flower, its job is to look pretty."
 *# Agent Animation File = "gp_aster.c16"
-*# Agent Sprite First Image = 16
 *# Agent Animation Gallery = "gp_aster"
-*
+*# Agent Sprite First Image = 16
+*# GB_Category = 2
+*# Agent Author = "Cerulean"
 *
 
 *
