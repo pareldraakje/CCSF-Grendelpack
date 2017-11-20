@@ -4,9 +4,9 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_grendel_mother_PI.agents"
-*# DS-Name "Grendel Mother thing (Pilla)"
-*# attach gp_grendelmother_PILLA.c16 
+*# Pray-File "gp_grendel_mother_UZAG.agents"
+*# DS-Name "Grendel Mother thing"
+*# attach gp_grendelmother_UZAG.c16 
 *# depend blnk.c16
 *# desc = "Grendel egg layer."
 *# Agent Animation File = "gp_grendelmother_UZAG.c16"
@@ -20,10 +20,10 @@
 **
 **
 
-*doif game "gpmeso" ne 1
+doif game "gpmeso" ne 1
 new: comp 3 3 21823 "gp_grendelmother_UZAG" 9 0 100
 mesg wrt+ targ 1000 24960 829 0
-*endi
+endi
 
 **
 ** Grendel egg maker script.
@@ -42,7 +42,7 @@ scrp 3 3 21823 1000
 	emit 16 0.5
 
 ** text box, GO button, left button, right button, gender button
-	pat: fixd 1 "gp_grendelmother_PILLA" 1 -10 -8 5 "whiteontransparentchars"
+	pat: fixd 1 "gp_grendelmother_UZAG" 17 -12 -23 5 "whiteontransparentchars"
 	pat: butt 2 "gp_grendelmother_UZAG" 9 2 78 76 1 [0] 1001 0
 	pat: butt 3 "gp_grendelmother_UZAG" 11 2 1 19 1 [0] 1001 0
 	pat: butt 4 "gp_grendelmother_UZAG" 13 2 1 30 1 [0] 1001 0
