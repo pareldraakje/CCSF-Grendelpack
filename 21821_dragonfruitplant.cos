@@ -356,6 +356,7 @@ scrp 2 8 21821 12
 		targ from
 		stim writ from 78 1
 		chem 99 50
+		chem 33 0.25
 		targ ownr
 	endi
 	wait 25
