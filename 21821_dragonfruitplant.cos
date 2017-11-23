@@ -355,8 +355,10 @@ scrp 2 8 21821 12
 	doif crea from eq 1
 		targ from
 		stim writ from 78 1
-		chem 99 50
-		chem 33 0.25
+		doif chem 87 lt 0.2
+			chem 99 1
+		endi
+		chem 33 0.1
 		targ ownr
 	endi
 	wait 25
