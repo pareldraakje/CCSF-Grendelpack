@@ -11,6 +11,7 @@ doif game "gpmain" eq 1 and game "gpdeserthideout" ne 1
 	attr 4
 	bhvr 1
 	mvto 22010 1091
+	setv va00 grap posx posy
 ** Door desert hideout > main
 	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
 	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
@@ -19,6 +20,7 @@ doif game "gpmain" eq 1 and game "gpdeserthideout" ne 1
 	attr 4
 	bhvr 1
 	mvto 21643 3665
+	link grap posx posy va00 60
 endi
 
 **
@@ -38,7 +40,8 @@ doif game "gpmain" ne 1 and game "gpmeso" ne 1 and game "gpdeserthideout" ne 1
 	bhvr 1
 	frat 3
 	mvto 22363 3566
-** Door desert hideout > main
+	setv va00 grap posx posy
+	** Door desert hideout > main
 	new: comp 2 2 21808 "gp_radioteleport" 3 0 100
 	setv ov00 50
 	setv ov01 0
@@ -51,7 +54,8 @@ doif game "gpmain" ne 1 and game "gpmeso" ne 1 and game "gpdeserthideout" ne 1
 	frat 3
 	bhvr 1
 	mvsf game "CreatorX" game "CreatorY"
-endi
+	link va00 grap posx posy 60
+	endi
 
 
 **

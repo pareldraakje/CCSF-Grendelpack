@@ -25,6 +25,7 @@ doif game "gpmeso" eq 1 and game "gpdeserthideout" ne 1
 	part 3
 	frat 2
 	mvto 22532 3524
+	setv va00 grap posx posy
 **
 ** the door inside meso
 	new: comp 2 2 21805 "gp_doordhmeso_CS" 28 9 1
@@ -49,6 +50,7 @@ doif game "gpmeso" eq 1 and game "gpdeserthideout" ne 1
 	frat 5
 	anim [0]
 	mvto 23520 440
+	link va00 grap posx posy 60
 endi
 
 **

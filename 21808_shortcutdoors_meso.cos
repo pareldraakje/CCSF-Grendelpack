@@ -12,6 +12,7 @@ doif game "gpmeso" ne 1 and game "gpmain" eq 1
 	attr 4
 	bhvr 1
 	mvto 23695 911
+	setv va00 grap posx posy
 *
 ** DESERT (main) > DESERT (meso)
 	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
@@ -21,6 +22,7 @@ doif game "gpmeso" ne 1 and game "gpmain" eq 1
 	attr 4
 	bhvr 1
 	mvto 22010 1091
+	link grap posx posy va00 60
 *
 ** JUNGLE (meso) > SWAMP (main)
 	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
@@ -29,6 +31,7 @@ doif game "gpmeso" ne 1 and game "gpmain" eq 1
 	attr 4
 	bhvr 1
 	mvto 25920 1567
+	setv va00 grap posx posy
 *
 ** SWAMP (main) > JUNGLE (meso)
 	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
@@ -37,25 +40,28 @@ doif game "gpmeso" ne 1 and game "gpmain" eq 1
 	attr 4
 	bhvr 1
 	mvto 21927 2299
+	link grap posx posy va00 60
 endi
 
 doif game "gpmeso" ne 1
 *
 ** UPPERWATER (meso) > UNDERWATER (meso)
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 8 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 3
-attr 4
-bhvr 1
-mvto 23619 1492
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 8 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 3
+	attr 4
+	bhvr 1
+	mvto 23619 1492
+	setv va00 grap posx posy
 *
 ** UNDERWATER (meso) > UPPERWATER (meso) 
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 8 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 3
-attr 4
-bhvr 1
-mvto 23619 1920
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 8 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 3
+	attr 4
+	bhvr 1
+	mvto 23619 1920
+	link grap posx posy va00 60
 endi
 
 **
