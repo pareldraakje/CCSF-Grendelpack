@@ -38,8 +38,8 @@
 inst
 * Create a new simple object (the seed).
 * It uses the "gp_aster" sprite. It contains 1 image, the 0th image.
-* The plane is something random between 1000 and 1500. (behind creatures)
-new: simp 2 3 21858 "gp_aster" 1 0 rand 1000 1500
+* The plane is something random between 500 and 1500. (behind creatures)
+new: simp 2 3 21858 "gp_aster" 1 0 rand 500 1500
 ** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
 attr 210
 ** Will go through some walls (higher number -> less walls)
@@ -101,8 +101,8 @@ scrp 2 3 21858 9
 ** Check if the seed has settled
 	doif carr eq null and fall eq 0
 		doif va03 eq 7 or va03 eq 5
-			subv va00 7
-			subv va01 15
+			subv va00 5
+			subv va01 25
 			inst
 
 ** Create a new aster plant.
@@ -162,21 +162,22 @@ scrp 2 4 21858 9
 		endi
 
 ** Set the plant growing timer
-		tick rand 40 80
+		tick rand 80 120
 		slow
 	endi
-
+	setv va00 pose
 ** Check if the plant is fully grown. If not, grooww
-	doif pose lt 15
-		setv va00 pose
+	doif va00 lt 15
 		addv va00 1
 		pose va00
 ** If the plant is fully grown, wait a little longer before dying
-	elif pose eq 15
-		tick rand 320 600
+	elif va00 eq 15
+		tick rand 120 180
 		addv va00 1
+		pose va00
 ** If the plant has lived a happy and long life... set seed and die. Goodbye plant.
-	elif pose gt 15
+	else
+		tick 0
 ** Create the seed
 ** Get positions to spawn the seed
 		setv va01 posl
@@ -204,7 +205,7 @@ scrp 2 4 21858 9
 ** Emit starchy smell
 			emit 7 0.8
 ** launch seed
-			velo rand -8 8 -7
+			velo rand -20 20 -7
 			tick rand 50 200
 			mvto va01 va02
 			slow
@@ -224,19 +225,17 @@ scrp 2 4 21858 9
 			fric 90
 			elas 20
 ** launch seed
-			velo rand -8 8 -7
+			velo rand -20 20 -7
 			tick rand 50 200
 			mvto va01 va02
 			slow
 		repe
 ** Retarget the plant
 		targ ownr
-** Stop the ticks
-		tick 0
 		lock
 ** Dying animation
-		frat 40
-		anim [16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 26 26]
+		frat 10
+		anim [16 17 18 19 20 21 22 23 24]
 		over
 ** Kill the plant
 		kill ownr
