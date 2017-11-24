@@ -1,0 +1,56 @@
+**
+** Dawn Plant script
+**
+** Sprites by CosmiSynth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_dawnplant_seed_CS.agents"
+*# DS-Name "GP - Dawn Plant Seed Packet"
+*# attach gp_dawn_plant_CS.c16 GrenP_DawnPlant.catalogue
+*# desc = "This is a dawn plant. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
+*# Agent Animation File = "gp_dawn_plant_CS.c16"
+*# Agent Sprite First Image = 6
+*# Agent Animation Gallery = "gp_dawn_plant_CS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** Vend a seed packet
+**
+
+
+new: simp 2 23 21803 "gp_dawn_plant_CS" 1 16 rand 1000 1500
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+
+*
+*
+** Removal script 
+*
+*
+
+rscr
+enum 2 23 21803
+	kill targ
+next
+enum 2 3 21803
+	kill targ
+next
+enum 2 4 21803
+	kill targ
+next
