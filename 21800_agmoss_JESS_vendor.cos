@@ -1,0 +1,32 @@
+**
+** Agressive moss script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_agmossvendor_JESS.agents"
+*# DS-Name "GP - Agressive Moss Vendor"
+*# attach gp_agressive_moss_JESS.c16 GrenP_AggressiveMoss.catalogue 
+*# desc = "This is an Agressive Moss Vendor.\n\nSprites by Jesseth\nCoding by Pilla"
+*# Agent Animation File = "gp_agressive_moss_JESS.c16"
+*# Agent Sprite First Image = 61
+*# Agent Animation Gallery = "gp_agressive_moss_JESS"
+*# link 21800_agmoss_JESS.cos
+*
+
+*
+** Injection script
+**
+
+new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
