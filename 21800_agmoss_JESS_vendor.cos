@@ -30,3 +30,16 @@
 
 new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
 mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+rscr
+
+enum 2 23 21800
+	kill targ
+next
+
+enum 2 3 21800
+	kill targ
+next
+enum 2 4 21800
+	kill targ
+next

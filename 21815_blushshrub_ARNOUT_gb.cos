@@ -29,14 +29,10 @@ inst
 		aero 1
 		fric 60
 		elas 20
-** bhvr: pickup 32 & eat 16 = 48
-		bhvr 48
-** Emit starchy smell
-		emit 7 0.8
 
 ** launch seed
 		velo rand -10 10 -5
-		tick rand 300 700
+		tick rand 100 300
 		mvsf game "ch_x" game "ch_y"
 slow
 
