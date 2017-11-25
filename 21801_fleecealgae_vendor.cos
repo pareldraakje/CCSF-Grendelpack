@@ -1,0 +1,52 @@
+**
+** Fleece algae script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_fleece_algae_JESS.agents"
+*# DS-Name "GP - Fleece Algae Vendor"
+*# attach gp_fleece_algae_JESS.c16 GrenP_FleeceAlgae.catalogue
+*# desc = "Some pretty fleece algae to decorate your underwater areas.\n\nSprites by Jesseth"
+*# Agent Animation File = "gp_fleece_algae_JESS.c16"
+*# Agent Sprite First Image = 6
+*# Agent Animation Gallery = "gp_fleece_algae_JESS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The vendor!
+**
+
+new: comp 2 23 21801 "gp_fleece_algae_JESS" 5 12 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 2 23 21801
+	kill targ
+next
+enum 2 3 21801
+	kill targ
+next
+enum 2 4 21801
+	kill targ
+next
