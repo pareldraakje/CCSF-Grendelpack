@@ -373,8 +373,3 @@ next
 enum 2 4 21804
 	kill targ
 next
-
-
-scrx 2 23 21804 1
-scrx 2 3 21804 9
-scrx 2 4 21804 9

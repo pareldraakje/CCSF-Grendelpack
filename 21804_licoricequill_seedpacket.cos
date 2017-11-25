@@ -1,0 +1,57 @@
+**
+** Licorice Quill script
+**
+** Sprites by ChameleonSushi, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_licoricequill_seed_CS.agents"
+*# DS-Name "GP - Licorice Quill Seed Packet"
+*# attach gp_licorice_quill_CS.c16 GrenP_LicoriceQuil.catalogue
+*# desc = "Yay, it's a licorice quill. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
+*# Agent Animation File = "gp_licorice_quill_CS.c16"
+*# Agent Sprite First Image = 6
+*# Agent Animation Gallery = "gp_licorice_quill_CS"
+*# link 21804_licoricequill.cos
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The seed packet!
+**
+
+new: simp 2 23 21804 "gp_licorice_quill_CS" 1 14 rand 1000 1500
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+*
+*
+** Removal script 
+*
+*
+
+rscr
+
+
+enum 2 23 21804
+	kill targ
+next
+enum 2 3 21804
+	kill targ
+next
+enum 2 4 21804
+	kill targ
+next

@@ -59,7 +59,6 @@ scrp 2 23 21803 1000
 	fric 70
 	elas 20
 ** launch seed
-
 	mvsf _p1_ _p2_
 	targ ownr
 	kill ownr

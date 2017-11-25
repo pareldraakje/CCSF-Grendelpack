@@ -1,0 +1,29 @@
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_blushshrub_CS_seed.agents"
+*# DS-Name "GP - Blush Shrub Seed Packet"
+*# attach gp_blush_shrub_CS.c16 GrenP_BlushShrub.catalogue
+*# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
+*# Agent Animation File = "gp_blush_shrub_CS.c16"
+*# Agent Sprite First Image = 5
+*# Agent Animation Gallery = "gp_blush_shrub_CS"
+*# link 21815_blushshrub_ARNOUT.cos
+*
+*
+new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 1000
+mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+
+
+
+rscr
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
