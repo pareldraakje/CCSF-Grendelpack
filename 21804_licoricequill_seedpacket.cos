@@ -17,7 +17,7 @@
 *# Pray-File "gp_licoricequill_seed_CS.agents"
 *# DS-Name "GP - Licorice Quill Seed Packet"
 *# attach gp_licorice_quill_CS.c16 GrenP_LicoriceQuil.catalogue
-*# desc = "Yay, it's a licorice quill. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth"
+*# desc = "Yay, it's a licorice quill. When dispensed, a cute seed packet will appear.by CosmiSynth"
 *# Agent Animation File = "gp_licorice_quill_CS.c16"
 *# Agent Sprite First Image = 6
 *# Agent Animation Gallery = "gp_licorice_quill_CS"
@@ -34,8 +34,16 @@
 **
 
 new: simp 2 23 21804 "gp_licorice_quill_CS" 1 14 rand 1000 1500
-mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
-
+** attr: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 210
+attr 214
+** Will go through some walls
+perm 60
+** Physics
+accg 1
+aero 1
+fric 70
+elas 20
+mvsf game "CreatorX" game "CreatorY"
 
 *
 *

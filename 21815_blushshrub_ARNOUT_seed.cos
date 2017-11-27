@@ -5,25 +5,35 @@
 *# Pray-File "gp_blushshrub_CS_seed.agents"
 *# DS-Name "GP - Blush Shrub Seed Packet"
 *# attach gp_blush_shrub_CS.c16 GrenP_BlushShrub.catalogue
-*# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear.\n\nSprites by CosmiSynth\nCode by Arnout"
+*# desc = "It's blushing! It's a shrub! It's the wonderful blush shrub. When dispensed, a cute seed packet will appear. \n\nSprites by CosmiSynth \nCoding by Arnout"
 *# Agent Animation File = "gp_blush_shrub_CS.c16"
 *# Agent Sprite First Image = 5
 *# Agent Animation Gallery = "gp_blush_shrub_CS"
 *# link 21815_blushshrub_ARNOUT.cos
 *
 *
-new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 1000
-mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
 
+new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 rand 1000 1500
+** attr: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
+attr 214
+** Will go through some walls
+perm 60
+** Physics
+accg 1
+aero 1
+fric 70
+elas 20
+** launch seed
+mvsf game "CreatorX" game "CreatorY"
 
 
 rscr
+enum 2 23 21815
+	kill targ
+next
 enum 2 3 21815
 	kill targ
 next
 enum 2 4 21815
-	kill targ
-next
-enum 1 1 21815
 	kill targ
 next
