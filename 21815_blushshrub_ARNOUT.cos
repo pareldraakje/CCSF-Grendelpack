@@ -22,7 +22,7 @@
 ** Seed packet creator script
 
 scrp 2 23 21815 1000
-	new: simp 2 23 21803 "gp_blush_shrub_CS" 1 10 rand 1000 1500
+	new: simp 2 23 21815 "gp_blush_shrub_CS" 1 10 rand 1000 1500
 ** attr: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
 	attr 214
 ** Will go through some walls
@@ -83,7 +83,7 @@ scrp 2 23 21815 1
 ** launch seed
 		velo rand -10 10 -5
 		tick rand 300 700
-		mvto va01 va02
+		mvsf va01 va02
 	repe
 
 	targ ownr
