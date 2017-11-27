@@ -94,6 +94,7 @@ scrp 2 18 21812 1000
 	accg 1
 	perm 98
 	fric 40
+	tick 150
 *set variable ov03 = egg's time out of water:
 	setv ov03 0
 	mvsf _p1_ _p2_
