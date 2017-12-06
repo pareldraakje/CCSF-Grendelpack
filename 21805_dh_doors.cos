@@ -103,18 +103,25 @@ scrp 2 2 21805 1
 			anim [15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0]
 			doif from eq pntr
 				cmrp va05 va06 0
+				etch 4 0 0
+					doif carr eq null and dead ne 1
+						mvsf va05 va06
+					endi
+				next
 			else
 				targ from
 				doif crea targ eq 1
 ** Target the pusher
 					targ from
 ** Move the creature
-					mvsf va05 va06
+					doif carr eq null and dead ne 1
+						mvsf va05 va06
 ** Stim the creature "travelled through door"
-					stim writ from 95 1
+						stim writ from 95 1
 ** urge to remove attention from door
 ** and reset the verb state to neutral
-					urge writ targ 		2 -1 -1 1
+						urge writ targ 2 -1 -1 1
+					endi
 				endi
 
 			endi
