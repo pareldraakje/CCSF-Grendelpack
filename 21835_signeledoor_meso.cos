@@ -41,6 +41,7 @@ doif game "gpdeserthideout" eq 1 and game "gpmeso" ne 1
 	new: comp 2 2 21805 "gp_dhelevators_CS" 16 19 1
 ** Activateable
 	attr 4
+bhvr 1
 * The idle animation, teleporting door animation & disable button
 	pat: dull 2 "gp_dhelevators_CS" 35 92 59 1
 	pat: dull 3 "gp_dhelevators_cs" 18 0 0 2
@@ -90,6 +91,7 @@ doif game "gpgrendelhideout" eq 1 and game "gpmeso" ne 1
 	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 12 0 1
 ** Activateable
 	attr 4
+bhvr 1
 * The teleporting door animation & disable button
 	pat: dull 3 "gp_doormesojungle_UZAG" 12 0 0 2
 	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 -25 85 1 [] 500 0

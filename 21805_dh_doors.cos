@@ -9,6 +9,7 @@ doif game "gpmeso" eq 1 and game "gpdeserthideout" ne 1
 	new: comp 2 2 21805 "gp_dhelevators_CS" 16 19 1
 ** Activateable
 	attr 4
+	bhvr 1
 * The idle animation, teleporting door animation & disable button
 	pat: dull 2 "gp_dhelevators_CS" 35 92 59 1
 	pat: dull 3 "gp_dhelevators_cs" 18 0 0 2
@@ -31,6 +32,7 @@ doif game "gpmeso" eq 1 and game "gpdeserthideout" ne 1
 	new: comp 2 2 21805 "gp_doordhmeso_CS" 28 9 1
 ** Activateable
 	attr 4
+	bhvr 1
 * The idle animation, teleporting door animation & disable button
 	pat: dull 2 "gp_doordhmeso_CS" 0 0 0 1
 	pat: dull 3 "gp_doordhmeso_CS" 9 0 0 2
@@ -102,16 +104,17 @@ scrp 2 2 21805 1
 			doif from eq pntr
 				cmrp va05 va06 0
 			else
-				doif fmly eq 4
+				targ from
+				doif crea targ eq 1
 ** Target the pusher
 					targ from
 ** Move the creature
-					mvft va05 va06
+					mvsf va05 va06
 ** Stim the creature "travelled through door"
 					stim writ from 95 1
 ** urge to remove attention from door
 ** and reset the verb state to neutral
-					urge writ va00 2 -1 -1 1
+					urge writ targ 		2 -1 -1 1
 				endi
 
 			endi
