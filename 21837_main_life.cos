@@ -52,6 +52,24 @@ setv ov50 1
 mvto 22099 2024
 tick 30
 
+*
+** Good bug
+** Upper desert
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 21947 779
+tick rand 1 100
+
+*
+** Drumstick birds
+** Meso
+new: simp 1 1 21843 "blnk" 1 0 0
+setv ov20 21936
+setv ov21 768
+mvto ov20 ov21
+tick rand 20 180
+
+
 **
 ** Initial wildlife
 **
@@ -76,6 +94,26 @@ reps 14
 	new: simp 2 14 21838 "gp_fly_UZAG" 28 0 300
 	mesg wrt+ targ 1000 22099 2024 0
 	slow
+repe
+
+** Leeches
+reps 3
+	new: simp 2 16 21839 "gp_crayleech_JESS" 16 33 1000
+	mesg wrt+ targ 1000 22308 2689 0
+repe
+
+** Crayfish
+reps 4
+	new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
+	mesg wrt+ targ 1000 22308 2689 0
+repe
+
+** Hair algae
+
+reps 5
+	new: simp 1 1 21802 "blnk" 1 0 0
+	mvto 22464 2760
+	tick 1
 repe
 
 **
@@ -126,6 +164,42 @@ reps 15
 repe
 
 **
+** Patch plants
+**
+**
+
+** Mushrooms
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 21459 2232
+tick rand 300 1000
+
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 21951 1372
+tick rand 300 1000
+
+**
+** C2 berries
+**
+** jungle tree
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 20744
+setv ov06 243
+setv ov07 1629
+setv ov08 18
+mvto 20744 1629
+tick 1
+**
+** tropical biome tree
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 20900
+setv ov06 372
+setv ov07 2682
+setv ov08 47
+setv ov04 2
+mvto 20744 1629
+tick 1
+
+**
 ** Vendors
 **
 **
@@ -159,14 +233,15 @@ mesg wrt+ targ 1000 21700 1110 0
 *
 ** Hair algae
 new: comp 2 23 21802 "gp_hair_algae_JESS" 5 9 rand 800 900
-mesg wrt+ targ 1000 23869 1752 0
-new: simp 1 1 21802 "blnk" 1 0 0
-mvto 22264 2760
-tick 1
+mesg wrt+ targ 1000 22104 2750 0
+
+*
+** Fleece algae
+new: comp 2 23 21801 "gp_fleece_algae_JESS" 5 12 rand 800 900
+mesg wrt+ targ 1000 22424 2773 0
 
 *
 ** Dragonfruit
-
 ** Lower desert biome vendor
 new: simp 2 23 21821 "blnk" 1 0 10
 seta va50 targ
@@ -226,5 +301,73 @@ enum 2 8 20171
 next
 
 enum 1 1 20171
+	kill targ
+next
+
+** Leech
+enum 2 16 21839
+	kill targ
+next
+enum 2 15 21839
+	kill targ
+next
+enum 2 18 21839
+	kill targ
+next
+** Crayfish
+enum 2 23 21827
+	kill targ
+next
+enum 2 16 21827
+	kill targ
+next
+enum 2 15 21827
+	kill targ
+next
+enum 2 18 21827
+	kill targ
+next
+** Hair algae
+enum 2 23 21802
+	kill targ
+next
+enum 2 4 21802
+	kill targ
+next
+enum 2 3 21802
+	kill targ
+next
+enum 1 1 21802
+	kill targ
+next
+** Fleece algae
+enum 2 23 21801
+	kill targ
+next
+enum 2 3 21801
+	kill targ
+next
+enum 2 4 21801
+	kill targ
+next
+** Button mushroom
+enum 1 1 21855
+	kill targ
+next
+enum 2 11 21855
+	kill targ
+next
+** Berry patch plant
+enum 1 1 21848
+	kill targ
+next
+enum 2 8 21848
+	kill targ
+next
+*Gerana
+enum 2 15 21814
+	kill targ
+next
+enum 2 18 21814
 	kill targ
 next
