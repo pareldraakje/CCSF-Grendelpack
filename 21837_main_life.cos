@@ -364,10 +364,91 @@ next
 enum 2 8 21848
 	kill targ
 next
-*Gerana
+**aggressive moss
+enum 2 23 21800
+	kill targ
+next
+
+enum 2 3 21800
+	kill targ
+next
+enum 2 4 21800
+	kill targ
+next
+**Gerana
 enum 2 15 21814
 	kill targ
 next
 enum 2 18 21814
+	kill targ
+next
+** Good bug
+enum 2 13 21822
+	kill targ
+next
+enum 1 1 21822
+	kill targ
+next
+** Pickleweed
+enum 1 1 21820
+	kill targ
+next
+enum 2 3 21820
+	kill targ
+next
+enum 2 4 21820
+	kill targ
+next
+enum 2 23 21820
+	kill targ
+next
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+** Dragonfruit
+enum 1 1 21821
+	kill targ
+next
+enum 2 4 21821
+	kill targ
+next
+enum 2 8 21821
+	kill targ
+next
+enum 2 23 21821
+	kill targ
+next
+** Dawn plant
+
+enum 2 23 21803
+	kill targ
+next
+enum 1 1 21803
+	kill targ
+next
+enum 2 3 21803
+	kill targ
+next
+enum 2 4 21803
+	kill targ
+next
+** Drumstick bird
+enum 2 18 21843
+	kill targ
+next
+enum 2 14 21843
+	kill targ
+next
+enum 2 15 21843
+	kill targ
+next
+enum 1 1 21843
 	kill targ
 next
