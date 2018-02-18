@@ -450,6 +450,15 @@ reps 9
 	addv va00 1
 repe
 
+** Button mushroom
+enum 1 1 21855
+kill targ
+next
+enum 2 11 21855
+	kill targ
+next
+
+
 ** Froot fruit tree
 enum 2 4 21816
 	kill targ
