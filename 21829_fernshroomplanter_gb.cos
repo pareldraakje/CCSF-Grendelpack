@@ -1,0 +1,60 @@
+**
+** Fern-shroom planter script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_fernshroom_planter_JESS.agents"
+*# DS-Name "GP - Planter (fernshroom)"
+*# attach gp_fernshroom_planter_JESS.c16 GrenP_FernShroomPlanter.catalogue
+*# desc = "A planter with ferns and tiny button mushrooms.\n\nSprites by Jesseth"
+*# Agent Animation File = "gp_fernshroom_planter_JESS.c16"
+*# Agent Sprite First Image = 20
+*# Agent Animation Gallery = "gp_fernshroom_planter_JESS"
+
+*# GB_Category = 21829
+*# GB_Category Name ""
+*# Agent Author = "CosmiSynth & Pilla"
+*# link 21803_dawnplant.cos
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The planter
+**
+
+new: simp 1 1 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 game "ch_x" game "ch_y" 0
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 1 1 21829
+	kill targ
+next
+enum 2 23 21829
+	kill targ
+next
+enum 2 3 21829
+	kill targ
+next
+enum 2 11 21829
+	kill targ
+next
