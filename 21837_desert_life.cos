@@ -206,3 +206,16 @@ next
 enum 2 10 21816
 	kill targ
 next
+** Dawn plant
+enum 1 1 21803
+	kill targ
+next
+enum 2 23 21803
+	kill targ
+next
+enum 2 3 21803
+	kill targ
+next
+enum 2 4 21803
+	kill targ
+next
