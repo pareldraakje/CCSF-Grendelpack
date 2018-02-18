@@ -1,4 +1,6 @@
 scrp 1 1 21855 9
+	setv va05 posx
+	setv va06 posy
 	new: simp 2 11 21855 "gp_fernshroom_planter_JESS" 1 15 rand 1200 1900
 ** attr: mouseable 2 + collide 64 + physics 128 + invisible 16 = 210
 ** bhvr: eat 16 + pickup 32 = 48
@@ -15,7 +17,8 @@ scrp 1 1 21855 9
 	setv ov00 0
 	alph 255 1
 	tick 120
-	mvsf rand 24065 25697 1118
+	addv va05 rand -700 700
+	mvsf va05 va06
 endm
 
 **
