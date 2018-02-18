@@ -1,0 +1,111 @@
+**
+** Aster Flower Script
+**
+** Sprites by Linda, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_mesosplicer.agent"
+*# DSGB-Name "Mesosplicer"
+*# Attach gp_splicer_LINDA.c16
+
+*# desc = "This splicer allows you to splice your poor, innocent Creatures.by Lindaby Pilla"
+*# Agent Animation File = "gp_splicer_LINDA.c16"
+*# Agent Animation Gallery = "gp_splicer_LINDA"
+*# Agent Sprite First Image = 6
+*# Agent Author = "Linda & Pilla"
+*
+
+*
+** Injection script
+**
+
+rtar 1 1 21859
+doif targ eq null
+	new: vhcl 1 1 21859 "gp_splicer_LINDA" 13 0 6000
+	mvto 25535 667
+endi
+
+
+**
+** SCRIPTS
+**
+**
+
+scrp 1 1 21859 10
+	inst
+* Chamber overlay
+	pat: dull 2 "gp_splicer_LINDA" 13 306 0 -1
+* Control panel overlay
+	pat: dull 3 "gp_splicer_LINDA" 18 254 -60 -5999
+* Amountofnorns display
+	pat: dull 4 "gp_splicer_LINDA" 19 288 -17 -5999
+* Gender button
+	pat: butt 5 "gp_splicer_LINDA" 23 3 264 -50 -5999 [] 1005 1
+* Go button
+	pat: butt 6 "gp_splicer_LINDA" 26 3 312 -38 -5999 [] 1006 1
+* Drop button
+	pat: butt 7 "gp_splicer_LINDA" 29 3 295 -56 -5999 [] 1007 1
+* Auto button
+	pat: butt 8 "gp_splicer_LINDA" 32 3 298 -18 -5999 [] 1008 1
+	cabn 351 117 539 283
+	cabp -5000
+	attr 8
+	tick 300
+	slow
+endm
+
+
+** Vehicle pickup script
+scrp 1 1 21859 124
+	targ from
+	doif fmly eq 4
+** zombie it, so it doesn't move
+		zomb 1
+		setv va00 0
+		reps 9
+			soul va00 0
+			addv va00 1
+		repe
+** pose it, which by default will be facing towards the camera, looking slightly up
+		pose 170
+		dirn 1
+** wait a bit so the pose takes effect 
+		wait 4
+	endi
+endm
+
+** Vehicle drop script
+scrp 1 1 21859 125
+	targ from
+	doif fmly eq 4
+** unzombie it
+		zomb 0
+		setv va00 0
+		reps 9
+			soul va00 1
+			addv va00 1
+		repe
+	endi
+endm
+
+*
+*
+** Removal script 
+*
+*
+
+rscr
+
+enum 1 1 21859
+	kill targ
+next
