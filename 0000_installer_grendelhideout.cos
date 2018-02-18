@@ -13,7 +13,7 @@
 
 *# depend blnk.c16
 
-*# attach gp_grendelhideout.blk
+*# attach gp_junglev2.blk
 
 *# attach gp_blush_shrub_CS.c16 GrenP_Blushshrub.catalogue
 *# attach gp_favicons_desert.c16 GrenP_FavplaceDesert.catalogue
@@ -35,9 +35,9 @@
 *# attach tbal.wav
 
 *# link 0001_removal_grendelhideout.cos 0_00000_map_grendelhideout.cos 
-*# link 21856_door_ghmeso 21808_shortcutdoors_jungle.cos 
-*# link 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 21826_frogsaladvendor.cos
-*# link 21835_calinks_desert.cos 21836_CAemitters_grendelhideout.cos 21837_jungle_life.cos 21835_signpost_deserthideout.cos 0001_setvar_deserthideout.cos
+*# link 21856_door_ghmeso.cos 21808_shortcutdoors_jungle.cos 
+*# link 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 21825_frogsaladvendor.cos
+*# link 21835_calinks_jungle.cos 21836_CAemitters_grendelhideout.cos 21835_signpost_grendelhideout.cos 0001_setvar_grendelhideout.cos
 
 *
 * REMOVAL SCRIPT

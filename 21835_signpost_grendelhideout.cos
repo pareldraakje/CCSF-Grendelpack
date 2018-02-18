@@ -5,7 +5,7 @@
 **
 
 new: simp 1 1 21835 "blnk" 1 0 0
-tick 1
+tick 10
 
 
 **
@@ -19,32 +19,32 @@ tick 1
 ** The 2nd level elevine
 new: simp 3 1 21835 "blnk" 1 1 100
 setv ov00 0
-mvto 20048 205
+mvto 20048 213
 *
 ** The 1st level right elevine
 new: simp 3 1 21835 "blnk" 1 1 100
 setv ov00 0
-mvto 20052 495
+mvto 20052 503
 *
 ** The floor level right elevine
 new: simp 3 1 21835 "blnk" 1 1 100
 setv ov00 0
-mvto 20064 855
+mvto 20064 857
 *
 ** The 1st level left elevine
 new: simp 3 1 21835 "blnk" 1 1 100
 setv ov00 1
-mvto 19348 489
+mvto 19348 496
 *
 ** The floor level left elevine
 new: simp 3 1 21835 "blnk" 1 1 100
 setv ov00 1
-mvto 19258 849
+mvto 19258 856
 *
 ** the -1 level elevine
 new: simp 3 1 21835 "blnk" 1 1 100
 setv ov00 1
-mvto 19298 1144
+mvto 19298 1146
 
 
 *
