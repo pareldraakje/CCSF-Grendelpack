@@ -1,2 +1,4 @@
+doif game "gpmain" eq 1
 *main upperleft
 link grap 21385 648 grap 21385 738 100
+endi

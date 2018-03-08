@@ -2,6 +2,10 @@
 ** Door scripts
 **
 
+setv game "gpmeso" 1
+*setv game "gpmain" 1
+setv game "gpgrendelhideout" 0
+
 ** Check if meso injected
 doif game "gpmeso" eq 1 and game "gpgrendelhideout" ne 1
 **
@@ -11,63 +15,70 @@ doif game "gpmeso" eq 1 and game "gpgrendelhideout" ne 1
 	attr 4
 * The teleporting door animation & disable button
 	pat: dull 3 "gp_doormesojungle_UZAG" 12 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 -25 85 1 [] 500 0
+	pat: butt 4 "gp_doormesojungle_UZAG" 27 2 -25 85 1 [] 500 0
 	part 4
 	pose 1
 * The disabled OV
 	setv ov00 0
-* lift id
+* door group id
 	setv ov01 0
 	mvto 24384 472
+	setv va50 room targ
 **
 ** the door inside jungle
-	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 49 1
+	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 55 1
 ** Activateable
 	attr 4
 * The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 60 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 78 1 [] 500 0
+	pat: dull 3 "gp_doormesojungle_UZAG" 66 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 80 2 143 78 1 [] 500 0
 	part 4
 	pose 1
 * The disabled OV
 	setv ov00 0
-* lift id
-	setv ov01 1
+* door group id
+	setv ov01 0
 	mvto 20176 460
+	setv va51 room targ
+	link va50 va51 20
 endi
 
 ** Check if main injected
 doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
 **
 ** The door inside the grendel hideout
-	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 49 1
+	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 29 1
 ** Activateable
 	attr 4
 * The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 60 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 78 1 [] 500 0
+	pat: dull 3 "gp_doormesojungle_UZAG" 40 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 53 2 144 68 1 [] 500 0
 	part 4
 	pose 1
 * The disabled OV
 	setv ov00 0
-* lift id
+* door group id
 	setv ov01 2
-	mvto 20219 889
+	mvto 20181 811
+	setv va50 room targ
 **
 ** the door inside main
-	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 49 1
+	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 82 1
 ** Activateable
 	attr 4
 * The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 60 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 78 1 [] 500 0
+	pat: dull 3 "gp_doormesojungle_UZAG" 93 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 107 2 144 71 1 [] 500 0
 	part 4
 	pose 1
 * The disabled OV
 	setv ov00 0
-* lift id
-	setv ov01 1
-	mvto 21255 2210
+* door group id
+	setv ov01 2
+	mvto 21248 2198
+	setv va51 room targ
+
+	link va50 va51 20
 endi
 
 **
@@ -87,10 +98,13 @@ scrp 2 2 21856 1
 
 ** Search the other door
 		seta va90 ownr
+		setv va91 ov01
 		inst
 		enum 2 2 21856
 			doif targ ne ownr
-				seta va90 targ
+				doif ov01 eq va91
+					seta va90 targ
+				endi
 			endi
 		next
 		slow
@@ -150,22 +164,14 @@ scrp 2 2 21856 500
 	mesg writ pntr 101
 	doif ov00 eq 0
 		part 0
-		doif ov01 eq 0
-			anim [1 2 3 4 5 6 7 8 9 10 11]
-		else
 			anim [1 2 3 4 5 6 7 8 9 10]
-		endi
 		part 4
 		pose 0
 		attr 16
 		setv ov00 1
 	else
 		part 0
-		doif ov01 eq 0
-			anim [10 9 8 7 6 5 4 3 2 1 0]
-		else
-			anim [9 8 7 6 5 4 3 2 1 0]
-		endi
+		anim [10 9 8 7 6 5 4 3 2 1 0]
 		part 4
 		pose 1
 		attr 4
