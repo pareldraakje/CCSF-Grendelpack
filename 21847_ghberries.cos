@@ -8,41 +8,89 @@
 **
 **
 
+**
+**
+**
+**
+** GP grendel hideout berries
+**
+** Create berry: 
+*	ov04 base
+*	ov05 posx
+*	ov06 width
+*	ov07 posy
+*	ov08 height
+**
+**
 
+** Scripts
+**
+
+*
+** Berry creator timer script
+*
 scrp 1 1 21847 9
-	new: simp 2 8 21847 "gp_c2berries" 5 9 rand 50 1000
-	attr 5
-	perm rand 0 100
-	emit 6 .3
-	elas 25
-	fric 90
-	setv ov01 0
-	mvsf rand 19405 19702 rand 295 445
-	tick 1
+	rnge 1600
+	setv va00 0
+	esee 2 8 21847
+		doif attr ne 80
+			addv va00 1
+		endi
+	next
+	doif va00 lt 5
+* Set pose variables
+		setv va00 ov04
+		mulv va00 3
+* Set dimension variables posx width posy length
+		setv va01 ov05
+		addv va01 rand 0 ov06
+		setv va02 ov07
+		addv va02 rand 0 ov08
+* Create patch berry
+		new: simp 2 8 21847 "gp_c2berries" 5 9 rand 50 1000
+		attr 80
+		perm rand 20 100
+		emit 6 .3
+		elas 25
+		fric 90
+		setv ov01 0
+		tick 1
+		base va00
+		pose 0
+		mvsf va01 va02
+
+	endi
 	targ ownr
-	tick rand 70 350
+	tick rand 180 400
 endm
 
+
+*
+** Berry timer script
+*
 
 scrp 2 8 21847 9
-	doif ov00 = 0
-		reps 3
-			wait rand 200 1000
-			addv ov01 1
-			pose ov01
-		repe
+	doif pose lt 4
+		setv ov03 0
+		tick rand 100 200
+		addv ov01 1
+		pose ov01
+	else
+		setv ov00 1
+		addv ov03 1
+		attr 199
+		accg 3
+		aero 2
+		bhvr 48
+		doif ov03 gt 10
+			kill ownr
+		endi
 	endi
-	setv ov00 1
-	wait rand 20 200
-	pose 4
-	attr 199
-	accg 3
-	aero 2
-	bhvr 48
-	wait rand 100 1000
-	kill ownr
 endm
 
+*
+** Berry eat script
+*
 
 scrp 2 8 21847 12
 	sndc "chwp"
@@ -56,12 +104,16 @@ scrp 2 8 21847 12
 endm
 
 **
+** Removal script
 **
-
 rscr
+
+* Remove berry creator
 enum 1 1 21847
 	kill targ
 next
+
+* Remove berries
 enum 2 8 21847
 	kill targ
 next
