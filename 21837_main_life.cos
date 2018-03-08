@@ -16,6 +16,17 @@ mvto 21965 771
 perm 0
 rnge 999
 tick 1
+** Inkcap mushroom
+** Lower jungle
+new: simp 1 1 21844 "blnk" 1 0 10
+mvto 21312 2239
+tick 1
+*
+** REDCAP MUSHROOM
+** Upperleft cave
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 20993 1085
+tick rand 1 100
 *
 ** Dragonfruit
 ** Main Lower desert
@@ -48,10 +59,8 @@ tick 1
 ** Flies
 ** Main world
 new: simp 1 1 21838 "blnk" 1 0 10
-setv ov50 1
-mvto 22099 2024
-tick 30
-
+mvto 22186 2032
+tick rand 1 100
 *
 ** Good bug
 ** Upper desert
@@ -89,10 +98,11 @@ reps 3
 repe
 
 ** Main room flies
-reps 14
+** jungle flies
+reps 10
 	inst
-	new: simp 2 14 21838 "gp_fly_UZAG" 28 0 300
-	mesg wrt+ targ 1000 22099 2024 0
+	new: simp 2 15 21838 "gp_fly_UZAG" 28 0 300
+	mesg wrt+ targ 1000 22161 2051 0
 	slow
 repe
 

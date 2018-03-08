@@ -1,0 +1,438 @@
+
+
+**
+** TOYS
+**
+**
+
+** jungle top right
+new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
+mesg wrt+ targ 1000 19841 192 0
+
+** jungle mid
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 19706 541 0
+** jungle lower mid
+new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 1000
+mesg wrt+ targ 1000 19879 884 0
+** jungle underground
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 19788 1155 0
+
+**
+** Wildlife population controllers
+**
+**
+
+*
+** REDCAP MUSHROOM
+** jungle underground
+new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
+mvto 19915 1217
+tick rand 1 100
+
+*
+** Flies
+** jungle
+new: simp 1 1 21838 "blnk" 1 0 10
+mvto 19729 706
+tick rand 1 100
+
+*
+** Blush Shrub
+** jungle top
+new: simp 1 1 21815 "blnk" 1 0 1000
+mvto 20341 249
+tick 100
+
+**
+** Initial wildlife
+**
+**
+
+*
+** Gerana
+** jungle bottom left
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 19472 1189 0
+repe
+** jungle bottom mid right
+reps 3
+	new: simp 2 15 21814 "gp_gerana" 42 0 2000
+	mesg wrt+ targ 1000 20186 920 0
+repe
+
+** jungle flies
+reps 10
+	inst
+	new: simp 2 15 21838 "gp_fly_UZAG" 28 0 300
+	mesg wrt+ targ 1000 19833 707 0
+	slow
+repe
+
+** Aster flowers
+reps 20
+	new: simp 2 3 21858 "gp_aster" 1 0 rand 500 1500
+	setv ov50 rand 19809 20332
+	setv ov51 857
+repe
+** Aster flowers
+reps 5
+	new: simp 2 3 21858 "gp_aster" 1 0 rand 500 1500
+	setv ov50 rand 20236 20410
+	setv ov51 246
+repe
+
+**
+** Patch plants
+**
+**
+
+** Mushrooms
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 19973 854
+tick rand 300 1000
+
+** Inkcap mushroom
+** mid jungle
+new: simp 1 1 21844 "blnk" 1 0 10
+mvto 20236 491
+tick 1
+
+** Agressive moss
+** Lower jungle
+** Main Bottom left biome grass moss
+reps 15
+	inst
+	new: simp 2 3 21800 "gp_agressive_moss_JESS" 1 22 rand 1000 3000
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls
+	perm 70
+** Physics
+	accg 0.2
+	aero 10
+	fric 10
+	elas 40
+	velo rand -8 8 -5
+	tick 300
+	setv ov00 0
+	mvto 19555 1136
+repe
+
+
+
+**
+** C2 berries
+**
+** jungle top tree 1
+new: simp 1 1 21847 "blnk" 1 0 0
+setv ov05 19815
+setv ov06 533
+setv ov07 38
+setv ov08 70
+mvto 19771 24
+tick 180
+
+** jungle purple tree 1
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 19415
+setv ov06 150
+setv ov07 374
+setv ov08 150
+mvto 19415 374
+tick 1
+
+** jungle purple tree 2
+new: simp 1 1 21848 "blnk" 1 0 0
+setv ov05 19555
+setv ov06 150
+setv ov07 264
+setv ov08 250
+mvto 19555 274
+tick 1
+
+**
+** Vendors
+**
+**
+
+*
+** Cheese dispenser
+** jungle upper corridor
+new: comp 2 23 21811 "gp_ccmac" 9 0 1000
+mesg wrt+ targ 1000 19507 1155 0
+
+*
+** Frogsalad
+** Top mid left
+new: simp 2 23 21825 "blnk" 1 0 10
+mesg wrt+ targ 1000 19595 494 0
+
+**
+**
+** REMOVAL
+**
+**
+
+
+rscr
+
+** Grendel mother
+enum 3 3 21823
+	kill targ
+next
+
+** Ball toys
+enum 2 21 21809
+	kill targ
+next
+
+** Grendel toy
+enum 2 21 21810
+	kill targ
+next
+
+** Grendel plushie
+enum 2 21 21852
+	kill targ
+next
+
+** Mossy tree
+enum 1 1 21813
+	kill targ
+next
+enum 2 4 21813
+	kill targ
+next
+enum 2 3 21813
+	kill targ
+next
+
+** Hair algae
+enum 2 23 21802
+	kill targ
+next
+enum 2 4 21802
+	kill targ
+next
+enum 2 3 21802
+	kill targ
+next
+enum 1 1 21802
+	kill targ
+next
+
+** Dragonfruit
+enum 1 1 21821
+	kill targ
+next
+enum 2 4 21821
+	kill targ
+next
+enum 2 8 21821
+	kill targ
+next
+enum 2 23 21821
+	kill targ
+next
+
+** Goldfishies
+enum 2 18 21812
+	kill targ
+next
+enum 2 15 21812
+	kill targ
+next
+enum 2 23 21812
+	kill targ
+next
+
+** Flies
+enum 2 15 21838
+	kill targ
+next
+enum 1 1 21838
+	kill targ
+next
+
+** Good bug
+enum 2 13 21822
+	kill targ
+next
+enum 1 1 21822
+	kill targ
+next
+
+** Drumstick bird
+enum 2 18 21843
+	kill targ
+next
+enum 2 14 21843
+	kill targ
+next
+enum 2 15 21843
+	kill targ
+next
+enum 1 1 21843
+	kill targ
+next
+
+** Pickleweed
+enum 1 1 21820
+	kill targ
+next
+enum 2 3 21820
+	kill targ
+next
+enum 2 4 21820
+	kill targ
+next
+enum 2 23 21820
+	kill targ
+next
+
+** Berry patch plant
+enum 1 1 21848
+	kill targ
+next
+enum 2 8 21848
+	kill targ
+next
+
+** Leech
+enum 2 16 21839
+	kill targ
+next
+enum 2 15 21839
+	kill targ
+next
+enum 2 18 21839
+	kill targ
+next
+** Crayfish
+enum 2 23 21827
+	kill targ
+next
+enum 2 16 21827
+	kill targ
+next
+enum 2 15 21827
+	kill targ
+next
+enum 2 18 21827
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+
+** Cheese dispenser
+enum 2 23 21811
+	kill targ
+next
+
+*Gerana
+enum 2 15 21814
+	kill targ
+next
+enum 2 18 21814
+	kill targ
+next
+
+** Redcap mushroom
+enum 1 1 21849
+	kill targ
+next
+enum 2 3 21849
+	kill targ
+next
+enum 2 4 21849
+	kill targ
+next
+
+** Blush shrub
+enum 2 3 21815
+	kill targ
+next
+enum 2 4 21815
+	kill targ
+next
+enum 1 1 21815
+	kill targ
+next
+
+** Elevator vendor
+enum 2 23 21824
+	kill targ
+next
+setv va00 1
+reps 9
+	enum 2 va00 21824
+		kill targ
+	next
+	addv va00 1
+repe
+
+** Button mushroom
+enum 1 1 21855
+	kill targ
+next
+enum 2 11 21855
+	kill targ
+next
+
+
+** Froot fruit tree
+enum 2 4 21816
+	kill targ
+next
+enum 2 8 21816
+	kill targ
+next
+enum 2 10 21816
+	kill targ
+next
+**aggressive moss
+enum 2 23 21800
+	kill targ
+next
+enum 2 3 21800
+	kill targ
+next
+enum 2 4 21800
+	kill targ
+next
+** Button mushroom
+enum 1 1 21855
+	kill targ
+next
+enum 2 11 21855
+	kill targ
+next
+** Inkcap mushrooms
+inst
+enum 1 1 21844
+	kill targ
+next
+enum 2 8 21844
+	kill targ
+next
+enum 2 3 21844
+	kill targ
+next
+** Aster flower
+enum 2 3 21858
+	kill targ
+next
+enum 2 4 21858
+	kill targ
+next
