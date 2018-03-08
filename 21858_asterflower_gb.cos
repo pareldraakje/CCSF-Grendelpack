@@ -40,19 +40,9 @@ inst
 * It uses the "gp_aster" sprite. It contains 1 image, the 0th image.
 * The plane is something random between 500 and 1500. (behind creatures)
 new: simp 2 3 21858 "gp_aster" 1 0 rand 500 1500
-** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
-attr 210
-** Will go through some walls (higher number -> less walls)
-perm 60
-** Physics
-accg 0.1
-aero 1
-fric 90
-elas 20
-** Give the seed an initial tick, before it'll check whether it can grow.
-tick rand 50 200
 ** Move to the gardenbox crosshair x and y coordinates
-mvsf game "ch_x" game "ch_y"
+setv ov50 game "ch_x"
+setv ov51 game "ch_y"
 slow
 
 
@@ -60,6 +50,26 @@ slow
 ** SCRIPTS
 **
 **
+
+*
+** Creation script
+*
+
+scrp 2 3 21858 10
+** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
+	attr 210
+** Will go through some walls (higher number -> less walls)
+	perm 60
+** Physics
+	accg 0.1
+	aero 1
+	fric 90
+	elas 20
+** Give the seed an initial tick, before it'll check whether it can grow.
+	tick rand 50 200
+** Move to the ov50 ov51 coordinates
+	mvsf ov50 ov51
+endm
 
 *
 ** Seed timer & eat script
@@ -100,9 +110,9 @@ scrp 2 3 21858 9
 
 ** Check if the seed has settled
 	doif carr eq null and fall eq 0
-		doif va03 eq 7 or va03 eq 5
+		doif va03 eq 7 or va03 eq 6 or va03 eq 5
 			subv va00 5
-			subv va01 25
+			subv va01 27
 			inst
 
 ** Create a new aster plant.
@@ -144,7 +154,9 @@ scrp 2 4 21858 9
 		setv va00 0
 		rnge 200
 		esee 2 4 21858
-			addv va00 1
+			doif pose lt 15
+				addv va00 1
+			endi
 		next
 		doif va00 ge 4
 			kill ownr
@@ -186,50 +198,17 @@ scrp 2 4 21858 9
 		addv va02 6
 ** Run the next part in an inst
 		inst
-** Make 2 seed that are visible to creatures
-		reps 2
+** Make 4 seed that are visible to creatures
+		reps 4
 			inst
 ** New: simple, same seed as the one you inject above
 			new: simp 2 3 21858 "gp_aster" 1 0 rand 1000 1500
-** attr: mouseable 2 + collide 64 + physics 128 = 194
-			attr 194
-** Will go through some walls
-			perm 60
-** Physics
-			accg 0.1
-			aero 1
-			fric 90
-			elas 20
-** bhvr: pickup 32 & eat 16 = 48
-			bhvr 48
-** Emit starchy smell
-			emit 7 0.8
-** launch seed
-			velo rand -20 20 -7
-			tick rand 50 200
-			mvto va01 va02
+			setv ov50 va01
+			setv ov51 va02
 			slow
+			velo rand -4 4 -4
 		repe
 
-** Create two invisible seed (to keep the population from dying
-		reps 2
-			inst
-			new: simp 2 3 21858 "gp_aster" 1 0 rand 1000 1500
-** attr: mouseable 2 + invisible 16 + collide 64 + physics 128 = 210
-			attr 210
-** Will go through some walls
-			perm 60
-** Physics
-			accg 0.1
-			aero 1
-			fric 90
-			elas 20
-** launch seed
-			velo rand -20 20 -7
-			tick rand 50 200
-			mvto va01 va02
-			slow
-		repe
 ** Retarget the plant
 		targ ownr
 		lock
