@@ -21,7 +21,7 @@ scrp 1 1 21844 9
 		setv va01 posl
 		setv va02 post
 
-		reps 4
+		reps 2
 			new: simp 2 3 21844 "gp_inkcap_mushroom_JESS" 1 0 600
 *picked up creature and hand, gravity and boundaries
 			attr 195
@@ -34,7 +34,7 @@ scrp 1 1 21844 9
 *	dormancy counter - reaches 0 and dies
 			setv ov72 rand 10 40
 			mvsf va01 va02
-			velo rand -5 5 rand -5 0
+			velo rand -20 20 rand -5 0
 			tick rand 1 100
 		repe
 *		dbg: outs "Shrooms created"
@@ -58,14 +58,14 @@ scrp 2 3 21844 9
 		stop
 	endi
 
-* Population check: there can't be more than 12 mushrooms growing in a single spot
+* Population check: there can't be more than 8 mushrooms growing in a single spot
 	setv va01 0
-	rnge 1600
+	rnge 1000
 	esee 2 8 21844
 		addv va01 1
 
 	next
-	doif va01 gt 30
+	doif va01 gt 8
 		kill ownr
 	endi
 
