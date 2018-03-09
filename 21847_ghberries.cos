@@ -72,7 +72,7 @@ endm
 scrp 2 8 21847 9
 	doif pose lt 4
 		setv ov03 0
-		tick rand 100 200
+		tick rand 200 400
 		addv ov01 1
 		pose ov01
 	else
@@ -82,7 +82,7 @@ scrp 2 8 21847 9
 		accg 3
 		aero 2
 		bhvr 48
-		doif ov03 gt 10
+		doif ov03 gt 5
 			kill ownr
 		endi
 	endi
