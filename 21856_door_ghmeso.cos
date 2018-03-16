@@ -2,10 +2,6 @@
 ** Door scripts
 **
 
-setv game "gpmeso" 1
-*setv game "gpmain" 1
-setv game "gpgrendelhideout" 0
-
 ** Check if meso injected
 doif game "gpmeso" eq 1 and game "gpgrendelhideout" ne 1
 **
@@ -164,7 +160,7 @@ scrp 2 2 21856 500
 	mesg writ pntr 101
 	doif ov00 eq 0
 		part 0
-			anim [1 2 3 4 5 6 7 8 9 10]
+		anim [1 2 3 4 5 6 7 8 9 10]
 		part 4
 		pose 0
 		attr 16

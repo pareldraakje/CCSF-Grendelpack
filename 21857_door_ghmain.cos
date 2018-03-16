@@ -3,38 +3,38 @@
 **
 
 ** Check if main injected
-*doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
+doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
 **
 ** The door inside the grendel hideout
-new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 26 1
+	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 26 1
 ** Activateable
-attr 4
+	attr 4
 * The teleporting door animation & disable button
-pat: dull 3 "gp_doormesojungle_UZAG" 37 0 0 2
-pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 68 1 [] 500 0
-part 4
-pose 1
+	pat: dull 3 "gp_doormesojungle_UZAG" 37 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 68 1 [] 500 0
+	part 4
+	pose 1
 * The disabled OV
-setv ov00 0
+	setv ov00 0
 * lift id
-setv ov01 0
-mvto 20181 811
+	setv ov01 0
+	mvto 20181 811
 **
 ** the door inside main
-new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 26 1
+	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 26 1
 ** Activateable
-attr 4
+	attr 4
 * The teleporting door animation & disable button
-pat: dull 3 "gp_doormesojungle_UZAG" 37 0 0 2
-pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 78 1 [] 500 0
-part 4
-pose 1
+	pat: dull 3 "gp_doormesojungle_UZAG" 37 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 78 1 [] 500 0
+	part 4
+	pose 1
 * The disabled OV
-setv ov00 0
+	setv ov00 0
 * lift id
-setv ov01 0
-mvto 21180 2190
-*endi
+	setv ov01 0
+	mvto 21180 2190
+endi
 
 **
 ** SCRIPTS
