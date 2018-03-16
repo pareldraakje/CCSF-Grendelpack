@@ -181,11 +181,6 @@ mesg wrt+ targ 1000 19595 494 0
 
 rscr
 
-** Grendel mother
-enum 3 3 21823
-	kill targ
-next
-
 ** Ball toys
 enum 2 21 21809
 	kill targ
@@ -198,56 +193,6 @@ next
 
 ** Grendel plushie
 enum 2 21 21852
-	kill targ
-next
-
-** Mossy tree
-enum 1 1 21813
-	kill targ
-next
-enum 2 4 21813
-	kill targ
-next
-enum 2 3 21813
-	kill targ
-next
-
-** Hair algae
-enum 2 23 21802
-	kill targ
-next
-enum 2 4 21802
-	kill targ
-next
-enum 2 3 21802
-	kill targ
-next
-enum 1 1 21802
-	kill targ
-next
-
-** Dragonfruit
-enum 1 1 21821
-	kill targ
-next
-enum 2 4 21821
-	kill targ
-next
-enum 2 8 21821
-	kill targ
-next
-enum 2 23 21821
-	kill targ
-next
-
-** Goldfishies
-enum 2 18 21812
-	kill targ
-next
-enum 2 15 21812
-	kill targ
-next
-enum 2 23 21812
 	kill targ
 next
 
@@ -281,49 +226,12 @@ enum 1 1 21843
 	kill targ
 next
 
-** Pickleweed
-enum 1 1 21820
-	kill targ
-next
-enum 2 3 21820
-	kill targ
-next
-enum 2 4 21820
-	kill targ
-next
-enum 2 23 21820
-	kill targ
-next
 
 ** Berry patch plant
 enum 1 1 21848
 	kill targ
 next
 enum 2 8 21848
-	kill targ
-next
-
-** Leech
-enum 2 16 21839
-	kill targ
-next
-enum 2 15 21839
-	kill targ
-next
-enum 2 18 21839
-	kill targ
-next
-** Crayfish
-enum 2 23 21827
-	kill targ
-next
-enum 2 16 21827
-	kill targ
-next
-enum 2 15 21827
-	kill targ
-next
-enum 2 18 21827
 	kill targ
 next
 
@@ -381,14 +289,6 @@ reps 9
 	next
 	addv va00 1
 repe
-
-** Button mushroom
-enum 1 1 21855
-	kill targ
-next
-enum 2 11 21855
-	kill targ
-next
 
 
 ** Froot fruit tree
