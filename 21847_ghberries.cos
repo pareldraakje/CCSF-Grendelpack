@@ -32,11 +32,13 @@
 scrp 1 1 21847 9
 	rnge 1600
 	setv va00 0
+	inst
 	esee 2 8 21847
 		doif attr ne 80
 			addv va00 1
 		endi
 	next
+	slow
 	doif va00 lt 5
 * Set pose variables
 		setv va00 ov04
