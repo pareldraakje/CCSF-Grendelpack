@@ -48,8 +48,8 @@
 *# attach tbal.wav
 
 *# link 0001_removal_grendelhideout.cos 0_00000_map_grendelhideout.cos 
-*# link 21856_door_ghmeso.cos 21857_door_ghmain.cos 21808_shortcutdoors_jungle.cos 
-*# link 21858_asterflower_gb.cos 21844_inkcapmushrooms.cos 21848_c2berries.cos 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 
+*# link 21800_agmoss_JESS.cos 21856_door_ghmeso.cos 21857_door_ghmain.cos 21808_shortcutdoors_jungle.cos 21834_eleplant.cos
+*# link 21858_asterflower_gb.cos 21844_inkcapmushrooms.cos 21847_ghberries.cos 21848_c2berries.cos 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 
 *# link 21849_redcap_mushroom.cos 21852_dustdevilgrendelplushie.cos 21855_mesoshrooms.cos 21825_frogsaladvendor.cos
 *# link 21838_junglefly.cos 21815_blushshrub_ARNOUT.cos 21814_gerana_LIAM.cos 21811_cheesemac_ARNOUT.cos 21810_bonsai.cos 21809_moreballs.cos
 *# link 21837_jungle_life.cos 21835_calinks_jungle.cos 21836_CAemitters_grendelhideout.cos 21835_signpost_grendelhideout.cos 0001_setvar_grendelhideout.cos

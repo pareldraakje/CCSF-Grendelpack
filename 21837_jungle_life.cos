@@ -130,10 +130,10 @@ repe
 **
 ** jungle top tree 1
 new: simp 1 1 21847 "blnk" 1 0 0
-setv ov05 19815
-setv ov06 533
-setv ov07 38
-setv ov08 70
+setv ov05 19800
+setv ov06 450
+setv ov07 32
+setv ov08 100
 mvto 19771 24
 tick 180
 
@@ -228,10 +228,21 @@ next
 
 
 ** Berry patch plant
+enum 1 1 21847
+	kill targ
+next
+enum 2 8 21847
+	kill targ
+next
 enum 1 1 21848
 	kill targ
 next
 enum 2 8 21848
+	kill targ
+next
+
+** Frogsalad vendor
+enum 2 23 21825
 	kill targ
 next
 
