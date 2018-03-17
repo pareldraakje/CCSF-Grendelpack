@@ -1,7 +1,7 @@
 *
 * CAOS2PRAY CHUNK
 *
-*# Pray-File "gp_capillata.agents"
+*# Pray-File "gp_capillata.agent"
 *# DS-Name "GP  Capillata expansion"
 *# desc = "Inject this agent to increase the capillata size: this agent creates an extra room below the capillata, which can be flooded with either fresh or salt water. Above the capillata, some extra space is also created."
 *# Agent Animation File = "gp_favicons_capillata.c16"

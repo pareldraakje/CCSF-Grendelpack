@@ -2,7 +2,7 @@
 * CAOS2PRAY CHUNK
 *
 ** variable: game "gpjunglehideout"
-*# Pray-File "gp_junglehideout.agents"
+*# Pray-File "gp_junglehideout.agent"
 *# DS-Name "GP  Jungle Hideout"
 *# desc = "Inject the Banshee Ark Jungle Hideout"
 *# Agent Animation File = "gp_favicons_jungle.c16"

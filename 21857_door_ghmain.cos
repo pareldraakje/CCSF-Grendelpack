@@ -1,39 +1,48 @@
-**
-** Door scripts
-**
+setv va00 0
+
+doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
+	setv va00 1
+endi
+doif game "gpmain" eq 0 and game "gpgrendelhideout" ne 0
+	setv va00 1
+endi
 
 ** Check if main injected
-doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
+doif va00 eq 1
 **
 ** The door inside the grendel hideout
-	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 26 1
+	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 29 1
 ** Activateable
 	attr 4
 * The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 37 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 68 1 [] 500 0
+	pat: dull 3 "gp_doormesojungle_UZAG" 40 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 53 2 144 68 1 [] 500 0
 	part 4
 	pose 1
 * The disabled OV
 	setv ov00 0
-* lift id
-	setv ov01 0
+* door group id
+	setv ov01 2
 	mvto 20181 811
+	setv va50 room targ
 **
 ** the door inside main
-	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 26 1
+	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 82 1
 ** Activateable
 	attr 4
 * The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 37 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 74 2 143 78 1 [] 500 0
+	pat: dull 3 "gp_doormesojungle_UZAG" 93 0 0 2
+	pat: butt 4 "gp_doormesojungle_UZAG" 107 2 144 71 1 [] 500 0
 	part 4
 	pose 1
 * The disabled OV
 	setv ov00 0
-* lift id
-	setv ov01 0
-	mvto 21180 2190
+* door group id
+	setv ov01 2
+	mvto 21248 2198
+	setv va51 room targ
+
+	link va50 va51 20
 endi
 
 **
@@ -53,10 +62,13 @@ scrp 2 2 21857 1
 
 ** Search the other door
 		seta va90 ownr
+		setv va91 ov01
 		inst
 		enum 2 2 21857
 			doif targ ne ownr
-				seta va90 targ
+				doif ov01 eq va91
+					seta va90 targ
+				endi
 			endi
 		next
 		slow
@@ -71,16 +83,22 @@ scrp 2 2 21857 1
 
 			part 3
 			doif ov01 eq 0
-				anim [1 2 3 4 5 6]
+				anim [1 2 3 4 5 6 7 8]
 				over
-				anim [7 8 9 10 11 0]
+				anim [9 10 11 12 0]
+			else
+				anim [1 2 3 4 5 6 7 8]
+				over
+				anim [9 10 11 0]
 			endi
 
 
 			targ va90
 			part 3
 			doif ov01 eq 0
-				anim [5 4 3 2 1 0]
+				anim [9 8 7 6 5 4 3 2 1 0]
+			else
+				anim [8 7 6 5 4 3 2 1 0]
 			endi
 
 			doif from eq pntr
@@ -107,29 +125,26 @@ endm
 
 ** Disable
 scrp 2 2 21857 500
+	setv va02 ov01
 	mesg writ pntr 101
 	doif ov00 eq 0
-		part 0
-		doif ov01 eq 0
-			anim [1 2 3 4 5 6 7 8 9 10 11]
-		else
+		enum 2 2 21857
+			part 0
 			anim [1 2 3 4 5 6 7 8 9 10]
-		endi
-		part 4
-		pose 0
-		attr 16
-		setv ov00 1
+			part 4
+			pose 0
+			attr 16
+			setv ov00 1
+		next
 	else
-		part 0
-		doif ov01 eq 0
+		enum 2 2 21857
+			part 0
 			anim [10 9 8 7 6 5 4 3 2 1 0]
-		else
-			anim [9 8 7 6 5 4 3 2 1 0]
-		endi
-		part 4
-		pose 1
-		attr 4
-		setv ov00 0
+			part 4
+			pose 1
+			attr 4
+			setv ov00 0
+		next
 	endi
 endm
 

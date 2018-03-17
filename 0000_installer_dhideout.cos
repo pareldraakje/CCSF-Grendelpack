@@ -2,7 +2,7 @@
 * CAOS2PRAY CHUNK
 *
 ** variable: game "gpdeserthideout"
-*# Pray-File "gp_deserthideout.agents"
+*# Pray-File "gp_deserthideout.agent"
 *# DS-Name "GP  Desert Hideout"
 *# desc = "Inject the Banshee Ark Desert Hideout"
 *# Agent Animation File = "gp_favicons_desert.c16"

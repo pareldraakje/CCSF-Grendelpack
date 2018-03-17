@@ -2,8 +2,15 @@
 ** Door scripts
 **
 
-** Check if meso injected
+** Check if either injected
 doif game "gpmeso" eq 1 and game "gpgrendelhideout" ne 1
+	setv va00 1
+endi
+doif game "gpmeso" eq 0 and game "gpgrendelhideout" ne 0
+	setv va00 1
+endi
+
+doif va00 eq 1
 **
 ** The door inside the meso
 	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 12 0 1
@@ -36,44 +43,6 @@ doif game "gpmeso" eq 1 and game "gpgrendelhideout" ne 1
 	setv ov01 0
 	mvto 20176 460
 	setv va51 room targ
-	link va50 va51 20
-endi
-
-** Check if main injected
-doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
-**
-** The door inside the grendel hideout
-	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 29 1
-** Activateable
-	attr 4
-* The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 40 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 53 2 144 68 1 [] 500 0
-	part 4
-	pose 1
-* The disabled OV
-	setv ov00 0
-* door group id
-	setv ov01 2
-	mvto 20181 811
-	setv va50 room targ
-**
-** the door inside main
-	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 82 1
-** Activateable
-	attr 4
-* The teleporting door animation & disable button
-	pat: dull 3 "gp_doormesojungle_UZAG" 93 0 0 2
-	pat: butt 4 "gp_doormesojungle_UZAG" 107 2 144 71 1 [] 500 0
-	part 4
-	pose 1
-* The disabled OV
-	setv ov00 0
-* door group id
-	setv ov01 2
-	mvto 21248 2198
-	setv va51 room targ
-
 	link va50 va51 20
 endi
 
@@ -157,21 +126,26 @@ endm
 
 ** Disable
 scrp 2 2 21856 500
+	setv va02 ov01
 	mesg writ pntr 101
 	doif ov00 eq 0
-		part 0
-		anim [1 2 3 4 5 6 7 8 9 10]
-		part 4
-		pose 0
-		attr 16
-		setv ov00 1
+		enum 2 2 21856
+			part 0
+			anim [1 2 3 4 5 6 7 8 9 10]
+			part 4
+			pose 0
+			attr 16
+			setv ov00 1
+		next
 	else
-		part 0
-		anim [10 9 8 7 6 5 4 3 2 1 0]
-		part 4
-		pose 1
-		attr 4
-		setv ov00 0
+		enum 2 2 21856
+			part 0
+			anim [10 9 8 7 6 5 4 3 2 1 0]
+			part 4
+			pose 1
+			attr 4
+			setv ov00 0
+		next
 	endi
 endm
 
