@@ -14,6 +14,8 @@
 *# depend blnk.c16
 
 *# attach gp_junglev2.blk
+
+*# attach gp_improved_favplaces.c16 improvedfav_pilla_help.catalogue
 *# attach gp_favicons_jungle.c16 GrenP_FavplaceJungle.catalogue
 *# attach gp_shortcutdoors_CS.c16 GrenP_ShortcutDoor.catalogue
 *# attach gp_radioteleport.c16 GrenP_ShortcutDoor.catalogue
@@ -31,9 +33,12 @@
 *# attach gp_fly_UZAG.c16 GrenP_JungleFly.catalogue
 *# attach gp_gerana.c16 GrenP_Gerana.catalogue
 *# attach gp_fernshroom_planter_JESS.c16 GrenP_MesoShroom.catalogue
+*# attach gp_inkcap_mushroom_JESS.c16 GrenP_Inkcapmushroom.catalogue
 *# attach gp_shortcutdoors_CS.c16 GrenP_ShortcutDoor.catalogue
 *# attach gp_frogsalad_vendor_JESS.c16 GrenP_FrogsaladVendor.catalogue
 *# attach gp_doormesojungle_UZAG.c16 GrenP_DoorJungleMeso.catalogue GrenP_DoorJungleMain.catalogue
+*# attach gp_aster.c16 GrenP_AsterFlower.catalogue
+*# attach GrenP_GHBerries.catalogue
 *# attach bal3.wav
 *# attach chwp.wav
 *# attach cmac.wav
@@ -47,7 +52,7 @@
 *# attach punc.wav
 *# attach tbal.wav
 
-*# link 0001_removal_grendelhideout.cos 0_00000_map_grendelhideout.cos 
+*# link 0001_removal_grendelhideout.cos 21841_improvedfavplace.cos 0_00000_map_grendelhideout.cos 
 *# link 21800_agmoss_JESS.cos 21856_door_ghmeso.cos 21857_door_ghmain.cos 21808_shortcutdoors_jungle.cos 21834_eleplant.cos
 *# link 21858_asterflower_gb.cos 21844_inkcapmushrooms.cos 21847_ghberries.cos 21848_c2berries.cos 21810_bonsai.cos 21815_blushshrub_ARNOUT.cos 
 *# link 21849_redcap_mushroom.cos 21852_dustdevilgrendelplushie.cos 21855_mesoshrooms.cos 21825_frogsaladvendor.cos

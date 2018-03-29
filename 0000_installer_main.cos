@@ -15,6 +15,8 @@
 
 *# attach gp_mainworld.blk
 
+
+*# attach gp_improved_favplaces.c16 improvedfav_pilla_help.catalogue
 *# attach gp_agressive_moss_JESS.c16
 *# attach gp_blush_shrub_CS.c16
 *# attach gp_c2berries.c16
