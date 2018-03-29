@@ -21,8 +21,9 @@ link grap 22156 1700 grap 22156 1921 100
 link grap 22708 1946 grap 22708 2144 100
 link grap 22708 2144 grap 22708 2210 100
 
+doif game "gpmeso" eq 1
 *main swamp - meso swamp
 link grap 22560 2329 grap 24544 572 100
 *main desert - meso desert
 link grap 23499 619 grap 22045 1141 100
-
+endi

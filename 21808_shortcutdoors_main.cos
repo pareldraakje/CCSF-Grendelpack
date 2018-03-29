@@ -2,58 +2,69 @@
 ** TELEPORTERS
 **
 
+
+doif game "gpmain" eq 0 and game "gpdeserthideout" ne 0
+** Door main > desert hideout
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
+	attr 4
+	bhvr 1
+	mvto 22010 1091
+	setv va00 grap posx posy
+** Door desert hideout > main
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
+	attr 4
+	bhvr 1
+	mvto 21643 3665
+	link grap posx posy va00 60
+endi
+
+
+doif game "gpmeso" ne 0 and game "gpmain" eq 0
 *
 ** DESERT (meso) > DESERT (main)
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 1
-setv ov01 0
-attr 4
-bhvr 1
-mvto 23481 573
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
+	attr 4
+	bhvr 1
+	mvto 23695 911
+	setv va00 grap posx posy
 *
 ** DESERT (main) > DESERT (meso)
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 1
-setv ov01 0
-attr 4
-bhvr 1
-mvto 22010 1091
-
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 1
+	setv ov01 0
+	attr 4
+	bhvr 1
+	mvto 22010 1091
+	link grap posx posy va00 60
 *
 ** JUNGLE (meso) > SWAMP (main)
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 2
-attr 4
-bhvr 1
-mvto 24500 541
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 2
+	attr 4
+	bhvr 1
+	mvto 25920 1567
+	setv va00 grap posx posy
 *
 ** SWAMP (main) > JUNGLE (meso)
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 2
-attr 4
-bhvr 1
-mvto 21927 2299
-
-*
-** UPPERWATER (meso) > UNDERWATER (meso)
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 8 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 3
-attr 4
-bhvr 1
-mvto 23619 1492
-*
-** UNDERWATER (meso) > UPPERWATER (meso) 
-new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 8 100
-pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-setv ov00 3
-attr 4
-bhvr 1
-mvto 23619 1920
+	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
+	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
+	setv ov00 2
+	attr 4
+	bhvr 1
+	mvto 21927 2299
+	link grap posx posy va00 60
+endi
 
 **
 ** TELEPORTER EVENT SCRIPTS

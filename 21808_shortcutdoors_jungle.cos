@@ -1,27 +1,5 @@
 
 **
-** Shortcut doors
-** If main injected, create doors to/from main
-doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
-*
-** JUNGLE (meso) > SWAMP (main)
-	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
-	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-	setv ov00 2
-	attr 4
-	bhvr 1
-	mvto 25850 1571
-*
-** SWAMP (main) > JUNGLE (meso)
-	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 5 100
-	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-	setv ov00 2
-	attr 4
-	bhvr 1
-	mvto 22950 2290
-endi
-
-**
 ** Shortcut teleporters
 ** If neither meso or main injected, create doors to/from capillata
 doif game "gpmain" ne 1 and game "gpmeso" ne 1 and game "gpgrendelhideout" ne 1

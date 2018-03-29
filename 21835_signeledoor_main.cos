@@ -18,46 +18,6 @@ tick 10
 ** 20 - 24: desert
 ** 25 - 29: jungle
 ** 50 - 60: teleporters
-**
-**
-
-** If desert hideout injected, create doors to/from desert hideout
-doif game "gpdeserthideout" eq 1
-** Door main > desert hideout
-	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
-	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-	setv ov00 1
-	setv ov01 0
-	attr 4
-	bhvr 1
-	mvto 22010 1091
-** Door desert hideout > main
-	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
-	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
-	setv ov00 1
-	setv ov01 0
-	attr 4
-	bhvr 1
-	mvto 21643 3665
-endi
-
-*
-** If grendel hideout injected, create doors to/from grendel hideout
-doif game "gpgrendelhideout" eq 1
-** Door main > grendel hideout
-	new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
-	setv ov00 6
-	attr 4
-	bhvr 1
-	mvto 23106 2289
-** Door grendel hideout > main
-	new: simp 2 2 21835 "gp_dhelevators_CS" 1 0 100
-	setv ov00 6
-	attr 4
-	bhvr 1
-	mvto 20255 557
-endi
-
 
 **
 **
