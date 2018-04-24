@@ -1,0 +1,114 @@
+**
+**
+**
+**
+** GP grendel hideout berries
+**
+**
+**
+**
+
+**
+**
+**
+**
+** GP grendel hideout berries
+**
+** Create berry: 
+*	ov04 base
+*	ov05 posx
+*	ov06 width
+*	ov07 posy
+*	ov08 height
+**
+**
+
+** Scripts
+**
+
+*
+** Berry creator timer script
+*
+scrp 1 1 21860 9
+	rnge 1600
+	setv va00 0
+	inst
+	esee 2 8 21860
+		doif attr ne 80
+			addv va00 1
+		endi
+	next
+	slow
+	doif va00 lt 3
+* Set dimension variables posx width posy length
+		setv va01 ov05
+		addv va01 rand 0 ov06
+		setv va02 ov07
+		addv va02 rand 0 ov08
+* Create patch berry
+		new: simp 2 8 21860 "gp_mossytree_JESS" 1 rand 9 10 rand 50 1000
+		attr 80
+		perm rand 20 100
+		emit 6 .3
+		elas 25
+		fric 90
+		setv ov01 0
+		tick 1
+		pose 0
+		mvsf va01 va02
+	endi
+	targ ownr
+	tick rand 480 800
+endm
+
+
+*
+** Berry timer script
+*
+
+scrp 2 8 21860 9
+	doif ov01 eq 0
+		tick rand 800 1400
+		setv ov01 1
+		setv ov03 0
+	else
+		addv ov03 1
+		attr 199
+		accg 3
+		aero 2
+		bhvr 48
+		doif ov03 gt 3
+			kill ownr
+		endi
+	endi
+endm
+
+*
+** Berry eat script
+*
+
+scrp 2 8 21860 12
+	sndc "chwp"
+	stim writ from 78 .5
+	chem 5 1
+	chem 10 .2
+	chem 12 .2
+	chem 5 .2
+	targ ownr
+	kill targ
+endm
+
+**
+** Removal script
+**
+rscr
+
+* Remove berry creator
+enum 1 1 21860
+	kill targ
+next
+
+* Remove berries
+enum 2 8 21860
+	kill targ
+next
