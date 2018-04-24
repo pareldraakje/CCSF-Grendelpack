@@ -1,5 +1,21 @@
 
+
+
 *
+** Egg creator script
+scrp 2 18 21853 1000
+	attr 192
+	elas 0
+	fric 100
+	setv ov55 2
+	doif tmvt _p1_ _p2_ ne 1
+		kill targ
+		stop
+	endi
+	tick rand 100 600
+	mvto _p1_ _p2_
+endm
+
 *
 ** Fish creator script
 scrp 2 16 21853 1000
@@ -18,27 +34,6 @@ scrp 2 16 21853 1000
 	setv ov61 50
 	mvto _p1_ _p2_
 endm
-
-*
-* new: simp 2 18 21853 "gp_nudioxy_JESS" 1 37 10
-*
-** Egg creator script
-scrp 2 18 21853 1000
-	attr 192
-	elas 0
-	fric 100
-	setv ov55 2
-	doif tmvt _p1_ _p2_ ne 1
-		kill targ
-		stop
-	endi
-	tick rand 100 600
-	mvto _p1_ _p2_
-endm
-
-
-
-
 
 *
 ** Fish timer script
@@ -210,14 +205,14 @@ scrp 2 18 21853 9
 		setv va98 0
 ** Try to find a safe spot to move fish
 		loop
+			addv va99 1
 			doif tmvt va00 va01 ne 1
-				addv va00 1
-				addv va99 1
+				subv va01 1
 			else
-				setv va99 32
+				mvto va00 va01
 				setv va98 1
 			endi
-		untl va99 ge 60
+		untl va99 ge 40
 
 ** If this fails, KILL
 		doif va98 eq 0

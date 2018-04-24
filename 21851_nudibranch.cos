@@ -31,8 +31,6 @@
 **
 *new: comp 2 23 21851 "gp_nudioxy_JESS" 1 0 rand 800 900
 *mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
-new: simp 2 15 21851 "gp_nudioxy_JESS" 20 17 1000
-mesg wrt+ targ 1000 23709 1715 0
 
 
 **
@@ -53,8 +51,8 @@ scrp 2 15 21851 1000
 * won't go through walls
 	perm 100
 ** Physics
-	aero 1
-	fric 80
+	aero 10
+	fric 40
 	elas 30
 	rnge 900
 	frat 4
@@ -188,7 +186,7 @@ scrp 2 15 21851 9
 		addv ov01 1
 	endi
 
-** if ov01 is greater or equal than ov00, time's up. Crayfish ded.
+** if ov01 is greater or equal than ov00, time's up. Nudibranch ded.
 	doif ov01 ge ov00
 		gsub die
 ** Otherwise, walk around happily, grow and lay eggs.
@@ -310,25 +308,35 @@ scrp 2 15 21851 9
 			endi
 ** if going left
 			doif ov10 eq 1
-** animation depends on lifestage
-				velo rand -2 -1 -1
 				doif ov02 eq 0
-					anim [5 6 7 8]
+** animation depends on lifestage
+					anim [3 2]
+					velo -1 -1
+					over
+					anim [1 0]
 				else
-					anim [0 1 2 3]
+					anim [8 7]
+					velo -1 -1
+					over
+					anim [6 5]
 				endi
+				velo rand -2 -1 -1
 				over
-
-
 ** if going right
 			elif ov10 eq -1
 ** animation depends on lifestage
-				velo rand 1 2 -1
 				doif ov02 eq 0
-					anim [15 16 17 18]
+					anim [13 12]
+					velo 1 -1
+					over
+					anim [11 10]
 				else
-					anim [10 11 12 13]
+					anim [18 17]
+					velo 1 -1
+					over
+					anim [16 15]
 				endi
+				velo rand 1 2 -1
 				over
 			endi
 		repe
