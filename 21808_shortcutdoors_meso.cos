@@ -2,7 +2,7 @@
 ** TELEPORTERS
 **
 
-doif game "gpmeso" ne 1 and game "gpmain" eq 1
+doif game "gpmain" ne 0 and game "gpmeso" eq 0
 *
 ** DESERT (meso) > DESERT (main)
 	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
