@@ -237,7 +237,7 @@ tick 1
 new: simp 1 1 21860 "blnk" 1 0 0
 setv ov05 22363
 setv ov06 300
-setv ov07 1597
+setv ov07 1607
 setv ov08 80
 setv ov04 2
 mvto 20744 1629
@@ -286,15 +286,10 @@ mesg wrt+ targ 1000 22424 2773 0
 
 *
 ** Dragonfruit
-** Lower desert biome vendor
+** Hallway vendor
 new: simp 2 23 21821 "blnk" 1 0 10
 seta va50 targ
-mesg wrt+ targ 1000 22290 1062 0
-
-** Lower left tree biome vendor
-new: simp 2 23 21821 "blnk" 1 0 10
-seta va50 targ
-mesg wrt+ targ 1000 20700 2748 0
+mesg wrt+ targ 1000 22545 1290 0
 
 *
 ** Agressive moss
@@ -302,6 +297,28 @@ new: comp 2 23 21800 "gp_agressive_moss_JESS" 10 46 rand 800 900
 mesg wrt+ targ 1000 22001 1897 0
 
 
+**
+** TOYS
+**
+** Beach ball
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+mesg wrt+ targ 1000 22142 743 0
+** Bonsai
+new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
+mesg wrt+ targ 1000 21081 1760 0
+** Dustdevil plushie
+new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 1000
+mesg wrt+ targ 1000 22192 1046 0
+** Green ball
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 21734 1335 0
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 22192 1782 0
+new: simp 2 21 21809 "gp_moreballs" 40 0 3000
+base 32
+mesg wrt+ targ 1000 21835 2147 0
 
 **
 **
@@ -527,5 +544,21 @@ enum 2 8 21844
 	kill targ
 next
 enum 2 3 21844
+	kill targ
+next
+** Mossy berries
+enum 1 1 21860
+	kill targ
+next
+enum 2 8 21860
+	kill targ
+next
+
+** Balls
+enum 2 21 21809
+	kill targ
+next
+** Dustdevil plushie
+enum 2 21 21852
 	kill targ
 next
