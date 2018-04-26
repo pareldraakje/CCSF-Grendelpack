@@ -309,16 +309,16 @@ rscr
 enum 2 14 21845
 	kill targ
 next
+enum 2 18 21845
+	kill targ
+next
+enum 1 1 21845
+	kill targ
+next
 scrx 2 14 21845 1
 scrx 2 14 21845 2
 scrx 2 14 21845 3
 scrx 2 14 21845 9
 scrx 2 14 21845 12
-enum 2 18 21845
-	kill targ
-next
 scrx 2 18 21845 9
-enum 1 1 21845
-	kill targ
-next
 scrx 1 1 21845 9
