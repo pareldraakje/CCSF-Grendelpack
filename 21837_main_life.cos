@@ -28,6 +28,20 @@ new: simp 1 1 21849 "blnk" 1 0 rand 200 6000
 mvto 20993 1085
 tick rand 1 100
 *
+** Button Mushrooms
+** Mid cave
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 21773 1342
+tick rand 3 8
+** Mid cave
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 21199 1342
+tick rand 3 8
+** Mid cave
+new: simp 1 1 21855 "blnk" 1 0 1
+mvto 22437 1342
+tick rand 3 8
+
 ** Dragonfruit
 ** Main Lower desert
 new: simp 1 1 21821 "blnk" 1 0 10
@@ -61,6 +75,13 @@ tick 1
 new: simp 1 1 21838 "blnk" 1 0 10
 mvto 22186 2032
 tick rand 1 100
+
+*
+** Desert flying bug
+new: simp 1 1 21845 "blnk" 1 0 0
+tick 15
+mvto 22058 649
+
 *
 ** Good bug
 ** Upper desert
@@ -100,6 +121,26 @@ setv ov20 21936
 setv ov21 768
 mvto ov20 ov21
 tick rand 20 180
+
+new: simp 1 1 21843 "blnk" 1 0 0
+setv ov20 22649
+setv ov21 768
+mvto ov20 ov21
+tick rand 20 180
+
+new: simp 1 1 21843 "blnk" 1 0 0
+setv ov20 22202
+setv ov21 998
+mvto ov20 ov21
+tick rand 20 180
+
+*
+** Good bug
+** Straw hut lefts
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 20960 1765
+tick rand 1 100
 
 
 **
@@ -247,6 +288,12 @@ tick 1
 ** Vendors
 **
 **
+*
+** Cheese dispenser
+** mid
+new: comp 2 23 21811 "gp_ccmac" 9 0 1000
+mesg wrt+ targ 1000 22525 1353 0
+
 *
 ** Frogsalad
 ** Grendel main Treehouses
@@ -560,5 +607,22 @@ enum 2 21 21809
 next
 ** Dustdevil plushie
 enum 2 21 21852
+	kill targ
+next
+
+
+** Cheese dispenser
+enum 2 23 21811
+	kill targ
+next
+
+** Desert bug
+enum 2 14 21845
+	kill targ
+next
+enum 2 18 21845
+	kill targ
+next
+enum 1 1 21845
 	kill targ
 next

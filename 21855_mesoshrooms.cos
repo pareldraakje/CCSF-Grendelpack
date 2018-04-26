@@ -1,4 +1,5 @@
 scrp 1 1 21855 9
+	tick rand 300 1000
 	setv va05 posx
 	setv va06 posy
 	new: simp 2 11 21855 "gp_fernshroom_planter_JESS" 1 15 rand 1200 1900
