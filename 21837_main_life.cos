@@ -89,6 +89,16 @@ new: simp 1 1 21822 "blnk" 1 0 0
 setv ov00 2
 mvto 21947 779
 tick rand 1 100
+** Straw hut lefts
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 20960 1765
+tick rand 1 100
+** underground tropic biome
+new: simp 1 1 21822 "blnk" 1 0 0
+setv ov00 2
+mvto 21136 2695
+tick rand 1 100
 *
 **
 ** Oxymonacanthus
@@ -133,14 +143,6 @@ setv ov20 22202
 setv ov21 998
 mvto ov20 ov21
 tick rand 20 180
-
-*
-** Good bug
-** Straw hut lefts
-new: simp 1 1 21822 "blnk" 1 0 0
-setv ov00 2
-mvto 20960 1765
-tick rand 1 100
 
 
 **
