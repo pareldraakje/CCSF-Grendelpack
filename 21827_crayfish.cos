@@ -40,6 +40,28 @@
 **
 **
 
+**
+** Patch controller
+scrp 1 1 21827 9
+	tick 350
+	rnge 1500
+	lock
+	setv va00 0
+	esee 2 15 21827
+		addv va00 1
+	next
+	doif va00 lt ov00 and rand 0 5 eq 5
+		setv va01 posx
+		setv va02 post
+		reps 2
+			targ ownr
+			new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
+			mesg wrt+ targ 1000 va01 va02 0
+			velo rand -10 10 0
+		repe
+	endi
+endm
+
 ** Crayfish creator script
 **
 

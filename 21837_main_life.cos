@@ -99,33 +99,27 @@ new: simp 1 1 21822 "blnk" 1 0 0
 setv ov00 2
 mvto 21136 2695
 tick rand 1 100
-*
-**
-** Oxymonacanthus
- reps 8
- new: simp 2 18 21853 "gp_nudioxy_JESS" 1 37 10
- mesg wrt+ targ 1000 22182 2627 0
- velo rand -10 10 0
-repe
 
- reps 8
-new: simp 2 16 21853 "gp_nudioxy_JESS" 20 38 1000
-mesg wrt+ targ 1000 22182 2627 0
- velo rand -10 10 0
-repe
+*
+** Crayfish
+** Topleft
+new: simp 1 1 21827 "blnk" 1 0 rand 2000 3000
+setv ov00 3
+mvto 20747 938
+tick rand 100 350
+** Underwater
+new: simp 1 1 21827 "blnk" 1 0 rand 2000 3000
+setv ov00 4
+mvto 22182 2627
+tick rand 100 350
 
 *
 ** Nudibranch
 new: simp 1 1 21851 "blnk" 1 0 1000
+setv ov00 5
 mvto 22182 2627
 tick rand 100 350
 
-reps 10
-new: simp 2 15 21851 "gp_nudioxy_JESS" 20 17 1000
-mesg wrt+ targ 1000 22182 2627 0
- velo rand -10 10 0
-setv ov02 rand 0 1
-repe
 
 *
 ** Drumstick birds
@@ -187,6 +181,28 @@ reps 4
 	new: simp 2 15 21827 "gp_crayleech_JESS" 20 12 rand 2000 3000
 	mesg wrt+ targ 1000 20747 938 0
 repe
+
+** Oxymonacanthus
+ reps 8
+ new: simp 2 18 21853 "gp_nudioxy_JESS" 1 37 10
+ mesg wrt+ targ 1000 22182 2627 0
+ velo rand -10 10 0
+repe
+
+ reps 8
+new: simp 2 16 21853 "gp_nudioxy_JESS" 20 38 1000
+mesg wrt+ targ 1000 22182 2627 0
+ velo rand -10 10 0
+repe
+
+** Nudibranch
+reps 10
+new: simp 2 15 21851 "gp_nudioxy_JESS" 20 17 1000
+mesg wrt+ targ 1000 22182 2627 0
+ velo rand -10 10 0
+setv ov02 rand 0 1
+repe
+
 
 ** Hair algae
 
