@@ -1,3 +1,4 @@
+*Now attempts to fly out of water when underwater
 *Desert Lance Bug: 2 14 16502
 *Desert Lance Bug Egg: 2 18 21845
 *Desert Lance Bug Pop Checker: 1 1 21845
@@ -16,7 +17,6 @@
 *new: simp 1 1 21845 "blnk" 1 0 0
 *tick 20
 *mvto 19725 779
-
 
 ** Population check timer script
 
@@ -120,8 +120,12 @@ scrp 2 14 21845 9
 *set max speed
 	setv ov14 6
 	setv ov15 6
-*subroutine wall check
-	gsub wall
+*subroutine wall check AND WATER CHECK
+	doif rtyp room targ ne 8 and rtyp room targ ne 9
+		gsub wall
+	else
+		setv ov11 -1
+	endi
 **if not changing X direction because of walls..
 	doif va00 ne 1
 		doif rand 0 2 eq 0
@@ -131,7 +135,7 @@ scrp 2 14 21845 9
 		addv ov90 rand 1 3
 	endi
 **if not changing Y direction because of walls..
-	doif va01 ne 1
+	doif va01 ne 1 and rtyp room targ ne 8 and rtyp room targ ne 9
 		doif rand 0 1 eq 0
 *change Y direction
 			negv ov11
