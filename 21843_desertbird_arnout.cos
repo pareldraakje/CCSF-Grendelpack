@@ -60,12 +60,11 @@ scrp 1 1 21843 9
 			aero 10
 			fric 100
 			elas 0
+*set a timer between 5 and 10 secs
+			tick rand 200 600
 *move to the intended spots
 			velo rand -10 10 rand -3 0
 			mvsf va20 va21
-			wait 20
-*set a timer between 5 and 10 secs
-			tick rand 200 600
 			slow
 		repe
 	endi
