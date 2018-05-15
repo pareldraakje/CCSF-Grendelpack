@@ -53,6 +53,7 @@
 *# attach gp_pickleweed_plant_JESS.c16 GrenP_Pickleweedplant.catalogue
 *# attach gp_redcap_mushroom.c16 GrenP_RedcapMushroom.catalogue
 *# attach gp_shortcutdoors_CS.c16 GrenP_ShortcutDoor.catalogue
+*# attach gp_frootfruit_CS.c16 GrenP_Frootfruit.catalogue
 
 *# attach bal3.wav
 *# attach chwp.wav

@@ -147,8 +147,17 @@ tick rand 20 180
 ** Initial wildlife
 **
 **
-
 *
+
+** Froot fruit tree
+** Upper desert
+ new: simp 2 8 21816 "gp_frootfruit_CS" 1 1 980
+ mesg wrt+ targ 1000 21906 749 0
+** Mossy place lower right
+ new: simp 2 8 21816 "gp_frootfruit_CS" 1 1 980
+ mesg wrt+ targ 1000 22928 2213 0
+
+
 ** Gerana
 ** Main right
 reps 3
@@ -355,10 +364,10 @@ mesg wrt+ targ 1000 22424 2773 0
 
 *
 ** Dragonfruit
-** Hallway vendor
+** Treehouse vendor
 new: simp 2 23 21821 "blnk" 1 0 10
 seta va50 targ
-mesg wrt+ targ 1000 22545 1290 0
+mesg wrt+ targ 1000 20832 500 0
 
 *
 ** Agressive moss
@@ -371,7 +380,7 @@ mesg wrt+ targ 1000 22001 1897 0
 **
 ** Beach ball
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
-mesg wrt+ targ 1000 22142 743 0
+mesg wrt+ targ 1000 22142 1025 0
 ** Bonsai
 new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
 mesg wrt+ targ 1000 21081 1760 0
@@ -646,5 +655,17 @@ enum 2 18 21845
 	kill targ
 next
 enum 1 1 21845
+	kill targ
+next
+
+
+** Mossy tree
+enum  2 8 21816
+	kill targ
+next
+enum  2 4 21816 
+	kill targ
+next
+enum  2 10 21816 
 	kill targ
 next
