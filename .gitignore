@@ -3,3 +3,5 @@
 *.agents
 *.agents
 *.agent
+*.exe
+*.zip
