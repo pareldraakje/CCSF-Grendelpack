@@ -3,6 +3,14 @@
 ** Shortcut doors
 ** If main injected, create doors to/from main
 doif game "gpmain" eq 1 and game "gpdeserthideout" ne 1
+	doif game "gpmeso" eq 1
+		enum 2 2 21808
+			doif ov00 eq 1 and ov01 eq 0
+				kill targ
+			endi
+		next
+	endi
+
 ** Door main > desert hideout
 	new: comp 2 2 21808 "gp_shortcutdoors_CS" 3 2 100
 	pat: butt 2 "gp_shortcutdoors_CS" 0 2 18 57 0 [] 1004 0
@@ -41,7 +49,7 @@ doif game "gpmain" ne 1 and game "gpmeso" ne 1 and game "gpdeserthideout" ne 1
 	frat 3
 	mvto 22363 3566
 	setv va00 grap posx posy
-	** Door desert hideout > main
+** Door desert hideout > main
 	new: comp 2 2 21808 "gp_radioteleport" 3 0 100
 	setv ov00 50
 	setv ov01 0
@@ -55,7 +63,7 @@ doif game "gpmain" ne 1 and game "gpmeso" ne 1 and game "gpdeserthideout" ne 1
 	bhvr 1
 	mvsf game "CreatorX" game "CreatorY"
 	link va00 grap posx posy 60
-	endi
+endi
 
 
 **

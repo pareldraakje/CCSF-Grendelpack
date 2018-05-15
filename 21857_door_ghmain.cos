@@ -14,6 +14,7 @@ doif va00 eq 1
 	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 29 1
 ** Activateable
 	attr 4
+	bhvr 1
 * The teleporting door animation & disable button
 	pat: dull 3 "gp_doormesojungle_UZAG" 40 0 0 2
 	pat: butt 4 "gp_doormesojungle_UZAG" 53 2 144 68 1 [] 500 0
@@ -30,6 +31,7 @@ doif va00 eq 1
 	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 82 1
 ** Activateable
 	attr 4
+	bhvr 1
 * The teleporting door animation & disable button
 	pat: dull 3 "gp_doormesojungle_UZAG" 93 0 0 2
 	pat: butt 4 "gp_doormesojungle_UZAG" 107 2 144 71 1 [] 500 0
@@ -104,18 +106,15 @@ scrp 2 2 21857 1
 			doif from eq pntr
 				cmrp va05 va06 0
 			else
-				doif fmly eq 4
 ** Target the pusher
 					targ from
 ** Move the creature
-					mvft va05 va06
+					mvsf va05 va06
 ** Stim the creature "travelled through door"
 					stim writ from 95 1
 ** urge to remove attention from door
 ** and reset the verb state to neutral
-					urge writ va00 2 -1 -1 1
-				endi
-
+					urge writ from 2 -1 -1 1
 			endi
 
 		endi
