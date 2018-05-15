@@ -1,0 +1,189 @@
+**
+** Mealworm script
+**
+
+**
+** Create a mealworm
+**
+targ pntr
+setv va00 posx
+setv va01 posy
+
+*	new: simp 2 13 21861 "gp_mealworm_JESS" 10 1 rand 1200 4000
+*	mesg wrt+ targ 1000 va00 va01 0
+
+**
+** Creation script
+**
+
+** Mealworm creation
+scrp 2 13 21861 1000
+** Set amount of ticks lived
+	setv name "mw_curtick" 0
+** Keep track of the current lifestage
+	setv name "mw_lifestage" 0
+** Keep track of how many eggs laid
+	setv name "mw_eggs" 0
+* Attr: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+	core 7 17 0 20
+* Bhvr: act1 1 + hit 8 + eat 16 + pick up 32 = 57
+	bhvr 57
+* Set physics attributes
+	accg 2
+	aero 3
+* Set collision attributes
+	perm 60
+	fric 60
+	elas 30
+* Move to the spot if possible
+	doif tmvt _p1_ _p2_ ne 0
+		mvto _p1_ _p2_
+	else
+		kill targ
+	endi
+	tick 1
+endm
+
+**
+** Activate 1 (push) script
+**
+
+** Bug play
+scrp 2 13 21861 1
+* stim played with good bug
+	stim writ from 85 1
+* move the bug around a bit
+	setv va00 velx
+	mulv va00 3
+	velo va00 -3
+endm
+
+**
+** Hit script
+**
+
+** Bug hit
+scrp 2 13 21861 3
+* stim hit animal
+	stim writ from 87 1
+* move the bug around a little
+	velo rand -3 3 rand -6 -3
+endm
+
+**
+** Eat script
+**
+
+** Bug eat
+scrp 2 13 21861 12
+* stim eaten animal
+	stim writ from 80 2
+	kill ownr
+endm
+
+**
+** Timer script
+**
+
+* Bug
+scrp 2 13 21861 9
+
+	tick 0
+	gsub grow
+	gsub live
+	gsub eggs
+	gsub die
+	addv mame "mw_curtick" 1
+	tick 5
+
+	subr grow
+		doif mame "mw_curtick" eq 300
+			setv mame "mw_lifestage" 1
+		elif mame "mw_curtick" eq 350
+			setv mame "mw_lifestage" 2
+		elif mame "mw_curtick" eq 450
+			setv mame "mw_lifestage" 3
+		endi
+	retn
+
+* if not being carried
+	subr live
+		lock
+		doif mame "mw_lifestage" eq 0
+			base 1
+			frat 10
+			anim [0 1 255]
+			gsub bugmove
+		elif mame "mw_lifestage" eq 1
+			base 0
+			pose 3
+		elif mame "mw_lifestage" eq 2
+			base 4
+			frat 10
+			anim [0 1 255]
+			gsub bugmove
+		elif mame "mw_lifestage" eq 3
+			base 5
+			anim [0 1 2 1 255]
+			gsub flymove
+		endi
+	retn
+
+	subr eggs
+		doif mame "mw_lifestage" eq 2
+** Do egg laying stuff here
+		endi
+	retn
+
+	subr die
+		doif mame "mw_lifestage" gt 3
+** Do dying stuff here
+		endi
+	retn
+
+	subr bugmove
+		doif carr eq null
+* Pick direction
+			setv va00 rand 1 8
+			doif va00 le 4
+				setv va00 rand -8 -5
+				mira 0
+			elif va00 gt 4
+				setv va00 rand 5 8
+				mira 1
+			endi
+* walk
+			reps rand 4 12
+* if not busy falling
+				doif fall ne 1
+					setv va20 grap posx posy
+* if in water, set accg
+					doif rtyp va20 eq 8 or rtyp va20 eq 9
+						accg 0.8
+* if in invalid spot, kill
+					elif rtyp va20 eq -1
+						kill targ
+						stop
+* if on land, set accg
+					else
+						accg 2
+					endi
+* move!
+					velo va00 -8
+				endi
+				wait 15
+			repe
+		endi
+	retn
+
+	subr flymove
+	retn
+
+endm
+
+
+rscr
+enum 2 13 21861
+	kill targ
+next
