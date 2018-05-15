@@ -18,12 +18,6 @@
 **
 ** GRENDEL MOTHER
 **
-**
-
-doif game "gpmeso" ne 1
-new: comp 3 3 21823 "gp_grendelmother_UZAG" 9 0 100
-mesg wrt+ targ 1000 24960 829 0
-endi
 
 **
 ** Grendel egg maker script.
