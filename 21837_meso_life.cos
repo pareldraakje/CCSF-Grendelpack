@@ -1,3 +1,10 @@
+**
+** Grendel mother
+**
+**
+
+new: comp 3 3 21823 "gp_grendelmother_UZAG" 9 0 100
+mesg wrt+ targ 1000 24960 829 0
 
 
 **
@@ -187,7 +194,7 @@ repe
 
 ** Mushrooms
 new: simp 1 1 21855 "blnk" 1 0 1
-mvto 24284 236
+mvto 24704 1236
 tick rand 300 1000
 
 **
