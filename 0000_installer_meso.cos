@@ -17,7 +17,7 @@
 
 *# attach gp_airlock.c16 GrenP_Airlock.catalogue
 *# attach gp_blush_shrub_CS.c16 GrenP_Blushshrub.catalogue
-*# attach gp_c2berries.c16 GrenP_C2Berries.catalogue
+*# attach gp_c2berries.c16 gp_c2berries_rotten.c16 GrenP_C2Berries.catalogue
 *# attach gp_capillata_overlay_JESS.c16 GrenP_Capillataoverlay.catalogue
 *# attach gp_favicons_capillata.c16
 *# attach gp_ccmac.c16 GrenP_CheeseMac.catalogue

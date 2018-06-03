@@ -54,7 +54,6 @@ scrp 2 8 21848 9
 	wait rand 200 800
 	addv ov01 1
 	pose ov01
-
 	setv ov00 1
 	wait rand 100 300
 	pose 2
@@ -63,7 +62,14 @@ scrp 2 8 21848 9
 	aero 2
 	bhvr 48
 	wait rand 100 1000
-	kill ownr
+		setv va00 posl
+		setv va01 post
+		setv va02 perm
+		new: simp 2 10 21848 "gp_c2berries_rotten" 1 0 rand 500 1000
+		mvto va00 va01
+		perm va02
+		tick rand 800 1500
+		kill ownr
 endm
 
 *

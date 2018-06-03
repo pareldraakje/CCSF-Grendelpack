@@ -85,10 +85,58 @@ scrp 2 8 21847 9
 		aero 2
 		bhvr 48
 		doif ov03 gt 5
+			setv va00 posl
+			setv va01 post
+			setv va02 perm
+			new: simp 2 10 21847 "gp_c2berries_rotten" 1 1 rand 500 1000
+			mvto va00 va01
+			perm va02
+			tick rand 400 600
 			kill ownr
 		endi
 	endi
 endm
+
+
+*
+** Rotten tick
+*
+
+scrp 2 10 21847 9
+kill ownr
+endm
+
+*
+** Rotten creation
+*
+
+scrp 2 10 21847 10
+inst
+		attr 199
+			elas 25
+		fric 90
+	accg 3
+		aero 2
+		bhvr 48
+	emit 4 0.6
+slow
+endm
+
+*
+** Rotten eat script
+*
+
+scrp 2 10 21847 12
+	sndc "chwp"
+	stim writ from 81 .5
+	chem 5 1
+	chem 10 .2
+	chem 12 .2
+	chem 5 .2
+	targ ownr
+	kill targ
+endm
+
 
 *
 ** Berry eat script
