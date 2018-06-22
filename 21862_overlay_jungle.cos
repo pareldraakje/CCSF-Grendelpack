@@ -1,0 +1,7 @@
+new: simp 1 1 21862 "gp_overlay_jungle" 1 0 8000
+mvto 19153 695
+
+rscr
+enum 1 1 21862
+	kill targ
+next
