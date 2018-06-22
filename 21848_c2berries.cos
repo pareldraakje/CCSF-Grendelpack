@@ -68,7 +68,7 @@ scrp 2 8 21848 9
 		new: simp 2 10 21848 "gp_c2berries_rotten" 1 0 rand 500 1000
 		mvto va00 va01
 		perm va02
-		tick rand 800 1500
+		tick rand 300 700
 		kill ownr
 endm
 
@@ -86,6 +86,49 @@ scrp 2 8 21848 12
 	targ ownr
 	kill targ
 endm
+
+
+
+*
+** Rotten tick
+*
+
+scrp 2 10 21848 9
+kill ownr
+endm
+
+*
+** Rotten creation
+*
+
+scrp 2 10 21848 10
+inst
+		attr 199
+			elas 25
+		fric 90
+	accg 3
+		aero 2
+		bhvr 48
+	emit 4 0.6
+slow
+endm
+
+*
+** Rotten eat script
+*
+
+scrp 2 10 21848 12
+	sndc "chwp"
+	stim writ from 81 .5
+	chem 5 1
+	chem 10 .2
+	chem 12 .2
+	chem 5 .2
+	targ ownr
+	kill targ
+endm
+
+
 
 **
 ** Removal script
