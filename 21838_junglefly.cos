@@ -1,3 +1,13 @@
+
+* CAOS2PRAY CHUNK
+*# Pray-file "gp_junglefly_UZAG.agents"
+*# DS-Name "GP - Junglefly (UZAG)"
+*# attach gp_fly_UZAG.c16 GrenP_JungleFly.catalogue
+*# desc = "A fly that lives in the jungle. \nSprites by Uzag"
+*# Agent Animation File = "gp_fly_UZAG.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_fly_UZAG"
+
 **
 ** FLIES
 **

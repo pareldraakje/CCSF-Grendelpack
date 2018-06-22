@@ -1,0 +1,45 @@
+
+* CAOS2PRAY CHUNK
+*# Pray-file "gb_junglefly_UZAG.agents"
+*# DSGB-Name "GP - Junglefly GB"
+*# attach gp_fly_UZAG.c16 GrenP_JungleFly.catalogue
+*# desc = "A fly that lives in the jungle. GardenBoxed by Wingyl"
+*# Agent Animation File = "gp_fly_UZAG.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_fly_UZAG"
+*# GB_Category = 3
+*# Agent Author = "Uzag"
+*# link 21838_junglefly.cos
+
+**
+** FLIES
+**
+**
+
+** Injection script
+
+** Create a male fly
+    new: simp 2 15 21838 "gp_fly_UZAG" 28 0 300
+** attr: mouseable 2 + activateable 4 + collide 64 = 70, bhvr act1 1 + hit 8 + eat 16 + pickup 32 = 57
+	attr 70
+	bhvr 57
+	tick 5
+	mvsf game "ch_x" game "ch_y"
+	perm 1
+
+** Create a female fly
+    new: simp 2 15 21838 "gp_fly_UZAG" 28 15 300
+** attr: mouseable 2 + activateable 4 + collide 64 = 70, bhvr act1 1 + hit 8 + eat 16 + pickup 32 = 57
+	attr 70
+	bhvr 57
+	tick 5
+	mvsf game "ch_x" game "ch_y"
+	perm 1
+
+** Removal script
+
+rscr
+
+enum 2 15 21838
+	kill targ
+next
