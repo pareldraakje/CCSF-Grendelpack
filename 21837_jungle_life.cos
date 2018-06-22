@@ -5,9 +5,6 @@
 **
 **
 
-** jungle top right
-new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
-mesg wrt+ targ 1000 19841 192 0
 
 ** jungle mid
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
@@ -15,7 +12,7 @@ base 32
 mesg wrt+ targ 1000 19706 541 0
 ** jungle lower mid
 new: simp 2 21 21852 "dustdevilgrendelplushie" 2 0 1000
-mesg wrt+ targ 1000 19879 884 0
+mesg wrt+ targ 1000 19841 192 0
 ** jungle underground
 new: simp 2 21 21809 "gp_moreballs" 40 0 3000
 base 32
@@ -47,6 +44,12 @@ new: simp 1 1 21815 "blnk" 1 0 1000
 mvto 20341 249
 tick 100
 
+*
+** Mealworm
+** Lower right fern area
+new: comp 2 23 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+mesg wrt+ targ 1001 20147 227 0
+
 **
 ** Initial wildlife
 **
@@ -71,6 +74,12 @@ reps 10
 	new: simp 2 15 21838 "gp_fly_UZAG" 28 0 300
 	mesg wrt+ targ 1000 19833 707 0
 	slow
+repe
+
+** Mealworms
+reps 5
+new: simp 2 18 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+mesg wrt+ targ 1000 rand 19308 20273 530 0
 repe
 
 ** Aster flowers
@@ -234,10 +243,16 @@ next
 enum 2 8 21847
 	kill targ
 next
+enum 2 10 21847
+	kill targ
+next
 enum 1 1 21848
 	kill targ
 next
 enum 2 8 21848
+	kill targ
+next
+enum 2 10 21848
 	kill targ
 next
 
@@ -345,5 +360,18 @@ enum 2 3 21858
 	kill targ
 next
 enum 2 4 21858
+	kill targ
+next
+** Mealworm
+enum 2 23 21861
+	kill targ
+next
+enum 2 18 21861
+	kill targ
+next
+enum 2 13 21861
+	kill targ
+next
+enum 2 14 21861
 	kill targ
 next
