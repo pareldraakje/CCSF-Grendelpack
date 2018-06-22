@@ -14,7 +14,7 @@
 
 ** Create dispenser
 ** new: comp 2 23 21861 "gp_mealwormdispenser_JESS" 1 0 1000
-** mesg wrt+ targ 1001 posx posy 0
+** mesg wrt+ targ 1000 posx posy 0
 
 ** Create mealworm egg
 ** new: simp 2 18 21861 "gp_mealwormdispenser_JESS" 1 0 1000
@@ -28,7 +28,10 @@
 *mealworm beetle: 2 14 21861
 *"gp_mealworm_JESS"
 
-new: comp 2 23 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+**
+** Vendor creation script
+
+scrp 2 23 21861 1000
 attr 199
 bhvr 9
 perm 100
@@ -37,35 +40,40 @@ accg 30
 aero 25
 fric 100
 *the button
-pat: butt 1 "gp_mealwormdispenser_JESS" 1 2 33 23 1 [] 1000 0
+pat: butt 1 "gp_mealwormdispenser_JESS" 1 2 33 23 1 [] 1001 0
 *the tube
-pat: butt 2 "gp_mealwormdispenser_JESS" 3 2 22 33 1 [] 1000 0
+pat: butt 2 "gp_mealwormdispenser_JESS" 3 2 22 33 1 [] 1001 0
 *the beetle
-pat: butt 3 "gp_mealwormdispenser_JESS" 5 2 11 6 1 [] 1000 0
+pat: butt 3 "gp_mealwormdispenser_JESS" 5 2 11 6 1 [] 1001 0
 part 3
 anim [0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 255]
 *the something
-pat: butt 4 "gp_mealwormdispenser_JESS" 7 5 5 6 1 [] 1000 0
-mvto 20141 130
+pat: butt 4 "gp_mealwormdispenser_JESS" 7 5 5 6 1 [] 1001 0
+mvsf _p1_ _p2_
 tick 600
+endm
 
+** Vendor push script
 scrp 2 23 21861 1
-	mesg writ ownr 1000
+	mesg writ ownr 1001
 endm
 
+** Vendor pull script
 scrp 2 23 21861 2
-	mesg writ ownr 1000
+	mesg writ ownr 1001
 endm
 
+** Vendor hit script
 scrp 2 23 21861 3
 	velo 0 rand -20 -30
 	stim writ from 92 1
 	snde "hit_"
 endm
 
+** Vendor tick (regulates population)
 scrp 2 23 21861 9
 *this script checks the room for any existing mealworms and beetles
-*if the population in the room is low, extra will be made automatically by script 1000
+*if the population in the room is low, extra will be made automatically by script 1001
 	inst
 	setv va00 gmap posx posy
 	setv va01 0
@@ -92,28 +100,27 @@ scrp 2 23 21861 9
 	endi
 	slow
 	doif va01 le 10
-		mesg writ ownr 1000
+		mesg writ ownr 1001
 	endi
 endm
 
-scrp 2 23 21861 1000
+** Vendor activation script (lay egg)
+scrp 2 23 21861 1001
 	doif carr eq null and fall eq 0
 		lock
 		part 1
 		pose 1
-		wait 10
 		part 4
-		anim [0 0 1 1 2 2 3 3 4 0]
-		over
+		anim [0 1 2 3 4 0]
 		part 2
-		anim [0 0 0 1 1 1 0]
+		anim [0 0 1 1 0]
 		over
 *make the egg
 		setv va00 posx
 		subv va00 rand 9 11
 		setv va01 posy
 		addv va01 5
-		new: simp 2 18 21861 "gp_mealworm_JESS" 1 0 rand 1000 3000
+		new: simp 2 18 21861 "gp_mealworm_JESS" 1 0 rand 1001 3000
 		attr 199
 		bhvr 59
 		perm 100
@@ -123,27 +130,47 @@ scrp 2 23 21861 1000
 		fric 100
 		mvsf va00 va01
 		tick rand 300 600
-		setv ov07 rand 1000 2500
+		setv ov07 rand 1001 2500
 		targ ownr
-		wait 10
+		wait 5
 		part 1
 		pose 0
 		unlk
 	endi
 endm
 
+**
+** Egg creation script
+
+scrp 2 18 21861 1000
+		attr 199
+		bhvr 59
+		perm 100
+		elas 0
+		accg 1
+		aero 10
+		fric 100
+		mvsf _p1_ _p2_
+		tick rand 300 600
+		setv ov07 rand 1000 2500
+endm
+
+** Egg push script
 scrp 2 18 21861 1
 	velo rand -3 3 rand -1 -2
 endm
 
+** Egg pull script
 scrp 2 18 21861 2
 	velo rand -3 3 rand -1 -2
 endm
 
+** Egg hit script
 scrp 2 18 21861 3
 	velo rand -6 6 rand -2 -4
 endm
 
+** Egg timer script
 scrp 2 18 21861 9
 	inst
 *they can't hatch underwater when not being carried
@@ -193,6 +220,7 @@ scrp 2 18 21861 9
 	endi
 endm
 
+** Egg eat script
 scrp 2 18 21861 12
 	lock
 	targ from
@@ -204,6 +232,8 @@ scrp 2 18 21861 12
 	kill ownr
 endm
 
+**
+** Beetle push script
 scrp 2 13 21861 1
 	velo rand -3 3 rand -1 -2
 	targ from
@@ -212,6 +242,7 @@ scrp 2 13 21861 1
 	endi
 endm
 
+** Beetle pull script
 scrp 2 13 21861 2
 	velo rand -3 3 rand -1 -2
 	targ from
@@ -220,6 +251,7 @@ scrp 2 13 21861 2
 	endi
 endm
 
+** Beetle hit script
 scrp 2 13 21861 3
 	velo rand -6 6 rand -2 -4
 	targ from
@@ -228,6 +260,7 @@ scrp 2 13 21861 3
 	endi
 endm
 
+** Beetle timer script
 scrp 2 13 21861 9
 	inst
 *stop if being carried or falling
@@ -373,6 +406,7 @@ scrp 2 13 21861 9
 	retn
 endm
 
+** Beetle eat script
 scrp 2 13 21861 12
 	lock
 	targ from
@@ -712,7 +746,7 @@ scrx 2 23 21861 1
 scrx 2 23 21861 2
 scrx 2 23 21861 3
 scrx 2 23 21861 9
-scrx 2 23 21861 1000
+scrx 2 23 21861 1001
 enum 2 18 21861
 	kill targ
 next

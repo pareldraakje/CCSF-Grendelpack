@@ -46,9 +46,9 @@ tick 100
 
 *
 ** Mealworm
-** Lower right fern area
+** Upper right
 new: comp 2 23 21861 "gp_mealwormdispenser_JESS" 1 0 1000
-mesg wrt+ targ 1001 20147 227 0
+mesg wrt+ targ 1000 20151 222 0
 
 **
 ** Initial wildlife
@@ -77,8 +77,8 @@ reps 10
 repe
 
 ** Mealworms
-reps 5
-new: simp 2 18 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+reps 3
+new: simp 2 18 21861 "gp_mealworm_JESS" 1 0 1000
 mesg wrt+ targ 1000 rand 19308 20273 530 0
 repe
 
