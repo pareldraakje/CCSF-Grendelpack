@@ -243,6 +243,17 @@ scrp 2 16 21853 5
 	setv ov99 0
 endm
 
+** Exception
+scrp 2 16 21853 255
+	kill ownr
+endm
+
+scrp 2 18 21853 255
+	kill ownr
+endm
+
+
+
 
 
 **
