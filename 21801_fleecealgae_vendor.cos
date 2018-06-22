@@ -14,7 +14,7 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_fleece_algae_JESS.agents"
+*# Pray-File "gp_fleece_algae_vendor_JESS.agents"
 *# DS-Name "GP - Fleece Algae Vendor"
 *# attach gp_fleece_algae_JESS.c16 GrenP_FleeceAlgae.catalogue
 *# desc = "Some pretty fleece algae to decorate your underwater areas.\n\nSprites by Jesseth"

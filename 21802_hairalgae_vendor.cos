@@ -14,10 +14,10 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_hair_algae_JESS.agents"
-*# DS-Name "Hair Algae (Jesseth)"
+*# Pray-File "gp_hair_algae_vendor_JESS.agents"
+*# DS-Name "GP - Hair Algae Vendor (Jesseth)"
 *# attach gp_hair_algae_JESS.c16  GrenP_HairAlgae.catalogue
-*# desc = "Some pretty hair algae to decorate your underwater areas.by Jesseth"
+*# desc = "Some pretty hair algae to decorate your underwater areas.\nSprites by Jesseth"
 *# Agent Animation File = "gp_hair_algae_JESS.c16"
 *# Agent Sprite First Image = 6
 *# Agent Animation Gallery = "gp_hair_algae_JESS"
