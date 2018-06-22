@@ -1,19 +1,20 @@
 **
 ** Door scripts
+** GH upper - Meso
 **
 
-** Check if either injected
-doif game "gpmeso" eq 1 and game "gpgrendelhideout" ne 1
-	setv va00 1
-endi
-doif game "gpmeso" eq 0 and game "gpgrendelhideout" ne 0
-	setv va00 1
-endi
+**
+** Remove old instances
+enum 2 2 21856
+	doif name "doorname" eq "mesojungle"
+	kill targ
+	endi
+next
 
-doif va00 eq 1
 **
 ** The door inside the meso
 	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 12 0 1
+	sets name "doorname" "mesojungle"
 ** Activateable
 	attr 4
 	bhvr 1
@@ -24,13 +25,13 @@ doif va00 eq 1
 	pose 1
 * The disabled OV
 	setv ov00 0
-* door group id
-	setv ov01 0
 	mvto 24384 472
 	setv va50 room targ
+
 **
 ** the door inside jungle
 	new: comp 2 2 21856 "gp_doormesojungle_UZAG" 11 55 1
+	sets name "doorname" "mesojungle"
 ** Activateable
 	attr 4
 	bhvr 1
@@ -41,12 +42,18 @@ doif va00 eq 1
 	pose 1
 * The disabled OV
 	setv ov00 0
-* door group id
-	setv ov01 0
 	mvto 20176 460
 	setv va51 room targ
-	link va50 va51 20
-endi
+
+	doif va51 ne -1 and va50 ne -1
+		link va50 va51 30
+	else
+		enum 2 2 21856
+			doif name "doorname" eq "mesojungle"
+			kill targ
+			endi
+		next
+	endi
 
 **
 ** SCRIPTS
@@ -69,59 +76,66 @@ scrp 2 2 21856 1
 		inst
 		enum 2 2 21856
 			doif targ ne ownr
-				doif ov01 eq va91
-					seta va90 targ
+				doif name "doorname" eq "mesojungle"
+				seta va90 targ
 				endi
 			endi
 		next
 		slow
-** Check whether the other door is different from this one
-		doif va90 ne ownr
 ** Target the other door to set coordinates
-			targ va90
-			setv va05 posx
-			setv va06 posy
-			targ ownr
-** Opening animation sequence
 
-			part 3
-			doif ov01 eq 0
-				anim [1 2 3 4 5 6 7 8]
-				over
-				anim [9 10 11 12 0]
-			else
-				anim [1 2 3 4 5 6 7 8]
-				over
-				anim [9 10 11 0]
-			endi
+		targ ownr
+		gsub animateOpen
 
+		targ va90
+		gsub animateClose
 
-			targ va90
-			part 3
-			doif ov01 eq 0
-				anim [9 8 7 6 5 4 3 2 1 0]
-			else
-				anim [8 7 6 5 4 3 2 1 0]
-			endi
-
-			doif from eq pntr
-				cmrp va05 va06 0
-			else
+		targ va90
+		setv va05 posx
+		setv va06 posy
+		
+		doif from eq pntr
+			etch 4 0 0
+				doif carr eq null and dead ne 1
+					gsub moveCreature
+				endi
+			next
+			cmrp va05 va06 0
+		else
 ** Target the pusher
-					targ from
-** Move the creature
-					mvsf va05 va06
-** Stim the creature "travelled through door"
-					stim writ from 95 1
-** urge to remove attention from door
-** and reset the verb state to neutral
-					urge writ from 2 -1 -1 1
-
-			endi
-
+			targ from
+			gsub moveCreature
 		endi
 	endi
 
+	subr moveCreature
+** Move the creature
+		mvsf va05 va06
+** Stim the creature "travelled through door"
+		stim writ from 95 1
+** urge to remove attention from door
+** and reset the verb state to neutral
+		urge writ from 2 -1 -1 1
+	retn
+
+	subr animateOpen
+** Opening animation sequence
+		part 3
+		doif ov01 eq 0
+			anim [1 2 3 4 5 6 7 8 9 10 11 12 0]
+		else
+			anim [1 2 3 4 5 6 7 8 9 10 11 0]
+		endi
+	retn
+
+	subr animateClose
+		part 3
+		doif ov01 eq 0
+			anim [9 8 7 6 5 4 3 2 1 0]
+		else
+			anim [8 7 6 5 4 3 2 1 0]
+		endi
+	retn
 endm
 
 ** Disable
@@ -130,21 +144,25 @@ scrp 2 2 21856 500
 	mesg writ pntr 101
 	doif ov00 eq 0
 		enum 2 2 21856
+			doif name "doorname" eq "mesojungle"
 			part 0
 			anim [1 2 3 4 5 6 7 8 9 10]
 			part 4
 			pose 0
 			attr 16
 			setv ov00 1
+		endi
 		next
 	else
 		enum 2 2 21856
+			doif name "doorname" eq "mesojungle"
 			part 0
 			anim [10 9 8 7 6 5 4 3 2 1 0]
 			part 4
 			pose 1
 			attr 4
 			setv ov00 0
+		endi
 		next
 	endi
 endm
@@ -154,5 +172,7 @@ endm
 rscr
 
 enum 2 2 21856
+	doif name "doorname" eq "mesojungle"
 	kill targ
+	endi
 next

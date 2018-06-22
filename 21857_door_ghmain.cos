@@ -1,17 +1,19 @@
-setv va00 0
+**
+** Door script
+** GH Lower - Main
+**
 
-doif game "gpmain" eq 1 and game "gpgrendelhideout" ne 1
-	setv va00 1
-endi
-doif game "gpmain" eq 0 and game "gpgrendelhideout" ne 0
-	setv va00 1
-endi
+** Remove old instances
+enum 2 2 21857
+	doif name "doorname" eq "mainjungle"
+	kill targ
+	endi
+next
 
-** Check if main injected
-doif va00 eq 1
 **
 ** The door inside the grendel hideout
 	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 29 1
+	sets name "doorname" "mainjungle"
 ** Activateable
 	attr 4
 	bhvr 1
@@ -22,13 +24,13 @@ doif va00 eq 1
 	pose 1
 * The disabled OV
 	setv ov00 0
-* door group id
-	setv ov01 2
 	mvto 20181 811
 	setv va50 room targ
+	
 **
 ** the door inside main
 	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 82 1
+	sets name "doorname" "mainjungle"
 ** Activateable
 	attr 4
 	bhvr 1
@@ -39,12 +41,20 @@ doif va00 eq 1
 	pose 1
 * The disabled OV
 	setv ov00 0
-* door group id
-	setv ov01 2
 	mvto 21248 2198
 	setv va51 room targ
 
-	link va50 va51 20
+* Check if the doors exist before linking
+	doif va51 ne -1 and va50 ne -1
+		link va50 va51 30
+	else
+		enum 2 2 21857
+			doif name "doorname" eq "mainjungle"
+			kill targ
+			endi
+		next
+	endi
+
 endi
 
 **
@@ -68,7 +78,7 @@ scrp 2 2 21857 1
 		inst
 		enum 2 2 21857
 			doif targ ne ownr
-				doif ov01 eq va91
+				doif name "doorname" eq "mainjungle"
 					seta va90 targ
 				endi
 			endi
@@ -128,25 +138,28 @@ scrp 2 2 21857 500
 	mesg writ pntr 101
 	doif ov00 eq 0
 		enum 2 2 21857
+			doif name "doorname" eq "mainjungle"
 			part 0
 			anim [1 2 3 4 5 6 7 8 9 10]
 			part 4
 			pose 0
 			attr 16
 			setv ov00 1
+			endi
 		next
 	else
 		enum 2 2 21857
-			part 0
-			anim [10 9 8 7 6 5 4 3 2 1 0]
-			part 4
-			pose 1
-			attr 4
-			setv ov00 0
+			doif name "doorname" eq "mainjungle"
+				part 0
+				anim [10 9 8 7 6 5 4 3 2 1 0]
+				part 4
+				pose 1
+				attr 4
+				setv ov00 0
+			endi
 		next
 	endi
 endm
-
 
 
 rscr
