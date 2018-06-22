@@ -1,0 +1,739 @@
+*21861
+*mealworm vendor: 2 23 21861
+*"gp_mealwormdispenser_JESS"
+
+*mealworm egg: 2 18 21861
+*mealworm: 2 13 21861
+*mealworm beetle: 2 14 21861
+*"gp_mealworm_JESS"
+
+*inst
+*new: simp 2 18 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+*mesg wrt+ targ 1000 20141 130 0
+*slow
+
+** Create dispenser
+** new: comp 2 23 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+** mesg wrt+ targ 1001 posx posy 0
+
+** Create mealworm egg
+** new: simp 2 18 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+** mesg wrt+ targ 1000 posx posy 0
+*21861
+*mealworm vendor: 2 23 21861
+*"gp_mealwormdispenser_JESS"
+
+*mealworm egg: 2 18 21861
+*mealworm: 2 13 21861
+*mealworm beetle: 2 14 21861
+*"gp_mealworm_JESS"
+
+new: comp 2 23 21861 "gp_mealwormdispenser_JESS" 1 0 1000
+attr 199
+bhvr 9
+perm 100
+elas 0
+accg 30
+aero 25
+fric 100
+*the button
+pat: butt 1 "gp_mealwormdispenser_JESS" 1 2 33 23 1 [] 1000 0
+*the tube
+pat: butt 2 "gp_mealwormdispenser_JESS" 3 2 22 33 1 [] 1000 0
+*the beetle
+pat: butt 3 "gp_mealwormdispenser_JESS" 5 2 11 6 1 [] 1000 0
+part 3
+anim [0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 255]
+*the something
+pat: butt 4 "gp_mealwormdispenser_JESS" 7 5 5 6 1 [] 1000 0
+mvto 20141 130
+tick 600
+
+scrp 2 23 21861 1
+	mesg writ ownr 1000
+endm
+
+scrp 2 23 21861 2
+	mesg writ ownr 1000
+endm
+
+scrp 2 23 21861 3
+	velo 0 rand -20 -30
+	stim writ from 92 1
+	snde "hit_"
+endm
+
+scrp 2 23 21861 9
+*this script checks the room for any existing mealworms and beetles
+*if the population in the room is low, extra will be made automatically by script 1000
+	inst
+	setv va00 gmap posx posy
+	setv va01 0
+	doif totl 2 18 21861 gt 0
+		enum 2 18 21861
+			doif gmap posx posy eq va00
+				addv va01 1
+			endi
+		next
+	endi
+	doif totl 2 13 21861 gt 0
+		enum 2 13 21861
+			doif gmap posx posy eq va00
+				addv va01 1
+			endi
+		next
+	endi
+	doif totl 2 14 21861 gt 0
+		enum 2 14 21861
+			doif gmap posx posy eq va00
+				addv va01 1
+			endi
+		next
+	endi
+	slow
+	doif va01 le 10
+		mesg writ ownr 1000
+	endi
+endm
+
+scrp 2 23 21861 1000
+	doif carr eq null and fall eq 0
+		lock
+		part 1
+		pose 1
+		wait 10
+		part 4
+		anim [0 0 1 1 2 2 3 3 4 0]
+		over
+		part 2
+		anim [0 0 0 1 1 1 0]
+		over
+*make the egg
+		setv va00 posx
+		subv va00 rand 9 11
+		setv va01 posy
+		addv va01 5
+		new: simp 2 18 21861 "gp_mealworm_JESS" 1 0 rand 1000 3000
+		attr 199
+		bhvr 59
+		perm 100
+		elas 0
+		accg 1
+		aero 10
+		fric 100
+		mvsf va00 va01
+		tick rand 300 600
+		setv ov07 rand 1000 2500
+		targ ownr
+		wait 10
+		part 1
+		pose 0
+		unlk
+	endi
+endm
+
+scrp 2 18 21861 1
+	velo rand -3 3 rand -1 -2
+endm
+
+scrp 2 18 21861 2
+	velo rand -3 3 rand -1 -2
+endm
+
+scrp 2 18 21861 3
+	velo rand -6 6 rand -2 -4
+endm
+
+scrp 2 18 21861 9
+	inst
+*they can't hatch underwater when not being carried
+	doif rtyp room targ eq 8 and carr eq null or rtyp room targ eq 9 and carr eq null
+		doif rand 1 5 eq 5
+			kill ownr
+		endi
+		stop
+	else
+*they can't hatch when they're falling or being carried
+		doif rand 1 3 eq 3 and carr eq null and fall eq 0
+			lock
+			setv va00 posx
+			subv va00 8
+			setv va01 posy
+			setv va02 plne
+			setv va07 ov07
+*make the mealworm
+			new: simp 2 13 21861 "gp_mealworm_JESS" 6 1 va02
+			attr 199
+			bhvr 59
+			perm 100
+			elas 0
+			accg 1
+			aero 10
+			fric 100
+			mvsf va00 va01
+			tick 10
+			setv ov07 va07
+			rnge 200
+*turn it right
+			setv ov00 1
+*with a chance to turn it left
+			doif rand 0 1 eq 0
+				negv ov00
+			endi
+			doif ov00 eq 1
+				pose 0
+			else
+				pose 3
+			endi
+			kill ownr
+		else
+			tick rand 300 600
+			stop
+		endi
+	endi
+endm
+
+scrp 2 18 21861 12
+	lock
+	targ from
+	doif fmly eq 4
+		stim writ from 80 1
+	endi
+	targ ownr
+	snde "reat"
+	kill ownr
+endm
+
+scrp 2 13 21861 1
+	velo rand -3 3 rand -1 -2
+	targ from
+	doif fmly eq 4
+		stim writ from 85 2
+	endi
+endm
+
+scrp 2 13 21861 2
+	velo rand -3 3 rand -1 -2
+	targ from
+	doif fmly eq 4
+		stim writ from 85 2
+	endi
+endm
+
+scrp 2 13 21861 3
+	velo rand -6 6 rand -2 -4
+	targ from
+	doif fmly eq 4
+		stim writ from 87 2
+	endi
+endm
+
+scrp 2 13 21861 9
+	inst
+*stop if being carried or falling
+	doif carr eq null and fall eq 0
+*add hunger if you're not on fertile soil
+		doif prop room targ 4 eq 0
+			addv ov01 rand 1 10
+*add less hunger on fertile soil
+		elif prop room targ 4 lt 0.65
+			addv ov01 rand 1 4
+		else
+			subv ov01 rand 1 10
+		endi
+*if underwater or too high on hunger: die
+		doif rtyp room targ eq 8 or rtyp room targ eq 9 or ov01 gt 600
+			gsub dead
+*if cocoon: become a beetle
+		elif ov03 eq 1
+			lock
+			setv va00 posx
+			addv va00 rand 1 3
+			setv va01 posy
+			setv va10 plne
+			setv va11 ov00
+			setv va07 ov07
+			new: simp 2 14 21861 "gp_mealworm_JESS" 14 7 va10
+			attr 199
+			bhvr 59
+			perm 100
+			elas 0
+			accg 1
+			aero 10
+			fric 100
+			mvsf va00 va01
+			tick 10
+			setv ov07 va07
+			rnge 300
+			cato 13
+			doif va11 eq 1
+				anim [0 0 1 1 0]
+			else
+				anim [7 7 8 8 7]
+			endi
+*direction: right (1) or left (-1) - same as the mealworm
+			setv ov00 va11
+*start on the ground
+			setv ov02 -1
+			kill ownr
+*if old enough: become a cocoon
+		elif ov02 gt 700 and ov01 le 350
+			gsub age
+		endi
+*if not dying: add to age
+		addv ov02 rand 1 5
+*if hungry, seek food
+		doif ov01 gt 350
+			gsub seek
+*if not hungry: walk around
+		elif ov03 ne 1
+			gsub wall
+			gsub crawl
+		endi
+	else
+		stop
+	endi
+*crawl in a direction
+	subr seek
+		seta ov99 null
+		inst
+		esee 2 10 0
+			doif targ ne null
+				setv mv98 posx
+				seta mv99 targ
+			endi
+		next
+		slow
+		targ ownr
+		inst
+		doif ov99 ne null
+			loop
+				doif posx lt ov98
+					velo 3 -2
+					anim [0 0 1 1 0]
+					wait 10
+				elif posx ge ov98
+					velo -3 -2
+					anim [3 3 4 4 3]
+					wait 10
+				endi
+			untl touc ownr ov99 eq 1 or ov99 eq null or seee ownr ov99 eq 0
+			inst
+			doif ov99 ne null and seee ownr ov99 eq 1 and carr eq null
+				setv ov01 0
+				targ ov99
+				mesg writ targ 12
+				targ ownr
+			else
+				gsub wall
+				gsub crawl
+			endi
+		else
+			gsub wall
+			gsub crawl
+		endi
+	retn
+	subr crawl
+		doif ov00 eq 1
+			velo 3 -2
+			anim [0 0 1 1 0]
+		else
+			velo -3 -2
+			anim [3 3 4 4 3]
+		endi
+		doif rand 1 5 eq 5
+			negv ov00
+		endi
+	retn
+	subr wall
+		doif ov00 eq 1 and obst rght < 100 and rand 1 4 eq 4
+			negv ov00
+		elif ov00 eq -1 and obst left < 100 and rand 1 4 eq 4
+			negv ov00
+		endi
+	retn
+	subr dead
+		lock
+		cato 10
+		anim []
+		wait rand 100 200
+		kill ownr
+	retn
+	subr age
+		lock
+		doif ov00 eq 1
+			anim [0 0 1 1 2]
+		else
+			anim [3 3 4 4 5]
+		endi
+		over
+		tick rand 900 1800
+		setv ov03 1
+		unlk
+	retn
+endm
+
+scrp 2 13 21861 12
+	lock
+	targ from
+	doif fmly eq 4
+		stim writ from 80 2
+	endi
+	targ ownr
+	snde "reat"
+	kill ownr
+endm
+
+scrp 2 14 21861 1
+	velo rand -3 3 rand -1 -2
+	targ from
+	doif fmly eq 4
+		stim writ from 85 2
+	endi
+endm
+
+scrp 2 14 21861 2
+	velo rand -3 3 rand -1 -2
+	targ from
+	doif fmly eq 4
+		stim writ from 85 2
+	endi
+endm
+
+scrp 2 14 21861 3
+	velo rand -6 6 rand -2 -4
+	targ from
+	doif fmly eq 4
+		stim writ from 87 2
+	endi
+endm
+
+scrp 2 14 21861 9
+*ov00 = direction
+**1 = right, -1 = left
+*ov01 = death mark
+*ov02 = flying (1) / crawling (-1)
+*ov03 = hunger
+*ov04 = fertility
+*ov05 = ready to lay an egg
+**no reaction if set to 0
+**can only be set to 1 by breeding
+**if higher than 0, ramp up until 100
+**at 100, lay an egg and get back to 0
+*ov06 = up (1), down (-1)
+*ov07 = maximum life (heritable!!)
+*ov08 = current life
+
+	doif carr eq null
+		doif rtyp room targ eq 8 or rtyp room targ eq 9 or ov03 gt 750 or ov08 gt ov07
+			gsub dead
+		else
+			doif prop room targ 4 gt 0
+				addv ov03 rand 1 2
+			else
+				addv ov03 rand 2 4
+			endi
+			addv ov08 1
+			doif ov05 eq 0
+				addv ov04 rand 1 6
+			else
+				addv ov05 rand 1 3
+			endi
+			doif ov03 gt 250
+				gsub eat
+			else
+				gsub move
+				doif rand 1 10 eq 10
+					gsub wind
+				endi
+			endi
+			doif ov05 gt 99
+				gsub egg
+			elif ov04 gt 300
+				gsub fert
+			endi
+		endi
+		subr eat
+			seta ov99 null
+			inst
+			esee 2 10 0
+				doif targ ne null
+					setv mv98 posx
+					seta mv99 targ
+				endi
+			next
+			slow
+			targ ownr
+			inst
+			doif ov02 ne -1
+				setv ov02 -1
+			endi
+			doif ov99 ne null
+				loop
+					doif posx lt ov98
+						velo 4 -2
+						doif obst down lt 10
+							anim [0 0 1 1 0]
+						else
+							anim [2 3 3 4 4 3 3 2]
+						endi
+						wait 10
+					elif posx ge ov98
+						velo -4 -2
+						doif obst down lt 10
+							anim [7 7 8 8 7]
+						else
+							anim [9 10 10 11 11 10 10 9]
+						endi
+						wait 10
+					endi
+				untl touc ownr ov99 eq 1 or ov99 eq null or seee ownr ov99 eq 0
+				inst
+				doif ov99 ne null and seee ownr ov99 eq 1 and carr eq null
+					setv ov03 0
+					targ ov99
+					mesg writ targ 12
+					targ ownr
+				else
+					gsub move
+				endi
+			else
+				gsub move
+			endi
+		retn
+		subr fert
+			seta ov99 null
+			inst
+			esee 2 14 21861
+				doif targ ne null
+					seta mv99 targ
+				endi
+			next
+			slow
+			targ ownr
+			inst
+			setv ov04 0
+			setv va12 ov07
+			doif ov99 ne null
+				targ ov99
+				doif ov01 ne 1
+					setv va13 ov07
+					targ ownr
+					addv va12 va13
+					setv ov15 va12
+					divv ov15 2
+					setv ov05 1
+				endi
+			endi
+		retn
+		subr egg
+			setv va03 0
+			setv va02 gmap posx posy
+			inst
+			doif totl 2 18 21861 gt 0
+				enum 2 18 21861
+					doif targ ne null
+						doif gmap posx posy eq va02
+							addv va03 1
+						endi
+					endi
+				next
+			endi
+			doif totl 2 13 21861 gt 0
+				enum 2 13 21861
+					doif targ ne null
+						doif gmap posx posy eq va02
+							addv va03 1
+						endi
+					endi
+				next
+			endi
+			doif totl 2 14 21861 gt 0
+				enum 2 14 21861
+					doif targ ne null
+						doif gmap posx posy eq va02
+							addv va03 1
+						endi
+					endi
+				next
+			endi
+			slow
+			inst
+			doif va03 lt 5
+				setv va04 10
+			elif va03 lt 15
+				setv va04 3
+			elif va03 lt 25
+				setv va04 2
+			elif va03 lt 35
+				setv va04 1
+			else
+				targ ownr
+				setv ov05 0
+				stop
+			endi
+			slow
+			targ ownr
+			setv va00 posx
+			setv va01 posy
+			setv va07 ov15
+*make the egg(s)
+			reps va04
+				addv va07 rand -50 50
+				doif va07 lt 1000
+					setv va07 1000
+				endi
+				inst
+				new: simp 2 18 21861 "gp_mealworm_JESS" 1 0 rand 1000 3000
+				attr 199
+				bhvr 59
+				perm 100
+				elas 0
+				accg 1
+				aero 10
+				fric 100
+				mvsf va00 va01
+				tick rand 300 600
+				setv ov07 va07
+				targ ownr
+				wait 10
+				part 1
+				pose 0
+				velo rand -3 3 1
+			repe
+			targ ownr
+			setv ov05 0
+		retn
+		subr move
+			doif ov02 eq 1
+				doif ov06 eq 1
+					setv va10 rand -6 -16
+					doif obst _up_ < 100
+						negv va10
+						negv ov06
+					endi
+				elif ov06 eq -1
+					setv va10 rand 6 16
+					doif obst down < 100
+						negv va10
+						negv ov06
+					endi
+				endi
+			endi
+			doif ov00 eq 1
+				gsub rght
+				doif obst rght < 100 and rand 1 3 eq 3
+					gsub turn
+				endi
+			else
+				gsub left
+				doif obst left < 100 and rand 1 3 eq 3
+					gsub turn
+				endi
+			endi
+			doif rand 1 6 eq 6
+				gsub turn
+			endi
+		retn
+		subr left
+			doif ov02 eq -1
+				velo -4 -2
+			else
+				velo -8 va10
+			endi
+			doif obst down lt 10
+				anim [7 7 8 8 7]
+			else
+				anim [9 10 10 11 11 10 10 9]
+			endi
+		retn
+		subr rght
+			doif ov02 eq -1
+				velo 4 -2
+			else
+				velo 8 va10
+			endi
+			doif obst down lt 10
+				anim [0 0 1 1 0]
+			else
+				anim [2 3 3 4 4 3 3 2]
+			endi
+		retn
+		subr turn
+			negv ov00
+		retn
+		subr wind
+*if the bug was on the ground, always start flying up
+			doif ov02 eq -1
+				setv ov06 1
+			endi
+			negv ov02
+		retn
+		subr dead
+			lock
+*mark for death
+			cato 10
+			setv ov01 1
+			doif ov00 eq 1
+				pose 5
+			else
+				pose 12
+			endi
+			wait rand 100 200
+			doif ov00 eq 1
+				pose 6
+			else
+				pose 13
+			endi
+			wait rand 100 200
+			kill ownr
+		retn
+	else
+		stop
+	endi
+endm
+
+scrp 2 14 21861 12
+	lock
+	targ from
+	doif fmly eq 4
+		stim writ from 80 3
+	endi
+	targ ownr
+	snde "reat"
+	kill ownr
+endm
+
+rscr
+enum 2 23 21861
+	kill targ
+next
+scrx 2 23 21861 1
+scrx 2 23 21861 2
+scrx 2 23 21861 3
+scrx 2 23 21861 9
+scrx 2 23 21861 1000
+enum 2 18 21861
+	kill targ
+next
+scrx 2 18 21861 1
+scrx 2 18 21861 2
+scrx 2 18 21861 3
+scrx 2 18 21861 9
+scrx 2 18 21861 12
+enum 2 13 21861
+	kill targ
+next
+scrx 2 13 21861 1
+scrx 2 13 21861 2
+scrx 2 13 21861 3
+scrx 2 13 21861 9
+scrx 2 13 21861 12
+enum 2 14 21861
+	kill targ
+next
+scrx 2 14 21861 1
+scrx 2 14 21861 2
+scrx 2 14 21861 3
+scrx 2 14 21861 9
+scrx 2 14 21861 12
