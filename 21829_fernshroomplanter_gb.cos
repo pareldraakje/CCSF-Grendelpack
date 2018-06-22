@@ -14,18 +14,17 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_fernshroom_planter_JESS.agents"
-*# DS-Name "GP - Planter (fernshroom)"
+*# Pray-File "gb_fernshroom_planter_JESS.agents"
+*# DSGB-Name "GP - Planter (fernshroom) GB"
 *# attach gp_fernshroom_planter_JESS.c16 GrenP_FernShroomPlanter.catalogue
-*# desc = "A planter with ferns and tiny button mushrooms.\n\nSprites by Jesseth"
+*# desc = "A planter with ferns and tiny button mushrooms.by Jesseth"
 *# Agent Animation File = "gp_fernshroom_planter_JESS.c16"
-*# Agent Sprite First Image = 20
+*# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_fernshroom_planter_JESS"
-
-*# GB_Category = 21829
-*# GB_Category Name ""
-*# Agent Author = "CosmiSynth & Pilla"
-*# link 21803_dawnplant.cos
+*# GB_Category = 7
+*# GB_Category Name = "Planters"
+*# Agent Author = "Jesseth & Pilla"
+*# link 21829_fernshroomplanter.cos
 *
 *
 

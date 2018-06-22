@@ -17,7 +17,7 @@
 *# Pray-File "gp_fleeceblack_planter_JESS.agents"
 *# DS-Name "GP - Planter (fleeceblack)"
 *# attach gp_fleeceblack_planter_JESS.c16 GrenP_Fleeceblackplanter.catalogue
-*# desc = "A fleece algae planter.\n\nSprites by Jesseth"
+*# desc = "A fleece algae planter.by Jesseth"
 *# Agent Animation File = "gp_fleeceblack_planter_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_fleeceblack_planter_JESS"
@@ -45,7 +45,7 @@
 **
 
 scrp 2 23 21831 1000
-inst
+	inst
 	new: comp 2 23 21831 "gp_fleeceblack_planter_JESS" 1 0 rand 700 900
 ** Attributes: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
 	attr 214

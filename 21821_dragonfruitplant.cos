@@ -15,8 +15,8 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_dragonfruit_plant_JESS.agents"
-*# DS-Name "dragonfruit Plant (Jesseth)"
-*# attach gp_dragonfruit_plant_JESS.c16 
+*# DS-Name "GP - Dragonfruit Plant (Jesseth)"
+*# attach gp_dragonfruit_plant_JESS.c16 GrenP_Dragonfruit.catalogue
 *# desc = "Some pretty dragonfruit."
 *# Agent Animation File = "gp_dragonfruit_plant_JESS.c16"
 *# Agent Sprite First Image = 20

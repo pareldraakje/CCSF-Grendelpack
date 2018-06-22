@@ -17,7 +17,7 @@
 *# Pray-File "gp_fernshroom_planter_JESS.agents"
 *# DS-Name "GP - Planter (fernshroom)"
 *# attach gp_fernshroom_planter_JESS.c16 GrenP_FernShroomPlanter.catalogue
-*# desc = "A planter with ferns and tiny button mushrooms.\n\nSprites by Jesseth"
+*# desc = "A planter with ferns and tiny button mushrooms.by Jesseth"
 *# Agent Animation File = "gp_fernshroom_planter_JESS.c16"
 *# Agent Sprite First Image = 20
 *# Agent Animation Gallery = "gp_fernshroom_planter_JESS"

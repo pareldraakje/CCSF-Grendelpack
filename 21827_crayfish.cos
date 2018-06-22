@@ -16,14 +16,14 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_crayleech_JESS.agents"
-*# DS-Name "crayleech (Jesseth)"
-*# attach gp_crayleech_JESS.c16 
+*# DS-Name "GP - Crayleech Vendor (Jesseth)"
+*# attach gp_crayleech_JESS.c16 GrenP_Crayfish.catalogue GrenP_Leech.catalogue
 *# depend blnk.c16
 *# desc = "Crayfishes and leeches to liven up your underwater areas!"
 *# Agent Animation File = "gp_crayleech_JESS.c16"
 *# Agent Sprite First Image = 16
 *# Agent Animation Gallery = "gp_crayleech_JESS"
-*
+*# link 21839_leech.cos
 *
 
 *

@@ -14,14 +14,15 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_fleece_algae_JESS.agents"
-*# DSGB-Name "Fleece Algae"
+*# Pray-File "gb_fleece_algae_JESS.agents"
+*# DSGB-Name "Fleece Algae GB"
 *# attach gp_fleece_algae_JESS.c16 GrenP_FleeceAlgae.catalogue
 *# desc = "Some pretty fleece algae to decorate your underwater areas. Sprites by Jesseth"
 *# Agent Animation File = "gp_fleece_algae_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_fleece_algae_JESS"
 *# Agent Author = "Jesseth & Pilla"
+*# GB_Category = 4
 *# link 21801_fleecealgae.cos
 *
 *
@@ -34,20 +35,20 @@
 ** Algae seed
 **
 inst
-			new: simp 2 3 21801 "gp_fleece_algae_JESS" 1 0 rand 1000 2000
+new: simp 2 3 21801 "gp_fleece_algae_JESS" 1 0 rand 1000 2000
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
-			attr 194
+attr 194
 ** Will go through most walls
-			perm 30
+perm 30
 ** Physics
-			accg 0.01
-			aero 1
-			fric 50
-			elas 80
+accg 0.01
+aero 1
+fric 50
+elas 80
 ** launch seed
-			velo rand -7 7 -2
-			tick rand 100 200
-			mvsf game "ch_x" game "ch_y"
+velo rand -7 7 -2
+tick rand 100 200
+mvsf game "ch_x" game "ch_y"
 slow
 
 **

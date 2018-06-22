@@ -15,7 +15,7 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_pickleweed_plant_JESS.agents"
-*# DS-Name "Pickleweed Plant (Jesseth)"
+*# DS-Name "GP - Pickleweed Plant (Jesseth)"
 *# attach gp_pickleweed_plant_JESS.c16 
 *# desc = "Some pretty pickleweed."
 *# Agent Animation File = "gp_pickleweed_plant_JESS.c16"

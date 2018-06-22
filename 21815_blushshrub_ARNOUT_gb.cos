@@ -2,8 +2,8 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_blushshrub_CS_gb.agents"
-*# DSGB-Name "GP - Blush Shrub"
+*# Pray-File "gb_blushshrub_CS.agents"
+*# DSGB-Name "GP - Blush Shrub GB"
 *# attach gp_blush_shrub_CS.c16 GrenP_BlushShrub.catalogue
 *# desc = "It's the wonderful blush shrub. Sprites by CosmiSynth, code by Arnout"
 *# Agent Animation File = "gp_blush_shrub_CS.c16"
@@ -19,21 +19,21 @@
 *	Create a Gardenbox seed
 
 inst
-		new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 rand 1000 1500
+new: simp 2 3 21815 "gp_blush_shrub_CS" 1 0 rand 1000 1500
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
-		attr 194
+attr 194
 ** Will go through some walls
-		perm 60
+perm 60
 ** Physics
-		accg 0.1
-		aero 1
-		fric 60
-		elas 20
+accg 0.1
+aero 1
+fric 60
+elas 20
 
 ** launch seed
-		velo rand -10 10 -5
-		tick rand 100 300
-		mvsf game "ch_x" game "ch_y"
+velo rand -10 10 -5
+tick rand 100 300
+mvsf game "ch_x" game "ch_y"
 slow
 
 rscr

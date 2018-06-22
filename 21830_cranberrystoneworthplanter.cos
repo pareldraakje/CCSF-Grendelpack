@@ -17,7 +17,7 @@
 *# Pray-File "gp_cranstone_planter_JESS.agents"
 *# DS-Name "GP - Planter (CranStone)"
 *# attach gp_cranstone_planter_JESS.c16 GrenP_Cranberrystoneworth.catalogue
-*# desc = "A planter containing cranberry and stoneworth plants.\n\nSprites by Jesseth"
+*# desc = "A planter containing cranberry and stoneworth plants.by Jesseth"
 *# Agent Animation File = "gp_cranstone_planter_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_cranstone_planter_JESS"

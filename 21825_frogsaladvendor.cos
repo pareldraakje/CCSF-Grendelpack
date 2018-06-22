@@ -15,9 +15,9 @@
 **
 * CAOS2PRAY CHUNK
 *# Pray-File "gp_frogsalad_vendor_JESS.agents"
-*# DS-Name "Frog vendor"
+*# DS-Name "GP - Frog Salad Vendor (Jesseth)"
 *# attach gp_frogsalad_vendor_JESS.c16 GrenP_FrogsaladVendor.catalogue
-*# desc = "A vendor that vends frog kebabs. And salad bowls. \nSprites by Jesseth"
+*# desc = "A vendor that vends frog kebabs. And salad bowls. by Jesseth"
 *# Agent Animation File = "gp_frogsalad_vendor_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_frogsalad_vendor_JESS"

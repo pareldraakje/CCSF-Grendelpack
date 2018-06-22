@@ -14,13 +14,18 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_hairhydra_planter_JESS.agents"
-*# DS-Name "GP - Planter (hairhydra)"
+*# Pray-File "gb_hairhydra_planter_JESS.agents"
+*# DSGB-Name "GP - Planter (hairhydra) GB"
 *# attach gp_hairhydra_planter_JESS.c16 GrenP_Hairhydraplanter.catalogue
 *# desc = "A planter with hair algae and a cute hydrangea that bounces around.by Jesseth"
 *# Agent Animation File = "gp_hairhydra_planter_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_hairhydra_planter_JESS"
+
+*# GB_Category = 7
+*# GB_Category Name = "Planters"
+*# Agent Author = "Jesseth & Pilla"
+*# link 21833_hairhydraplanter.cos
 *
 *
 
@@ -32,8 +37,8 @@
 ** The planter
 **
 
-*new: comp 2 23 21833 "gp_hairhydra_planter_JESS" 1 0 rand 700 900
-*mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+new: comp 2 23 21833 "gp_hairhydra_planter_JESS" 1 0 rand 700 900
+mesg wrt+ targ 1000 Game "ch_x" Game "ch_y" 0
 
 **
 ** SCRIPTS

@@ -14,14 +14,15 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_hair_algae_JESS.agents"
-*# DSGB-Name "Hair Algae (Jesseth)"
+*# Pray-File "gb_hair_algae_JESS.agents"
+*# DSGB-Name "Hair Algae (Jesseth) GB"
 *# attach gp_hair_algae_JESS.c16  GrenP_HairAlgae.catalogue
 *# desc = "Some pretty hair algae to decorate your underwater areas. Sprites by Jesseth"
 *# Agent Animation File = "gp_hair_algae_JESS.c16"
 *# Agent Sprite First Image = 0
 *# Agent Animation Gallery = "gp_hair_algae_JESS"
 *# Agent Author = "Jesseth & Pilla"
+*# GB_Category = 4
 *# link 21802_hairalgae.cos
 *
 *
@@ -35,19 +36,19 @@
 **
 
 inst
-			new: simp 2 3 21802 "gp_hair_algae_JESS" 1 0 rand 1000 3000
+new: simp 2 3 21802 "gp_hair_algae_JESS" 1 0 rand 1000 3000
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
-			attr 194
+attr 194
 ** Will go through most walls
-			perm 30
+perm 30
 ** Physics
-			accg 0.2
-			aero 10
-			fric 50
-			elas 40
-			velo rand -30 30 -5
-			tick rand 100 200
-			mvsf game "ch_x" game "ch_y"
+accg 0.2
+aero 10
+fric 50
+elas 40
+velo rand -30 30 -5
+tick rand 100 200
+mvsf game "ch_x" game "ch_y"
 slow
 
 

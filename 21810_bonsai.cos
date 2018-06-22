@@ -2,7 +2,7 @@
 ** Injection
 
 * new: simp 2 21 21810 "gp_bonsai_JESS" 5 0 3000
-* mesg wrt+ targ 1000 posx posy 0
+* mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
 
 scrp 2 21 21810 1000
 	inst

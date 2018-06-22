@@ -183,6 +183,9 @@ scrp 2 8 21807 9
 			fric 70
 			perm 100
 		elif ov00 gt 4
+			tick 0
+			emit 4 1
+			wait 10
 			kill ownr
 		endi
 		addv ov00 1

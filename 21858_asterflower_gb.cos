@@ -14,8 +14,8 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_gb_aster.agent"
-*# DSGB-Name "Aster Flower"
+*# Pray-File "gb_asterflower_cerulean.agents"
+*# DSGB-Name "Aster Flower GB"
 *# Attach gp_aster.c16
 
 *# desc = "This is an aster flower, its job is to look pretty."
@@ -213,6 +213,7 @@ scrp 2 4 21858 9
 		targ ownr
 		lock
 ** Dying animation
+		emit 4 1
 		frat 10
 		anim [16 17 18 19 20 21 22 23 24]
 		over

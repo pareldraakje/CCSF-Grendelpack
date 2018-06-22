@@ -1,0 +1,56 @@
+**
+** Cranberry Stoneworth planter script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gb_cranstone_planter_JESS.agents"
+*# DSGB-Name "GP - Planter (CranStone) GB"
+*# attach gp_cranstone_planter_JESS.c16 GrenP_Cranberrystoneworth.catalogue
+*# desc = "A planter containing cranberry and stoneworth plants.by Jesseth"
+*# Agent Animation File = "gp_cranstone_planter_JESS.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_cranstone_planter_JESS"
+*# GB_Category = 7
+*# GB_Category Name = "Planters"
+*# Agent Author = "Jesseth & Pilla"
+*# link 21830_cranberrystoneworthplanter.cos
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The planter
+**
+
+new: simp 1 1 21830 "gp_cranstone_planter_JESS" 1 0 rand 700 900
+mesg wrt+ targ 1000 game "ch_x" game "ch_y" 0
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 2 23 21830
+	kill targ
+next
+enum 2 3 21830
+	kill targ
+next
+enum 2 8 21830
+	kill targ
+next

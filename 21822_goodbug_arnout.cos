@@ -29,17 +29,16 @@
 ** Injection script
 **
 
-* Population
-*new: simp 2 13 21822 "gp_good_bug_CS" 12 0 990
-*mesg wrt+ targ 1000 21110 2783 0
-
 * Population controller, ov00 = local minimum population
-*new: simp 1 1 21822 "blnk" 1 0 0
+*new: simp 1 1 21822 "gp_good_bug_CS" 1 3 0
+*tint 128 128 128 10 128
+*attr 2
 *setv ov00 3
-*mvto 21110 2783
-*tick 1
+*mvto game "CreatorX" game "CreatorY"
+*tick 100
 
 scrp 1 1 21822 9
+doif carr eq null
 	tick 350
 	rnge 1500
 	lock
@@ -56,6 +55,7 @@ scrp 1 1 21822 9
 			mesg wrt+ targ 1000 va01 va02 0
 		repe
 	endi
+endi
 endm
 
 

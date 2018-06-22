@@ -14,8 +14,8 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_licoricequill_gb_CS.agents"
-*# DSGB-Name "GP - Licorice Quill"
+*# Pray-File "gb_licoricequill_CS.agents"
+*# DSGB-Name "GP - Licorice Quill GB"
 *# attach gp_licorice_quill_CS.c16 GrenP_LicoriceQuil.catalogue
 *# desc = "Yay, it's a licorice quill. Sprites by CosmiSynth"
 *# Agent Animation File = "gp_licorice_quill_CS.c16"
@@ -35,20 +35,20 @@
 ** Inject a Gardenbox seed
 **
 
-			inst
-			new: simp 2 3 21804 "gp_licorice_quill_CS" 1 0 rand 1000 1500
+inst
+new: simp 2 3 21804 "gp_licorice_quill_CS" 1 0 rand 1000 1500
 ** attr: mouseable 2 + collide 64 + physics 128 = 194
-			attr 194
-			perm 60
+attr 194
+perm 60
 ** Physics
-			accg 1
-			fric 70
-			elas 40
+accg 1
+fric 70
+elas 40
 ** launch seed
-			velo rand -7 7 -2
-			tick rand 1 500
-			mvsf game "ch_x" game "ch_y"
-			slow
+velo rand -7 7 -2
+tick rand 1 500
+mvsf game "ch_x" game "ch_y"
+slow
 
 *
 *
