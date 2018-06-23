@@ -95,18 +95,8 @@ scrp 1 1 21821 9
 		setv va02 posx
 		setv va03 posy
 		reps 3
-			inst
 			new: simp 2 8 21821 "gp_dragonfruit_plant_JESS" 2 17 rand 1800 1900
-** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
-			attr 194
-			bhvr 48
-			accg 1
-			fric 25
-			elas 45
-			velo rand -8 8 0
-			tick rand 1 500
-			mvsf va02 va03
-			slow
+			mesg wrt+ targ 1000 va02 va03 0
 		repe
 	endi
 endm
@@ -348,6 +338,25 @@ endm
 
 ** FRUIT
 * 
+
+** Fruit creation script
+scrp 2 8 21821 1000
+	inst
+	** attr: mouseable 2 + collide 64 + physics 128 = 194, bhvr eat 16 + pickup 32 = 48
+	attr 194
+	bhvr 48
+** Will go through some walls
+	perm 80
+** Physics
+	accg 0.6
+	aero 1
+	fric 25
+	elas 45
+	tick rand 100 300
+	mvsf _p1_ _p2_
+	slow
+endm
+
 
 ** fruit eat script
 scrp 2 8 21821 12
