@@ -1,0 +1,52 @@
+**
+** dragonfruit plant script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_dragonfruit_plant_JESS_gb.agents"
+*# DSGB-Name "GP - Dragonfruit Plant (Jesseth) GB"
+*# attach gp_dragonfruit_plant_JESS.c16 GrenP_Dragonfruit.catalogue
+*# desc = "Some pretty dragonfruit. Gardenboxed by Wingyl"
+*# Agent Animation File = "gp_dragonfruit_plant_JESS.c16"
+*# Agent Sprite First Image = 17
+*# Agent Animation Gallery = "gp_dragonfruit_plant_JESS"
+*# GB_Category = 2
+*# Agent Author = "Jesseth & Pilla"
+*# link 21821_dragonfruitplant.cos
+*
+*
+
+*
+** Injection script
+**
+
+new: simp 2 8 21821 "gp_dragonfruit_plant_JESS" 2 17 rand 1800 1900
+mesg wrt+ targ 1000 game "ch_x" game "ch_y" 0
+
+*
+** Removal script 
+*
+
+rscr
+
+
+enum 2 4 21821
+	kill targ
+next
+enum 2 8 21821
+	kill targ
+next
+enum 2 11 21821
+	kill targ
+next
