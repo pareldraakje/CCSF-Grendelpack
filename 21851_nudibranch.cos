@@ -19,7 +19,7 @@
 *# DS-Name "GP - Nudibranch"
 *# attach gp_nudioxy_JESS.c16 
 *# depend blnk.c16
-*# desc = "Cute nudibranches to liven up your aquatic areas"
+*# desc = "Cute nudibranches to liven up your aquatic areas.\nSprites by Jesseth, coding by Pilla"
 *# Agent Animation File = "gp_nudioxy_JESS.c16"
 *# Agent Sprite First Image = 32
 *# Agent Animation Gallery = "gp_nudioxy_JESS"

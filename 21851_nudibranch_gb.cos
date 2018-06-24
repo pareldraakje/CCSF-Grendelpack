@@ -1,0 +1,49 @@
+
+**
+** Nudibranch + vendor script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_nudibranch_JESS_gb.agents"
+*# DSGB-Name "GP - Nudibranch GB"
+*# attach gp_nudioxy_JESS.c16 
+*# depend blnk.c16
+*# desc = "Cute nudibranches to liven up your aquatic areas. Gardenboxified by Wingyl."
+*# Agent Animation File = "gp_nudioxy_JESS.c16"
+*# Agent Sprite First Image = 32
+*# Agent Animation Gallery = "gp_nudioxy_JESS"
+*# GB_Category = 5
+*# Agent Author = "Jesseth & Pilla"
+*# link 21851_nudibranch.cos
+*
+
+*
+** Injection script
+**
+new: simp 2 15 21851 "gp_nudioxy_JESS" 20 17 rand 2000 3000
+mesg wrt+ targ 1000 game "ch_x" game "ch_y" 0
+velo rand -5 5 rand -5 0
+
+rscr
+
+
+
+** Nudibranch
+enum 2 15 21851
+	kill targ
+next
+
+enum 2 18 21851
+	kill targ
+next
