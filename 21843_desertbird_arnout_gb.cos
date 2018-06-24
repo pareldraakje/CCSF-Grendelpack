@@ -1,0 +1,58 @@
+** MUST BE COMPILED FROM PRAYFILE
+** MAKE SURE THE ORIGINAL SCRIPT GETS LINKED FIRST
+** KTHX
+
+* CAOS2PRAY CHUNK
+*# Pray-File "gb_drumstickbird_CS.agents"
+*# DSGB-Name "GP - Drumstick Bird GB"
+*# attach gp_desertstickbird_CS.c16 GrenP_DrumstickBird.catalogue
+*# depend blnk.c16
+*# desc = "Desert birds. Sprites by CosmiSynth, code by Arnout, gardenboxified by Wingyl."
+*# Agent Animation File = "gp_desertstickbird_CS.c16"
+*# Agent Sprite First Image = 38
+*# Agent Animation Gallery = "gp_desertstickbird_CS"
+*# GB_Category = 3
+*# Agent Author = "CosmiSynth & Arnout"
+*# link 21843_desertbird_arnout.cos
+
+*Drumstick Bird Egg: 2 18 21843
+*Drumstick Bird Young: 2 14 21843, with cato 15 to classify it as critter
+*Drumstich Bird Mature: 2 15 21843
+
+reps 2
+*create an adult bird
+	new: simp 2 15 21843 "gp_desertstickbird_CS" 43 25 1000
+*attr 1 + 2 + 4 + 64 + 128
+	attr 199
+	bhvr 59
+	perm 100
+	accg 1
+	aero 10
+	fric 100
+	elas 0
+*timer: 1 second
+	tick 20
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+	mvsf game "ch_x" game "ch_y"
+repe
+
+
+
+
+
+*remove script
+rscr
+enum 2 18 21843
+	kill targ
+next
+
+enum 2 14 21843
+	kill targ
+next
+
+enum 2 15 21843
+	kill targ
+next
