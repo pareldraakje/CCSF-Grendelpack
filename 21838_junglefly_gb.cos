@@ -1,4 +1,8 @@
 
+** MUST BE COMPILED FROM PRAYFILE
+** MAKE SURE THE ORIGINAL SCRIPT GETS LINKED FIRST
+** KTHX
+
 * CAOS2PRAY CHUNK
 *# Pray-file "gb_junglefly_UZAG.agents"
 *# DSGB-Name "GP - Junglefly GB"
@@ -25,7 +29,15 @@
 	bhvr 57
 	tick 5
 	mvsf game "ch_x" game "ch_y"
-	perm 1
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+	setv ov11 rand 0 1
+	doif ov11 eq 0
+		setv ov11 -1
+	endi
+		perm 1
 
 ** Create a female fly
     new: simp 2 15 21838 "gp_fly_UZAG" 28 15 300
@@ -34,7 +46,15 @@
 	bhvr 57
 	tick 5
 	mvsf game "ch_x" game "ch_y"
-	perm 1
+	setv ov10 rand 0 1
+	doif ov10 eq 0
+		setv ov10 -1
+	endi
+	setv ov11 rand 0 1
+	doif ov11 eq 0
+		setv ov11 -1
+	endi
+		perm 1
 
 ** Removal script
 
