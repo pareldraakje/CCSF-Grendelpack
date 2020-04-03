@@ -47,7 +47,7 @@ endm
 
 *collision sound
 scrp 2 8 21816 6
-	snde "drip"
+*	snde "drip"
 endm
 
 *eat script
