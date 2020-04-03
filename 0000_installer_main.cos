@@ -28,10 +28,12 @@
 *# attach gp_ccmac.c16 GrenP_CheeseMac.catalogue
 *# attach gp_crayfishtail_vendor_JESS.c16 GrenP_CrayfishtailVendor.catalogue
 *# attach gp_crayleech_JESS.c16 GrenP_Crayfish.catalogue GrenP_Leech.catalogue
+*# attach gp_dawn_plant_CS.c16 GrenP_DawnPlant.catalogue
 *# attach gp_desertlancebug_CS.c16 GrenP_DesertLanceBug.catalogue
 *# attach gp_desertstickbird_CS.c16 GrenP_DrumstickBird.catalogue
 *# attach gp_doorcapmeso_UZAG.c16 GrenP_DoorCapMeso.catalogue
 *# attach gp_doormesocap_UZAG.c16
+*# attach gp_doormesojungle_UZAG.c16 GrenP_DoorJungleMain.catalogue
 *# attach gp_dragonfruit_plant_JESS.c16 GrenP_Dragonfruit.catalogue
 *# attach gp_eleplant_JESS.c16 GrenP_Eleplant.catalogue
 *# attach gp_eleport_UZAG.c16 GrenP_Eleport.catalogue
@@ -70,7 +72,8 @@
 *# attach smit.wav
 *# attach tbal.wav
 
-*# link 21841_improvedfavplace.cos 0_00000_map_main.cos 21828_capillataoverlay.cos
-*# link 21800_agmoss_JESS.cos 21801_fleecealgae.cos 21802_hairalgae.cos 21803_dawnplant.cos 21804_licoricequill.cos 21809_moreballs.cos 21810_grendeltoy.cos 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21816_frootfruit_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21825_frogsaladvendor.cos 21826_crayfishtailvendor.cos 21827_crayfish.cos 
-*# link 21829_fernshroomplanter.cos 21830_cranberrystoneworthplanter.cos 21831_fleeceblackplanter.cos 21832_kelpbubbleplanter.cos 21833_hairhydraplanter.cos 21834_eleplant.cos 21838_junglefly.cos 21839_leech.cos 21843_desertbird_ARNOUT.cos 21844_inkcapmushrooms.cos 21845_desertbug_ARNOUT.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21851_nudibranch.cos 21853_oxymonacanthus.cos 21860_mossyberries.cos 21855_mesoshrooms.cos  21861_mealworm_ARNOUT.cos
-*# link 21808_shortcutdoors_main.cos 21857_door_ghmain.cos 21846_eleport.cos 21835_calinks_main.cos 21836_CAemitters_main.cos 21837_main_life.cos 21835_signeledoor_main.cos 0001_setvar_main.cos
+*# link 21841_improvedfavplace.cos 0_00000_map_main.cos 21828_capillataoverlay.cos 21800_agmoss_JESS.cos 21801_fleecealgae.cos 21802_hairalgae.cos 21803_dawnplant.cos 21804_licoricequill.cos 21809_moreballs.cos 21810_grendeltoy.cos 
+*# link 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21816_frootfruit_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21825_frogsaladvendor.cos 
+*# link 21826_crayfishtailvendor.cos 21827_crayfish.cos 21829_fernshroomplanter.cos 21830_cranberrystoneworthplanter.cos 21831_fleeceblackplanter.cos 21832_kelpbubbleplanter.cos 21833_hairhydraplanter.cos 21834_eleplant.cos 21838_junglefly.cos 21839_leech.cos 
+*# link 21843_desertbird_ARNOUT.cos 21844_inkcapmushrooms.cos 21845_desertbug_ARNOUT.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21851_nudibranch.cos 21853_oxymonacanthus.cos 21860_mossyberries.cos 21855_mesoshrooms.cos 
+*# link 21861_mealworm_ARNOUT.cos 21846_eleport.cos 21835_calinks_main.cos 21836_CAemitters_main.cos 21837_main_life.cos 21835_signeledoor_main.cos  21808_shortcutdoors_main.cos 21857_door_ghmain.cos 0001_setvar_main.cos
