@@ -10,6 +10,9 @@ enum 2 2 21857
 	endi
 next
 
+doif game "gpgrendelhideout" ne 1 and game "gpmain" ne 1
+	** owo
+else
 **
 ** The door inside the grendel hideout
 	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 29 1
@@ -25,8 +28,7 @@ next
 * The disabled OV
 	setv ov00 0
 	mvto 20181 811
-	setv va50 room targ
-	
+	setv va50 room targ	
 **
 ** the door inside main
 	new: comp 2 2 21857 "gp_doormesojungle_UZAG" 11 82 1
@@ -54,7 +56,6 @@ next
 			endi
 		next
 	endi
-
 endi
 
 **
