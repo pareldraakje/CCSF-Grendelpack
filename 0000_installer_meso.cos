@@ -26,6 +26,8 @@
 *# attach gp_desertstickbird_CS.c16 GrenP_DrumstickBird.catalogue
 *# attach gp_doorcapmeso_UZAG.c16 GrenP_DoorCapMeso.catalogue
 *# attach gp_doormesocap_UZAG.c16
+*# attach gp_doorjunglemeso_UZAG.c16 GrenP_DoorJungleMeso.catalogue
+*# attach gp_doormesojungle_UZAG.c16
 *# attach gp_eleplant_JESS.c16 GrenP_Eleplant.catalogue
 *# attach gp_eleport_UZAG.c16 GrenP_Eleport.catalogue
 *# attach gp_favicons_meso.c16 GrenP_FavplaceMeso.catalogue
