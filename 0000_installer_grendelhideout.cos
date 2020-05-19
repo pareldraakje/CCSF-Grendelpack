@@ -39,7 +39,7 @@
 *# attach gp_doormesojungle_UZAG.c16 GrenP_DoorJungleMeso.catalogue GrenP_DoorJungleMain.catalogue
 *# attach gp_aster.c16 GrenP_AsterFlower.catalogue
 *# attach gp_mealworm_JESS.c16 gp_mealwormdispenser_JESS.c16 GrenP_Mealworm.catalogue
-*# attach gp_overlay_jungle.c16 GrenP_Mealworm.catalogue
+*# attach gp_overlay_jungle.c16 GrenP_JungleOverlay.catalogue
 
 *# attach bal3.wav
 *# attach chwp.wav
