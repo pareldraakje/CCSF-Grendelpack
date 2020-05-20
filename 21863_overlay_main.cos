@@ -1,0 +1,24 @@
+new: simp 1 1 21863 "gp_overlay_main" 1 0 8000
+attr 16
+mvto 21672 935
+
+new: simp 1 1 21863 "gp_overlay_main" 1 1 8000
+attr 16
+mvto 20638 1244
+
+new: simp 1 1 21863 "gp_overlay_main" 1 2 8000
+attr 16
+mvto 21738 1269
+
+new: simp 1 1 21863 "gp_overlay_main" 1 3 8000
+attr 16
+mvto 22331 573
+
+new: simp 1 1 21863 "gp_overlay_main" 1 4 8000
+attr 16
+mvto 21964 2310
+
+rscr
+enum 1 1 21863
+	kill targ
+next

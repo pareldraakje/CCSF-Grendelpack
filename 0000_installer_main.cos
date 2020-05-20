@@ -57,6 +57,7 @@
 *# attach gp_shortcutdoors_CS.c16 GrenP_ShortcutDoor.catalogue
 *# attach gp_frootfruit_CS.c16 GrenP_Frootfruit.catalogue
 *# attach gp_mealworm_JESS.c16 gp_mealwormdispenser_JESS.c16 GrenP_Mealworm.catalogue
+*# attach gp_overlay_main.c16 GrenP_MainOverlay.catalogue
 
 *# attach bal3.wav
 *# attach chwp.wav
@@ -76,4 +77,4 @@
 *# link 21811_cheesemac_ARNOUT.cos 21812_goldfishies_LAURA.cos 21813_mossytree_GHOLAU.cos 21814_gerana_LIAM.cos 21815_blushshrub_ARNOUT.cos 21816_frootfruit_ARNOUT.cos 21820_pickleweedplant.cos 21821_dragonfruitplant.cos 21822_goodbug_arnout.cos 21825_frogsaladvendor.cos 
 *# link 21826_crayfishtailvendor.cos 21827_crayfish.cos 21829_fernshroomplanter.cos 21830_cranberrystoneworthplanter.cos 21831_fleeceblackplanter.cos 21832_kelpbubbleplanter.cos 21833_hairhydraplanter.cos 21834_eleplant.cos 21838_junglefly.cos 21839_leech.cos 
 *# link 21843_desertbird_ARNOUT.cos 21844_inkcapmushrooms.cos 21845_desertbug_ARNOUT.cos 21847_ghberries.cos 21848_c2berries.cos 21849_redcap_mushroom.cos 21851_nudibranch.cos 21853_oxymonacanthus.cos 21860_mossyberries.cos 21855_mesoshrooms.cos 
-*# link 21861_mealworm_ARNOUT.cos 21846_eleport.cos 21835_calinks_main.cos 21836_CAemitters_main.cos 21837_main_life.cos 21835_signeledoor_main.cos  21808_shortcutdoors_main.cos 21857_door_ghmain.cos 0001_setvar_main.cos
+*# link 21861_mealworm_ARNOUT.cos 21863_overlay_main.cos 21846_eleport.cos 21835_calinks_main.cos 21836_CAemitters_main.cos 21837_main_life.cos 21835_signeledoor_main.cos  21808_shortcutdoors_main.cos 21857_door_ghmain.cos 0001_setvar_main.cos
