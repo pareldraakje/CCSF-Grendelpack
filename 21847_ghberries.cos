@@ -89,7 +89,7 @@ scrp 2 8 21847 9
 			setv va01 post
 			setv va02 perm
 			new: simp 2 10 21847 "gp_c2berries_rotten" 1 1 rand 500 1000
-			mvto va00 va01
+			mvsf va00 va01
 			perm va02
 			tick rand 400 600
 			kill ownr
