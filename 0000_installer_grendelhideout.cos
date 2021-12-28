@@ -21,6 +21,7 @@
 *# attach gp_radioteleport.c16 GrenP_ShortcutDoor.catalogue
 *# attach gp_doormesojungle_UZAG.c16 GrenP_DoorJungleMeso.catalogue
 *# attach gp_redcap_mushroom.c16 GrenP_RedcapMushroom.catalogue
+*# attach gp_agressive_moss_JESS.c16 GrenP_AggressiveMoss.catalogue
 *# attach dustdevilgrendelplushie.c16 dustdevilgrendelplushie.catalogue
 *# attach gp_moreballs.c16 GrenP_Creatures2Balls.catalogue
 *# attach gp_bonsai_JESS.c16 GrenP_Bonsai.catalogue
