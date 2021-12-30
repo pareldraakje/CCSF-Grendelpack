@@ -18,7 +18,7 @@
 *# DSGB-Name "Mesosplicer"
 *# Attach gp_splicer_LINDA.c16
 
-*# desc = "This splicer allows you to splice your poor, innocent Creatures.by Lindaby Pilla"
+*# desc = "This splicer allows you to splice your poor, innocent Creatures. Images by Linda, code by Pilla"
 *# Agent Animation File = "gp_splicer_LINDA.c16"
 *# Agent Animation Gallery = "gp_splicer_LINDA"
 *# Agent Sprite First Image = 6
