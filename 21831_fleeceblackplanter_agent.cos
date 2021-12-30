@@ -1,0 +1,350 @@
+**
+** Black Fleece planter script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_fleeceblack_planter_JESS.agents"
+*# DS-Name "GP - Planter (fleeceblack)"
+*# attach gp_fleeceblack_planter_JESS.c16 GrenP_Fleeceblackplanter.catalogue
+*# desc = "A fleece algae planter.by Jesseth"
+*# Agent Animation File = "gp_fleeceblack_planter_JESS.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_fleeceblack_planter_JESS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The planter
+**
+
+new: comp 2 23 21831 "gp_fleeceblack_planter_JESS" 1 0 rand 700 900
+mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+
+
+**
+** SCRIPTS
+**
+
+**
+** PLANTER CREATOR SCRIPT
+**
+
+scrp 2 23 21831 1000
+	inst
+	new: comp 2 23 21831 "gp_fleeceblack_planter_JESS" 1 0 rand 700 900
+** Attributes: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
+	attr 214
+	perm 100
+	accg 0
+	elas 0
+	fric 100
+	aero 100
+	perm 100
+	bhvr 0
+
+** The Fleece spawning spots
+	pat: dull 3 "gp_fleeceblack_planter_JESS" 1 1 30 1
+	pat: dull 4 "gp_fleeceblack_planter_JESS" 1 18 7 1
+	pat: dull 5 "gp_fleeceblack_planter_JESS" 1 21 32 1
+** The Black spawning spots
+	pat: dull 6 "gp_fleeceblack_planter_JESS" 6 5 4 1
+	pat: dull 7 "gp_fleeceblack_planter_JESS" 6 27 13 1
+	pat: dull 8 "gp_fleeceblack_planter_JESS" 6 33 24 1
+
+	tick 20
+	mvsf _p1_ _p2_
+	slow
+	targ ownr
+	kill targ
+endm
+
+
+**
+** PLANTER PUSH SCRIPT
+**
+
+scrp 2 23 21831 1
+	mesg writ pntr 101
+	setv va05 posx
+	setv va06 posy
+** Vend a Black
+	new: simp 2 8 21831 "gp_fleeceblack_planter_JESS" 1 10 rand 1800 1900
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+** Will go through some walls
+	perm 80
+** Physics
+	accg 0.7
+	aero 1
+	fric 60
+	elas 40
+** bhvr: pickup 16 + eat 32 = 48
+	bhvr 48
+	tick 1800
+	velo rand -1 1 -1
+	mvsf va05 va06
+endm
+
+**
+** PLANTER TIMER SCRIPT
+**
+
+scrp 2 23 21831 9
+	doif carr eq null
+		tick rand 160 260
+		lock
+
+** Grow the flowers and spawn the seed
+		setv va01 3
+		reps 6
+			part va01
+** Fleece subroutine
+			doif va01 lt 6
+** pose ge 1 --> grow to next stage
+				doif pose ge 1 and pose lt 3
+					setv va10 pose
+					addv va10 1
+					pose va10
+** pose eq 3 --> reset lobe and drop seed
+				elif pose eq 3
+** Create and drop a new seed
+					gsub dropedible
+** reset seed lobe
+					targ ownr
+					part va01
+					pose 0
+				endi
+** Black subroutine
+			else
+				doif pose ge 1 and pose lt 3
+					setv va10 pose
+					addv va10 1
+					pose va10
+				elif pose eq 3
+					gsub dropedible
+** reset seed lobe
+					targ ownr
+					part va01
+					pose 0
+				endi
+			endi
+			addv va01 1
+			targ ownr
+
+		repe
+
+
+** Check how many seed lobes there are currently growing
+		setv va00 0
+		setv va01 3
+		reps 3
+			part va01
+			doif pose ne 0
+				addv va00 1
+			endi
+			addv va01 1
+		repe
+
+** If there are less than 3 seed lobes growing, there may grow another one.
+		doif va00 lt 3 and rand 0 2 eq 0
+** Make the first checking point random.
+			setv va01 3
+			addv va01 rand 0 2
+			setv va12 0
+** If the first spot isn't free, try the next one.
+			reps 3
+				part va01
+				doif pose eq 0 and va12 eq 0
+					pose 1
+					addv va12 1
+				endi
+				addv va01 1
+				doif va01 gt 5
+					setv va01 3
+				endi
+			repe
+		endi
+
+** Check how many Blacks there are currently growing
+		setv va02 0
+		setv va03 6
+		reps 3
+			part va03
+			doif pose ne 0
+				addv va02 1
+			endi
+			addv va03 1
+		repe
+** If there are less than 3 Blacks growing, there may grow another one.
+		doif va00 lt 3 and rand 0 2 eq 0
+			setv va13 0
+** Make the first checking point random.
+			setv va01 6
+			addv va01 rand 0 2
+** If the first spot isn't free, try the next one.
+			reps 3
+				part va01
+				doif pose eq 0 and va13 eq 0
+					pose 1
+					addv va13 1
+				endi
+				addv va01 1
+				doif va01 gt 8
+					setv va01 6
+				endi
+			repe
+		endi
+	endi
+
+	subr dropedible
+		inst
+		setv va05 posl
+		setv va06 post
+		doif va01 lt 6
+** Fleece 3 4 5
+			doif va01 eq 3
+				addv va05 1
+				addv va06 32
+			elif va01 eq 4
+				addv va05 18
+				addv va06 9
+			elif va01 eq 5
+				addv va05 21
+				addv va06 34
+			endi
+			doif sorq 2 3 21801 9 eq 0
+				new: simp 2 3 21831 "gp_fleeceblack_planter_JESS" 1 5 rand 1200 1900
+			else
+				new: simp 2 3 21801 "gp_fleece_algae_JESS" 1 0 rand 1000 3000
+			endi
+		else
+** Blacks 6 7 8
+			doif va01 eq 6
+				addv va05 5
+				addv va06 4
+
+			elif va01 eq 7
+				addv va05 27
+				addv va06 13
+			elif va01 eq 8
+				addv va05 33
+				addv va06 24
+			endi
+			new: simp 2 8 21831 "gp_fleeceblack_planter_JESS" 1 10 rand 1200 1900
+
+		endi
+
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+** bhvr: eat 16 + pickup 32 = 48
+		attr 194
+		bhvr 48
+** Will go through some walls
+		perm 80
+** Physics
+		accg 0.7
+		aero 1
+		fric 60
+		elas 40
+		tick rand 800 1400
+		velo 0 0
+		mvsf va05 va06
+		slow
+	retn
+endm
+
+
+**
+** Fleece SEED TIMER
+**
+
+**
+** Black TIMER
+**
+
+**
+** Fleece SEED EAT
+**
+scrp 2 3 21831 12
+	lock
+	wait 10
+** stim eat plant
+	stim writ from 77 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** Black EAT
+**
+
+scrp 2 8 21831 12
+	lock
+	wait 10
+** stim eat fruit
+	stim writ from 78 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** Fleece SEED TIMER
+**
+
+scrp 2 3 21831 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+**
+** Black TIMER
+**
+
+scrp 2 8 21831 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 2 23 21831
+	kill targ
+next
+enum 2 3 21831
+	kill targ
+next
+enum 2 8 21831
+	kill targ
+next
+
+scrx 2 23 21831 1
+scrx 2 23 21831 9
+
+scrx 2 3 21831 9
+scrx 2 3 21831 12
+scrx 2 8 21831 9
+scrx 2 8 21831 12

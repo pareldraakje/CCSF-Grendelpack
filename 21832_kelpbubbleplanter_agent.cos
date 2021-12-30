@@ -1,0 +1,362 @@
+**
+** kelp bubble planter script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_kelpbubble_planter_JESS.agents"
+*# DS-Name "GP - Planter (kelpbubble)"
+*# attach gp_kelpbubble_planter_JESS.c16 GrenP_KelpBubblePlanter.catalogue
+*# desc = "A planter featuring kelp! And it looks like sometimes there comes out a bubble too.by Jesseth"
+*# Agent Animation File = "gp_kelpbubble_planter_JESS.c16"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "gp_kelpbubble_planter_JESS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The planter
+**
+
+new: comp 2 23 21832 "gp_kelpbubble_planter_JESS" 1 0 rand 700 900
+mesg wrt+ targ 1000 Game "CreatorX" Game "CreatorY" 0
+
+
+**
+** SCRIPTS
+**
+
+**
+** PLANTER CREATOR SCRIPT
+**
+
+scrp 2 23 21832 1000
+	new: comp 2 23 21832 "gp_kelpbubble_planter_JESS" 1 0 rand 700 900
+** Attributes: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
+	attr 214
+	perm 100
+	accg 0
+	elas 0
+	fric 100
+	aero 100
+	perm 100
+	bhvr 0
+
+** The bubble spawning spot
+	pat: dull 3 "gp_kelpbubble_planter_JESS" 1 0 0 1
+** The kelp spawning spots
+	pat: dull 6 "gp_kelpbubble_planter_JESS" 6 7 28 1
+	pat: dull 7 "gp_kelpbubble_planter_JESS" 6 26 30 1
+	pat: dull 8 "gp_kelpbubble_planter_JESS" 6 36 33 1
+
+	tick 20
+	mvsf _p1_ _p2_
+	slow
+	targ ownr
+	kill targ
+endm
+
+
+**
+** PLANTER PUSH SCRIPT
+**
+
+scrp 2 23 21832 1
+	mesg writ pntr 101
+
+	setv va05 posl
+	setv va06 post
+	addv va05 37
+	addv va06 15
+
+	part 3
+	frat 2
+	anim [1 2 3 3]
+	over
+	inst
+** Vend a bubble
+	new: simp 2 21 21832 "gp_kelpbubble_planter_JESS" 1 5 rand 1800 1900
+** attr: mouseable 2 +  activateable 4 + collide 64 + physics 128 = 198
+	attr 198
+** Will go through some walls
+	perm 80
+** Physics
+	accg 0.05
+	aero 1
+	fric 60
+	elas 40
+** bhvr: act1 1 + act2 2 + hit 3 + pickup 32 = 43
+	bhvr 43
+	tick 1800
+	velo 1 -2
+	mvsf va05 va06
+	targ ownr
+	part 3
+	pose 0
+	slow
+endm
+
+**
+** PLANTER TIMER SCRIPT
+**
+
+scrp 2 23 21832 9
+	doif carr eq null
+		tick rand 160 260
+		lock
+
+** Check whether there's a bubble growing
+		part 3
+		setv va00 0
+		doif pose ne 0
+			addv va00 1
+		endi
+** If there is no bubble, there may grow one.
+		doif va00 eq 0 and rand 0 10 eq 0
+** bubble subroutine
+			setv va01 3
+			part va01
+			frat 2
+			anim [1 2 3]
+			over
+			inst
+			gsub dropedible
+			slow
+			targ ownr
+			part 3
+			pose 0
+		endi
+
+
+** Grow the flowers and spawn the kelp
+		setv va01 6
+		reps 3
+			targ ownr
+
+			part va01
+
+** kelp subroutine
+			doif pose ge 1 and pose lt 3
+				setv va10 pose
+				addv va10 1
+				pose va10
+			elif pose eq 3
+				gsub dropedible
+** reset seed lobe
+				targ ownr
+				part va01
+				pose 0
+			endi
+
+			addv va01 1
+		repe
+
+
+** Check how many kelps there are currently growing
+		setv va02 0
+		setv va03 6
+		reps 3
+			part va03
+			doif pose ne 0
+				addv va02 1
+			endi
+			addv va03 1
+		repe
+
+** If there are less than 3 kelps growing, there may grow another one.
+		doif va00 lt 3 and rand 0 2 eq 0
+			setv va13 0
+** Make the first checking point random.
+			setv va01 6
+			addv va01 rand 0 2
+** If the first spot isn't free, try the next one.
+			reps 3
+				part va01
+				doif pose eq 0 and va13 eq 0
+					pose 1
+					addv va13 1
+				endi
+				addv va01 1
+				doif va01 gt 8
+					setv va01 6
+				endi
+			repe
+		endi
+	endi
+
+	subr dropedible
+		inst
+		setv va05 posl
+		setv va06 post
+** kelps 6 7 8
+		doif va01 eq 6
+			addv va05 8
+			addv va06 30
+		elif va01 eq 7
+			addv va05 27
+			addv va06 32
+		elif va01 eq 8
+			addv va05 37
+			addv va06 35
+		endi
+
+		doif va01 ge 6
+			new: simp 2 11 21832 "gp_kelpbubble_planter_JESS" 1 10 rand 1200 1900
+** bhvr: eat 16 + pickup 32 = 48
+			bhvr 48
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+			attr 194
+			elas 40
+			accg 0.6
+			velo 0 0
+
+		else
+			targ ownr
+			setv va05 posl
+			setv va06 post
+			addv va05 39
+			addv va06 16
+
+			new: simp 2 21 21832 "gp_kelpbubble_planter_JESS" 1 5 rand 1200 1900
+** bhvr: act1 1 + act2 2 + hit 8 + pickup 32 = 43
+			bhvr 43
+** attr: mouseable 2 +  activateable 4 + collide 64 + physics 128 = 198
+			attr 198
+			elas 90
+			accg 0.05
+			velo 1 -2
+
+		endi
+
+** Will go through some walls
+		perm 80
+** Physics
+		aero 1
+		fric 60
+		tick rand 800 1400
+
+		mvsf va05 va06
+		slow
+	retn
+endm
+
+
+
+**
+** bubble PUSH
+**
+scrp 2 21 21832 1
+	lock
+	stim writ from 97 2
+	wait 5
+	targ from
+	drop
+	targ ownr
+	velo rand -3 3 rand -3 -1
+	wait 10
+endm
+
+**
+** bubble PULL
+**
+scrp 2 21 21832 2
+	lock
+	stim writ from 97 2
+	wait 5
+	targ from
+	drop
+	targ ownr
+	velo rand -3 3 rand -3 -1
+	wait 10
+endm
+
+**
+** bubble HIT
+**
+scrp 2 21 21832 3
+	lock
+	stim writ from 97 1
+	stim writ from 92 1
+	wait 5
+	targ from
+	drop
+	targ ownr
+	velo rand -3 3 rand -3 -1
+	wait 10
+endm
+
+**
+** kelp EAT
+**
+
+scrp 2 11 21832 12
+	lock
+	wait 10
+** stim eat food
+	stim writ from 79 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** bubble TIMER
+**
+
+scrp 2 21 21832 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+**
+** kelp TIMER
+**
+
+scrp 2 11 21832 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 2 23 21832
+	kill targ
+next
+enum 2 21 21832
+	kill targ
+next
+enum 2 11 21832
+	kill targ
+next
+
+scrx 2 23 21832 1
+scrx 2 23 21832 9
+
+scrx 2 21 21832 9
+scrx 2 21 21832 1
+scrx 2 21 21832 2
+scrx 2 21 21832 3
+scrx 2 11 21832 9
+scrx 2 11 21832 12

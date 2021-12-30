@@ -1,0 +1,354 @@
+**
+** Fern-shroom planter script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_fernshroom_planter_JESS.agents"
+*# DS-Name "GP - Planter (fernshroom)"
+*# attach gp_fernshroom_planter_JESS.c16 GrenP_FernShroomPlanter.catalogue
+*# desc = "A planter with ferns and tiny button mushrooms.by Jesseth"
+*# Agent Animation File = "gp_fernshroom_planter_JESS.c16"
+*# Agent Sprite First Image = 20
+*# Agent Animation Gallery = "gp_fernshroom_planter_JESS"
+*
+*
+
+*
+** Injection script
+**
+
+**
+** The planter
+**
+
+new: simp 1 1 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
+mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+**
+** SCRIPTS
+**
+
+**
+** PLANTER CREATOR SCRIPT
+**
+scrp 1 1 21829 1000
+	inst
+	new: comp 2 23 21829 "gp_fernshroom_planter_JESS" 1 0 rand 800 900
+** Attributes: mouseable 2 + activateable 4 + invisible 16 + collide 64 + physics 128 = 214
+	attr 214
+	perm 100
+	accg 0
+	elas 0
+	fric 100
+	aero 100
+	perm 100
+	bhvr 0
+
+** Create the idle seeding animation
+	pat: dull 2 "gp_fernshroom_planter_JESS" 1 0 4 1
+** The fern spawning spots
+	pat: dull 3 "gp_fernshroom_planter_JESS" 6 3 13 1
+	pat: dull 4 "gp_fernshroom_planter_JESS" 6 20 29 1
+	pat: dull 5 "gp_fernshroom_planter_JESS" 6 24 42 1
+** The mushroom spawning spots
+	pat: dull 6 "gp_fernshroom_planter_JESS" 11 16 16 1
+	pat: dull 7 "gp_fernshroom_planter_JESS" 11 24 17 1
+	pat: dull 8 "gp_fernshroom_planter_JESS" 11 33 12 1
+
+	part 2
+	frat 40
+	anim [ 0 1 2 3 4 255 ]
+
+	tick 20
+	mvsf _p1_ _p2_
+	slow
+	targ ownr
+	kill targ
+endm
+
+**
+** PLANTER PUSH SCRIPT
+**
+
+scrp 2 23 21829 1
+	mesg writ pntr 101
+	setv va05 posx
+	setv va06 posy
+** Vend a mushroom
+	new: simp 2 11 21829 "gp_fernshroom_planter_JESS" 1 15 rand 1200 1900
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+** Will go through some walls
+	perm 80
+** Physics
+	accg 0.4
+	aero 1
+	fric 25
+	elas 60
+** bhvr: pickup 16 + eat 32 = 48
+	bhvr 48
+	tick 1800
+	velo rand -3 3 0
+	mvsf va05 va06
+endm
+
+**
+** PLANTER TIMER SCRIPT
+**
+
+scrp 2 23 21829 9
+	doif carr eq null
+		tick rand 160 260
+		lock
+
+** Grow the flowers and spawn the seed
+		setv va01 3
+		reps 6
+			part va01
+** Fern subroutine
+			doif va01 lt 6
+** pose ge 1 --> grow to next stage
+				doif pose ge 1 and pose lt 3
+					setv va10 pose
+					addv va10 1
+					pose va10
+** pose eq 3 --> reset lobe and drop seed
+				elif pose eq 3
+** Create and drop a new seed
+					gsub dropedible
+** reset seed lobe
+					targ ownr
+					part va01
+					pose 0
+				endi
+** Mushroom subroutine
+			else
+				doif pose ge 1 and pose lt 4
+					setv va10 pose
+					addv va10 1
+					pose va10
+				elif pose eq 4
+					gsub dropedible
+** reset seed lobe
+					targ ownr
+					part va01
+					pose 0
+				endi
+			endi
+			addv va01 1
+			targ ownr
+
+		repe
+
+
+** Check how many seed lobes there are currently growing
+		setv va00 0
+		setv va01 3
+		reps 3
+			part va01
+			doif pose ne 0
+				addv va00 1
+			endi
+			addv va01 1
+		repe
+
+** If there are less than 2 seed lobes growing, there may grow another one.
+		doif va00 lt 2 and rand 0 2 eq 0
+** Make the first checking point random.
+			setv va01 3
+			addv va01 rand 0 2
+			setv va12 0
+** If the first spot isn't free, try the next one.
+			reps 3
+				part va01
+				doif pose eq 0 and va12 eq 0
+					pose 1
+					addv va12 1
+				endi
+				addv va01 1
+				doif va01 gt 5
+					setv va01 3
+				endi
+			repe
+		endi
+
+** Check how many mushrooms there are currently growing
+		setv va02 0
+		setv va03 6
+		reps 3
+			part va03
+			doif pose ne 0
+				addv va02 1
+			endi
+			addv va03 1
+		repe
+** If there are less than 3 mushrooms growing, there may grow another one.
+		doif va00 lt 3 and rand 0 2 eq 0
+			setv va13 0
+** Make the first checking point random.
+			setv va01 6
+			addv va01 rand 0 2
+** If the first spot isn't free, try the next one.
+			reps 3
+				part va01
+				doif pose eq 0 and va13 eq 0
+					pose 1
+					addv va13 1
+				endi
+				addv va01 1
+				doif va01 gt 8
+					setv va01 6
+				endi
+			repe
+		endi
+	endi
+
+	subr dropedible
+		inst
+		setv va05 posl
+		setv va06 post
+		doif va01 lt 6
+** Fern 3 4 5
+			doif va01 eq 3
+				addv va05 2
+				addv va06 16
+			elif va01 eq 4
+				addv va05 19
+				addv va06 32
+			elif va01 eq 5
+				addv va05 23
+				addv va06 45
+			endi
+			new: simp 2 3 21829 "gp_fernshroom_planter_JESS" 1 10 rand 1200 1900
+
+		else
+** mushrooms 6 7 8
+			doif va01 eq 6
+				addv va05 16
+				addv va06 21
+			elif va01 eq 7
+				addv va05 24
+				addv va06 22
+			elif va01 eq 8
+				addv va05 33
+				addv va06 17
+
+			endi
+			new: simp 2 11 21829 "gp_fernshroom_planter_JESS" 1 15 rand 1200 1900
+
+		endi
+
+** attr: mouseable 2 + collide 64 + physics 128 = 194
+** bhvr: eat 16 + pickup 32 = 48
+		attr 194
+		bhvr 48
+** Will go through some walls
+		perm 80
+** Physics
+		accg 0.7
+		aero 1
+		fric 50
+		elas 30
+		tick rand 1200 2000
+		mvsf va05 va06
+		slow
+	retn
+endm
+
+
+**
+** FERN SEED TIMER
+**
+
+**
+** MUSHROOM TIMER
+**
+
+**
+** FERN SEED EAT
+**
+scrp 2 3 21829 12
+	lock
+	wait 10
+** stim eat plant
+	stim writ from 77 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** MUSHROOM EAT
+**
+
+scrp 2 11 21829 12
+	lock
+	wait 10
+** stim eat food
+	stim writ from 79 1
+	wait 10
+	kill ownr
+	unlk
+endm
+
+**
+** FERN SEED TIMER
+**
+
+scrp 2 3 21829 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+**
+** MUSHROOM TIMER
+**
+
+scrp 2 11 21829 9
+	doif carr eq null
+		kill ownr
+	endi
+endm
+
+
+*
+** Removal script 
+*
+
+rscr
+
+enum 1 1 21829
+	kill targ
+next
+enum 2 23 21829
+	kill targ
+next
+enum 2 3 21829
+	kill targ
+next
+enum 2 11 21829
+	kill targ
+next
+
+scrx 1 1 21829 1000
+scrx 2 23 21829 1
+scrx 2 23 21829 9
+
+scrx 2 3 21829 9
+scrx 2 3 21829 12
+scrx 2 11 21829 9
+scrx 2 11 21829 12
