@@ -1,4 +1,45 @@
 
+**
+** Oxymonacanthus + vendor script
+**
+** Sprites by Jesseth, coding by Pilla.
+**
+**
+** Feel free to use this code however you want.
+**
+**
+
+**
+** Caos2pray chunk
+**
+** Compiles the agent.
+**
+* CAOS2PRAY CHUNK
+*# Pray-File "gp_oxymonacanthus_JESS.agents"
+*# DS-Name "GP - Oxymonacanthus"
+*# attach gp_nudioxy_JESS.c16 
+*# depend blnk.c16
+*# desc = "Cute oxymonacanthus to liven up your aquatic areas.\nSprites by Jesseth, coding by Pilla"
+*# Agent Animation File = "gp_nudioxy_JESS.c16"
+*# Agent Sprite First Image = 53
+*# Agent Animation Gallery = "gp_nudioxy_JESS"
+*
+*
+
+*
+** Injection script
+**
+*new: comp 2 23 21851 "gp_nudioxy_JESS" 1 0 rand 800 900
+*mesg wrt+ targ 1000 game "CreatorX" game "CreatorY" 0
+
+
+**
+**
+** SCRIPTS
+**
+**
+**
+
 
 
 *
