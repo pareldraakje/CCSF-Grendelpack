@@ -15,7 +15,7 @@
 ** Compiles the agent.
 **
 * CAOS2PRAY CHUNK
-*# Pray-File "gp_nudibranch_JESS_gb.agents"
+*# Pray-File "gb_nudibranch_JESS.agents"
 *# DSGB-Name "GP - Nudibranch GB"
 *# attach gp_nudioxy_JESS.c16 
 *# depend blnk.c16
