@@ -228,7 +228,7 @@ mmsc 21919 1488 ""
     rtyp va00 5
     rmsc 22846 1392 ""
     setv game "mapeditortmp_652" va00
-  setv va00 addr game "mapeditortmp" 22968 23064 898 895 1486 1486
+  setv va00 addr game "mapeditortmp" 22958 23064 898 895 1486 1486
     rtyp va00 5
     rmsc 23016 1192 ""
     setv game "mapeditortmp_653" va00
