@@ -1,14 +1,4 @@
 **
-** Aster Flower Script
-**
-** Sprites by Linda, coding by Pilla.
-**
-**
-** Feel free to use this code however you want.
-**
-**
-
-**
 ** Caos2pray chunk
 **
 ** Compiles the agent.
@@ -18,11 +8,11 @@
 *# DSGB-Name "Mesosplicer"
 *# Attach gp_splicer_LINDA.c16
 
-*# desc = "This splicer allows you to splice your poor, innocent Creatures.by Lindaby Pilla"
+*# desc = "This splicer allows you to splice your poor, innocent Creatures.by Linda and Aiko"
 *# Agent Animation File = "gp_splicer_LINDA.c16"
 *# Agent Animation Gallery = "gp_splicer_LINDA"
 *# Agent Sprite First Image = 6
-*# Agent Author = "Linda & Pilla"
+*# Agent Author = "Linda & Aiko"
 *
 
 *
