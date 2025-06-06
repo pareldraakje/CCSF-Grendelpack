@@ -1,14 +1,4 @@
 **
-** Aster Flower Script
-**
-** Sprites by Linda, coding by Pilla.
-**
-**
-** Feel free to use this code however you want.
-**
-**
-
-**
 ** Caos2pray chunk
 **
 ** Compiles the agent.
@@ -18,11 +8,11 @@
 *# DSGB-Name "Mesosplicer"
 *# Attach gp_splicer_LINDA.c16
 
-*# desc = "This splicer allows you to splice your poor, innocent Creatures. Images by Linda, code by Pilla"
+*# desc = "This splicer allows you to splice your poor, innocent Creatures.by Linda and Aiko"
 *# Agent Animation File = "gp_splicer_LINDA.c16"
 *# Agent Animation Gallery = "gp_splicer_LINDA"
 *# Agent Sprite First Image = 6
-*# Agent Author = "Linda & Pilla"
+*# Agent Author = "Linda & Aiko"
 *
 
 *
@@ -57,19 +47,25 @@ scrp 1 1 21859 10
 	pat: butt 7 "gp_splicer_LINDA" 29 3 295 -56 -5999 [] 1007 1
 * Auto button
 	pat: butt 8 "gp_splicer_LINDA" 32 3 298 -18 -5999 [] 1008 1
-	cabn 351 117 539 283
+	cabn 351 20 539 283
 	cabp -5000
-	attr 8
-	tick 300
-	slow
+	attr 12
+* Setting some initials vars
+	setv name "gender" 0
+	setv name "auto" 0
+* fix this later-- pick up any creatures already in the room?
+	gpas 4 0 0 1
+
 endm
 
 
 ** Vehicle pickup script
 scrp 1 1 21859 124
+	cabp rand -5000 -4000
 	targ from
 	doif fmly eq 4
-** zombie it, so it doesn't move
+** freeze it, so it doesn't move
+		accg 1
 		zomb 1
 		setv va00 0
 		reps 9
@@ -82,13 +78,16 @@ scrp 1 1 21859 124
 ** wait a bit so the pose takes effect 
 		wait 4
 	endi
+* call the update script
+	mesg writ ownr 1000
 endm
 
 ** Vehicle drop script
 scrp 1 1 21859 125
 	targ from
 	doif fmly eq 4
-** unzombie it
+** unfreeze it
+		accg 5
 		zomb 0
 		setv va00 0
 		reps 9
@@ -96,6 +95,361 @@ scrp 1 1 21859 125
 			addv va00 1
 		repe
 	endi
+* call the update script
+	mesg writ ownr 1000
+endm
+
+*check status!
+scrp 1 1 21859 1000
+	inst
+* how many creatures are there? 
+	setv va00 0
+	epas 4 0 0
+		addv va00 1
+	next
+
+* 	update the number of creatures button
+	doif va00 le 2
+		part 4
+		pose va00
+	elif va00 gt 2
+		part 4
+		pose 3
+	endi
+
+* update the Go button
+	doif va00 lt 2
+		part 6
+		pose 0
+	else
+		part 6
+		pose 1
+	endi
+endm
+
+* Gender Button (part 5)
+scrp 1 1 21859 1005
+	inst
+	sndc "1bep"
+	addv name "gender" 1
+	doif name "gender" > 2
+		setv name "gender" 0
+	endi
+	part 5
+	pose name "gender"
+endm
+
+* Go Button (part 6)
+scrp 1 1 21859 1006
+* 	make sure there's enough creatures in there
+	setv va00 0
+	epas 4 0 0
+		addv va00 1
+	next
+	doif va00 gt 1
+* 	run the splice script
+		mesg writ ownr 2000
+* not enough creatures, so buzz
+	else
+		sndc "buzz"
+		part 6
+		pose 0
+	endi
+endm
+
+* Drop Button (part 7)
+scrp 1 1 21859 1007
+	inst
+
+*make sure there's creatures in the cabin to drop!
+	setv va00 0
+	epas 4 0 0
+		addv va00 1
+	next
+	doif va00 gt 0
+
+
+*where are we gonna drop them? va11/12 x/y
+		sndc "1bep"
+		setv va11 25660
+		setv va12 980
+		lock
+		part 2
+		anim [1 2 3 4]
+		part 0
+		anim [1 2 3 4 5 6 7 8 9]
+		over
+		sndc "muco"
+		anim [12 11 10]
+		over
+		inst
+		epas 4 0 0
+			rpas ownr targ
+			doif tmvf va11 va12 eq 1
+				mvft va11 va12
+			else
+				mvsf va11 va12
+			endi
+** unfreeze it
+			accg 5
+			zomb 0
+			setv va00 0
+			reps 9
+				soul va00 1
+				addv va00 1
+			repe
+		next
+
+		slow
+		part 2
+		anim [4 3 2 1 0]
+		part 0
+		anim [9 8 7 6 5 4 3 2 1 0]
+* call the update script
+		mesg writ ownr 1000
+
+	else
+*there's no creatures in the cabn to drop
+		sndc "buzz"
+	endi
+
+endm
+
+* Auto Button (part 8)
+scrp 1 1 21859 1008
+	inst
+	sndc "1bep"
+	doif name "auto" eq 0
+		setv name "auto" 1
+		part 8
+		pose 1
+		tick 60
+	elif name "auto" eq 1
+		setv name "auto" 0
+		part 8
+		pose 0
+	endi
+endm
+
+*clicked on the head
+scrp 1 1 21859 1
+	lock
+*should probably make sure there's actually creatures??
+	setv va00 0
+	etch 4 0 0
+		doif dead eq 0
+			addv va00 1
+		endi
+	next
+	doif va00 gt 0
+
+		part 2
+		anim [1 2 3 4]
+		part 0
+		anim [1 2 3 4 5 6 7 8 9]
+		over
+*grab a creature*
+		inst
+		cabp rand -5000 -4000
+		seta va00 null
+		etch 4 0 0
+			doif dead eq 0
+				seta va00 targ
+			endi
+		next
+
+		doif va00 ne null
+			sndc "muco"
+			spas ownr va00
+			inst
+		endi
+		targ ownr
+		part 0
+		anim [10 11 12 9 8 7 6 5 4 3 2 1 0]
+		doif va00 ne null
+** freeze it, so it doesn't move
+			targ va00
+			accg 1
+			zomb 1
+			setv va00 0
+			reps 9
+				soul va00 0
+				addv va00 1
+			repe
+** pose it, which by default will be facing towards the camera, looking slightly up
+			pose 170
+			dirn 1
+			slow
+			wait 1
+			velo rand -5 5 -10
+		endi
+		targ ownr
+		part 2
+		anim [4 3 2 1 0]
+
+* call the update script
+		mesg writ ownr 1000
+
+	else
+*there's no creatures to eat 3:
+		part 0
+		anim [1 2 1 0]
+	endi
+
+endm
+
+*timer/auto script*
+scrp 1 1 21859 9
+	inst
+*make sure autosplice is still on:
+	doif name "auto" eq 1
+*autosplice is on
+*how many norns are there in the cabin?
+*first, count the number of norns in the cabin
+		setv va00 0
+		epas 4 0 0
+			addv va00 1
+		next
+		doif va00 lt 2
+*if there's less than 2, run the grabber script:
+			mesg writ ownr 0
+		else
+*there's more than 1, so run the splice script
+			mesg writ ownr 2000
+		endi
+	else
+*autosplice is not still on
+*dump all the norns onto the ground
+		mesg writ ownr 1007
+		tick 0
+	endi
+endm
+
+*splice script
+scrp 1 1 21859 2000
+	inst
+*first, count the number of norns in the cabin
+	setv va00 0
+	epas 4 0 0
+		addv va00 1
+	next
+	doif va00 lt 2
+*not enough norns to splice 
+		sndc "buzz"
+	elif va00 eq 2
+* simple splice	
+		lock
+		part 2
+		anim [1 2 3 4]
+		over
+		part 0
+		frat 2
+		sndc "muc3"
+		reps 3
+			anim [1 2 3 4 5 4 3 2 1 0]
+			sndc "tcw1"
+			over
+		repe
+		pose 0
+
+		inst
+
+	endi
+	lock
+	seta va09 null
+	seta va10 null
+	epas 4 0 0
+		doif va10 eq null
+			seta va10 targ
+		else
+			seta va09 targ
+		endi
+	next
+
+	targ ownr
+	gene cros ownr 99 va09 0 va10 0 10 10 10 10
+
+	targ ownr
+	epas 4 0 0
+		dead
+		kill targ
+	next
+
+	new: crea 4 ownr 99 name "gender" 0
+	accg game "c3_creature_accg"
+	bhvr game "c3_creature_bhvr"
+	attr game "c3_creature_attr"
+	perm game "c3_creature_perm"
+	born
+
+	mesg wrt+ ownr 2001 targ 0 10
+
+**track the creature if it's already on screen
+	doif visi 0 eq 1
+		trck targ 1 90 90 0
+	endi
+
+	targ ownr
+	wait 5
+	part 2
+	anim [4 3 2 1 0]
+	over
+
+* update status
+	mesg writ ownr 1000
+
+	subr complexsplice
+	retn
+
+endm
+
+* spit a norn out of the cabin? requires _p1_
+* _p2_ might be a callback or something
+* Only really works when called from an inst script?
+* call with mesg wrt+ ownr 2001 targ 0 0
+scrp 1 1 21859 2001
+	inst
+	lock
+	dbg: outs "spitting out a norn"
+	doif type _p1_ ne 7
+		stop
+	endi
+	doif _p1_ eq null
+		stop
+	endi
+*	now you have a norn
+	targ ownr
+* 	kick it out of the cabin
+	rpas ownr _p1_
+* 	decide where to put it
+	part 0
+	anim [4 3 2 1]
+	sndc "muco"
+
+	setv va11 posl
+	setv va12 post
+	addv va12 200
+	targ _p1_
+	doif tmvf va11 va12 eq 1
+		mvft va11 va12
+	else
+		mvsf va11 va12
+	endi
+* send it flying!
+	velo -40 0
+** unfreeze it, in case it's frozen?
+	accg 5
+	zomb 0
+	setv va00 0
+	reps 9
+		soul va00 1
+		addv va00 1
+	repe
+
+	doif _p2_ ne 0
+		mesg writ ownr _p2_
+	endi
+
 endm
 
 *
@@ -105,6 +459,44 @@ endm
 *
 
 rscr
+
+*remove and unfreeze all creatures
+enum 1 1 21859
+	seta va99 targ
+	setv va11 25660
+	setv va12 980
+* Get the room numbers that the cabbage is in
+	part 0
+	setv va01 posx
+	setv va02 posy
+* have to account for the fact that the cabbage
+* is not in the same room as the head!
+	addv va01 200
+	addv va02 0
+	setv va20 grap va01 va02
+	addv va01 150
+	setv va21 grap va01 va02
+
+	enum 4 0 0
+*see if the creature is in any of those rooms
+		doif room targ ge va20 and room targ le va21
+			rpas va99 targ
+			doif tmvf va11 va12 eq 1
+				mvft va11 va12
+			else
+				mvsf va11 va12
+			endi
+** unfreeze it
+			accg 5
+			zomb 0
+			setv va00 0
+			reps 9
+				soul va00 1
+				addv va00 1
+			repe
+		endi
+	next
+next
 
 enum 1 1 21859
 	kill targ
